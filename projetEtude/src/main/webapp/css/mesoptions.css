@@ -1,0 +1,161 @@
+header#entete
+{
+position: relative;
+top: 0;
+left:170px;
+width:900px;
+text-align:center;
+border-style:groove;
+border-width:5px;
+border-color:red;
+border-radius: 10px;
+background:white;
+}
+body
+{
+font-family: "Arial", sans-serif, 1em;
+background-image: url(../img/test2.jpg);
+background-size: 1080px auto;
+margin-bottom: 50px;
+}
+
+nav li
+{
+position: relative;
+top:10px;
+display:inline-block;
+padding:5px 20px 5px 20px;
+background: #C0C0C0;
+margin-right:30px;
+}
+nav#navigation
+{
+position : relative;
+top : 10px;
+left : 170px;
+width:900px;
+background : #7F7764;
+text-align : center;
+color : #FFEEC9;
+height : 50px;
+box-shadow : 0px 10px 5px 0px #A9A9A9;
+}
+nav a
+{
+text-decoration:none;
+}
+
+aside.deconnexion 
+{
+position:relative;
+top:25px;
+left:950px;
+width:100px;
+background-color:red;
+text-align:center;
+padding: 0px 5px 0px 5px;
+}
+aside.retour
+{
+position: relative;
+left:190px;
+width:100px;
+}
+h3#presentation
+{
+position:relative;
+top:30px;
+left:190px;
+width:850px;
+}
+h3#titre
+{
+position:relative;
+top:20px;
+text-align:center;
+}
+form#preference
+{
+position: relative;
+top: 20px;
+left:200px;
+}
+section#asso
+{
+position: relative;
+margin: 20px;
+
+}
+section#president
+{
+position: relative;
+margin-top: 70px;
+text-align:center;
+}
+form.ajoutAsso
+{
+position: relative;
+top:20px;
+left:200px;
+margin:20px;
+}
+footer
+{
+position:fixed;
+right:0;
+left:0;
+bottom:0;
+text-align:center;
+background-color:grey;
+color:white;
+}
+section.listModif{
+position:relative;
+top:20px;
+}
+ul.tabs {
+		margin-right: auto;
+		margin-left: auto;
+		padding: 0;
+		list-style: none;
+		height: 32px;
+		border-bottom: 1px solid #999999;
+		border-left: 1px solid #999999;
+		width: 800px;
+	}
+	ul.tabs li {
+		float: left;
+		margin-right: auto;
+		margin-left: auto;
+		cursor: pointer;
+		padding: 0px 21px ;
+		height: 31px;
+		line-height: 31px;
+		border: 1px solid #999999;
+		border-left: none;
+		font-weight: bold;
+		background: #EEEEEE;
+		overflow: hidden;
+		position: relative;
+	}
+	ul.tabs li:hover {
+		background: #CCCCCC;
+	}	
+	ul.tabs li.active{
+		background: #FFFFFF;
+		border-bottom: 1px solid #FFFFFF;
+	}
+	.tab_container {
+		border: 1px solid #999999;
+		border-top: none;
+		clear: both;
+		margin-right: auto;
+		margin-left: auto;
+		width: 800px;
+		background: #FFFFFF;
+	}
+	.tab_content {
+		padding: 20px;
+		font-size: 1.2em;
+		display: none;
+	}

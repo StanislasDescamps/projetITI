@@ -1,0 +1,160 @@
+header#entete
+{
+position: relative;
+top: 0;
+left:170px;
+width:900px;
+text-align:center;
+border-style:groove;
+border-width:5px;
+border-color:red;
+border-radius: 10px;
+background:white;
+}
+body
+{
+font-family: "Arial", sans-serif, 1em;
+background-image: url(../img/test2.jpg);
+background-size: 1080px auto;
+margin-bottom: 50px;
+}
+
+nav li
+{
+position: relative;
+top:10px;
+display:inline-block;
+padding:5px 20px 5px 20px;
+background: #C0C0C0;
+margin-right:30px;
+}
+nav#navigation
+{
+position : relative;
+top : 10px;
+left : 170px;
+width:900px;
+background : #7F7764;
+text-align : center;
+color : #FFEEC9;
+height : 50px;
+box-shadow : 0px 10px 5px 0px #A9A9A9;
+}
+nav a
+{
+text-decoration:none;
+}
+
+aside.deconnexion 
+{
+position:relative;
+top:25px;
+left:950px;
+width:100px;
+background-color:red;
+text-align:center;
+padding: 0px 5px 0px 5px;
+}
+aside.retour
+{
+position: relative;
+left:190px;
+width:100px;
+}
+h3#titre
+{
+position:relative;
+top:20px;
+text-align:center;
+}
+form#preference
+{
+position: relative;
+top: 20px;
+left:200px;
+}
+section.listAsso{
+position:relative;
+top:50px;
+}
+article.asso
+{
+margin-left:170px;
+height:40px;
+width:830px;
+padding:20px;
+border-width: 2px;
+border-style:outset;
+border-color:grey;
+border-radius: 10px 10px 10px 10px;
+-webkit-transition-property:border-style,box-shadow;
+box-shadow:none;
+}
+article.asso:hover
+{
+border-style:inset;
+box-shadow : 0px 5px 2px 0px #A9A9A9;
+}
+article h3
+{
+position:relative;
+top:-70px;
+left:200px;
+padding:10px;
+max-width: 500px;
+margin:20px;
+}
+img
+{
+height:40px;
+width:auto;
+}
+article.asso#bda
+{
+background-color:rgba(255,0,0,0.5);
+}
+article.asso#pet
+{
+background-color:#800080;
+}
+article.asso#bds
+{
+background-color:#008000;
+}
+article.presentation
+{
+position:relative;
+top:20px;
+left:250px;
+width:700px;
+}
+div#description{
+position:relative;
+top:-70px;
+}
+article.contact
+{
+position: relative;
+top: 70px;
+}
+h3#responsable
+{
+position:relative;
+left:200px;
+}
+h4
+{
+position:relative;
+top:-80px;
+left:250px;
+}
+footer
+{
+position:fixed;
+right:0;
+left:0;
+bottom:0;
+text-align:center;
+background-color:grey;
+color:white;
+}
