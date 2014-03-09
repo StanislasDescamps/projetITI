@@ -10,7 +10,7 @@
 		<!-- Corps de la page -->
 		<link rel="stylesheet" href="css/connexion.css">
 		<h1>Bienvenue sur HEI-Diary</h1>
-		<form id="identification" action="connexion">
+		<form id="identification" action="connexion" method="post">
 			<fieldset>
 				<legend>Identifiez-vous</legend>
 				<label for="mail">Mon adresse email :</label>

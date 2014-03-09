@@ -44,13 +44,12 @@ public class EtudiantDaoImpl implements EtudiantDao {
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
-	                  "INSERT INTO `etudiant`(`idEtudiant`, `nomEtudiant`, `prenomEtudiant`, `password`, `email`, `admin`) VALUES(?, ?, ?, ?, ?, ?)"); 
-	        stmt.setInt(1, etudiant.getIdetudiant());
-	        stmt.setString(2, etudiant.getNomEtudiant());
-	        stmt.setString(3, etudiant.getPrenomEtudiant());
-	        stmt.setString(4, etudiant.getPassWord());
-	        stmt.setString(5, etudiant.getEmail());
-	        stmt.setBoolean(3,etudiant.isAdmin());
+	                  "INSERT INTO `etudiant`( `nomEtudiant`, `prenomEtudiant`, `password`, `email`, `admin`) VALUES(?, ?, ?, ?, ?)"); 
+	        stmt.setString(1, etudiant.getNomEtudiant());
+	        stmt.setString(2, etudiant.getPrenomEtudiant());
+	        stmt.setString(3, etudiant.getPassWord());
+	        stmt.setString(4, etudiant.getEmail());
+	        stmt.setBoolean(5,etudiant.isAdmin());
 	        stmt.executeUpdate();
 	        // Fermer la connexion
 	        connection.close();
