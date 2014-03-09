@@ -11,4 +11,6 @@ public interface EtudiantDao {
 	public void ajouterEtudiant(Etudiant etudiant);
 	
 	public Etudiant getEtudiant(Integer idEtudiant);
+	
+	public Etudiant getEtudiant(String mailEtudiant);
 }

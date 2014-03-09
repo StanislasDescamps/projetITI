@@ -44,6 +44,9 @@ public class Manager {
 	public void ajouterEtudiant(Etudiant etudiant) {
 		etudiantDao.ajouterEtudiant(etudiant);
 	}
+	public Etudiant getEtudiant(String mailEtudiant){
+		return etudiantDao.getEtudiant(mailEtudiant);
+	}
 	public List<Pole> listerPole() {
 		return poleDao.listerPole();
 	}
@@ -56,6 +59,5 @@ public class Manager {
 	public List<Calendrier> listerCalendrier() {
 		return calendrierDao.listerCalendrier();
 	}
-	
 	
 }

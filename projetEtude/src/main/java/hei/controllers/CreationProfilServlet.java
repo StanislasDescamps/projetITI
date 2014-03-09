@@ -4,7 +4,6 @@ import hei.metier.Manager;
 import hei.model.Etudiant;
 
 import java.io.IOException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

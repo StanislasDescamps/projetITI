@@ -89,5 +89,33 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	    }
 	    return etudiant;
 	}
+	public Etudiant getEtudiant(String mailEtudiant) {
+		Etudiant etudiant= null;
+		// Cr�er une nouvelle connexion � la BDD
+	    try {
+	        Connection connection = 
+	            DataSourceProvider.getDataSource().getConnection();
 
+	        // Utiliser la connexion
+	        PreparedStatement stmt = (PreparedStatement) connection
+	        		.prepareStatement("SELECT * FROM etudiant WHERE email =? ");
+	        
+	        stmt.setString(1, mailEtudiant);
+	        ResultSet results = stmt.executeQuery();
+	        if(results.next()){
+	        	etudiant = new Etudiant(results.getInt("idEtudiant"),
+	                    results.getString("nomEtudiant"),
+	                    results.getString("prenomEtudiant"),
+	                    results.getString("password"),
+	                    results.getString("email"),
+	                    results.getBoolean("admin"));
+	        }
+
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return etudiant;
+	}
 }
