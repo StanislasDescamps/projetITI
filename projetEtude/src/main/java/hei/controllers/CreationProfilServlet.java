@@ -4,6 +4,9 @@ import hei.metier.Manager;
 import hei.model.Etudiant;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -33,9 +36,27 @@ public class CreationProfilServlet extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String motpass= "azer1";
 		
+		List<Etudiant> listEtudiant = new ArrayList<Etudiant>();
+		listEtudiant = Manager.getInstance().listerEtudiant();
+		
+		Integer i=0;
+		Integer n = listEtudiant.size();
+		Boolean exist=false;
+		while(i<n)
+		{
+			if(mail.equalsIgnoreCase(listEtudiant.get(i).getEmail()))
+				{System.out.println("erreur, mail deja existant");
+				exist=true;
+				}
+			else i++;
+		}
+		
+		if(!exist)
+		{
 		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, false);
 		Manager.getInstance().ajouterEtudiant(nouvelEtudiant);
-		
 		response.sendRedirect("connexion");
+		} else
+		response.sendRedirect("creationProfil");
 	}
 }
