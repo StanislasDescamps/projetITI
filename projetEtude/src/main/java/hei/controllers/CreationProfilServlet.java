@@ -42,10 +42,11 @@ public class CreationProfilServlet extends HttpServlet {
 		Integer i=0;
 		Integer n = listEtudiant.size();
 		Boolean exist=false;
-		while(i<n)
+		
+		while(i<n && !exist)
 		{
 			if(mail.equalsIgnoreCase(listEtudiant.get(i).getEmail()))
-				{System.out.println("erreur, mail deja existant");
+				{
 				exist=true;
 				}
 			else i++;
@@ -56,7 +57,11 @@ public class CreationProfilServlet extends HttpServlet {
 		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, false);
 		Manager.getInstance().ajouterEtudiant(nouvelEtudiant);
 		response.sendRedirect("connexion");
-		} else
+		} 
+		else
+		{
+		request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valide.");
 		response.sendRedirect("creationProfil");
+		}
 	}
 }

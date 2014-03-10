@@ -13,8 +13,16 @@
 		<h1 id="titre2">Bienvenue sur HEI-Diary</h1>
 		<h2>L'application qui vous tient informé</h2>
 		<h3>Première étape : Création du profil</h3>
+		
+		<%
+		 if(request.getAttribute("loginError")!=null) {
+	           out.print((String)request.getAttribute("loginError"));
+	       }
+		%>
+		
 		<form id="creationProfil" action="creationProfil" method="post">
 			<fieldset>
+			
 				<legend>Profil</legend>
 					<label for="nom">Nom :</label>
 					<input type="text" name="nom" id="nom"required/>
