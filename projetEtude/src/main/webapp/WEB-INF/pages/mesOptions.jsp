@@ -47,8 +47,8 @@
 			</form>
 		</section>
 		<section id="president">
-			<a href="ajouterAsso.html"><input type="submit" value="Ajouter une association"/></a>
-			<a href="modifierAsso.html"><input type="submit" value="Modifier une association"/></a>
+			<a href="ajouterAsso"><input type="submit" value="Ajouter une association"/></a>
+			<a href="modifierAsso"><input type="submit" value="Modifier une association"/></a>
 		</section>
 		<footer>
 			<div> Réalisation HEI </div>

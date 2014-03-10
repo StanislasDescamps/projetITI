@@ -18,10 +18,12 @@
 		<aside class="deconnexion">
 			<a href="connexion">Deconnexion</a>
 		</aside>
-		<section class="choix">
-			<form class="choix">
-				<input type="radio" id="liste" name="liste" value="liste">Liste
-				<input type="radio" id="semaine" name="semaine" value="semaine">Semaine
+		<section class="choix1">
+			<form id="choix" action="calendrierHei" method="get">
+					<input type="radio" id="liste" name="box1" value="liste" checked>
+					<label for="formatListe">Liste</label>
+					<input type="radio" id="semaine" name="box1" value="semaine">
+					<label for="formatSemaine">Semaine</label>
 			</form>
 		</section>
 		<section class="aujourdhui">
@@ -35,9 +37,6 @@
 				<article class="description">
 					<p> Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla</p>
 				</article>
-				<aside>
-					<a class="btn" id="showHideForm">Voir plus</a> 
-				</aside>
 			</article>
 		</section>
 		<footer>

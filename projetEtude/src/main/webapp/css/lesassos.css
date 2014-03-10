@@ -65,13 +65,15 @@ h3#titre
 {
 position:relative;
 top:20px;
-text-align:center;
+left:530px;
+width:300px;
 }
 form#preference
 {
 position: relative;
 top: 20px;
 left:200px;
+width:300px;
 }
 section.listAsso{
 position:relative;
@@ -140,12 +142,14 @@ top: 70px;
 h3#responsable
 {
 position:relative;
+width:400px;
 left:200px;
 }
 h4
 {
 position:relative;
 top:-80px;
+width:900px;
 left:250px;
 }
 footer

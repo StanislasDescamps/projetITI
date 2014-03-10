@@ -22,7 +22,6 @@
 		
 		<form id="creationProfil" action="creationProfil" method="post">
 			<fieldset>
-			
 				<legend>Profil</legend>
 					<label for="nom">Nom :</label>
 					<input type="text" name="nom" id="nom"required/>

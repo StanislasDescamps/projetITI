@@ -72,13 +72,14 @@ h3#titre
 {
 position:relative;
 top:20px;
-text-align:center;
+left:530px;
 }
 form#preference
 {
 position: relative;
 top: 20px;
 left:200px;
+width:600px;
 }
 section#asso
 {
@@ -97,6 +98,7 @@ form.ajoutAsso
 position: relative;
 top:20px;
 left:200px;
+width:800px;
 margin:20px;
 }
 footer

@@ -39,6 +39,10 @@
 		<servlet-class>hei.controllers.ModifierAssoServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>AjouterAsso</servlet-name>
+		<servlet-class>hei.controllers.AjouterAssoServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>PresentationAsso</servlet-name>
 		<servlet-class>hei.controllers.PresentationAssoServlet</servlet-class>
 	</servlet>
@@ -74,6 +78,10 @@
 	<servlet-mapping>
 		<servlet-name>ModifierAsso</servlet-name>
 		<url-pattern>/modifierAsso</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AjouterAsso</servlet-name>
+		<url-pattern>/ajouterAsso</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>PresentationAsso</servlet-name>
