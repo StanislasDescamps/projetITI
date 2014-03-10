@@ -22,7 +22,7 @@
 			<a href="mesOptions">Retour</a>
 		</aside>
 		<h3 id="titre">Modifier une association</h3>
-		<form class="ajoutAsso" action="ajouterAsso">
+		<form class="ajoutAsso" action="ajouterAsso" method="post">
 			<legend>--Nom de l'asso à modifier--</legend></br>
 			<section id="nom">
 				<label for="nomAsso">Nom de l'association :</label>
