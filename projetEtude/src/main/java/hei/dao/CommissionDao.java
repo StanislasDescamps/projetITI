@@ -11,4 +11,6 @@ public interface CommissionDao {
 	public void ajouterCommission(Commission commission);
 	
 	public Commission getCommission(Integer idCommission);
+	
+	public Commission getCommissionEvent(Integer idEvenement);
 }

@@ -90,4 +90,34 @@ public class CommissionDaoImpl implements CommissionDao{
 	    }
 	    return commission;
 	}
+public Commission getCommissionEvent(Integer idEvenement) {
+		
+		Commission commission= null;
+		// Cr�er une nouvelle connexion � la BDD
+	    try {
+	        Connection connection = 
+	            DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = (PreparedStatement) connection
+	        		.prepareStatement("SELECT * FROM commission INNER JOIN evenement ON commission.idCommission=evenement.idCommission WHERE idEvenement =? ");
+	        
+	        stmt.setInt(1, idEvenement);
+	        ResultSet results = stmt.executeQuery();
+	        if(results.next()){
+	        	commission = new Commission(results.getInt("idCommission"),
+	                    results.getInt("idEtudiant"),
+	                    results.getInt("idPole"),
+	                    results.getString("nomCommission"),
+	                    results.getString("descriptionCom"),
+	                    results.getString("adresseLogo"));
+	        }
+
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return commission;
+	}
 }

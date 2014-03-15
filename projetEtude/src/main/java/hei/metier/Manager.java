@@ -37,25 +37,42 @@ public class Manager {
 		}
 		return instance;
 	}
+	// Etudiant
 	public List<Etudiant> listerEtudiant() {
 		return etudiantDao.listerEtudiant();
 	}
-	
 	public void ajouterEtudiant(Etudiant etudiant) {
 		etudiantDao.ajouterEtudiant(etudiant);
 	}
 	public Etudiant getEtudiant(String mailEtudiant){
 		return etudiantDao.getEtudiant(mailEtudiant);
 	}
+	
+	// Pole
 	public List<Pole> listerPole() {
 		return poleDao.listerPole();
 	}
+	public Pole getPoleEvent(Integer idEvenement){
+		return poleDao.getPoleEvent(idEvenement);
+	}
+	
+	//Evenement
 	public List<Evenement> listerEvenement() {
 		return evenementDao.listerEvenement();
 	}
+	public List<Evenement> listerEvenementEtudiant(Integer idEtudiant) {
+		return evenementDao.listerEvenementEtudiant(idEtudiant);
+	}
+	
+	//Commission
 	public List<Commission> listerCommission() {
 		return commissionDao.listerCommission();
 	}
+	public Commission getCommissionEvent(Integer idEvenement){
+		return commissionDao.getCommissionEvent(idEvenement);
+	}
+	
+	//Calendrier
 	public List<Calendrier> listerCalendrier() {
 		return calendrierDao.listerCalendrier();
 	}

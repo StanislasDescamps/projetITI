@@ -11,4 +11,6 @@ public interface EvenementDao {
 	public void ajouterEvenement(Evenement evenement);
 	
 	public Evenement getEvenement(Integer idEvenement);
+	
+	public List<Evenement> listerEvenementEtudiant(Integer idEtudiant);
 }

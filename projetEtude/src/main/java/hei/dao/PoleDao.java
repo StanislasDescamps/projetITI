@@ -9,4 +9,6 @@ public interface PoleDao {
 	public List<Pole> listerPole();
 	
 	public Pole getPole(Integer idPole);
+	
+	public Pole getPoleEvent (Integer idEvenement);
 }

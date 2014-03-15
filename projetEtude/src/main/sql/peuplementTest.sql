@@ -13,11 +13,11 @@ INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (2,2
 INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (3,3,'2014-02-24');
 
 -- Evenement
-INSERT INTO `evenement`(`idEvenement`,`idCommission`,`titreEvent`,`dateEvent`,`descriptionEvent`,`lieuEvent`,`heureDebut`,`heureFin`) VALUES (1,1,'Salon gastronomique','2014-02-24','Viens gouter les saveur d Espagne ça va être trop bon','RR034','12:00','13:00');
-INSERT INTO `evenement`(`idEvenement`,`idCommission`,`titreEvent`,`dateEvent`,`descriptionEvent`,`lieuEvent`,`heureDebut`,`heureFin`) VALUES (2,2,'Soirée Rock','2014-02-26','Viens danser un rock endiablé des 80s','Salle de sport','19:45','22:00');
+INSERT INTO `evenement`(`idEvenement`,`idCommission`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`) VALUES (1,1,'Salon gastronomique','Viens gouter les saveur d Espagne ï¿½a va ï¿½tre trop bon','RR034','2014-02-24 12:00','2014-02-24 13:00');
+INSERT INTO `evenement`(`idEvenement`,`idCommission`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`) VALUES (2,2,'Soirï¿½e Rock','Viens danser un rock endiablï¿½ des 80s','Salle de sport','2014-02-26 19:45','2014-02-26 22:00');
 
 -- Commission
-INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (1,2,1,'La Sauce','Le plaisir de manger entre étudiants','img/bda.jpg');
+INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (1,2,1,'La Sauce','Le plaisir de manger entre ï¿½tudiants','img/bda.jpg');
 INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (2,3,2,'Club Rock HEI','Cours de danse tous les mercredi soir','img/rock.jpg');
 
 -- pole

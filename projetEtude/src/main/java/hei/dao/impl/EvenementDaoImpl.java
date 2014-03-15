@@ -95,5 +95,28 @@ public class EvenementDaoImpl implements EvenementDao {
 	    }
 	    return evenement;
 	}
-
+public List<Evenement> listerEvenementEtudiant(Integer idEtudiant) {
+		
+		List<Evenement> listeEvent = new ArrayList<Evenement>();
+	    try {
+	    	Connection connection = DataSourceProvider.getDataSource().getConnection();
+	    	PreparedStatement stmt = (PreparedStatement) connection.prepareStatement("SELECT * FROM evenement INNER JOIN (commission INNER JOIN choix ON commission.idCommission = choix.idCommission) ON evenement.idCommission = commission.idCommission WHERE choix.idEtudiant=? ");
+	    	stmt.setInt(1, idEtudiant);
+	    	ResultSet results = stmt.executeQuery();
+	    	while (results.next()) {
+	    	Evenement evenement = new Evenement(results.getInt("idEvenement"), 
+	                   results.getInt("idCommission"),
+	                   results.getString("titreEvent"),
+	                   results.getString("descriptionEvent"),
+	                   results.getString("lieuEvent"),
+	                   results.getDate("dateDebut"),
+	                   results.getDate("dateFin"));
+	    	listeEvent.add(evenement);
+	    }
+		connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		return listeEvent;
+	}
 }
