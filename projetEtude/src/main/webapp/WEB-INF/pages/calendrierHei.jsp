@@ -26,45 +26,29 @@
 					<label for="formatSemaine">Semaine</label>
 			</form>
 		</section>
-		<section class="aujourdhui">
-			<h2>Aujourd'hui</h2>
+		<c:forEach var="evenement" items="${listeEventEntiere}">
+		<section class="${evenement.dateDebut}">
+			<h2>${evenement.dateDebut}</h2>
+		</c:forEach>
+		<c:forEach var="pole" items="${listePoleEvent}">
 			<article class="entier">	
-				<article id="bda" class="resume">
-					<img src="img/bda.jpg" alt="bda" title="bda"/>
-					<h2>Salon gastronomique</h2>
-					<p>Viens découvrir les saveurs de l'espagne</p>
+				<article id="${pole}" class="resume">
+		</c:forEach>
+		<c:forEach var="commission" items="${commission}">
+					<img src="${commission}"/>
+		</c:forEach>
+		<c:forEach var="commission" items="${listeCommEvent}">
+					<h2>${commission}</h2>
+		</c:forEach>
+		<c:forEach var="evenement" items="${listeEventEntiere}">
+					<p>${evenement.titreEvent}</p>
 				</article>
 				<article class="description">
-					<p> Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla</p>
+					<p>${evenement.descriptionEvent} </p>
 				</article>
 			</article>
 		</section>
-		<section class="demain">
-			<h2>Demain</h2>
-			<article class="entier">	
-				<article id="pet" class="resume">
-					<img src="img/heivolution.jpg" alt="pet" title="pet"/>
-					<h2>Conférence HEI'volution</h2>
-					<p>Les éoliennes et leur bien-fait</p>
-				</article>
-				<article class="description">
-					<p> Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla</p>
-				</article>
-			</article>
-		</section>
-		<section class="semaineX">
-			<h2>Mercredi</h2>
-			<article class="entier">	
-				<article id="bds" class="resume">
-					<img src="img/rock.jpg" alt="bds" title="bds"/>
-					<h2>Soirée Rock</h2>
-					<p>Retrouve les plus gros tubes des années 80 </p>
-				</article>
-				<article class="description">
-					<p> Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla Du blabla rien que du blabla uniquement du blabla</p>
-				</article>
-			</article>
-		</section>
+		</c:forEach>
 		<footer>
 			<div>Réalisation HEI</div>
 		</footer>

@@ -105,7 +105,9 @@ margin:20px;
 }
 article.description
 {
-display:none;
+position:relative;
+top:-60px;
+right: 50px;
 }
 article#BDA
 {
@@ -123,7 +125,8 @@ article p
 {
 position:relative;
 margin:20px;
-top:40px;
+top:-50px;
+left:300px;
 }
 img
 {
