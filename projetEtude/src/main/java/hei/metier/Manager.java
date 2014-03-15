@@ -71,6 +71,9 @@ public class Manager {
 	public Commission getCommissionEvent(Integer idEvenement){
 		return commissionDao.getCommissionEvent(idEvenement);
 	}
+	public List<Commission> listerCommissionPole(String nomPole){
+		return commissionDao.listerCommissionPole(nomPole);
+	}
 	
 	//Calendrier
 	public List<Calendrier> listerCalendrier() {

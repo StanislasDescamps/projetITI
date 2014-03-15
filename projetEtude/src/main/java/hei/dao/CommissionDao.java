@@ -13,4 +13,6 @@ public interface CommissionDao {
 	public Commission getCommission(Integer idCommission);
 	
 	public Commission getCommissionEvent(Integer idEvenement);
+	
+	public List<Commission> listerCommissionPole(String nomPole);
 }

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mysql.jdbc.PreparedStatement;
+
 import hei.dao.CommissionDao;
 import hei.model.Commission;
 
@@ -120,4 +121,27 @@ public Commission getCommissionEvent(Integer idEvenement) {
 	    }
 	    return commission;
 	}
+public List<Commission> listerCommissionPole(String nomPole) {
+	
+	List<Commission> listeComm = new ArrayList<Commission>();
+    try {
+    	Connection connection = DataSourceProvider.getDataSource().getConnection();
+    	PreparedStatement stmt = (PreparedStatement) connection.prepareStatement("SELECT * FROM commission INNER JOIN pole ON commission.idPole = pole.idPole WHERE nomPole=?");
+    	stmt.setString(1, nomPole);
+    	ResultSet results = stmt.executeQuery();
+    	while (results.next()) {
+    	Commission commission = new Commission(results.getInt("idCommission"), 
+                   results.getInt("idEtudiant"),
+                   results.getInt("idPole"),
+                   results.getString("nomCommission"),
+                   results.getString("descriptionCom"),
+                   results.getString("adresseLogo"));
+    	listeComm.add(commission);
+    }
+	connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+	return listeComm;
+}
 }
