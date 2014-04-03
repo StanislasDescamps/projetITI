@@ -29,26 +29,30 @@
 		<c:forEach var="evenement" items="${listeEventEntiere}">
 		<section class="${evenement.dateDebut}">
 			<h2>${evenement.dateDebut}</h2>
-		</c:forEach>
+			<p>${evenement.titreEvent}</p>
+				
+		
 		<c:forEach var="pole" items="${listePoleEvent}">
-			<article class="entier">	
+				<article class="entier">
 				<article id="${pole}" class="resume">
-		</c:forEach>
+				
 		<c:forEach var="commission" items="${commission}">
 					<img src="${commission}"/>
-		</c:forEach>
+		
 		<c:forEach var="commission" items="${listeCommEvent}">
 					<h2>${commission}</h2>
-		</c:forEach>
-		<c:forEach var="evenement" items="${listeEventEntiere}">
-					<p>${evenement.titreEvent}</p>
-				</article>
-				<article class="description">
-					<p>${evenement.descriptionEvent} </p>
+					<article class="description">
+						<p>${evenement.descriptionEvent} </p>
+					</article>
 				</article>
 			</article>
+		
+		</c:forEach>
+		</c:forEach>
+		</c:forEach>		
 		</section>
 		</c:forEach>
+		
 		<footer>
 			<div>Réalisation HEI</div>
 		</footer>

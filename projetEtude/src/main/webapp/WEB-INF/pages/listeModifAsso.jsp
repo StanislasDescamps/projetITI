@@ -38,8 +38,9 @@
 
 			<div id="tab1" class="tab_content"> 
 				<ul>
-					<li>Asso 1 <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
-					<li>Asso 2 <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
+				<c:forEach var="commission" items="${listeCommBDA}">
+					<li>${commission.nomCommission}<input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
+				</c:forEach>
 				</ul>
 			</div><!-- #tab1 -->
 			<div id="tab2" class="tab_content"> 
