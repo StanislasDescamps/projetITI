@@ -39,30 +39,32 @@ public class AjouterAssoServlet extends HttpServlet{
 		String pole = request.getParameter("bureau");
 		String description = request.getParameter("description");
 		
-		boolean Etudiantexistant=false;
-		boolean Commexistante= false;
+		boolean Etudiantexistant =false;
+		boolean Commexistante = false;
 		int i =0;
 		int j =0;
 		
-		while(Commexistante== false && j<listeCommission.size())
+		while(Commexistante == false && j<listeCommission.size())
 		{
-			if(nomAsso == listeCommission.get(j).getNomCommission())
+			if(nomAsso.toLowerCase().equalsIgnoreCase(listeCommission.get(j).getNomCommission().toLowerCase()))
 			{
-				Commexistante=true;
+				Commexistante = true;
 				request.setAttribute("ErrorComm", "Il y a une erreur dans votre requette. Veuillez vérifier que la commission n'existe pas déjà. Si le problème persiste, voyez avec la maintenance");
+				response.sendRedirect("ajouterAsso");
 			}
 			else{j++;}
 		}	
+		
 		if(!Commexistante){
 				while(Etudiantexistant==false && i<listeEtudiant.size())
 			
 				{
-					if(mailReferent != listeEtudiant.get(i).getEmail())
+					if(mailReferent.equalsIgnoreCase(listeEtudiant.get(i).getEmail()))
 					{
-						Etudiantexistant=false;
-						i++;
+						Etudiantexistant=true;
 					}
-					else Etudiantexistant=true;
+					else {Etudiantexistant=false;
+					i++;}
 					}
 			
 		if(Etudiantexistant){

@@ -45,13 +45,13 @@ public class CommissionDaoImpl implements CommissionDao{
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
-	                  "INSERT INTO `commission`(`idCommission`,`idEtudiant`, `idPole`, `nomCommission`, `descriptionCom`, `adresseLogo`) VALUES(?, ?, ?, ?, ?, ?)"); 
-	        stmt.setInt(1, commission.getIdcommission());
-	        stmt.setInt(2, commission.getIdetudiant());
-	        stmt.setInt(3, commission.getIdpole());
-	        stmt.setString(4, commission.getNomCommission());
-	        stmt.setString(5, commission.getDescription());
-	        stmt.setString(6, commission.getLogo());
+	                  "INSERT INTO `commission`(`idEtudiant`, `idPole`, `nomCommission`, `descriptionCom`, `adresseLogo`) VALUES(?, ?, ?, ?, ?)"); 
+	        
+	        stmt.setInt(1, commission.getIdetudiant());
+	        stmt.setInt(2, commission.getIdpole());
+	        stmt.setString(3, commission.getNomCommission());
+	        stmt.setString(4, commission.getDescription());
+	        stmt.setString(5, commission.getLogo());
 	        stmt.executeUpdate();
 	        // Fermer la connexion
 	        connection.close();
