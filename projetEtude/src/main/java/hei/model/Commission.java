@@ -9,7 +9,7 @@ public class Commission {
 	private String description;
 	private String logo;
 	
-	public Commission(Integer idcommission, Integer idpole, Integer idetudiant, String nom, String description, String logo){
+	public Commission(Integer idcommission, Integer idetudiant,Integer idpole , String nom, String description, String logo){
 		super();
 		this.idCommission = idcommission;
 		this.idPole = idpole;

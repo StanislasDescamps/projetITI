@@ -37,11 +37,13 @@
 		<div class="tab_container"> 
 
 			<div id="tab1" class="tab_content"> 
-				<ul>
 				<c:forEach var="commission" items="${listeCommBDA}">
+				<ul>
+				
 					<li>${commission.nomCommission}<input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
-				</c:forEach>
+				
 				</ul>
+				</c:forEach>
 			</div><!-- #tab1 -->
 			<div id="tab2" class="tab_content"> 
 				<ul>
