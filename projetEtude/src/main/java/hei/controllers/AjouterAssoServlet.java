@@ -1,6 +1,13 @@
 package hei.controllers;
 
+import hei.metier.Manager;
+import hei.model.Commission;
+
+
+import hei.model.Etudiant;
+
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,4 +26,56 @@ public class AjouterAssoServlet extends HttpServlet{
 		view.forward(request, response);
 	}
 
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+				
+		List<Etudiant> listeEtudiant = Manager.getInstance().listerEtudiant();
+		List<Commission> listeCommission=Manager.getInstance().listerCommission();
+		
+		String nomAsso = request.getParameter("nomAsso");
+		String mailReferent = request.getParameter("referent");
+		String logo = request.getParameter("logo");
+		String pole = request.getParameter("bureau");
+		String description = request.getParameter("description");
+		
+		boolean Etudiantexistant=false;
+		boolean Commexistante= false;
+		int i =0;
+		int j =0;
+		
+		while(Commexistante== false && j<listeCommission.size())
+		{
+			if(nomAsso == listeCommission.get(j).getNomCommission())
+			{
+				Commexistante=true;
+				request.setAttribute("ErrorComm", "Il y a une erreur dans votre requette. Veuillez vérifier que la commission n'existe pas déjà. Si le problème persiste, voyez avec la maintenance");
+			}
+			else{j++;}
+		}	
+		if(!Commexistante){
+				while(Etudiantexistant==false && i<listeEtudiant.size())
+			
+				{
+					if(mailReferent != listeEtudiant.get(i).getEmail())
+					{
+						Etudiantexistant=false;
+						i++;
+					}
+					else Etudiantexistant=true;
+					}
+			
+		if(Etudiantexistant){
+			Integer idEtudiant = Manager.getInstance().getEtudiantMail(mailReferent).getIdetudiant();
+			Integer idPole = Manager.getInstance().getPolebyNom(pole).getIdPole();
+			
+			Commission nouvelleCommission = new Commission(null, idEtudiant,idPole, nomAsso, description, logo);
+			Manager.getInstance().ajouterCommission(nouvelleCommission);
+			response.sendRedirect("mesOptions");
+		}else{
+			request.setAttribute("ErrorEtudiant", "Il y a une erreur dans votre requette. Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");
+			response.sendRedirect("ajouterAsso");
+		}
+	}
+}	
 }

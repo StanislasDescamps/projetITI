@@ -19,7 +19,7 @@
 	           out.print((String)request.getAttribute("loginError"));
 	       }
 		%>
-		
+				
 		<form id="creationProfil" action="creationProfil" method="post">
 			<fieldset>
 				<legend>Profil</legend>

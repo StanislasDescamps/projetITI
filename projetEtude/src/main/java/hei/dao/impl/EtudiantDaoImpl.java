@@ -88,7 +88,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	    }
 	    return etudiant;
 	}
-	public Etudiant getEtudiant(String mailEtudiant) {
+	public Etudiant getEtudiantMail(String mailEtudiant) {
 		Etudiant etudiant= null;
 		// Cr�er une nouvelle connexion � la BDD
 	    try {

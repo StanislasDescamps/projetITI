@@ -22,11 +22,25 @@
 			<a href="mesOptions">Retour</a>
 		</aside>
 		<h3 id="titre">Ajouter une association</h3>
+		
+		<%
+		 if(request.getAttribute("ErrorEtudiant")!=null) {
+	           out.print((String)request.getAttribute("ErrorEtudiant"));
+	       }
+		%>
+		<%
+		 if(request.getAttribute("ErrorComm")!=null) {
+	           out.print((String)request.getAttribute("ErrorComm"));
+	       }
+		%>
+		
 		<form class="ajoutAsso" action="ajouterAsso" method="post">
 			<legend>Nouvelle association</legend></br>
 			<section id="nom">
 				<label for="nomAsso">Nom de l'association :</label>
 				<input type="text" name="nomAsso" id="nomAsso" placeholder=" Nom de l'association"/></br>
+				<label for="referent">Mail de l'étudiant référent:</label>
+				<input type="text" name="referent" id="referent" placeholder=" etudiant.référent@hei.fr"/></br>
 			</section>
 			<section id="logo">
 				<label for="logo">Logo :</label>

@@ -11,4 +11,6 @@ public interface PoleDao {
 	public Pole getPole(Integer idPole);
 	
 	public Pole getPoleEvent (Integer idEvenement);
+	
+	public Pole getPolebyNom(String nomPole);
 }

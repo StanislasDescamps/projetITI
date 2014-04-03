@@ -44,8 +44,11 @@ public class Manager {
 	public void ajouterEtudiant(Etudiant etudiant) {
 		etudiantDao.ajouterEtudiant(etudiant);
 	}
-	public Etudiant getEtudiant(String mailEtudiant){
-		return etudiantDao.getEtudiant(mailEtudiant);
+	public Etudiant getEtudiant(Integer idEtudiant){
+		return etudiantDao.getEtudiant(idEtudiant);
+	}
+	public Etudiant getEtudiantMail(String mailEtudiant){
+		return etudiantDao.getEtudiantMail(mailEtudiant);
 	}
 	
 	// Pole
@@ -54,6 +57,9 @@ public class Manager {
 	}
 	public Pole getPoleEvent(Integer idEvenement){
 		return poleDao.getPoleEvent(idEvenement);
+	}
+	public Pole getPolebyNom(String nomPole){
+		return poleDao.getPolebyNom(nomPole);
 	}
 	
 	//Evenement
@@ -73,6 +79,9 @@ public class Manager {
 	}
 	public List<Commission> listerCommissionPole(String nomPole){
 		return commissionDao.listerCommissionPole(nomPole);
+	}
+	public void ajouterCommission(Commission commission){
+		commissionDao.ajouterCommission(commission);
 	}
 	
 	//Calendrier
