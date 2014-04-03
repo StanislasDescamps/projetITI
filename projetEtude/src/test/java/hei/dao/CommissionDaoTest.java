@@ -14,7 +14,7 @@ public class CommissionDaoTest {
 	private CommissionDao commissionDao = new CommissionDaoImpl();
 	
 	@Test
-	public void testListerSoiree() {
+	public void testListerCommission() {
 		List<Commission> commission = commissionDao.listerCommission();
 		Assert.assertEquals(2, commission.size());
 		Assert.assertEquals(1, commission.get(0).getIdcommission().intValue());
