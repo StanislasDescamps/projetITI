@@ -20,20 +20,20 @@ public class ListeModifAssosServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		List<Commission> listCommBDA = Manager.getInstance().listerCommissionPole("BDA");
-		request.setAttribute("listeCommBDA", listCommBDA);
+		List<Commission> listComm = Manager.getInstance().listerCommission();
+		request.setAttribute("listeComm", listComm);
 		
-		List<Commission> listCommBDS = Manager.getInstance().listerCommissionPole("BDS");
-		request.setAttribute("listeCommBDS", listCommBDS);
+		//List<Commission> listCommBDS = Manager.getInstance().listerCommissionPole("BDS");
+		//request.setAttribute("listeCommBDS", listCommBDS);
 		
-		List<Commission> listCommCapso = Manager.getInstance().listerCommissionPole("CapSo");
-		request.setAttribute("listeCommCapso", listCommCapso);
+		//List<Commission> listCommCapso = Manager.getInstance().listerCommissionPole("CapSo");
+		//request.setAttribute("listeCommCapso", listCommCapso);
 		
-		List<Commission> listCommPES = Manager.getInstance().listerCommissionPole("PES");
-		request.setAttribute("listeCommBDA", listCommPES);
+		//List<Commission> listCommPES = Manager.getInstance().listerCommissionPole("PES");
+		//request.setAttribute("listeCommBDA", listCommPES);
 		
-		List<Commission> listCommPET = Manager.getInstance().listerCommissionPole("PET");
-		request.setAttribute("listeCommBDA", listCommPET);
+		//List<Commission> listCommPET = Manager.getInstance().listerCommissionPole("PET");
+		//request.setAttribute("listeCommBDA", listCommPET);
 		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/listeModifAsso.jsp");
 		view.forward(request, response);

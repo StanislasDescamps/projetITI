@@ -37,36 +37,48 @@
 		<div class="tab_container"> 
 
 			<div id="tab1" class="tab_content"> 
-				<c:forEach var="commission" items="${listeCommBDA}">
 				<ul>
-				
-					<li>${commission.nomCommission}<input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
-				
+					<c:forEach var="commission" items="${listeComm}">
+						<c:if test="${commission.idpole==1}">
+						<li>${commission.nomCommission} <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
+						</c:if>
+					</c:forEach>
 				</ul>
-				</c:forEach>
 			</div><!-- #tab1 -->
 			<div id="tab2" class="tab_content"> 
 				<ul>
-					<li>Asso 3 <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
-					<li>Asso 4 <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
+					<c:forEach var="commission" items="${listeComm}">
+						<c:if test="${commission.idpole==2}">
+						<li>${commission.nomCommission} <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
+						</c:if>
+					</c:forEach>
 				</ul>
 			</div><!-- #tab2 -->
 			<div id="tab3" class="tab_content"> 
 				<ul>
-					<li>Asso 5 <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
-					<li>Asso 6 <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
+					<c:forEach var="commission" items="${listeComm}">
+						<c:if test="${commission.idpole==3}">
+						<li>${commission.nomCommission} <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
+						</c:if>
+					</c:forEach>
 				</ul>
 			</div><!-- #tab3 -->
 			<div id="tab4" class="tab_content"> 
 				<ul>
-					<li>Asso 7 <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
-					<li>Asso 8 <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
+					<c:forEach var="commission" items="${listeComm}">
+						<c:if test="${commission.idpole==4}">
+						<li>${commission.nomCommission} <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
+						</c:if>
+					</c:forEach>
 				</ul>
 			</div><!-- #tab4 -->
 			<div id="tab5" class="tab_content"> 
 				<ul>
-					<li>Asso 9 <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
-					<li>Asso 10 <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
+					<c:forEach var="commission" items="${listeComm}">
+						<c:if test="${commission.idpole==5}">
+						<li>${commission.nomCommission} <input type="submit" value="Modifier"/><input type="submit" value="Supprimer"/></li>
+						</c:if>
+					</c:forEach>
 				</ul>
 			</div><!-- #tab5 --> 
      
