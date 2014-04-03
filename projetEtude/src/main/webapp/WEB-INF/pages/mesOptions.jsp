@@ -36,8 +36,8 @@
 				<li rel="tab4"> PES</li>
 				<li rel="tab5"> PET</li>
 			</ul>
+			<form id="preferences" method="post" action="mesOptions">
 				<div class="tab_container"> 
-
 			<div id="tab1" class="tab_content"> 
 				<ul>
 					<c:forEach var="commission" items="${listeComm}">
