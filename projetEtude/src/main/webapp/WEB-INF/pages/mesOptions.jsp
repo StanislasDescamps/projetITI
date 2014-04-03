@@ -25,62 +25,71 @@
 			Cette page vous permet de sélectionner vos associations préférées, de les faire apparaître dans votre calendrier personnel et de synchroniser leurs événements sur votre smartphone!
 		</h3>
 		<!--cette section est pour tous les étudiants -->
-		<section class="tous">
-				<legend>Mes préférences</legend>
-				<section id="choixbureau">	
-					<label for="bureau">Choississez l'ensemble qui vous intéresse : </label>
-					<select id="bureau" name="bureau">
-						<option class="active" value="BDA">BDA</option>
-						<option value="BDS">BDS</option>
-						<option value="CapSo">Cap Solidaire</option>
-						<option value="PES">PES</option>
-						<option value="PET">PET</option>
-					</select>
-				</section>
-				<form id="preference" action="mesOptions" method="post">
-				<section id="asso">
-					<div class="tab_contain"> 
+		
+			<h3 id="titre">Mes préférences</h3>
+			<section class="tous">
+				<label for="bureau">Choississez l'ensemble qui vous intéresse : </label>
+			<ul class="tabs"> 
+				<li class="active" rel="tab1"> BDA</li>
+				<li rel="tab2"> BDS</li>
+				<li rel="tab3"> CapSo</li>
+				<li rel="tab4"> PES</li>
+				<li rel="tab5"> PET</li>
+			</ul>
+				<div class="tab_container"> 
 
-						<div id="BDA" class="tab_cont">
-							<c:forEach var="commission" items="${listCommBDA}">
-							<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
-							</c:forEach>
-						</div>
-						<div id="BDS" class="tab_cont">
-							<c:forEach var="commission" items="${listCommBDS}">
-							<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
-							</c:forEach>
-						</div>
-						<div id="CapSo" class="tab_cont">
-							<c:forEach var="commission" items="${listCommCap}">
-							<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
-							</c:forEach>
-						</div>
-						<div id="PES" class="tab_cont">
-							<c:forEach var="commission" items="${listCommPES}">
-							<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
-							</c:forEach>
-						</div>
-						<div id="PET" class="tab_cont">
-							<c:forEach var="commission" items="${listCommPET}">
-							<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
-							</c:forEach>
-						</div>
-					</div>	
-				</section>
-				
-				
-				
-				
-				
-				
+			<div id="tab1" class="tab_content"> 
+				<ul>
+					<c:forEach var="commission" items="${listeComm}">
+						<c:if test="${commission.idpole==1}">
+						<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
+						</c:if>
+					</c:forEach>
+				</ul>
+			</div><!-- #tab1 -->
+			<div id="tab2" class="tab_content"> 
+				<ul>
+					<c:forEach var="commission" items="${listeComm}">
+						<c:if test="${commission.idpole==2}">
+						<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
+						</c:if>
+					</c:forEach>
+				</ul>
+			</div><!-- #tab2 -->
+			<div id="tab3" class="tab_content"> 
+				<ul>
+					<c:forEach var="commission" items="${listeComm}">
+						<c:if test="${commission.idpole==3}">
+						<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
+						</c:if>
+					</c:forEach>
+				</ul>
+			</div><!-- #tab3 -->
+			<div id="tab4" class="tab_content"> 
+				<ul>
+					<c:forEach var="commission" items="${listeComm}">
+						<c:if test="${commission.idpole==4}">
+						<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
+						</c:if>
+					</c:forEach>
+				</ul>
+			</div><!-- #tab4 -->
+			<div id="tab5" class="tab_content"> 
+				<ul>
+					<c:forEach var="commission" items="${listeComm}">
+						<c:if test="${commission.idpole==5}">
+						<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
+						</c:if>
+					</c:forEach>
+				</ul>
+			</div><!-- #tab5 --> 
+     
+		</div> <!-- .tab_container --> 
+								
 				<input type="reset" value="Réinitialiser"/>
 				<input type="submit" value="Enregistrer"/>
 			</form>
 		</section>
-		
-		
-		
 		
 		
 		<section id="president">
