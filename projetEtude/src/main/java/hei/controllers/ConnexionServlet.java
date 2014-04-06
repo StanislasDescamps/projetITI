@@ -31,7 +31,7 @@ public class ConnexionServlet extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String motpass = request.getParameter("pass");
 		
-		Etudiant etudiant = Manager.getInstance().getEtudiant(mail);
+		Etudiant etudiant = Manager.getInstance().getEtudiantMail(mail);
 		
 		if(motpass.equalsIgnoreCase(etudiant.getPassWord()))
 			response.sendRedirect("monCalendrier1");
