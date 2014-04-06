@@ -10,6 +10,7 @@ import java.util.List;
 import com.mysql.jdbc.PreparedStatement;
 
 import hei.dao.CommissionDao;
+
 import hei.model.Commission;
 
 public class CommissionDaoImpl implements CommissionDao{
@@ -163,6 +164,31 @@ public void ajouterChoixCommission(Integer idEtudiant, Integer idCommission){
         e.printStackTrace();
     }
 	
+}
+
+@Override
+public List<Commission> listerChoixCommission(Integer idEtudiant) {
+	List<Commission> listeChoixCommission = new ArrayList<Commission>();
+    try {
+    	Connection connection = DataSourceProvider.getDataSource().getConnection();
+    
+    	PreparedStatement stmt = (PreparedStatement) connection.prepareStatement("SELECT * FROM commission INNER JOIN choix ON commission.idCommission=choix.idCommission WHERE choix.idEtudiant =?");
+    	stmt.setInt(1, idEtudiant);
+    	ResultSet results = stmt.executeQuery();
+    while (results.next()) {
+    	Commission commission = new Commission(results.getInt("idCommission"), 
+                results.getInt("idEtudiant"),
+                results.getInt("idPole"),
+                results.getString("nomCommission"),
+                results.getString("descriptionCom"),
+                results.getString("adresseLogo"));
+    	listeChoixCommission.add(commission);
+    }
+	connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+	return listeChoixCommission;
 }	
 
 }

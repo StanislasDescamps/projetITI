@@ -17,4 +17,6 @@ public interface CommissionDao {
 	public List<Commission> listerCommissionPole(String nomPole);
 	
 	public void ajouterChoixCommission(Integer idEtudiant, Integer idCommission);
+	
+	public List<Commission> listerChoixCommission(Integer idEtudiant);
 }

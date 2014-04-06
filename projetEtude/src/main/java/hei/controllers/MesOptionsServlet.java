@@ -25,6 +25,11 @@ public class MesOptionsServlet extends HttpServlet{
 				
 		List<Commission> listComm = Manager.getInstance().listerCommission();
 		request.setAttribute("listeComm",listComm);
+		
+		//Integer idEtudiant=1; //a modifier par rapport au filtre
+		//List<Commission> listChoix = Manager.getInstance().listerChoixCommission(idEtudiant);
+		
+		
 			
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesOptions.jsp");
 		view.forward(request, response);
@@ -40,12 +45,7 @@ public class MesOptionsServlet extends HttpServlet{
 		{
 			Integer idCommission=Integer.parseInt(preference[i]);
 			Manager.getInstance().ajouterChoixCommission(idEtudiant,idCommission);
-		}
-		
-		
-		
-		
-		
+		}		
 		
 		response.sendRedirect("mesOptions");
 	}

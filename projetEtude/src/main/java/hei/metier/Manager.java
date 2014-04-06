@@ -86,6 +86,9 @@ public class Manager {
 	public void ajouterChoixCommission(Integer idEtudiant, Integer idCommission){
 		commissionDao.ajouterChoixCommission(idEtudiant,idCommission);
 	}
+	public List<Commission> listerChoixCommission(Integer idEtudiant) {
+		return commissionDao.listerChoixCommission(idEtudiant);
+	}
 	
 	//Calendrier
 	public List<Calendrier> listerCalendrier() {
