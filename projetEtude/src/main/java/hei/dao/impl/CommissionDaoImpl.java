@@ -144,4 +144,25 @@ public List<Commission> listerCommissionPole(String nomPole) {
     }
 	return listeComm;
 }
+public void ajouterChoixCommission(Integer idEtudiant, Integer idCommission){
+	
+	try {
+        Connection connection = 
+            DataSourceProvider.getDataSource().getConnection();
+
+        // Utiliser la connexion
+        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
+                  "INSERT INTO `choix`(`idEtudiant`, `idCommission`) VALUES(?, ?)"); 
+        
+        stmt.setInt(1,idEtudiant);
+        stmt.setInt(2,idCommission);
+        stmt.executeUpdate();
+        // Fermer la connexion
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+	
+}	
+
 }
