@@ -4,6 +4,8 @@ import hei.metier.Manager;
 import hei.model.Commission;
 
 
+
+
 import java.io.IOException;
 import java.util.List;
 
@@ -26,5 +28,25 @@ public class MesOptionsServlet extends HttpServlet{
 			
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesOptions.jsp");
 		view.forward(request, response);
+	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		
+		Integer idEtudiant=1; //a modifier par rapport au filtre
+		
+		String[] preference = request.getParameterValues("commission");
+		for(int i=0;i<preference.length;i++)
+		{
+			Integer idCommission=Integer.parseInt(preference[i]);
+			Manager.getInstance().ajouterChoixCommission(idEtudiant,idCommission);
+		}
+		
+		
+		
+		
+		
+		
+		response.sendRedirect("mesOptions");
 	}
 }

@@ -42,7 +42,7 @@
 				<ul>
 					<c:forEach var="commission" items="${listeComm}">
 						<c:if test="${commission.idpole==1}">
-						<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
+						<input type="checkbox" name="commission" id="${commission.nomCommission}" value="${commission.idcommission}"/> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
 						</c:if>
 					</c:forEach>
 				</ul>
@@ -51,7 +51,7 @@
 				<ul>
 					<c:forEach var="commission" items="${listeComm}">
 						<c:if test="${commission.idpole==2}">
-						<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
+						<input type="checkbox" name="commission" id="${commission.nomCommission}" value="${commission.idcommission}"/> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
 						</c:if>
 					</c:forEach>
 				</ul>
@@ -60,7 +60,7 @@
 				<ul>
 					<c:forEach var="commission" items="${listeComm}">
 						<c:if test="${commission.idpole==3}">
-						<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
+						<input type="checkbox" name="commission" id="${commission.nomCommission}" value="${commission.idcommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
 						</c:if>
 					</c:forEach>
 				</ul>
@@ -69,7 +69,7 @@
 				<ul>
 					<c:forEach var="commission" items="${listeComm}">
 						<c:if test="${commission.idpole==4}">
-						<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
+						<input type="checkbox" name="commission" id="${commission.nomCommission}" value="${commission.idcommission}"/> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
 						</c:if>
 					</c:forEach>
 				</ul>
@@ -78,7 +78,7 @@
 				<ul>
 					<c:forEach var="commission" items="${listeComm}">
 						<c:if test="${commission.idpole==5}">
-						<input type="checkbox" name="${commission.nomCommission}" id="${commission.nomCommission}" /> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
+						<input type="checkbox" name="commission" id="${commission.nomCommission}" value="${commission.idcommission}"/> <label for="${commission.nomCommission}">${commission.nomCommission}</label><br/>
 						</c:if>
 					</c:forEach>
 				</ul>
