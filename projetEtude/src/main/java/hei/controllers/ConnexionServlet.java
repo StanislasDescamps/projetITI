@@ -27,10 +27,6 @@ public class ConnexionServlet extends HttpServlet {
 		super.init();
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -39,12 +35,10 @@ public class ConnexionServlet extends HttpServlet {
         	 session.invalidate();
         	 redirectConnexion(response);
         }
+    	RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
+    	view.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -62,7 +56,7 @@ public class ConnexionServlet extends HttpServlet {
 		{
 			request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valide.");
 		    ServletContext context = getServletContext();
-		    RequestDispatcher dispatcher =context.getRequestDispatcher("/connexion");
+		    RequestDispatcher dispatcher = context.getRequestDispatcher("/connexion");
 		    dispatcher.forward(request, response);
 		}
 	}

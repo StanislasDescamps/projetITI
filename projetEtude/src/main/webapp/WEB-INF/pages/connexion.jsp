@@ -10,6 +10,13 @@
 		<!-- Corps de la page -->
 		<link rel="stylesheet" href="css/connexion.css">
 		<h1>Bienvenue sur HEI-Diary</h1>
+		<%
+       if(request.getAttribute("loginError")!=null) {
+           out.print((String)request.getAttribute("loginError"));
+       }else{
+           out.print("Merci de vous connecter !");
+       }
+   %>
 		<form id="identification" action="connexion" method="post">
 			<fieldset>
 				<legend>Identifiez-vous</legend>
