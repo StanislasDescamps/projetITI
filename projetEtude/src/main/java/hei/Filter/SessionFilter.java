@@ -36,7 +36,7 @@ public class SessionFilter implements Filter {
         }
     }
     private Etudiant getUtilisateurConnecte(HttpServletRequest req) {
-        return (Etudiant) req.getSession().getAttribute("utilisateurConnecte");
+        return (Etudiant) req.getSession().getAttribute("identifiantEtudiant");
     }
     public void destroy() {    }
 }

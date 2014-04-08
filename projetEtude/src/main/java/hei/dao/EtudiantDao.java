@@ -13,5 +13,5 @@ public interface EtudiantDao {
 	public Etudiant getEtudiant(Integer idEtudiant);
 	
 	public Etudiant getEtudiantMail(String mailEtudiant);
-	
+		
 }
