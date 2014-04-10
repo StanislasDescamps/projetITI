@@ -19,7 +19,7 @@
 		<jsp:include page="menu.jsp"/>
 		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
 		<aside class="deconnexion">
-			<a href="connexion">Déconnexion</a>
+			<a href="connexion?logout">Déconnexion</a>
 		</aside>
 		<h3 id="presentation">
 			Cette page vous permet de sélectionner vos associations préférées, de les faire apparaître dans votre calendrier personnel et de synchroniser leurs événements sur votre smartphone!
@@ -91,11 +91,12 @@
 			</form>
 		</section>
 		
-		
-		<section id="president">
+
+		<section id="president_${statut}">
 			<a href="ajouterAsso"><input type="submit" value="Ajouter une association"/></a>
 			<a href="listeModifAsso"><input type="submit" value="Modifier une association"/></a>
 		</section>
+	
 		<footer>
 			<div> Réalisation HEI </div>
 		</footer>

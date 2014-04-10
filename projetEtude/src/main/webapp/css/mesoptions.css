@@ -87,7 +87,11 @@ position: relative;
 margin: 20px;
 
 }
-section#president
+section#president_false
+{
+display: none;	
+}
+section#president_true
 {
 position: relative;
 margin-top: 70px;
