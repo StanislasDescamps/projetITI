@@ -21,23 +21,23 @@ public class SessionFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         if(!req.getServletPath().equals("/connexion") && !req.getServletPath().equals("/creationProfil")){
-            testIfUtilisateurConnecte(req,resp,chain);
+            testIfEtudiantConnecte(req,resp,chain);
         }else{
             chain.doFilter(request, response);
         }
     }
    
    
-    private void testIfUtilisateurConnecte(HttpServletRequest req,    HttpServletResponse resp,FilterChain chain) throws IOException, ServletException {
-        Etudiant utilisateurConnecte = getUtilisateurConnecte(req);
+    private void testIfEtudiantConnecte(HttpServletRequest req,    HttpServletResponse resp,FilterChain chain) throws IOException, ServletException {
+        Etudiant utilisateurConnecte = getEtudiantConnecte(req);
         if(utilisateurConnecte==null){
             resp.sendRedirect(req.getServletContext().getContextPath()+"/connexion");
         }else{
             chain.doFilter(req, resp);
         }
     }
-    private Etudiant getUtilisateurConnecte(HttpServletRequest req) {
-        return (Etudiant) req.getSession().getAttribute("identifiantEtudiant");
+    private Etudiant getEtudiantConnecte(HttpServletRequest req) {
+        return (Etudiant) req.getSession().getAttribute("etudiantConnecte");
     }
     public void destroy() {    }
 }

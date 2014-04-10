@@ -13,5 +13,7 @@ public interface EtudiantDao {
 	public Etudiant getEtudiant(Integer idEtudiant);
 	
 	public Etudiant getEtudiantMail(String mailEtudiant);
+	
+	public boolean etudiantExiste(String mail, String password);
 		
 }

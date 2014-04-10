@@ -58,7 +58,30 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	    }
 		
 	}
+	public boolean etudiantExiste(String mail, String password) {
 
+		try {
+			Connection connection = DataSourceProvider.getDataSource().getConnection();
+
+// Utiliser la connexion
+			PreparedStatement stmt = (PreparedStatement) connection.prepareStatement("SELECT * FROM `etudiant` WHERE `email`=? and `password`=?");
+			stmt.setString(1, mail);
+			stmt.setString(2, password);
+
+			ResultSet results = stmt.executeQuery();
+            	if (results.first())
+            	{
+            		return true;
+            	}
+            
+        	// Fermer la connexion
+            	connection.close();
+            } catch (SQLException e) {
+            e.printStackTrace();
+            }
+            return false;
+}
+	
 	public Etudiant getEtudiant(Integer idEtudiant) {
 		Etudiant etudiant= null;
 		// Cr�er une nouvelle connexion � la BDD

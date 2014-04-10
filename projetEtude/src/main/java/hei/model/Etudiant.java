@@ -20,7 +20,17 @@ public class Etudiant {
 		this.admin = admin;
 	}
 	
-	
+	public Etudiant(Integer idetudiant, String nom, String prenom, String email, boolean admin){
+		this.idEtudiant = idetudiant;
+		this.nomEtudiant = nom;
+		this.prenomEtudiant = prenom;
+		this.email = email;
+		this.admin = admin;
+	}
+	public Etudiant(String email, String password){
+		this.email = email;
+		this.passWord = password;
+	}
 	
 	public Integer getIdetudiant() {
 		return idEtudiant;

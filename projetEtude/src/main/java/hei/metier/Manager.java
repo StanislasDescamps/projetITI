@@ -50,6 +50,9 @@ public class Manager {
 	public Etudiant getEtudiantMail(String mailEtudiant){
 		return etudiantDao.getEtudiantMail(mailEtudiant);
 	}
+	public boolean etudiantExiste(String mail, String password){
+		return etudiantDao.etudiantExiste(mail, password);
+	}
 	
 	// Pole
 	public List<Pole> listerPole() {

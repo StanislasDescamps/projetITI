@@ -17,12 +17,6 @@ public class ConnexionServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -4501231509110259062L;
 
-	
-	public ConnexionServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 	public void init() throws ServletException {
 		super.init();
 	}
@@ -33,7 +27,6 @@ public class ConnexionServlet extends HttpServlet {
         if(request.getParameter("logout") != null){
         	 HttpSession session = request.getSession(true); 
         	 session.invalidate();
-        	 redirectConnexion(response);
         }
     	RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
     	view.forward(request, response);
@@ -47,9 +40,14 @@ public class ConnexionServlet extends HttpServlet {
 		
 		Etudiant etudiant = Manager.getInstance().getEtudiantMail(mail);
 		
-		if (password.equals(etudiant.getPassWord())) {
+		if (Manager.getInstance().etudiantExiste(mail,password)) {
 			HttpSession session = request.getSession(true);
-			session.setAttribute("identifiantEtudiant", etudiant.getIdetudiant() );
+			session.setAttribute("idetudiant", etudiant.getIdetudiant());
+			session.setAttribute("nom", etudiant.getNomEtudiant());
+			session.setAttribute("prenom", etudiant.getPrenomEtudiant());
+			session.setAttribute("email", etudiant.getEmail());
+			session.setAttribute("admin", etudiant.isAdmin());
+			session.setAttribute("etudiantConnecte", new Etudiant(mail,password));
 			redirectCal(response);
 		}
 		else
@@ -65,7 +63,8 @@ public class ConnexionServlet extends HttpServlet {
 	    resp.sendRedirect(getServletContext().getContextPath()+"/monCalendrier1");
 	}
 	
-	private void redirectConnexion(HttpServletResponse resp) throws IOException {
+	
+	/*private void redirectConnexion(HttpServletResponse resp) throws IOException {
 	    resp.sendRedirect(getServletContext().getContextPath()+"/connexion");
-	}
+	}*/
 }
