@@ -42,7 +42,7 @@ public class ConnexionServlet extends HttpServlet {
 		
 		if (Manager.getInstance().etudiantExiste(mail,password)) {
 			HttpSession session = request.getSession(true);
-			session.setAttribute("idetudiant", etudiant.getIdetudiant());
+			session.setAttribute("idEtudiant", etudiant.getIdetudiant());
 			session.setAttribute("nom", etudiant.getNomEtudiant());
 			session.setAttribute("prenom", etudiant.getPrenomEtudiant());
 			session.setAttribute("email", etudiant.getEmail());

@@ -1,6 +1,10 @@
 package hei.controllers;
 
+import hei.metier.Manager;
+import hei.model.Commission;
+
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,6 +19,10 @@ public class LesAssosServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		List<Commission> listeComm = Manager.getInstance().listerCommission();
+		request.setAttribute("listeComm", listeComm);
+		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/lesAssos.jsp");
 		view.forward(request, response);
 	}

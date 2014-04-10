@@ -16,7 +16,7 @@
 		<jsp:include page="menu.jsp"/>
 		<c:set var="pageSelectionnee" value="lesAssos" scope="request"></c:set>
 		<aside class="deconnexion">
-			<a href="connexion">Déconnexion</a>
+			<a href="connexion?logout">Déconnexion</a>
 		</aside>
 		<h3 id="titre">Consulter une association</h3>
 		<form id="preference" action="mesOptions">
@@ -33,14 +33,38 @@
 				</section>
 		</form>
 		<section class="listAsso">
-			<article class="asso" id="pet">
-				<img src="img/heivolution.jpg" alt="pet" title="pet"/>
-				<h3>HEI'volution</h3>
+		<c:forEach var="commission" items="${listeComm}">
+			<c:if test="${commission.idpole==1}">
+			<article class="asso" id="BDA">
+				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<h3>${commission.nomCommission}</h3>
 			</article>
-			<article class="asso" id="bds">
-				<img src="img/rock.jpg" alt="rock" title="rockHei"/>
-				<h3>Club Rock HEI</h3>
+			</c:if>
+			<c:if test="${commission.idpole==2}">
+			<article class="asso" id="BDS">
+				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<h3>${commission.nomCommission}</h3>
 			</article>
+			</c:if>
+			<c:if test="${commission.idpole==3}">
+			<article class="asso" id="CapSo">
+				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<h3>${commission.nomCommission}</h3>
+			</article>
+			</c:if>
+			<c:if test="${commission.idpole==4}">
+			<article class="asso" id="PES">
+				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<h3>${commission.nomCommission}</h3>
+			</article>
+			</c:if>
+			<c:if test="${commission.idpole==5}">
+			<article class="asso" id="PET">
+				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<h3>${commission.nomCommission}</h3>
+			</article>
+			</c:if>
+		</c:forEach>	
 		</section>
 		<footer>
 			<div> Réalisation HEI </div>
