@@ -62,8 +62,7 @@ public class ConnexionServlet extends HttpServlet {
 	private void redirectCal(HttpServletResponse resp) throws IOException {
 	    resp.sendRedirect(getServletContext().getContextPath()+"/monCalendrier1");
 	}
-	
-	
+		
 	/*private void redirectConnexion(HttpServletResponse resp) throws IOException {
 	    resp.sendRedirect(getServletContext().getContextPath()+"/connexion");
 	}*/
