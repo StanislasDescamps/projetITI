@@ -3,7 +3,6 @@ package hei.model;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Calendrier {
@@ -12,15 +11,15 @@ public class Calendrier {
 	
 	private Integer idCalendrier;
 	private Integer idEtudiant;
-	private Date dateEmission;
+	private String dateEmission;
 	private List<Evenement> listEvenement;
 	
-	public Calendrier(Integer idcalendrier, Integer idetudiant, Date emission){
+	public Calendrier(Integer idcalendrier, Integer idetudiant, String emission){
 		
 		super();
 		this.idCalendrier = idcalendrier;
 		this.idEtudiant = idetudiant;
-		this.dateEmission = emission;
+		this.setDateEmission(emission);
 		
 		setListEvenement(new ArrayList<Evenement>());
 	}
@@ -49,19 +48,19 @@ public class Calendrier {
 		this.idEtudiant = idEtudiant;
 	}
 
-	public Date getDateEmission() {
-		return dateEmission;
-	}
-
-	public void setDateEmission(Date dateEmission) {
-		this.dateEmission = dateEmission;
-	}
-
 	public List<Evenement> getListEvenement() {
 		return listEvenement;
 	}
 
 	public void setListEvenement(List<Evenement> listEvenement) {
 		this.listEvenement = listEvenement;
+	}
+
+	public String getDateEmission() {
+		return dateEmission;
+	}
+
+	public void setDateEmission(String dateEmission) {
+		this.dateEmission = dateEmission;
 	}
 }

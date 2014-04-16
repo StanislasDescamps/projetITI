@@ -6,7 +6,6 @@ import hei.model.Etudiant;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
@@ -32,7 +31,6 @@ public class CreationProfilServlet extends HttpServlet {
 
 
 	private static final long serialVersionUID = 6428922108074858393L;
-
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -58,10 +56,12 @@ public class CreationProfilServlet extends HttpServlet {
 		Integer i=0;
 		Integer n = listEtudiant.size();
 		Boolean exist=false;
+	
+		String format = "dd MMMM yyyy"; 
+
+		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( format ); 
+		java.util.Date date = new java.util.Date(); 
 		
-		Date date = new Date(); 
-		
-		System.out.println(date);
 		while(i<n && !exist)
 		{
 			if(mail.equalsIgnoreCase(listEtudiant.get(i).getEmail()))
@@ -76,7 +76,7 @@ public class CreationProfilServlet extends HttpServlet {
 		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, false);
 		Manager.getInstance().ajouterEtudiant(nouvelEtudiant);
 		envoyerMail(mail,motpass);
-		Calendrier nouveauCal = new Calendrier(null, nouvelEtudiant.getIdetudiant(),date);
+		Calendrier nouveauCal = new Calendrier(null, nouvelEtudiant.getIdetudiant(),formater.format(date));
 		Manager.getInstance().ajouterCalendrier(nouveauCal);
 		response.sendRedirect("connexion");
 		} 

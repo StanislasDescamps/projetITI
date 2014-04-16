@@ -8,9 +8,9 @@ DELETE FROM `choix`;
 DELETE FROM `doubletcalevent`;
 
 -- Calendrier
-INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (1,1,'2014-02-24');
-INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (2,2,'2014-02-24');
-INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (3,3,'2014-02-24');
+INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (1,1,'24 février 2014');
+INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (2,2,'24 février 2014');
+INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (3,3,'24 février 2014');
 
 -- Evenement
 INSERT INTO `evenement`(`idEvenement`,`idCommission`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`) VALUES (1,1,'Salon gastronomique','Viens gouter les saveur d Espagne ca va etre trop bon','RR034','2014-02-24 12:00','2014-02-24 13:00');

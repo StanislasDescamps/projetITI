@@ -1,7 +1,6 @@
 package hei.dao.impl;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -25,7 +24,7 @@ public class CalendrierDaoImpl implements CalendrierDao{
 	    while (results.next()) {
 	    	Calendrier calendrier = new Calendrier(results.getInt("idCalendrier"), 
 	                   results.getInt("idEtudiant"),
-	                   results.getDate("dateEmission"));
+	                   results.getString("dateEmission"));
 	    	listeCal.add(calendrier);
 	    }
 		connection.close();
@@ -42,10 +41,9 @@ public class CalendrierDaoImpl implements CalendrierDao{
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
-	                  "INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`, `dateEmission`) VALUES(?, ?, ?)"); 
-	        stmt.setInt(1, calendrier.getIdCalendrier());
-	        stmt.setInt(2, calendrier.getIdEtudiant());
-	        stmt.setDate(3, new Date(calendrier.getDateEmission().getTime()));
+	                  "INSERT INTO `calendrier`(`idEtudiant`, `dateEmission`) VALUES(?, ?)"); 
+	        stmt.setInt(1, calendrier.getIdEtudiant());
+	        stmt.setString(2, calendrier.getDateEmission());
 	        stmt.executeUpdate();
 	        // Fermer la connexion
 	        connection.close();
@@ -71,7 +69,7 @@ public class CalendrierDaoImpl implements CalendrierDao{
 	        if(results.next()){
 	        	calendrier = new Calendrier(results.getInt("idCalendrier"),
 	                    results.getInt("idEtudiant"),
-	                    results.getDate("dateEmission"));
+	                    results.getString("dateEmission"));
 	        }
 
 	        // Fermer la connexion

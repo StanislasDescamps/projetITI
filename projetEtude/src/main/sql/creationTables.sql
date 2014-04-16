@@ -10,7 +10,7 @@ DROP TABLE `etudiant`;
 CREATE TABLE `calendrier` (
   `idCalendrier` int(11) NOT NULL AUTO_INCREMENT,
   `idEtudiant` int(11) NOT NULL,
-  `dateEmission` date NOT NULL,
+  `dateEmission` String NOT NULL,
   PRIMARY KEY (`idCalendrier`),
   KEY `idEtudiant`(`idEtudiant`)
 ) CHARSET=utf8;
