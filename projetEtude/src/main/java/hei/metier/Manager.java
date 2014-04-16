@@ -97,5 +97,8 @@ public class Manager {
 	public List<Calendrier> listerCalendrier() {
 		return calendrierDao.listerCalendrier();
 	}
+	public void ajouterCalendrier(Calendrier calendrier) {
+		calendrierDao.ajouterCalendrier(calendrier);
+	}
 	
 }

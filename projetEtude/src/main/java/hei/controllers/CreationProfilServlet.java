@@ -1,10 +1,12 @@
 package hei.controllers;
 
 import hei.metier.Manager;
+import hei.model.Calendrier;
 import hei.model.Etudiant;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
@@ -31,6 +33,7 @@ public class CreationProfilServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 6428922108074858393L;
 
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -56,6 +59,9 @@ public class CreationProfilServlet extends HttpServlet {
 		Integer n = listEtudiant.size();
 		Boolean exist=false;
 		
+		Date date = new Date(); 
+		
+		System.out.println(date);
 		while(i<n && !exist)
 		{
 			if(mail.equalsIgnoreCase(listEtudiant.get(i).getEmail()))
@@ -69,9 +75,31 @@ public class CreationProfilServlet extends HttpServlet {
 		{
 		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, false);
 		Manager.getInstance().ajouterEtudiant(nouvelEtudiant);
+		envoyerMail(mail,motpass);
+		Calendrier nouveauCal = new Calendrier(null, nouvelEtudiant.getIdetudiant(),date);
+		Manager.getInstance().ajouterCalendrier(nouveauCal);
+		response.sendRedirect("connexion");
+		} 
+		else
+		{
+		request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valide.");
+		}
+	}
+	
+	private String genereMdp(){
+		String password = "";
+		String alphabet = "abcdefghijklmnopqrstuvwxyz1234567890";
+		Random rand = new Random();
+        for (int i=0; i<8; i++)
+        {
+        	password=password+(alphabet.charAt(rand.nextInt(alphabet.length())));
+        } 		
+		return password;
+	}
+	private void envoyerMail(String mail, String password){
 		try {
 		    Properties		props	    = new Properties();
-		    // props.setProperty("mail.from", "contact@chicoree.fr");
+		    props.setProperty("mail.from", "stanislas.descamps@hei.fr");
 		    Session		session	    = Session.getInstance(props);
 	 
 		    Message		message	    = new MimeMessage(session);
@@ -81,7 +109,7 @@ public class CreationProfilServlet extends HttpServlet {
 	 
 		    // Partie 1: Le texte
 		    MimeBodyPart mbp1 = new MimeBodyPart();
-		    mbp1.setText("Bonjour, merci de vous être inscrit sur HEI-Diary. votre mot de passe sera : "+ motpass +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
+		    mbp1.setText("Bonjour, merci de vous être inscrit sur HEI-Diary. votre mot de passe sera : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
 	 
 		    
 		    // On regroupe les deux dans le message
@@ -103,23 +131,6 @@ public class CreationProfilServlet extends HttpServlet {
 		    System.err.println("Erreur dans le message");
 		    System.err.println(e);
 		}
-		response.sendRedirect("connexion");
-		} 
-		else
-		{
-		request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valide.");
-		response.sendRedirect("creationProfil");
-		}
-	}
-	
-	private String genereMdp(){
-		String password = "";
-		String alphabet = "abcdefghijklmnopqrstuvwxyz1234567890";
-		Random rand = new Random();
-        for (int i=0; i<8; i++)
-        {
-        	password=password+(alphabet.charAt(rand.nextInt(alphabet.length())));
-        } 		
-		return password;
+		
 	}
 }
