@@ -22,21 +22,38 @@
 			<a href="lesAssos">Retour</a>
 		</aside>
 		<h3 id="titre">Vous consultez :</h3>
-		<c:forEach var="commission" items="${commission}">
-			<article>
-				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+		<c:if test="${commission.idpole==1}">
+		<article class="entier" id="BDA">
+			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+			<article class="description">
 				<h3>${commission.nomCommission}</h3>
 				<div id="description">
 				${commission.description}
 				</div>
 			</article>
-			</c:forEach>
-			<c:forEach var="etudiant" items="${etudiant}">
+			
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
 				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
 			</article>
-			</c:forEach>
+		</article>
+		</c:if>
+		<c:if test="${commission.idpole==2}">
+		<article class="entier" id="BDS">
+			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+			<article class="description">
+				<h3>${commission.nomCommission}</h3>
+				<div id="description">
+				${commission.description}
+				</div>
+			</article>
+			
+			<article class="contact">
+				<h3 id="responsable">Responsable de la commission</h3>
+				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
+			</article>
+		</article>
+		</c:if>
 		<footer>
 			<div> Réalisation HEI </div>
 		</footer>

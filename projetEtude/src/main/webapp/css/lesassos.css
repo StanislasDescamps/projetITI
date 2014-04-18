@@ -106,12 +106,21 @@ padding:10px;
 max-width: 500px;
 margin:20px;
 }
-img
+img#presentation
 {
 height:40px;
 width:auto;
 }
+img#logo
+{
+height:60px;
+width:auto;	
+}
 article.asso#BDA
+{
+background-color:rgba(255,0,0,0.5);
+}
+article.entier#BDA
 {
 background-color:rgba(255,0,0,0.5);
 }
@@ -119,7 +128,15 @@ article.asso#PET
 {
 background-color:#800080;
 }
+article.entier#PET
+{
+background-color:#800080;
+}
 article.asso#BDS
+{
+background-color:#008000;
+}
+article.entier#BDS
 {
 background-color:#008000;
 }
@@ -134,9 +151,28 @@ div#description{
 position:relative;
 top:-70px;
 }
+article.entier
+{
+margin-left:170px;
+margin-top:50px;
+height:auto;
+width:830px;
+padding:20px;
+border-width: 2px;
+border-style:outset;
+border-color:grey;
+border-radius: 10px 10px 10px 10px;
+box-shadow:none;
+}
+article.description
+{
+position:relative;
+left:100px;
+}
 article.contact
 {
 position: relative;
+right:200px;
 top: 70px;
 }
 h3#responsable

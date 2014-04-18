@@ -21,12 +21,12 @@ public class PresentationAssoServlet extends HttpServlet{
 			throws ServletException, IOException {
 		
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
-		System.out.println(idCommission);
+		
+		Commission commission = Manager.getInstance().getCommission(idCommission);
+		request.setAttribute("commission",commission);
+		
 		Etudiant etudiant=Manager.getInstance().getEtudiantResp(idCommission);
 		request.setAttribute("etudiant", etudiant);
-		
-		Commission commission =Manager.getInstance().getCommission(idCommission);
-		request.setAttribute("commission",commission);
 		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/presentationAsso.jsp");
 		view.forward(request, response);

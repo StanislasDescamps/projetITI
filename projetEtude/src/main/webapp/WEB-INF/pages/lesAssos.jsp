@@ -38,31 +38,31 @@
 		<c:forEach var="commission" items="${listeComm}">
 			<c:if test="${commission.idpole==1}">
 			<article class="asso" id="BDA">
-				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<img id="presentation" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3><a href="presentationAsso?idcommission=${commission.idcommission}">${commission.nomCommission}</a></h3>
 			</article>
 			</c:if>
 			<c:if test="${commission.idpole==2}">
 			<article class="asso" id="BDS">
-				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<img id="presentation" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3><a href="presentationAsso?idcommission=${commission.idcommission}">${commission.nomCommission}</a></h3>
 			</article>
 			</c:if>
 			<c:if test="${commission.idpole==3}">
 			<article class="asso" id="CapSo">
-				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<img id="presentation" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3><a href="presentationAsso?idcommission=${commission.idcommission}">${commission.nomCommission}</a></h3>
 			</article>
 			</c:if>
 			<c:if test="${commission.idpole==4}">
 			<article class="asso" id="PES">
-				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<img id="presentation" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3><a href="presentationAsso?idcommission=${commission.idcommission}">${commission.nomCommission}</a></h3>
 			</article>
 			</c:if>
 			<c:if test="${commission.idpole==5}">
 			<article class="asso" id="PET">
-				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<img id="presentation" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3><a href="presentationAsso?idcommission=${commission.idcommission}">${commission.nomCommission}</a></h3>
 			</article>
 			</c:if>
