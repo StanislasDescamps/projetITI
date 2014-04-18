@@ -54,6 +54,54 @@
 			</article>
 		</article>
 		</c:if>
+		<c:if test="${commission.idpole==3}">
+		<article class="entier" id="CapSo">
+			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+			<article class="description">
+				<h3>${commission.nomCommission}</h3>
+				<div id="description">
+				${commission.description}
+				</div>
+			</article>
+			
+			<article class="contact">
+				<h3 id="responsable">Responsable de la commission</h3>
+				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
+			</article>
+		</article>
+		</c:if>
+		<c:if test="${commission.idpole==4}">
+		<article class="entier" id="PES">
+			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+			<article class="description">
+				<h3>${commission.nomCommission}</h3>
+				<div id="description">
+				${commission.description}
+				</div>
+			</article>
+			
+			<article class="contact">
+				<h3 id="responsable">Responsable de la commission</h3>
+				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
+			</article>
+		</article>
+		</c:if>
+		<c:if test="${commission.idpole==5}">
+		<article class="entier" id="PET">
+			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+			<article class="description">
+				<h3>${commission.nomCommission}</h3>
+				<div id="description">
+				${commission.description}
+				</div>
+			</article>
+			
+			<article class="contact">
+				<h3 id="responsable">Responsable de la commission</h3>
+				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
+			</article>
+		</article>
+		</c:if>
 		<footer>
 			<div> Réalisation HEI </div>
 		</footer>
