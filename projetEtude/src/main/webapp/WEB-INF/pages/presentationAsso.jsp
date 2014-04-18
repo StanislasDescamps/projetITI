@@ -22,21 +22,21 @@
 			<a href="lesAssos">Retour</a>
 		</aside>
 		<h3 id="titre">Vous consultez :</h3>
-			<article class="presentation" id="pet">
-				<img src="img/heivolution.jpg" alt="pet" title="pet"/>
-				<h3>HEI'volution</h3>
+		<c:forEach var="commission" items="${commission}">
+			<article>
+				<img src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<h3>${commission.nomCommission}</h3>
 				<div id="description">
-				Description Description Description Description Description Description Description Description 
-				Description Description Description Description Description Description Description Description 
-				Description Description Description Description Description Description Description Description 
-				Description Description Description Description Description Description Description Description 
-				Description Description Description Description Description Description Description Description 
+				${commission.description}
 				</div>
 			</article>
+			</c:forEach>
+			<c:forEach var="etudiant" items="${etudiant}">
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
-				<h4> Amandine Chemouny </h4>
+				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
 			</article>
+			</c:forEach>
 		<footer>
 			<div> Réalisation HEI </div>
 		</footer>

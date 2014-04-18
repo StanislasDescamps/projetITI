@@ -140,4 +140,35 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	    }
 	    return etudiant;
 	}
+
+	@Override
+	public Etudiant getEtudiantResp(Integer idCommission) {
+		Etudiant etudiant= null;
+		// Cr�er une nouvelle connexion � la BDD
+	    try {
+	        Connection connection = 
+	            DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = (PreparedStatement) connection
+	        		.prepareStatement("SELECT * FROM etudiant INNER JOIN commission ON etudiant.idEtudiant=commission.idEtudiant WHERE idCommission=? ");
+	        
+	        stmt.setInt(1, idCommission);
+	        ResultSet results = stmt.executeQuery();
+	        if(results.next()){
+	        	etudiant = new Etudiant(results.getInt("idEtudiant"),
+	                    results.getString("nomEtudiant"),
+	                    results.getString("prenomEtudiant"),
+	                    results.getString("password"),
+	                    results.getString("email"),
+	                    results.getBoolean("admin"));
+	        }
+
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return etudiant;
+	}
 }

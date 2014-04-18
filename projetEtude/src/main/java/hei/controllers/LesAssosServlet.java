@@ -26,4 +26,5 @@ public class LesAssosServlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/lesAssos.jsp");
 		view.forward(request, response);
 	}
+	
 }

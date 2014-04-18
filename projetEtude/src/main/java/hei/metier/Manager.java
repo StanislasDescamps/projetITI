@@ -53,6 +53,9 @@ public class Manager {
 	public boolean etudiantExiste(String mail, String password){
 		return etudiantDao.etudiantExiste(mail, password);
 	}
+	public Etudiant getEtudiantResp(Integer idCommission){
+		return etudiantDao.getEtudiantResp(idCommission);
+	}
 	
 	// Pole
 	public List<Pole> listerPole() {
@@ -76,6 +79,9 @@ public class Manager {
 	//Commission
 	public List<Commission> listerCommission() {
 		return commissionDao.listerCommission();
+	}
+	public Commission getCommission(Integer idCommission){
+		return commissionDao.getCommission(idCommission);
 	}
 	public Commission getCommissionEvent(Integer idEvenement){
 		return commissionDao.getCommissionEvent(idEvenement);
