@@ -18,14 +18,14 @@
 		<aside class="deconnexion">
 			<a href="connexion?logout">Deconnexion</a>
 		</aside>
-		<section class="choix1">
+		<!--  <section class="choix1">
 			<form id="choix" action="calendrierHei" method="get">
 					<input type="radio" id="liste" name="box1" value="liste" checked>
 					<label for="formatListe">Liste</label>
 					<input type="radio" id="semaine" name="box1" value="semaine">
 					<label for="formatSemaine">Semaine</label>
 			</form>
-		</section>
+		</section>-->
 		<c:forEach var="evenement" items="${listeEventPerso}">
 		<section class="${evenement.dateDebut}">
 			<h2>${evenement.dateDebut}</h2>

@@ -39,7 +39,8 @@ public class ModifierAssoServlet extends HttpServlet{
 			throws ServletException, IOException {
 		
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
-		List<Etudiant> listeEtudiant = Manager.getInstance().listerEtudiant();
+		
+		List<Etudiant> listeetudiant = Manager.getInstance().listerEtudiant();
 		
 		String nom = request.getParameter("nomAsso");
 		
@@ -54,10 +55,10 @@ public class ModifierAssoServlet extends HttpServlet{
 		boolean Etudiantexistant =false;
 		int i =0;
 		
-		while(Etudiantexistant==false && i<listeEtudiant.size())
+		while(Etudiantexistant==false && i<listeetudiant.size())
 			
 		{
-			if(mailResp.equalsIgnoreCase(listeEtudiant.get(i).getEmail()))
+			if(mailResp.equalsIgnoreCase(listeetudiant.get(i).getEmail()))
 			{
 				Etudiantexistant=true;
 			}
@@ -70,7 +71,7 @@ if(Etudiantexistant){
 		Manager.getInstance().modifierCommission(idCommission, etudiant.getIdetudiant(), idpole, nom, description, logo);
 		response.sendRedirect("presentationAsso?idcommission=" + idCommission);}
 else{
-	request.setAttribute("ErrorEtudiant", "Il y a une erreur dans votre requette. Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");
+	request.setAttribute("ErrorEtudiant2", "Il y a une erreur dans votre requette. Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");
 	}
 
 	}

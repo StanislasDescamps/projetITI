@@ -22,15 +22,15 @@
 			<a href="mesOptions">Retour</a>
 		</aside>
 		<h3 id="titre">Modifier une association</h3>
-		<form class="ajoutAsso" action="ajouterAsso" method="post">
+		<form class="ajoutAsso" action="modifierAsso" method="post">
 			<legend>${commission.nomCommission}</legend></br>
 			<section id="nom">
 				<label for="nomAsso">Nom de l'association :</label>
 				<input type="text" name="nomAsso" id="nomAsso" placeholder=" Nom de l'association"/></br>
 			</section>
 			<section id="responsable">
-				<label for="responsable">Président de l'association :</label>
-				<input type="text" name="mailResp" id="mailResp" placeholder=" ${etudiant.mail}"/></br>
+				<label for="responsable">President de l'association :</label>
+				<input type="text" name="mailResp" id="mailResp" placeholder=" ${etudiant.email}"/></br>
 			</section>
 			<section id="logo">
 				<label for="logo">Logo :</label>
@@ -56,8 +56,8 @@
 		</form>	
 		
 		<%
-		 if(request.getAttribute("ErrorEtudiant")!=null) {
-	           out.print((String)request.getAttribute("ErrorEtudiant"));
+		 if(request.getAttribute("ErrorEtudiant2")!=null) {
+	           out.print((String)request.getAttribute("ErrorEtudiant2"));
 	       }
 		%>
 		
