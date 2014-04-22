@@ -10,7 +10,6 @@ import java.util.List;
 import com.mysql.jdbc.PreparedStatement;
 
 import hei.dao.CommissionDao;
-
 import hei.model.Commission;
 
 public class CommissionDaoImpl implements CommissionDao{
@@ -189,6 +188,67 @@ public List<Commission> listerChoixCommission(Integer idEtudiant) {
         e.printStackTrace();
     }
 	return listeChoixCommission;
+}
+
+@Override
+public void modifierCommission(Integer idCommission, Integer idetudiant, Integer idpole , String nom, String description, String logo) {
+	try {
+        Connection connection = 
+            DataSourceProvider.getDataSource().getConnection();
+
+        // Utiliser la connexion
+        PreparedStatement stmt1 = (PreparedStatement) connection.prepareStatement(
+                  "UPDATE `commission` SET `idEtudiant`= ? WHERE `idCommission`=?");
+        PreparedStatement stmt2 = (PreparedStatement) connection.prepareStatement(
+        		"UPDATE `commission` SET `idPole`=? WHERE `idCommission`=?");
+        PreparedStatement stmt3 = (PreparedStatement) connection.prepareStatement(
+        		"UPDATE `commission` SET `nomCommission`=? WHERE `idCommission`=?");
+        PreparedStatement stmt4 = (PreparedStatement) connection.prepareStatement(
+        		"UPDATE `commission` SET `descriptionCom`=? WHERE `idCommission`=?");
+        PreparedStatement stmt5 = (PreparedStatement) connection.prepareStatement( 
+        		"UPDATE `commission` SET `adresseLogo`=? WHERE `idCommission`=?"); 
+        
+        stmt1.setInt(1,idetudiant);
+        stmt1.setInt(2,idCommission);
+        stmt2.setInt(1,idpole);
+        stmt2.setInt(2,idCommission);
+        stmt3.setString(1,nom);
+        stmt3.setInt(2,idCommission);
+        stmt4.setString(1,description);
+        stmt4.setInt(2,idCommission);
+        stmt5.setString(1,logo);
+        stmt5.setInt(2,idCommission);
+        
+        stmt1.executeUpdate();
+        stmt2.executeUpdate();
+        stmt3.executeUpdate();
+        stmt4.executeUpdate();
+        stmt5.executeUpdate();
+        // Fermer la connexion
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+	
+}
+
+@Override
+public void supprimerCommission(Integer idCommission) {
+	try {
+        Connection connection = 
+            DataSourceProvider.getDataSource().getConnection();
+
+        // Utiliser la connexion
+        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
+                  "DELETE FROM `commission` WHERE idCommission = ?"); 
+        
+        stmt.setInt(1,idCommission);
+        stmt.executeUpdate();
+        // Fermer la connexion
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
 }	
 
 }
