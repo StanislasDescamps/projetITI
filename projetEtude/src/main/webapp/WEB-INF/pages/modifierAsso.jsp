@@ -19,7 +19,7 @@
 			<a href="connexion?logout">Déconnexion</a>
 		</aside>
 		<aside class="retour">
-			<a href="mesOptions">Retour</a>
+			<a href="listeModifAsso">Retour</a>
 		</aside>
 		<h3 id="titre">Modifier une association</h3>
 		<form class="ajoutAsso" action="modifierAsso" method="post">

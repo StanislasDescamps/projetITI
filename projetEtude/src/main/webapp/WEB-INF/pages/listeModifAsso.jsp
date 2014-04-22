@@ -40,7 +40,7 @@
 				<ul>
 					<c:forEach var="commission" items="${listeComm}">
 						<c:if test="${commission.idpole==1}">
-						<li>${commission.nomCommission} <a href="modifierAsso?idcommission=${commission.idcommission}">Modifier</a><a href="">Supprimer</a></li>
+						<li>${commission.nomCommission} <a href="modifierAsso?idcommission=${commission.idcommission}">Modifier</a>    <a href="supprimerAsso?idcommission=${commission.idcommission}">Supprimer</a></li>
 						</c:if>
 					</c:forEach>
 				</ul>

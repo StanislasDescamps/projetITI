@@ -43,6 +43,10 @@
 		<servlet-class>hei.controllers.AjouterAssoServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>SupprimerAsso</servlet-name>
+		<servlet-class>hei.controllers.SupprimerAssoServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>PresentationAsso</servlet-name>
 		<servlet-class>hei.controllers.PresentationAssoServlet</servlet-class>
 	</servlet>
@@ -86,6 +90,10 @@
 	<servlet-mapping>
 		<servlet-name>AjouterAsso</servlet-name>
 		<url-pattern>/ajouterAsso</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SupprimerAsso</servlet-name>
+		<url-pattern>/supprimerAsso</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>PresentationAsso</servlet-name>
