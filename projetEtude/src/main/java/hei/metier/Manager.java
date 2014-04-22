@@ -77,6 +77,9 @@ public class Manager {
 	public List<Evenement> listerEvenementEtudiant(Integer idEtudiant) {
 		return evenementDao.listerEvenementEtudiant(idEtudiant);
 	}
+	public Evenement getEvenement(Integer idEvenement){
+		return evenementDao.getEvenement(idEvenement);
+	}
 	
 	//Commission
 	public List<Commission> listerCommission() {

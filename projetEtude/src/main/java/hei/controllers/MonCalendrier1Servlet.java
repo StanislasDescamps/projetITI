@@ -7,6 +7,7 @@ import hei.model.Pole;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -27,7 +28,23 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		List<Evenement> listEvent = Manager.getInstance().listerEvenementEtudiant(idEtudiant);
-		request.setAttribute("listeEventPerso", listEvent);
+				
+		List<Date> listeDate=new ArrayList<Date>();
+		Date dateToday=new Date();
+		for (int i=0; i<listEvent.size(); i++) {
+			Evenement event= Manager.getInstance().getEvenement(listEvent.get(i).getIdEvenement());
+			if(dateToday.equals(event.getDateDebut())||dateToday.before(event.getDateDebut())){		
+			
+			listeDate.add(event.getDateDebut());
+			}
+		}
+		
+		
+		/*List<Commission> listCommission = new ArrayList<Commission>();
+		for (int j=0;j<listEvent.size(); j++){
+			Commission commission = Manager.getInstance().getCommissionEvent(listEvent.get(j).getIdCommission());
+			commission.add(listCommission);
+		}*/
 		
 		List<String> nomDesPoles = new ArrayList<String>();
 		for (int i=0; i<listEvent.size(); i++) {
