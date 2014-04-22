@@ -23,10 +23,14 @@
 		</aside>
 		<h3 id="titre">Modifier une association</h3>
 		<form class="ajoutAsso" action="ajouterAsso" method="post">
-			<legend>--Nom de l'asso à modifier--</legend></br>
+			<legend>${commission.nomCommission}</legend></br>
 			<section id="nom">
 				<label for="nomAsso">Nom de l'association :</label>
 				<input type="text" name="nomAsso" id="nomAsso" placeholder=" Nom de l'association"/></br>
+			</section>
+			<section id="responsable">
+				<label for="responsable">Président de l'association :</label>
+				<input type="text" name="mailResp" id="mailResp" placeholder=" ${etudiant.mail}"/></br>
 			</section>
 			<section id="logo">
 				<label for="logo">Logo :</label>
@@ -35,11 +39,11 @@
 			<section id="bureau">
 				<select id="bureau" name="bureau">
 						<option value="">--Pôle Associé--</option>
-						<option value="BDA">BDA</option>
-						<option value="BDS">BDS</option>
-						<option value="CapSo">Cap Solidaire</option>
-						<option value="PES">PES</option>
-						<option value="PET">PET</option>
+						<option value="1">BDA</option>
+						<option value="2">BDS</option>
+						<option value="3">Cap Solidaire</option>
+						<option value="4">PES</option>
+						<option value="5">PET</option>
 				</select></br>
 			</section>
 			<section id="description">
@@ -50,6 +54,13 @@
 				<input type="submit" value="Enregistrer"/>
 			</section>
 		</form>	
+		
+		<%
+		 if(request.getAttribute("ErrorEtudiant")!=null) {
+	           out.print((String)request.getAttribute("ErrorEtudiant"));
+	       }
+		%>
+		
 		<footer>
 			<div>Réalisation HEI</div>
 		</footer>

@@ -56,7 +56,9 @@ public class Manager {
 	public Etudiant getEtudiantResp(Integer idCommission){
 		return etudiantDao.getEtudiantResp(idCommission);
 	}
-	
+	public Etudiant getEtudiantNomPrenom(String nom, String prenom ){
+		return etudiantDao.getEtudiantNomPrenom(nom, prenom);
+	}
 	// Pole
 	public List<Pole> listerPole() {
 		return poleDao.listerPole();
@@ -97,6 +99,12 @@ public class Manager {
 	}
 	public List<Commission> listerChoixCommission(Integer idEtudiant) {
 		return commissionDao.listerChoixCommission(idEtudiant);
+	}
+	public void modifierCommission(Integer idCommission, Integer idetudiant,Integer idpole , String nom, String description, String logo){
+		commissionDao.modifierCommission(idCommission, idetudiant, idpole ,  nom,  description,  logo);
+	}
+	public void supprimerCommission(Integer idCommission){
+		commissionDao.supprimerCommission(idCommission);
 	}
 	
 	//Calendrier

@@ -22,18 +22,7 @@
 			<a href="mesOptions">Retour</a>
 		</aside>
 		<h3 id="titre">Ajouter une association</h3>
-		
-		<%
-		 if(request.getAttribute("ErrorEtudiant")!=null) {
-	           out.print((String)request.getAttribute("ErrorEtudiant"));
-	       }
-		%>
-		<%
-		 if(request.getAttribute("ErrorComm")!=null) {
-	           out.print((String)request.getAttribute("ErrorComm"));
-	       }
-		%>
-		
+				
 		<form class="ajoutAsso" action="ajouterAsso" method="post">
 			<legend>Nouvelle association</legend></br>
 			<section id="nom">
@@ -64,6 +53,18 @@
 				<input type="submit" value="Enregistrer"/>
 			</section>
 		</form>	
+		
+		<%
+		 if(request.getAttribute("ErrorEtudiant")!=null) {
+	           out.print((String)request.getAttribute("ErrorEtudiant"));
+	       }
+		%>
+		<%
+		 if(request.getAttribute("ErrorComm")!=null) {
+	           out.print((String)request.getAttribute("ErrorComm"));
+	       }
+		%>
+		
 		<footer>
 			<div>Réalisation HEI</div>
 		</footer>
