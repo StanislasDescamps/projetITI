@@ -49,6 +49,6 @@ public class MesOptionsServlet extends HttpServlet{
 			Integer idCommission=Integer.parseInt(preference[i]);
 			Manager.getInstance().ajouterChoixCommission(idEtudiant,idCommission);
 		}		
-		response.sendRedirect("monCalendrier1");
+	response.sendRedirect("monCalendrier1");
 	}
 }
