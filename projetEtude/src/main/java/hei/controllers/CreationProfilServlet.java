@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
+import javax.mail.Address;
 import javax.mail.Session;
 import javax.mail.Message;
 import javax.mail.internet.MimeBodyPart;
@@ -76,7 +77,8 @@ public class CreationProfilServlet extends HttpServlet {
 		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, false);
 		Manager.getInstance().ajouterEtudiant(nouvelEtudiant);
 		envoyerMail(mail,motpass);
-		Calendrier nouveauCal = new Calendrier(null, nouvelEtudiant.getIdetudiant(),formater.format(date));
+		
+		Calendrier nouveauCal = new Calendrier(null, Manager.getInstance().getEtudiantMail(mail).getIdetudiant(),formater.format(date));
 		Manager.getInstance().ajouterCalendrier(nouveauCal);
 		response.sendRedirect("connexion");
 		} 
@@ -97,9 +99,14 @@ public class CreationProfilServlet extends HttpServlet {
 		return password;
 	}
 	private void envoyerMail(String mail, String password){
+		
 		try {
+			Transport transport=null;
 		    Properties		props	    = new Properties();
 		    props.setProperty("mail.from", "stanislas.descamps@hei.fr");
+		    props.setProperty("mail.transport.protocol", "smtp");
+		    props.setProperty("mail.smtp.host", "host.hotmail.com");
+		    
 		    Session		session	    = Session.getInstance(props);
 	 
 		    Message		message	    = new MimeMessage(session);
@@ -116,8 +123,11 @@ public class CreationProfilServlet extends HttpServlet {
 		    MimeMultipart mp = new MimeMultipart();
 		    mp.addBodyPart(mbp1);
 		    message.setContent(mp);
-	 
-		    Transport.send(message);
+		    
+		    transport = session.getTransport("smtp");
+		    transport.connect("stanislas.descamps@hei.fr","sa4gcz4g");
+		    transport.sendMessage(message,new Address[]{new InternetAddress("stanislas.descamps@hei.fr"),new InternetAddress(mail)});
+		System.out.println("in");
 		}
 		catch(NoSuchProviderException e) {
 		    System.err.println("Pas de transport disponible pour ce protocole");

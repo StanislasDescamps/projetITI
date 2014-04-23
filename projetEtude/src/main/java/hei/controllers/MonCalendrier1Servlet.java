@@ -28,7 +28,8 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		List<Evenement> listEvent = Manager.getInstance().listerEvenementEtudiant(idEtudiant);
-				
+		
+		
 		List<Date> listeDate=new ArrayList<Date>();
 		Date dateToday=new Date();
 		for (int i=0; i<listEvent.size(); i++) {

@@ -3,12 +3,6 @@ package hei.controllers;
 import hei.metier.Manager;
 import hei.model.Commission;
 
-
-
-
-
-
-
 import java.io.IOException;
 import java.util.List;
 
@@ -47,7 +41,7 @@ public class MesOptionsServlet extends HttpServlet{
 		
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
-		//a modifier par rapport au filtre
+		
 		
 		String[] preference = request.getParameterValues("commission");
 		for(int i=0;i<preference.length;i++)
@@ -55,5 +49,6 @@ public class MesOptionsServlet extends HttpServlet{
 			Integer idCommission=Integer.parseInt(preference[i]);
 			Manager.getInstance().ajouterChoixCommission(idEtudiant,idCommission);
 		}		
+		response.sendRedirect("monCalendrier1");
 	}
 }
