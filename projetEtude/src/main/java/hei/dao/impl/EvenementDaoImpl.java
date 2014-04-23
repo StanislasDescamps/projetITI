@@ -25,11 +25,14 @@ public class EvenementDaoImpl implements EvenementDao {
 	    while (results.next()) {
 	    	Evenement evenement = new Evenement(results.getInt("idEvenement"), 
 	                   results.getInt("idCommission"),
+	                   results.getString("nomCommission"),
+	                   results.getString("nomPole"),
 	                   results.getString("titreEvent"),
 	                   results.getString("descriptionEvent"),
 	                   results.getString("lieuEvent"),
 	                   results.getDate("dateDebut"),
-	                   results.getDate("dateFin"));
+	                   results.getDate("dateFin"),
+	                   results.getString("image"));
 	    	listeEvent.add(evenement);
 	    }
 		connection.close();
@@ -81,11 +84,14 @@ public class EvenementDaoImpl implements EvenementDao {
 	        if(results.next()){
 	        	evenement = new Evenement(results.getInt("idEvenement"),
 	                    results.getInt("idCommission"),
+	                    results.getString("nomCommission"),
+		                results.getString("nomPole"),
 	                    results.getString("titreEvent"),
 	                    results.getString("descriptionEvent"),
 	                    results.getString("lieuEvent"),
 	                    results.getDate("dateDebut"),
-	                    results.getDate("dateFin"));
+	                    results.getDate("dateFin"),
+		                results.getString("image"));
 	        }
 
 	        // Fermer la connexion
@@ -106,11 +112,14 @@ public List<Evenement> listerEvenementEtudiant(Integer idEtudiant) {
 	    	while (results.next()) {
 	    	Evenement evenement = new Evenement(results.getInt("idEvenement"), 
 	                   results.getInt("idCommission"),
+	                   results.getString("nomCommission"),
+	                   results.getString("nomPole"),
 	                   results.getString("titreEvent"),
 	                   results.getString("descriptionEvent"),
 	                   results.getString("lieuEvent"),
 	                   results.getDate("dateDebut"),
-	                   results.getDate("dateFin"));
+	                   results.getDate("dateFin"),
+	                   results.getString("image"));
 	    	listeEvent.add(evenement);
 	    }
 		connection.close();

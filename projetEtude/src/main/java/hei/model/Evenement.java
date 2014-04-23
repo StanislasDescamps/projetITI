@@ -10,21 +10,27 @@ public class Evenement {
 	
 	private Integer idEvenement;
 	private Integer idCommission;
+	private String nomCommission;
+	private String nomPole;
 	private String titreEvent;
 	private String descriptionEvent;
 	private String lieu;
 	private Date dateDebut;
 	private Date dateFin;
+	private String image;
 	
-	public Evenement(Integer idevenement, Integer idcommission, String titre, String description, String lieu, Date debut, Date fin){
+	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, Date debut, Date fin, String image){
 		super();
 		this.idEvenement = idevenement;
 		this.idCommission = idcommission;
+		this.nomCommission = nomCommission;
+		this.nomPole = nomPole;
 		this.titreEvent = titre;
 		this.descriptionEvent = description;
 		this.lieu = lieu;
 		this.dateDebut = debut;
 		this.dateFin = fin;
+		this.image = image;
 	}
 
 	public static DateFormat getDateFormat() {
@@ -49,6 +55,22 @@ public class Evenement {
 
 	public void setIdCommission(Integer idCommission) {
 		this.idCommission = idCommission;
+	}
+
+	public String getNomCommission() {
+		return nomCommission;
+	}
+
+	public void setNomCommission(String nomCommission) {
+		this.nomCommission = nomCommission;
+	}
+
+	public String getNomPole() {
+		return nomPole;
+	}
+
+	public void setNomPole(String nomPole) {
+		this.nomPole = nomPole;
 	}
 
 	public String getTitreEvent() {
@@ -89,5 +111,15 @@ public class Evenement {
 
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
-	}	
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	
 }
