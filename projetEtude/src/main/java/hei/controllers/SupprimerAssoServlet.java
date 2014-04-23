@@ -36,6 +36,7 @@ public class SupprimerAssoServlet extends HttpServlet {
 		
 		String reponse=request.getParameter("trap");
 		
+		System.out.println(reponse);
 		if(reponse.equals("OUI")){
 			Manager.getInstance().supprimerCommission(idCommission);}
 			

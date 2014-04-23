@@ -97,6 +97,10 @@ top:70px;
 left:400px;
 width:200px;	
 }
+input#idcommission
+{
+display:none;
+}
 section.tous
 {
 position: relative;

@@ -25,6 +25,7 @@
 		<form class="ajoutAsso" action="modifierAsso" method="post">
 			<legend>${commission.nomCommission}</legend></br>
 			<section id="nom">
+				<input type="text" name="idcommission" id="idcommission" value="${commission.idcommission}"/>
 				<label for="nomAsso">Nom de l'association :</label>
 				<input type="text" name="nomAsso" id="nomAsso" placeholder=" Nom de l'association"/></br>
 			</section>

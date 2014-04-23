@@ -23,11 +23,11 @@
 		</aside>
 		<h3 id="titre2">Etes-vous sur de vouloir supprimer ?</h3>
 		<h2 id="asuppr">${commission.nomCommission}</h2>
-		
-		<input type="button" id="trap" value="OUI" class="bouton"/>
- 
-		<input type="button" id="trap" value="NON" class="bouton"/>
-		
+			<form class="supprAsso" action="supprimerAsso" method="post">
+				<input type="text" name="idcommission" id="idcommission" value="${commission.idcommission}"/>
+				<input type="button" name="trap" id="trap" value="OUI" class="bouton"/>
+				<input type="button" name="trap" id="trap" value="NON" class="bouton"/>
+			</form>
 		<footer>
 			<div> Réalisation HEI </div>
 		</footer>

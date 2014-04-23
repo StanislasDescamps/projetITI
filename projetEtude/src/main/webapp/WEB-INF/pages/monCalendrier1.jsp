@@ -17,7 +17,7 @@
 		<jsp:include page="menu.jsp"/>
 		<c:set var="pageSelectionnee" value="monCalendrier1" scope="request"></c:set>
 		<aside class="deconnexion">
-			<a href="connexion?logout">Deconnexion</a>
+			<a href="connexion?logout">Déconnexion</a>
 		</aside>
 		<!--  <section class="choix1">
 			<form id="choix" action="calendrierHei" method="get">
