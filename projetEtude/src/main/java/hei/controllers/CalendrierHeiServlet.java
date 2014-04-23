@@ -1,12 +1,12 @@
 package hei.controllers;
 
 import hei.metier.Manager;
-import hei.model.Commission;
+//import hei.model.Commission;
 import hei.model.Evenement;
-import hei.model.Pole;
+//import hei.model.Pole;
 
 import java.io.IOException;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -26,7 +26,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 		List<Evenement> listEvent = Manager.getInstance().listerEvenement();
 		request.setAttribute("listeEventEntiere", listEvent);
 		
-		List<String> nomDesPoles = new ArrayList<String>();
+		/*List<String> nomDesPoles = new ArrayList<String>();
 		for (int i=0; i<listEvent.size(); i++) {
 			Pole pole= Manager.getInstance().getPoleEvent(listEvent.get(i).getIdEvenement());
 			nomDesPoles.add(pole.getNomPole());
@@ -45,7 +45,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 			Commission commission = Manager.getInstance().getCommissionEvent(listEvent.get(i).getIdCommission());
 			adressLogo.add(commission.getLogo());
 		}
-		request.setAttribute("commission", adressLogo);
+		request.setAttribute("commission", adressLogo);*/
 		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/calendrierHei.jsp");
 		view.forward(request, response);

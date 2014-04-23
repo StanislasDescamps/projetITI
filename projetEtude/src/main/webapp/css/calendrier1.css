@@ -99,15 +99,15 @@ article h2
 position:relative;
 top:0px;
 left:100px;
-padding:10px;
+padding:5px;
 max-width: 500px;
 margin:20px;
 }
 article.description
 {
 position:relative;
-top:30px;
-right: 50px;
+top:10px;
+right: 300px;
 }
 article#BDA
 {
@@ -126,7 +126,14 @@ article p
 position:relative;
 margin:20px;
 top:-50px;
-left:300px;
+left:400px;
+}
+article p#horaire
+{
+position:relative;
+margin:20px;
+top:-60px;
+left:800px;
 }
 img
 {

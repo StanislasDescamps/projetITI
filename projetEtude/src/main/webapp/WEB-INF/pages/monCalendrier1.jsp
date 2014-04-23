@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,15 +29,16 @@
 		</section>-->
 		<c:forEach var="evenement" items="${listeEventPerso}">
 		<section class="${evenement.dateDebut}">
-			<h2>${evenement.dateDebut}</h2>
+			<h2><fmt:formatDate value="${evenement.dateDebut}" pattern="dd MMMM yyyy"/></h2>
 				<article id="${evenement.nomPole}" class="resume">
 					<img src="${evenement.image}"/>
-					<h2>${evenement.nomCommission}</h2>
-					<p>${evenement.titreEvent}</p>
+					<h2>${evenement.titreEvent}</h2>
+					<p>Par la commission : ${evenement.nomCommission}</p>
 					<article class="description">
 						<p>${evenement.descriptionEvent} </p>
-						<p>${evenement.lieu}</p>
-						<p>Horaire : </p>
+						<p>Lieu : ${evenement.lieu}</p>
+						<p id="horaire">Début : <fmt:formatDate value="${evenement.dateDebut}" pattern="dd MMMM yyyy HH:mm"/></p>
+						<p id="horaire">Fin : <fmt:formatDate value="${evenement.dateFin}" pattern="dd MMMM yyyy HH:mm"/></p>
 					</article>
 				</article>
 		</section>

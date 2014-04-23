@@ -68,7 +68,6 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		}
 		request.setAttribute("commission", adressLogo);*/
 		
-		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/monCalendrier1.jsp");
 		view.forward(request, response);
 	}

@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,28 +30,18 @@
 		
 		<c:forEach var="evenement" items="${listeEventEntiere}">
 		<section class="${evenement.dateDebut}">
-			<h2>${evenement.dateDebut}</h2>
-			<p>${evenement.titreEvent}</p>
-				
-		
-		<c:forEach var="pole" items="${listePoleEvent}">
-				<article class="entier">
-				<article id="${pole}" class="resume">
-				
-		<c:forEach var="commission" items="${commission}">
-					<img src="${commission}"/>
-		
-		<c:forEach var="commission" items="${listeCommEvent}">
-					<h2>${commission}</h2>
+			<h2><fmt:formatDate value="${evenement.dateDebut}" pattern="dd MMMM yyyy"/></h2>
+				<article id="${evenement.nomPole}" class="resume">
+					<img src="${evenement.image}"/>
+					<h2>${evenement.titreEvent}</h2>
+					<p>Par la commission : ${evenement.nomCommission}</p>
 					<article class="description">
 						<p>${evenement.descriptionEvent} </p>
+						<p>Lieu : ${evenement.lieu}</p>
+						<p id="horaire">Début : <fmt:formatDate value="${evenement.dateDebut}" pattern="dd MMMM yyyy HH:mm"/></p>
+						<p id="horaire">Fin : <fmt:formatDate value="${evenement.dateFin}" pattern="dd MMMM yyyy HH:mm"/></p>
 					</article>
 				</article>
-			</article>
-		
-		</c:forEach>
-		</c:forEach>
-		</c:forEach>		
 		</section>
 		</c:forEach>
 		
