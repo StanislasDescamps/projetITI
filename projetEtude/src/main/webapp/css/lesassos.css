@@ -16,7 +16,7 @@ body
 font-family: "Arial", sans-serif, 1em;
 background-image: url(../img/test2.jpg);
 background-size: 1080px auto;
-margin-bottom: 50px;
+margin-bottom: 100px;
 }
 
 nav li
@@ -124,21 +124,37 @@ article.entier#BDA
 {
 background-color:rgba(255,0,0,0.5);
 }
-article.asso#PET
-{
-background-color:#800080;
-}
-article.entier#PET
-{
-background-color:#800080;
-}
 article.asso#BDS
 {
-background-color:#008000;
+background-color:rgba(0,255,0,0.5);
 }
 article.entier#BDS
 {
-background-color:#008000;
+background-color:rgba(0,255,0,0.5);
+}
+article.asso#CapSo
+{
+background-color:rgba(0,0,255,0.4);
+}
+article.entier#CapSo
+{
+background-color:rgba(0,0,255,0.4);
+}
+article.asso#PES
+{
+background-color:rgba(255,127,0,0.5);
+}
+article.entier#PES
+{
+background-color:rgba(255,127,0,0.5);
+}
+article.asso#PET
+{
+background-color:rgba(127,0,255,0.8);
+}
+article.entier#PET
+{
+background-color:rgba(127,0,255,0.8);
 }
 article.presentation
 {
