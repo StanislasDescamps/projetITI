@@ -6,18 +6,20 @@ import hei.model.Etudiant;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
-import javax.mail.Address;
+
+//import javax.mail.Address;
 import javax.mail.Session;
 import javax.mail.Message;
-import javax.mail.internet.MimeBodyPart;
+
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMultipart;
-import javax.mail.Transport;
+
+//import javax.mail.Transport;
  
 import javax.mail.internet.AddressException;
 import javax.mail.NoSuchProviderException;
@@ -27,6 +29,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.sun.mail.smtp.SMTPTransport;
 
 public class CreationProfilServlet extends HttpServlet {
 
@@ -76,7 +80,12 @@ public class CreationProfilServlet extends HttpServlet {
 		{
 		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, false);
 		Manager.getInstance().ajouterEtudiant(nouvelEtudiant);
-		envoyerMail(mail,motpass);
+		try {
+			envoyerMail(nom, prenom, mail, motpass);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		Calendrier nouveauCal = new Calendrier(null, Manager.getInstance().getEtudiantMail(mail).getIdetudiant(),formater.format(date));
 		Manager.getInstance().ajouterCalendrier(nouveauCal);
@@ -98,36 +107,34 @@ public class CreationProfilServlet extends HttpServlet {
         } 		
 		return password;
 	}
-	private void envoyerMail(String mail, String password){
+	private void envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
 		
 		try {
-			Transport transport=null;
-		    Properties		props	    = new Properties();
-		    props.setProperty("mail.from", "stanislas.descamps@hei.fr");
-		    props.setProperty("mail.transport.protocol", "smtp");
-		    props.setProperty("mail.smtp.host", "host.hotmail.com");
-		    
-		    Session		session	    = Session.getInstance(props);
+			
+		    Properties props = System.getProperties();
+		    props.put("mail.smtps.host", "smtp.gmail.com");
+		    props.put("mail.smtps.auth", "true"); 
+		    //props.setProperty("mail.transport.protocol", "smtp");
+		        
+		    Session		session	    = Session.getInstance(props,null);
 	 
 		    Message		message	    = new MimeMessage(session);
-		    InternetAddress	recipient   = new InternetAddress(mail);
-		    message.setRecipient(Message.RecipientType.TO, recipient);
+		    message.setFrom(new InternetAddress("stanislas.descamps@gmail.fr"));
+		    //InternetAddress	recipient   = new InternetAddress(mail);
+		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail,false));
 		    message.setSubject("Votre mot de passe HEI-Diary");
 	 
-		    // Partie 1: Le texte
-		    MimeBodyPart mbp1 = new MimeBodyPart();
-		    mbp1.setText("Bonjour, merci de vous être inscrit sur HEI-Diary. votre mot de passe sera : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
+		    
+		    message.setText("Bonjour"+ prenom +" " + nom +", merci de vous être inscrit sur HEI-Diary. votre mot de passe sera : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
 	 
+	
+		    message.setSentDate(new Date());
 		    
-		    // On regroupe les deux dans le message
-		    MimeMultipart mp = new MimeMultipart();
-		    mp.addBodyPart(mbp1);
-		    message.setContent(mp);
-		    
-		    transport = session.getTransport("smtp");
-		    transport.connect("stanislas.descamps@hei.fr","sa4gcz4g");
-		    transport.sendMessage(message,new Address[]{new InternetAddress("stanislas.descamps@hei.fr"),new InternetAddress(mail)});
-		System.out.println("in");
+		    SMTPTransport transport = (SMTPTransport)session.getTransport("smtp");
+		    transport.connect("smtp.gmail.com","stanislas.descamps@gmail.fr","sa4gcz4g");
+		    transport.sendMessage(message,message.getAllRecipients());
+		System.out.println("Reponse" + transport.getLastServerResponse());
+		transport.close();
 		}
 		catch(NoSuchProviderException e) {
 		    System.err.println("Pas de transport disponible pour ce protocole");
