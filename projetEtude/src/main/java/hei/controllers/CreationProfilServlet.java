@@ -11,15 +11,10 @@ import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 
-
-//import javax.mail.Address;
 import javax.mail.Session;
 import javax.mail.Message;
-
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.InternetAddress;
-
-//import javax.mail.Transport;
  
 import javax.mail.internet.AddressException;
 import javax.mail.NoSuchProviderException;
@@ -30,7 +25,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.mail.smtp.SMTPTransport;
+import com.sun.mail.smtp.*;
 
 public class CreationProfilServlet extends HttpServlet {
 
@@ -114,12 +109,13 @@ public class CreationProfilServlet extends HttpServlet {
 		    Properties props = System.getProperties();
 		    props.put("mail.smtps.host", "smtp.gmail.com");
 		    props.put("mail.smtps.auth", "true"); 
-		    //props.setProperty("mail.transport.protocol", "smtp");
-		        
+		    props.put("mail.smtp.starttls.enable", "true");
+	        props.put("mail.smtp.port", "587");
+	       
 		    Session		session	    = Session.getInstance(props,null);
 	 
 		    Message		message	    = new MimeMessage(session);
-		    message.setFrom(new InternetAddress("stanislas.descamps@gmail.fr"));
+		    message.setFrom(new InternetAddress("stanislas.descamps@gmail.com"));
 		    //InternetAddress	recipient   = new InternetAddress(mail);
 		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail,false));
 		    message.setSubject("Votre mot de passe HEI-Diary");
@@ -131,7 +127,7 @@ public class CreationProfilServlet extends HttpServlet {
 		    message.setSentDate(new Date());
 		    
 		    SMTPTransport transport = (SMTPTransport)session.getTransport("smtp");
-		    transport.connect("smtp.gmail.com","stanislas.descamps@gmail.fr","sa4gcz4g");
+		    transport.connect("smtp.gmail.com","stanislas.descamps@gmail.com","sa4gcz4g");
 		    transport.sendMessage(message,message.getAllRecipients());
 		System.out.println("Reponse" + transport.getLastServerResponse());
 		transport.close();
