@@ -27,16 +27,16 @@
 			<legend>Nouvelle association</legend></br>
 			<section id="nom">
 				<label for="nomAsso">Nom de l'association :</label>
-				<input type="text" name="nomAsso" id="nomAsso" placeholder=" Nom de l'association"/></br>
+				<input type="text" name="nomAsso" id="nomAsso" placeholder=" Nom de l'association" required/></br>
 				<label for="referent">Mail de l'étudiant référent:</label>
-				<input type="text" name="referent" id="referent" placeholder=" etudiant.référent@hei.fr"/></br>
+				<input type="text" name="referent" id="referent" placeholder=" etudiant.référent@hei.fr" required/></br>
 			</section>
 			<section id="logo">
 				<label for="logo">Logo :</label>
 				<input type="file" name="logo" id="logo"/></br>
 			</section>
 			<section id="bureau">
-				<select id="bureau" name="bureau">
+				<select id="bureau" name="bureau" >
 						<option value="">--Pôle Associé--</option>
 						<option value="BDA">BDA</option>
 						<option value="BDS">BDS</option>
@@ -46,7 +46,7 @@
 				</select></br>
 			</section>
 			<section id="description">
-				<textarea name="description" id="description" placeholder="Description de l'association" rows="10" cols="50"></textarea>
+				<textarea name="description" id="description" placeholder="Description de l'association" rows="10" cols="50" required></textarea>
 			</section>
 			<section id="bouton">
 				<input type="reset" value="Réinitialiser"/>

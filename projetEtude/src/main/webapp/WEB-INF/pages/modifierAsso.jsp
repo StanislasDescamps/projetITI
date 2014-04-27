@@ -25,13 +25,13 @@
 		<form class="ajoutAsso" action="modifierAsso" method="post">
 			<legend>${commission.nomCommission}</legend></br>
 			<section id="nom">
-				<input type="text" name="idcommission" id="idcommission" value="${commission.idcommission}"/>
+				<input type="text" name="idcommission" id="idcommission" value="${commission.idcommission}"required/>
 				<label for="nomAsso">Nom de l'association :</label>
-				<input type="text" name="nomAsso" id="nomAsso" placeholder=" Nom de l'association"/></br>
+				<input type="text" name="nomAsso" id="nomAsso" placeholder=" Nom de l'association" required/></br>
 			</section>
 			<section id="responsable">
 				<label for="responsable">President de l'association :</label>
-				<input type="text" name="mailResp" id="mailResp" placeholder=" ${etudiant.email}"/></br>
+				<input type="text" name="mailResp" id="mailResp" placeholder=" ${etudiant.email}" required/></br>
 			</section>
 			<section id="logo">
 				<label for="logo">Logo :</label>
@@ -48,7 +48,7 @@
 				</select></br>
 			</section>
 			<section id="description">
-				<textarea name="description" id="description" placeholder="Description de l'association" rows="10" cols="50"></textarea>
+				<textarea name="description" id="description" placeholder="Description de l'association" rows="10" cols="50" required></textarea>
 			</section>
 			<section id="bouton">
 				<input type="reset" value="Réinitialiser"/>

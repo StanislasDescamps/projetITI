@@ -6,13 +6,13 @@
         <meta charset="utf-8"/>
         <title>Création du profil</title>
     </head>
-	<body>
+	<body style="font-family: arial, sans-serif, 1em;">
 		<!-- Corps de la page -->
 		<link rel="stylesheet" href="css/creationProfil.css">
-		<h1 id="titre1">HEI-Diary</h1>
-		<h1 id="titre2">Bienvenue sur HEI-Diary</h1>
-		<h2>L'application qui vous tient informé</h2>
-		<h3>Première étape : Création du profil</h3>
+		<h1 style="position:relative; left:550px;color: red;"id="titre1">HEI-Diary</h1>
+		<h1 style="position:relative; left:450px;color: red;" id="titre2">Bienvenue sur HEI-Diary</h1>
+		<h2 style="position:relative; left:450px;color: blue;padding:10px 0px 10px 0px;">L'application qui vous tient informé</h2>
+		<h3 style="position:relative; left:450px;">Première étape : Création du profil</h3>
 		
 		<%
 		 if(request.getAttribute("loginError")!=null) {
@@ -20,7 +20,7 @@
 	       }
 		%>
 				
-		<form id="creationProfil" action="creationProfil" method="post">
+		<form id="creationProfil" action="creationProfil" method="post" style="position:relative; margin: auto;width:400px;height:auto;">
 			<fieldset>
 				<legend>Profil</legend>
 					<label for="nom">Nom :</label>
