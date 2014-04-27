@@ -25,8 +25,8 @@
 		<h2 id="asuppr">${commission.nomCommission}</h2>
 			<form class="supprAsso" action="supprimerAsso" method="post">
 				<input type="text" name="idcommission" id="idcommission" value="${commission.idcommission}"/>
-				<input type="submit" name="oui" id="oui" value="OUI" class="bouton" onclick="monBouton=1"/>
-				<input type="submit" name="non" id="non" value="NON" class="bouton" onclick="monBouton=2"/>
+				<input type="submit" name="trap1" id="trap" value="OUI" />
+				<input type="submit" name="trap2" id="trap" value="NON" />
 			</form>
 		<footer>
 			<div> Réalisation HEI </div>
