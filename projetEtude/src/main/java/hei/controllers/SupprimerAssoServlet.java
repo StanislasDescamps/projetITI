@@ -34,12 +34,12 @@ public class SupprimerAssoServlet extends HttpServlet {
 		
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
-		String reponse=request.getParameter("trap");
+		String reponse=request.getParameter("monBouton");
 		
 		System.out.println(reponse);
-		if(reponse.equals("OUI")){
-			Manager.getInstance().supprimerCommission(idCommission);}
+		//if(reponse.equals("OUI")){
+		//	Manager.getInstance().supprimerCommission(idCommission);}
 			
-		response.sendRedirect("listeModifAsso");
+		//response.sendRedirect("listeModifAsso");
 	}
 }
