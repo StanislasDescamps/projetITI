@@ -97,11 +97,11 @@ box-shadow : 0px 5px 2px 0px #A9A9A9;
 article h2
 {
 position:relative;
-top:0px;
+top:-20px;
 left:100px;
 padding:5px;
-max-width: 500px;
-margin:20px;
+max-width: 400px;
+margin:20px 20px 20px 20px;
 }
 article.description
 {
@@ -129,19 +129,35 @@ article#PET
 {
 background-color:rgba(127,0,255,0.5);
 }
-article p
+article p#lieu
 {
-position:relative;
+position: relative;
 margin:20px;
-top:-50px;
+top:-30px;
 left:400px;
+}
+article p#nomCom
+{
+position: relative;
+margin:20px;
+top:-70px;
+left:400px;
+}
+article p#description
+{
+position: relative;
+margin:20px;
+top:-70px;
+left:400px;
+height:60px;
+width:600px;
 }
 article p#horaire
 {
 position:relative;
 margin:20px;
-top:-60px;
-left:800px;
+top:-100px;
+left:700px;
 }
 img
 {

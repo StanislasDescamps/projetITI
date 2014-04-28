@@ -34,10 +34,10 @@
 				<article id="${evenement.nomPole}" class="resume">
 					<img src="${evenement.image}"/>
 					<h2>${evenement.titreEvent}</h2>
-					<p>Par la commission : ${evenement.nomCommission}</p>
+					<p id="nomCom">Par la commission : ${evenement.nomCommission}</p>
 					<article class="description">
-						<p>${evenement.descriptionEvent} </p>
-						<p>Lieu : ${evenement.lieu}</p>
+						<p id="description">${evenement.descriptionEvent} </p>
+						<p id="lieu">Lieu : ${evenement.lieu}</p>
 						<p id="horaire">Début : <fmt:formatDate value="${evenement.dateDebut}" pattern="dd MMMM yyyy HH:mm"/></p>
 						<p id="horaire">Fin : <fmt:formatDate value="${evenement.dateFin}" pattern="dd MMMM yyyy HH:mm"/></p>
 					</article>
