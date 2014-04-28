@@ -135,6 +135,7 @@ position: relative;
 margin:20px;
 top:-30px;
 left:400px;
+width:200px;
 }
 article p#nomCom
 {
@@ -158,6 +159,17 @@ position:relative;
 margin:20px;
 top:-100px;
 left:700px;
+width:300px;
+}
+form#ajout
+{
+position: relative;
+top:-225px;
+left:725px;
+}
+input#idEvent
+{
+display:none;
 }
 img
 {

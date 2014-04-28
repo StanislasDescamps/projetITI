@@ -40,6 +40,10 @@
 						<p id="horaire">Début : <fmt:formatDate value="${evenement.dateDebut}" pattern="dd MMMM yyyy HH:mm"/></p>
 						<p id="horaire">Fin : <fmt:formatDate value="${evenement.dateFin}" pattern="dd MMMM yyyy HH:mm"/></p>
 					</article>
+					<form id="ajout" action="monCalendrier1" method="post">
+						<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
+						<input type="submit" name="synchroniser"value="Synchroniser" />
+					</form>
 				</article>
 		</section>
 		</c:forEach>
