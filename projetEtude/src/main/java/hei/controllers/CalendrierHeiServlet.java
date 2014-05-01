@@ -7,7 +7,9 @@ import hei.model.Evenement;
 //import hei.model.Pole;
 
 
+
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 //import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +40,24 @@ public class CalendrierHeiServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		List<Evenement> listEvent = Manager.getInstance().listerEvenement();
-		request.setAttribute("listeEventEntiere", listEvent);
+		
+		
+		List<Date> listeDate=new ArrayList<Date>();
+		Date dateToday=new Date();
+		for (int i=0; i<listEvent.size(); i++) {
+			Evenement event= Manager.getInstance().getEvenement(listEvent.get(i).getIdEvenement());
+			if(dateToday.equals(event.getDateDebut())||dateToday.before(event.getDateDebut())){		
+			
+			listeDate.add(event.getDateDebut());
+			}
+		
+		}
+		List<Evenement> listeEvent=new ArrayList<Evenement>();
+		for (int j=0; j<listeDate.size(); j++) {
+		Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
+		listeEvent.add(Event);
+		}
+		request.setAttribute("listeEventEntiere", listeEvent);
 		
 		/*List<String> nomDesPoles = new ArrayList<String>();
 		for (int i=0; i<listEvent.size(); i++) {

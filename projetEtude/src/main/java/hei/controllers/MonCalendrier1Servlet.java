@@ -45,7 +45,7 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		List<Evenement> listEvent = Manager.getInstance().listerEvenementEtudiant(idEtudiant);
-		request.setAttribute("listeEventPerso", listEvent);
+		
 		
 		List<Date> listeDate=new ArrayList<Date>();
 		Date dateToday=new Date();
@@ -55,9 +55,14 @@ public class MonCalendrier1Servlet extends HttpServlet {
 			
 			listeDate.add(event.getDateDebut());
 			}
+		
 		}
-		
-		
+		List<Evenement> listeEvent=new ArrayList<Evenement>();
+		for (int j=0; j<listeDate.size(); j++) {
+		Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
+		listeEvent.add(Event);
+		}
+		request.setAttribute("listeEventPerso", listeEvent);
 		/*List<Commission> listCommission = new ArrayList<Commission>();
 		for (int j=0;j<listEvent.size(); j++){
 			Commission commission = Manager.getInstance().getCommissionEvent(listEvent.get(j).getIdCommission());

@@ -1,6 +1,7 @@
 package hei.metier;
 
 
+import java.util.Date;
 import java.util.List;
 
 import hei.dao.CalendrierDao;
@@ -79,6 +80,9 @@ public class Manager {
 	}
 	public Evenement getEvenement(Integer idEvenement){
 		return evenementDao.getEvenement(idEvenement);
+	}
+	public Evenement getEvenementByDate(Date dateDebut) {
+		return evenementDao.getEvenementByDate(dateDebut);
 	}
 	
 	//Commission

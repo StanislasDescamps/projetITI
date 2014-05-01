@@ -128,4 +128,39 @@ public List<Evenement> listerEvenementEtudiant(Integer idEtudiant) {
 	    }
 		return listeEvent;
 	}
+
+@Override
+public Evenement getEvenementByDate(java.util.Date dateDebut) {
+	Evenement evenement= null;
+	// Cr�er une nouvelle connexion � la BDD
+    try {
+        Connection connection = 
+            DataSourceProvider.getDataSource().getConnection();
+
+        // Utiliser la connexion
+        PreparedStatement stmt = (PreparedStatement) connection
+        		.prepareStatement("SELECT * FROM evenement WHERE dateDebut =? ");
+        
+        stmt.setDate(1, (Date) dateDebut);
+        ResultSet results = stmt.executeQuery();
+        if(results.next()){
+        	evenement = new Evenement(results.getInt("idEvenement"),
+                    results.getInt("idCommission"),
+                    results.getString("nomCommission"),
+	                results.getString("nomPole"),
+                    results.getString("titreEvent"),
+                    results.getString("descriptionEvent"),
+                    results.getString("lieuEvent"),
+                    results.getDate("dateDebut"),
+                    results.getDate("dateFin"),
+	                results.getString("image"));
+        }
+
+        // Fermer la connexion
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+    return evenement;
+}
 }
