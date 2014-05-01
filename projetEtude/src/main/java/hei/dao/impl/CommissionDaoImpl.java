@@ -249,6 +249,26 @@ public void supprimerCommission(Integer idCommission) {
     } catch (SQLException e) {
         e.printStackTrace();
     }
+}
+
+@Override
+public void supprimerChoix(Integer idEtudiant) {
+	try {
+        Connection connection = 
+            DataSourceProvider.getDataSource().getConnection();
+
+        // Utiliser la connexion
+        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
+                  "DELETE FROM `choix` WHERE idEtudiant = ?"); 
+        
+        stmt.setInt(1,idEtudiant);
+        stmt.executeUpdate();
+        // Fermer la connexion
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+	
 }	
 
 }

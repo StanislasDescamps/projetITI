@@ -42,13 +42,23 @@ public class MesOptionsServlet extends HttpServlet{
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		
+		String btnenregistrer = request.getParameter("enregistrer");
+		String btnreinitialiser = request.getParameter("reinitialiser");
 		
-		String[] preference = request.getParameterValues("commission");
-		for(int i=0;i<preference.length;i++)
-		{
-			Integer idCommission=Integer.parseInt(preference[i]);
-			Manager.getInstance().ajouterChoixCommission(idEtudiant,idCommission);
-		}		
-	response.sendRedirect("monCalendrier1");
+		
+		if(btnenregistrer != null){
+			String[] preference = request.getParameterValues("commission");
+			for(int i=0;i<preference.length;i++)
+			{
+				Integer idCommission=Integer.parseInt(preference[i]);
+				Manager.getInstance().ajouterChoixCommission(idEtudiant,idCommission);
+				
+			}
+			response.sendRedirect("monCalendrier1");}		
+		if(btnreinitialiser != null){
+			Manager.getInstance().supprimerChoix(idEtudiant);
+			response.sendRedirect("mesOptions");
+		}
+	
 	}
 }

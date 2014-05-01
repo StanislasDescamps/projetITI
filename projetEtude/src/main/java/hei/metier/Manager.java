@@ -109,6 +109,9 @@ public class Manager {
 	public void supprimerCommission(Integer idCommission){
 		commissionDao.supprimerCommission(idCommission);
 	}
+	public void supprimerChoix(Integer idEtudiant){
+		commissionDao.supprimerChoix(idEtudiant);
+	}
 	
 	//Calendrier
 	public List<Calendrier> listerCalendrier() {
