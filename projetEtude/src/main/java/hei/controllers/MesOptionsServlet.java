@@ -25,12 +25,9 @@ public class MesOptionsServlet extends HttpServlet{
 		request.setAttribute("listeComm",listComm);
 		HttpSession session = request.getSession(true);
 		boolean statut = (Boolean) session.getAttribute("admin");
+		//Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		request.setAttribute("statut", statut);
-		
-		//Integer idEtudiant=1; //a modifier par rapport au filtre
-		//List<Commission> listChoix = Manager.getInstance().listerChoixCommission(idEtudiant);
-		
-		
+				
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesOptions.jsp");
 		view.forward(request, response);
 	}
