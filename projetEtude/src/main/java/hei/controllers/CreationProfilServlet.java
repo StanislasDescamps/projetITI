@@ -88,7 +88,7 @@ public class CreationProfilServlet extends HttpServlet {
 		} 
 		else
 		{
-		request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valide.");
+		request.setAttribute("loginError", "Votre login existe deja. Veuillez rentrer un autre login ou faites mot de passe oublié.");
 		}
 	}
 	

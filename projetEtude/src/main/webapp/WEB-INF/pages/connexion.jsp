@@ -17,7 +17,7 @@
            out.print("Merci de vous connecter !");
        }
    %>
-		<form id="identification" action="connexion" method="post" style="position:fixed;top: 380px;right: 70px;background-color:white;">
+		<form id="identification" action="connexion" method="post" style="position:relative;top:20px;left:450px;margin: 10px;width:400px;height:150px;">
 			<fieldset>
 				<legend>Identifiez-vous</legend>
 				<label for="mail">Mon adresse email :</label>
@@ -26,10 +26,23 @@
 				<label for="pass"> Mon mot de passe :</label>
 				<input type="password" name="pass" id="pass"required />
 				<br/>
-				<input type="submit" value="Connexion"/>
-				<a href="">Mot de passe oublié</a>
+				<input type="submit" name="connexion" value="Connexion"/>
+				
 			</fieldset>	
 		</form>
-		<a href="creationProfil"><input id="creation" type="submit" value="Créer un profil" style="position: relative;top: 420px;left:750px;"></a>		
+		<form id="mdpoublie" action="connexion" method="post" style="position:relative;top:0px;left:450px;margin: 10px;width:400px;height:100px;">
+			<fieldset>
+				<legend>Mot de passe oublié</legend>
+				<label for="mailmdp">Mon adresse email :</label>
+				<input type="text" name="mailmdp" id="mailmdp"required/>
+				<input type="submit" name="mdpoublie" value="Envoyer mon mot de passe"/>
+			</fieldset>
+		</form>
+		<%
+       if(request.getAttribute("mailError")!=null) {
+           out.print((String)request.getAttribute("mailError"));
+       }
+   %>
+		<a href="creationProfil"><input id="creation" type="submit" value="Créer un profil" style="position: relative;top: 0px;left:750px;"></a>		
 	</body>
 </html>

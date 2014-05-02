@@ -13,12 +13,6 @@
 		<h1 style="position:relative; left:450px;color: red;width:auto;margin: 10px;" id="titre2">Bienvenue sur HEI-Diary</h1>
 		<h2 style="position:relative; left:450px;color: blue;padding:10px 0px 10px 0px;width:auto;margin: 10px;">L'application qui vous tient informé</h2>
 		<h3 style="position:relative; left:490px;width:auto;margin: 10px;">Première étape : Création du profil</h3>
-		
-		<%
-		 if(request.getAttribute("loginError")!=null) {
-	           out.print((String)request.getAttribute("loginError"));
-	       }
-		%>
 				
 		<form id="creationProfil" action="creationProfil" method="post" style="position:relative;top:20px;left:450px;margin: 10px;width:400px;height:200px;">
 			<fieldset>
@@ -35,5 +29,10 @@
 					<input type="submit" value="Enregistrer" id="btn"/>
 			</fieldset>
 		</form>
+		<%
+		 if(request.getAttribute("loginError")!=null) {
+	           out.print((String)request.getAttribute("loginError"));
+	       }
+		%>
 	</body>
 </html>
