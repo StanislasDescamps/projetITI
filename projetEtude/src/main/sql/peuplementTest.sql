@@ -20,7 +20,7 @@ INSERT INTO `evenement`(`idEvenement`,`idCommission`,`nomCommission`,`nomPole`,`
 -- Commission
 INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (1,2,1,'La Sauce','Le plaisir de manger entre etudiants','img/bda.jpg');
 INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (2,3,2,'Club Rock HEI','Cours de danse tous les mercredi soir','img/rock.jpg');
-INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (3,3,3,'SolidBear','Super association humanitaire','img/HEI Logo CapSolidaire.jpg');
+INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (3,3,3,'SolidBear','Super association humanitaire','img/CapSolidaire.jpg');
 INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (4,3,5,'HEIvolution','Association en faveur du developpement durable','img/heivolution.jpg');
 INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (5,3,4,'Cosmo','Vous aimez voyager? Cette asso est pour vous','img/cosmo.jpg');
 

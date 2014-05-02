@@ -6,10 +6,10 @@
         <meta charset="utf-8" />
         <title>Identification HEI-Diary</title>
     </head>
-	<body style="font-family: arial, sans-serif, 1em;background-image: url(../img/background-ident.jpg);height:600;width:1130;background-attachment:fixed;">
+	<body style="font-family: arial, sans-serif, 1em;height:800;width:1280;">
 		<!-- Corps de la page 
 		<link rel="stylesheet" href="css/connexion.css">-->
-		<h1 style="position:relative; left:450px;color: red;">Bienvenue sur HEI-Diary</h1>
+		<h1 style="position:relative; left:450px;color: red;width:400px;margin-right:0px;margin-left:0px;">Bienvenue sur HEI-Diary</h1>
 		<%
        if(request.getAttribute("loginError")!=null) {
            out.print((String)request.getAttribute("loginError"));
