@@ -55,8 +55,23 @@ public class MonCalendrier1Servlet extends HttpServlet {
 			
 			listeDate.add(event.getDateDebut());
 			}
-		
 		}
+		
+		/*Date tampon= listeDate.get(0);
+		boolean permut;
+		do{
+			permut=false;
+			for(int i=1; i<listeDate.size(); i++){
+				if (listeDate.get(i).before(listeDate.get(i+1))) {
+					// s'ils ne le sont pas, on échange leurs positions
+					tampon = listeDate.get(i);
+					listeDate.get(i).equals(listeDate.get(i+1));
+					listeDate.get(i+1).equals(tampon);
+					permut = true;
+				}
+			}
+		}while(permut);*/
+		
 		List<Evenement> listeEvent=new ArrayList<Evenement>();
 		for (int j=0; j<listeDate.size(); j++) {
 		Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
@@ -119,6 +134,7 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		}
 		response.sendRedirect("monCalendrier1");
 	}
+	
 private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Date dateDebut, Date dateFin, String mail) throws Exception {
 		
 		try {

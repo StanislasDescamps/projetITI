@@ -14,15 +14,17 @@ INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (3,3
 
 -- Evenement
 INSERT INTO `evenement`(`idEvenement`,`idCommission`,`nomCommission`,`nomPole`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`,`image`) VALUES (1,1,'La Sauce','BDA','Salon gastronomique','Viens gouter les saveur d Espagne ca va etre trop bon','RR034','2014-02-24 12:00:00','2014-02-24 13:00:00','img/bda.jpg');
+INSERT INTO `evenement`(`idEvenement`,`idCommission`,`nomCommission`,`nomPole`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`,`image`) VALUES (3,3,'SolidBear','CapSo','Sauvons la planete','Viens, nous devons sauver la planete','S102','2014-06-26 13-45-00','2014-06-26 15:00:00','img/CapSolidaire.jpg');
 INSERT INTO `evenement`(`idEvenement`,`idCommission`,`nomCommission`,`nomPole`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`,`image`) VALUES (2,2,'Club Rock HEI','BDS','Soiree Rock','Viens danser un rock endiable des 80s','Salle de sport','2014-08-15 19:45:00','2014-08-15 22:00:00','img/rock.jpg');
-INSERT INTO `evenement`(`idEvenement`,`idCommission`,`nomCommission`,`nomPole`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`,`image`) VALUES (3,3,'SolidBear','CapSo','Sauvons la planete','Viens, nous devons sauver la planete','S102','2014-06-26 13-45-00','2014-06-26 15:00:00','img/HEI Logo CapSolidaire.jpg');
+
 
 -- Commission
 INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (1,2,1,'La Sauce','Le plaisir de manger entre etudiants','img/bda.jpg');
 INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (2,3,2,'Club Rock HEI','Cours de danse tous les mercredi soir','img/rock.jpg');
 INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (3,3,3,'SolidBear','Super association humanitaire','img/CapSolidaire.jpg');
-INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (4,3,5,'HEIvolution','Association en faveur du developpement durable','img/heivolution.jpg');
 INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (5,3,4,'Cosmo','Vous aimez voyager? Cette asso est pour vous','img/cosmo.jpg');
+INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (4,3,5,'HEIvolution','Association en faveur du developpement durable','img/heivolution.jpg');
+
 
 
 -- pole

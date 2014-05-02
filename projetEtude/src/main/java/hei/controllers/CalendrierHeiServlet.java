@@ -52,6 +52,24 @@ public class CalendrierHeiServlet extends HttpServlet {
 			}
 		
 		}
+		
+		/*List<Date> listeDate2=new ArrayList<Date>();
+		boolean permut;
+		do{
+			permut=false;
+			for(int i=0; i<listeDate.size() - 1; i++){
+				
+				if (listeDate.get(i).after(listeDate.get(i+1))) {
+					// s'ils ne le sont pas, on échange leurs positions
+					Date tampon1 = listeDate.get(i);
+					Date tampon2 = listeDate.get(i+1);
+					listeDate2.add(tampon2);
+					listeDate2.add(tampon1);
+					permut = true;
+				}
+			}
+		}while(permut);*/
+		
 		List<Evenement> listeEvent=new ArrayList<Evenement>();
 		for (int j=0; j<listeDate.size(); j++) {
 		Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
