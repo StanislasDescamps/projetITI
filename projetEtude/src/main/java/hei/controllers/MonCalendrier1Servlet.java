@@ -2,17 +2,11 @@ package hei.controllers;
 
 import hei.metier.Manager;
 import hei.model.Etudiant;
-//import hei.model.Commission;
 import hei.model.Evenement;
-//import hei.model.Pole;
-
-
-
-
-
-
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,16 +31,25 @@ import com.sun.mail.smtp.SMTPTransport;
 public class MonCalendrier1Servlet extends HttpServlet {
 
 	private static final long serialVersionUID = 4899983373251596603L;
+	public static SimpleDateFormat formatentier = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	public static SimpleDateFormat formatHeure = new SimpleDateFormat("HH");
+	public static SimpleDateFormat formatMinute = new SimpleDateFormat("mm");
+	public static SimpleDateFormat formatSec = new SimpleDateFormat("ss");
+	public static SimpleDateFormat formatAnnee = new SimpleDateFormat("yyyy");
+	public static SimpleDateFormat formatMois = new SimpleDateFormat("MM");
+	public static SimpleDateFormat formatJour = new SimpleDateFormat("dd");
+	private long tableaus[];
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(true);
+		//Récupération des événements personnels
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		List<Evenement> listEvent = Manager.getInstance().listerEvenementEtudiant(idEtudiant);
 		
-		
+		//Selectionne les événements non passés
 		List<Date> listeDate=new ArrayList<Date>();
 		Date dateToday=new Date();
 		for (int i=0; i<listEvent.size(); i++) {
@@ -56,55 +59,41 @@ public class MonCalendrier1Servlet extends HttpServlet {
 			listeDate.add(event.getDateDebut());
 			}
 		}
+		if(listeDate.size()!=1){
+		//Ordonne les dates - Les dates sont transformées en format long
+		tableaus = null;
+		for(int i=0; i<listeDate.size(); i++){
+			tableaus[i]= DateToInt(listeDate.get(i));
+		}
+		triDecroissant(tableaus);
 		
-		/*Date tampon= listeDate.get(0);
-		boolean permut;
-		do{
-			permut=false;
-			for(int i=1; i<listeDate.size(); i++){
-				if (listeDate.get(i).before(listeDate.get(i+1))) {
-					// s'ils ne le sont pas, on échange leurs positions
-					tampon = listeDate.get(i);
-					listeDate.get(i).equals(listeDate.get(i+1));
-					listeDate.get(i+1).equals(tampon);
-					permut = true;
-				}
-			}
-		}while(permut);*/
+		//Remise en format date et dans une liste
+		List<Date> listeDateOrdonnée = new ArrayList<Date>();
+		
+		for(int i=0;i<listeDate.size();i++){
+			try {
+				Date date = stringToDate(nombreToString(tableaus[i]));
+				listeDateOrdonnée.add(date);
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}			
+		}
 		
 		List<Evenement> listeEvent=new ArrayList<Evenement>();
 		for (int j=0; j<listeDate.size(); j++) {
+		Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnée.get(j));
+		listeEvent.add(Event);
+		request.setAttribute("listeEventPerso", listeEvent);
+		}
+		}else {
+		List<Evenement> listeEvent=new ArrayList<Evenement>();
+			for (int j=0; j<listeDate.size(); j++) {
 		Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
 		listeEvent.add(Event);
-		}
 		request.setAttribute("listeEventPerso", listeEvent);
-		/*List<Commission> listCommission = new ArrayList<Commission>();
-		for (int j=0;j<listEvent.size(); j++){
-			Commission commission = Manager.getInstance().getCommissionEvent(listEvent.get(j).getIdCommission());
-			commission.add(listCommission);
+			}
 		}
-		
-		List<String> nomDesPoles = new ArrayList<String>();
-		for (int i=0; i<listEvent.size(); i++) {
-			Pole pole= Manager.getInstance().getPoleEvent(listEvent.get(i).getIdEvenement());
-			nomDesPoles.add(pole.getNomPole());
-		}
-		request.setAttribute("listePoleEvent", nomDesPoles);
-		
-		List<String> nomDesComm = new ArrayList<String>();
-		for (int j=0;j<listEvent.size(); j++){
-			Commission commission = Manager.getInstance().getCommissionEvent(listEvent.get(j).getIdCommission());
-			nomDesComm.add(commission.getNomCommission());
-		}
-		request.setAttribute("listeCommEvent", nomDesComm);
-		
-		List<String> adressLogo =new ArrayList<String>();
-		for (int i=0; i<listEvent.size();i++){
-			Commission commission = Manager.getInstance().getCommissionEvent(listEvent.get(i).getIdCommission());
-			adressLogo.add(commission.getLogo());
-		}
-		request.setAttribute("commission", adressLogo);*/
-		
+				
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/monCalendrier1.jsp");
 		view.forward(request, response);
 	}
@@ -189,4 +178,76 @@ private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Dat
 		}
 		
 	}
+public static long DateToInt (Date date){
+	String annee = formatAnnee.format(date);
+	String mois = formatMois.format(date);
+	String jour = formatJour.format(date);
+	String heure = formatHeure.format(date);
+	String minute = formatMinute.format(date);
+	String seconde = formatSec.format(date);
+	
+	String nombre = annee+mois+jour+heure+minute+seconde;
+	
+	Long dateNombre =  Long.parseLong(nombre);
+	
+	return dateNombre;
+}
+public static String nombreToString(long nombre){
+	
+	String nomb = String.valueOf(nombre);
+	
+	String year="";
+	String month="";
+	String day = "";
+	String hour = "";
+	String minute = "";
+	String seconde = "";
+	 	
+	for(int i=0; i<14;i++){
+		if(i<4){
+			year = year + nomb.charAt(i);
+		} 
+		if(i>=4 && i<6){
+			month = month + nomb.charAt(i);
+		}
+		if(i>=6 && i<8){
+			day = day + nomb.charAt(i);
+		}
+		if(i>=8 && i<10){
+			hour = hour + nomb.charAt(i);
+		}
+		if(i>=10 && i<12){
+			minute = minute + nomb.charAt(i);
+		}
+		if(i>=12 && i<14){
+			seconde = seconde + nomb.charAt(i);
+		}
+	}
+	String date = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+seconde;
+	
+	return date;
+}
+public static Date stringToDate(String sDate) throws ParseException {
+    return formatentier.parse(sDate);
+}
+public static void triDecroissant(long tableau[]) {
+	int longueur = tableau.length;
+	long tampon = 0;
+	boolean permut;
+
+	do {
+		// hypothèse : le tableau est trié
+		permut = false;
+		for (int i = 0; i < longueur - 1; i++) {
+			// Teste si 2 éléments successifs sont dans le bon ordre ou non
+			if (tableau[i] < tableau[i + 1]) {
+				// s'ils ne le sont pas, on échange leurs positions
+				tampon = tableau[i];
+				tableau[i] = tableau[i + 1];
+				tableau[i + 1] = tampon;
+				permut = true;
+			}
+		}
+	} while (permut);
+}
 }

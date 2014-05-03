@@ -8,14 +8,14 @@ DELETE FROM `choix`;
 DELETE FROM `doubletcalevent`;
 
 -- Calendrier
-INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (1,1,'24 février 2014');
-INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (2,2,'24 février 2014');
-INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (3,3,'24 février 2014');
+INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (1,1,'2014-02-24');
+INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (2,2,'2014-02-24');
+INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (3,3,'2014-02-24');
 
 -- Evenement
-INSERT INTO `evenement`(`idEvenement`,`idCommission`,`nomCommission`,`nomPole`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`,`image`) VALUES (1,1,'La Sauce','BDA','Salon gastronomique','Viens gouter les saveur d Espagne ca va etre trop bon','RR034','2014-02-24 12:00:00','2014-02-24 13:00:00','img/bda.jpg');
-INSERT INTO `evenement`(`idEvenement`,`idCommission`,`nomCommission`,`nomPole`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`,`image`) VALUES (3,3,'SolidBear','CapSo','Sauvons la planete','Viens, nous devons sauver la planete','S102','2014-06-26 13-45-00','2014-06-26 15:00:00','img/CapSolidaire.jpg');
-INSERT INTO `evenement`(`idEvenement`,`idCommission`,`nomCommission`,`nomPole`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`,`image`) VALUES (2,2,'Club Rock HEI','BDS','Soiree Rock','Viens danser un rock endiable des 80s','Salle de sport','2014-08-15 19:45:00','2014-08-15 22:00:00','img/rock.jpg');
+INSERT INTO `evenement`(`idEvenement`,`idCommission`,`nomCommission`,`nomPole`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`,`heureDebut`,`heureFin`,`image`) VALUES (1,1,'La Sauce','BDA','Salon gastronomique','Viens gouter les saveur d Espagne ca va etre trop bon','RR034','2014-02-24','2014-02-24',' 12:00:00','13:00:00','img/bda.jpg');
+INSERT INTO `evenement`(`idEvenement`,`idCommission`,`nomCommission`,`nomPole`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`,`heureDebut`,`heureFin`,`image`) VALUES (3,3,'SolidBear','CapSo','Sauvons la planete','Viens, nous devons sauver la planete','S102','2014-07-24','2014-07-24',' 12:00:00','13:00:00','img/CapSolidaire.jpg');
+INSERT INTO `evenement`(`idEvenement`,`idCommission`,`nomCommission`,`nomPole`,`titreEvent`,`descriptionEvent`,`lieuEvent`,`dateDebut`,`dateFin`,`heureDebut`,`heureFin`,`image`) VALUES (2,2,'Club Rock HEI','BDS','Soiree Rock','Viens danser un rock endiable des 80s','Salle de sport','2014-08-12','2014-08-12',' 19:45:00','22:00:00','img/rock.jpg');
 
 
 -- Commission

@@ -5,6 +5,7 @@ import hei.model.Calendrier;
 import hei.model.Etudiant;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,6 +32,7 @@ public class CreationProfilServlet extends HttpServlet {
 
 
 	private static final long serialVersionUID = 6428922108074858393L;
+	public static SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -55,23 +57,21 @@ public class CreationProfilServlet extends HttpServlet {
 		
 		Integer i=0;
 		Integer n = listEtudiant.size();
-		Boolean exist=false;
+		Boolean existe=false;
 	
-		String format = "dd MMMM yyyy"; 
-
-		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( format ); 
 		java.util.Date date = new java.util.Date(); 
+				
 		
-		while(i<n && !exist)
+		while(i<n && !existe)
 		{
 			if(mail.equalsIgnoreCase(listEtudiant.get(i).getEmail()))
 				{
-				exist=true;
+				existe=true;
 				}
 			else i++;
 		}
 		
-		if(!exist)
+		if(!existe)
 		{
 		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, false);
 		Manager.getInstance().ajouterEtudiant(nouvelEtudiant);
@@ -82,7 +82,9 @@ public class CreationProfilServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		Calendrier nouveauCal = new Calendrier(null, Manager.getInstance().getEtudiantMail(mail).getIdetudiant(),formater.format(date));
+		Calendrier nouveauCal = null;
+		nouveauCal = new Calendrier(null, Manager.getInstance().getEtudiantMail(mail).getIdetudiant(),formatDate.format(date));
+	
 		Manager.getInstance().ajouterCalendrier(nouveauCal);
 		response.sendRedirect("connexion");
 		} 
@@ -121,8 +123,7 @@ public class CreationProfilServlet extends HttpServlet {
 		    message.setSubject("Votre mot de passe HEI-Diary");
 	 
 		    
-		    message.setText("Bonjour"+ prenom +" " + nom +", merci de vous être inscrit sur HEI-Diary. votre mot de passe sera : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
-	 
+		    message.setText("Bonjour "+ prenom +" " + nom +", merci de vous être inscrit sur HEI-Diary. votre mot de passe sera : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
 	
 		    message.setSentDate(new Date());
 		    

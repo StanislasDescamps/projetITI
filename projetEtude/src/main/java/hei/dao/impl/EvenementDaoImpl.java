@@ -32,6 +32,8 @@ public class EvenementDaoImpl implements EvenementDao {
 	                   results.getString("lieuEvent"),
 	                   results.getDate("dateDebut"),
 	                   results.getDate("dateFin"),
+	                   results.getTime("heureDebut"),
+	                   results.getTime("heureFin"),
 	                   results.getString("image"));
 	    	listeEvent.add(evenement);
 	    }
@@ -50,7 +52,7 @@ public class EvenementDaoImpl implements EvenementDao {
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
-	                  "INSERT INTO `evenement`(`idEvenement`,`idCommission`, `titreEvent`,`descriptionEvent`,`lieuEvent`, `dateDebut`, `dateFin`) VALUES(?, ?, ?, ?, ?, ?, ?)"); 
+	                  "INSERT INTO `evenement`(`idEvenement`,`idCommission`, `titreEvent`,`descriptionEvent`,`lieuEvent`, `dateDebut`, `dateFin`, `heureDebut`, `heureFin`, `image`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
 	        stmt.setInt(1, evenement.getIdEvenement());
 	        stmt.setInt(2, evenement.getIdCommission());
 	        stmt.setString(3, evenement.getTitreEvent());
@@ -58,6 +60,9 @@ public class EvenementDaoImpl implements EvenementDao {
 	        stmt.setString(5, evenement.getLieu());
 	        stmt.setDate(6, new Date(evenement.getDateDebut().getTime()));
 	        stmt.setDate(7, new Date(evenement.getDateFin().getTime()));
+	        stmt.setTime(8, evenement.getHeureDebut());
+	        stmt.setTime(9, evenement.getHeureFin());
+	        stmt.setString(10, evenement.getImage());
 	        stmt.executeUpdate();
 	        // Fermer la connexion
 	        connection.close();
@@ -91,6 +96,8 @@ public class EvenementDaoImpl implements EvenementDao {
 	                    results.getString("lieuEvent"),
 	                    results.getDate("dateDebut"),
 	                    results.getDate("dateFin"),
+	                    results.getTime("heureDebut"),
+		                results.getTime("heureFin"),
 		                results.getString("image"));
 	        }
 
@@ -119,6 +126,8 @@ public List<Evenement> listerEvenementEtudiant(Integer idEtudiant) {
 	                   results.getString("lieuEvent"),
 	                   results.getDate("dateDebut"),
 	                   results.getDate("dateFin"),
+	                   results.getTime("heureDebut"),
+	                   results.getTime("heureFin"),
 	                   results.getString("image"));
 	    	listeEvent.add(evenement);
 	    }
@@ -153,6 +162,8 @@ public Evenement getEvenementByDate(java.util.Date dateDebut) {
                     results.getString("lieuEvent"),
                     results.getDate("dateDebut"),
                     results.getDate("dateFin"),
+                    results.getTime("heureDebut"),
+	                results.getTime("heureFin"),
 	                results.getString("image"));
         }
 

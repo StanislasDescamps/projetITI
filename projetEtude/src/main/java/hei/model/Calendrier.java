@@ -19,7 +19,7 @@ public class Calendrier {
 		super();
 		this.idCalendrier = idcalendrier;
 		this.idEtudiant = idetudiant;
-		this.setDateEmission(emission);
+		this.dateEmission = emission;
 		
 		setListEvenement(new ArrayList<Evenement>());
 	}
@@ -63,4 +63,5 @@ public class Calendrier {
 	public void setDateEmission(String dateEmission) {
 		this.dateEmission = dateEmission;
 	}
+
 }

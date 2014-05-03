@@ -10,7 +10,7 @@ DROP TABLE `etudiant`;
 CREATE TABLE `calendrier` (
   `idCalendrier` int(11) NOT NULL AUTO_INCREMENT,
   `idEtudiant` int(11) NOT NULL,
-  `dateEmission` varchar(20) NOT NULL,
+  `dateEmission` varchar(12) NOT NULL,
   PRIMARY KEY (`idCalendrier`),
   KEY `idEtudiant`(`idEtudiant`)
 ) CHARSET=utf8;
@@ -25,6 +25,8 @@ CREATE TABLE `evenement` (
   `lieuEvent` varchar(30) NOT NULL,
   `dateDebut` date NOT NULL,
   `dateFin` date NOT NULL,
+  `heureDebut` time NOT NULL,
+  `heureFin` time NOT NULL,
   `image` varchar(50) NOT NULL,
   PRIMARY KEY (`idEvenement`),
   KEY `idCommission`(`idCommission`)

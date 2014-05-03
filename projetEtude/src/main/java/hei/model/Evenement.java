@@ -1,12 +1,13 @@
 package hei.model;
 
+import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Evenement {
 
-	private static DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy HH:mm");
+	private static DateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
 	
 	private Integer idEvenement;
 	private Integer idCommission;
@@ -17,9 +18,11 @@ public class Evenement {
 	private String lieu;
 	private Date dateDebut;
 	private Date dateFin;
+	private Time heureDebut;
+	private Time heureFin;
 	private String image;
 	
-	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, Date debut, Date fin, String image){
+	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, Date debut, Date fin, Time hdebut, Time hfin, String image){
 		super();
 		this.idEvenement = idevenement;
 		this.idCommission = idcommission;
@@ -30,7 +33,25 @@ public class Evenement {
 		this.lieu = lieu;
 		this.dateDebut = debut;
 		this.dateFin = fin;
+		this.heureDebut = hdebut;
+		this.heureFin = hfin;
 		this.image = image;
+	}
+
+	public Time getHeureDebut() {
+		return heureDebut;
+	}
+
+	public void setHeureDebut(Time heureDebut) {
+		this.heureDebut = heureDebut;
+	}
+
+	public Time getHeureFin() {
+		return heureFin;
+	}
+
+	public void setHeureFin(Time heureFin) {
+		this.heureFin = heureFin;
 	}
 
 	public static DateFormat getDateFormat() {
