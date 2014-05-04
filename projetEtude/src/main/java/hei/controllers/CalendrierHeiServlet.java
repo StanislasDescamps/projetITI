@@ -2,21 +2,13 @@ package hei.controllers;
 
 import hei.metier.Manager;
 import hei.model.Etudiant;
-//import hei.model.Commission;
 import hei.model.Evenement;
-//import hei.model.Pole;
-
-
-
-
-
 
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-//import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
@@ -46,7 +38,8 @@ public class CalendrierHeiServlet extends HttpServlet {
 	public static SimpleDateFormat formatAnnee = new SimpleDateFormat("yyyy");
 	public static SimpleDateFormat formatMois = new SimpleDateFormat("MM");
 	public static SimpleDateFormat formatJour = new SimpleDateFormat("dd");
-	private long tableaus[];
+	public static SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -66,13 +59,13 @@ public class CalendrierHeiServlet extends HttpServlet {
 		
 		}
 		
-		if(listeDate.size()!=1){
+		/*if(listeDate.size()!=1){
 			//Ordonne les dates - Les dates sont transformées en format long
-			tableaus = null;
+			int tableaus[] = new int[listeDate.size()];
 			for(int i=0; i<listeDate.size(); i++){
 				tableaus[i]= DateToInt(listeDate.get(i));
 			}
-			triDecroissant(tableaus);
+			triCroissant(tableaus);
 			
 			//Remise en format date et dans une liste
 			List<Date> listeDateOrdonnée = new ArrayList<Date>();
@@ -92,35 +85,14 @@ public class CalendrierHeiServlet extends HttpServlet {
 			listeEvent.add(Event);
 			request.setAttribute("listeEventEntiere", listeEvent);
 			}
-			}else {
+			}else {*/
 			List<Evenement> listeEvent=new ArrayList<Evenement>();
 				for (int j=0; j<listeDate.size(); j++) {
 			Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
 			listeEvent.add(Event);
 			request.setAttribute("listeEventEntiere", listeEvent);
 				}
-			}
-		
-		/*List<String> nomDesPoles = new ArrayList<String>();
-		for (int i=0; i<listEvent.size(); i++) {
-			Pole pole= Manager.getInstance().getPoleEvent(listEvent.get(i).getIdEvenement());
-			nomDesPoles.add(pole.getNomPole());
-		}
-		request.setAttribute("listePoleEvent", nomDesPoles);
-		
-		List<String> nomDesComm = new ArrayList<String>();
-		for (int j=0;j<listEvent.size(); j++){
-			Commission commission = Manager.getInstance().getCommissionEvent(listEvent.get(j).getIdCommission());
-			nomDesComm.add(commission.getNomCommission());
-		}
-		request.setAttribute("listeCommEvent", nomDesComm);
-		
-		List<String> adressLogo =new ArrayList<String>();
-		for (int i=0; i<listEvent.size();i++){
-			Commission commission = Manager.getInstance().getCommissionEvent(listEvent.get(i).getIdCommission());
-			adressLogo.add(commission.getLogo());
-		}
-		request.setAttribute("commission", adressLogo);*/
+			//}
 		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/calendrierHei.jsp");
 		view.forward(request, response);
@@ -205,30 +177,25 @@ private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Dat
 		}
 		
 	}
-public static long DateToInt (Date date){
+public static int DateToInt (Date date){
 	String annee = formatAnnee.format(date);
 	String mois = formatMois.format(date);
 	String jour = formatJour.format(date);
-	String heure = formatHeure.format(date);
-	String minute = formatMinute.format(date);
-	String seconde = formatSec.format(date);
 	
-	String nombre = annee+mois+jour+heure+minute+seconde;
+	String nombre = annee+mois+jour;
 	
-	Long dateNombre =  Long.parseLong(nombre);
+	Integer dateNombre =  Integer.parseInt(nombre);
 	
 	return dateNombre;
 }
-public static String nombreToString(long nombre){
+public static String nombreToString(int nombre){
 	
 	String nomb = String.valueOf(nombre);
 	
 	String year="";
 	String month="";
 	String day = "";
-	String hour = "";
-	String minute = "";
-	String seconde = "";
+	
 	 	
 	for(int i=0; i<14;i++){
 		if(i<4){
@@ -240,26 +207,18 @@ public static String nombreToString(long nombre){
 		if(i>=6 && i<8){
 			day = day + nomb.charAt(i);
 		}
-		if(i>=8 && i<10){
-			hour = hour + nomb.charAt(i);
-		}
-		if(i>=10 && i<12){
-			minute = minute + nomb.charAt(i);
-		}
-		if(i>=12 && i<14){
-			seconde = seconde + nomb.charAt(i);
-		}
+		
 	}
-	String date = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+seconde;
+	String date = year+"-"+month+"-"+day+" "+"00:00:00";
 	
 	return date;
 }
 public static Date stringToDate(String sDate) throws ParseException {
     return formatentier.parse(sDate);
 }
-public static void triDecroissant(long tableau[]) {
+public static void triCroissant(int tableau[]) {
 	int longueur = tableau.length;
-	long tampon = 0;
+	int tampon = 0;
 	boolean permut;
 
 	do {
@@ -267,7 +226,7 @@ public static void triDecroissant(long tableau[]) {
 		permut = false;
 		for (int i = 0; i < longueur - 1; i++) {
 			// Teste si 2 éléments successifs sont dans le bon ordre ou non
-			if (tableau[i] < tableau[i + 1]) {
+			if (tableau[i] > tableau[i + 1]) {
 				// s'ils ne le sont pas, on échange leurs positions
 				tampon = tableau[i];
 				tableau[i] = tableau[i + 1];

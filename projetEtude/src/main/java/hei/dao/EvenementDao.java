@@ -14,6 +14,6 @@ public interface EvenementDao {
 	public Evenement getEvenement(Integer idEvenement);
 	
 	public List<Evenement> listerEvenementEtudiant(Integer idEtudiant);
-	
+
 	public Evenement getEvenementByDate(Date dateDebut);
 }

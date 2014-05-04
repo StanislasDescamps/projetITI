@@ -31,7 +31,7 @@ import com.sun.mail.smtp.SMTPTransport;
 public class MonCalendrier1Servlet extends HttpServlet {
 
 	private static final long serialVersionUID = 4899983373251596603L;
-	public static SimpleDateFormat formatentier = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	public static SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
 	public static SimpleDateFormat formatHeure = new SimpleDateFormat("HH");
 	public static SimpleDateFormat formatMinute = new SimpleDateFormat("mm");
 	public static SimpleDateFormat formatSec = new SimpleDateFormat("ss");
@@ -65,7 +65,7 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		for(int i=0; i<listeDate.size(); i++){
 			tableaus[i]= DateToInt(listeDate.get(i));
 		}
-		triDecroissant(tableaus);
+		triCroissant(tableaus);
 		
 		//Remise en format date et dans une liste
 		List<Date> listeDateOrdonnée = new ArrayList<Date>();
@@ -228,9 +228,9 @@ public static String nombreToString(long nombre){
 	return date;
 }
 public static Date stringToDate(String sDate) throws ParseException {
-    return formatentier.parse(sDate);
+    return formatDate.parse(sDate);
 }
-public static void triDecroissant(long tableau[]) {
+public static void triCroissant(long tableau[]) {
 	int longueur = tableau.length;
 	long tampon = 0;
 	boolean permut;
@@ -240,7 +240,7 @@ public static void triDecroissant(long tableau[]) {
 		permut = false;
 		for (int i = 0; i < longueur - 1; i++) {
 			// Teste si 2 éléments successifs sont dans le bon ordre ou non
-			if (tableau[i] < tableau[i + 1]) {
+			if (tableau[i] > tableau[i + 1]) {
 				// s'ils ne le sont pas, on échange leurs positions
 				tampon = tableau[i];
 				tableau[i] = tableau[i + 1];

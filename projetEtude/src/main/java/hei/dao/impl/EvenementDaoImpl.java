@@ -58,8 +58,8 @@ public class EvenementDaoImpl implements EvenementDao {
 	        stmt.setString(3, evenement.getTitreEvent());
 	        stmt.setString(4, evenement.getDescriptionEvent());
 	        stmt.setString(5, evenement.getLieu());
-	        stmt.setDate(6, new Date(evenement.getDateDebut().getTime()));
-	        stmt.setDate(7, new Date(evenement.getDateFin().getTime()));
+	        stmt.setDate(6, (java.sql.Date) new Date(evenement.getDateDebut().getTime()));
+	        stmt.setDate(7, (java.sql.Date) new Date(evenement.getDateFin().getTime()));
 	        stmt.setTime(8, evenement.getHeureDebut());
 	        stmt.setTime(9, evenement.getHeureFin());
 	        stmt.setString(10, evenement.getImage());
