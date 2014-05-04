@@ -56,10 +56,12 @@ public class CalendrierHeiServlet extends HttpServlet {
 			
 			listeDate.add(event.getDateDebut());
 			}
-		
 		}
+		for (int i=0; i<listeDate.size(); i++) {
+		System.out.println("listeDate élement "+ i +" "+ listeDate.get(i));}
 		
-		/*if(listeDate.size()!=1){
+		
+		if(listeDate.size()!=1){
 			//Ordonne les dates - Les dates sont transformées en format long
 			int tableaus[] = new int[listeDate.size()];
 			for(int i=0; i<listeDate.size(); i++){
@@ -67,32 +69,37 @@ public class CalendrierHeiServlet extends HttpServlet {
 			}
 			triCroissant(tableaus);
 			
+			for(int i=0; i<tableaus.length; i++){
+				System.out.println("element tableau " +i +" "+tableaus[i]);
+			}
+			
 			//Remise en format date et dans une liste
-			List<Date> listeDateOrdonnée = new ArrayList<Date>();
+			List<Date> listeDateOrdonnee = new ArrayList<Date>();
 			
 			for(int i=0;i<listeDate.size();i++){
 				try {
 					Date date = stringToDate(nombreToString(tableaus[i]));
-					listeDateOrdonnée.add(date);
+					listeDateOrdonnee.add(date);
 				} catch (ParseException e) {
 					e.printStackTrace();
 				}			
 			}
-			
-			List<Evenement> listeEvent=new ArrayList<Evenement>();
+			for (int i=0; i<listeDate.size(); i++) {
+				System.out.println("listeDateOrdonnee élement "+ i +" "+ listeDateOrdonnee.get(i));}
+			/*List<Evenement> listeEvent=new ArrayList<Evenement>();
 			for (int j=0; j<listeDate.size(); j++) {
 			Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnée.get(j));
 			listeEvent.add(Event);
 			request.setAttribute("listeEventEntiere", listeEvent);
 			}
-			}else {*/
+			}else {
 			List<Evenement> listeEvent=new ArrayList<Evenement>();
 				for (int j=0; j<listeDate.size(); j++) {
 			Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
 			listeEvent.add(Event);
 			request.setAttribute("listeEventEntiere", listeEvent);
-				}
-			//}
+				}*/
+			}
 		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/calendrierHei.jsp");
 		view.forward(request, response);
@@ -184,7 +191,7 @@ public static int DateToInt (Date date){
 	
 	String nombre = annee+mois+jour;
 	
-	Integer dateNombre =  Integer.parseInt(nombre);
+	Integer dateNombre = Integer.parseInt(nombre);
 	
 	return dateNombre;
 }
@@ -209,12 +216,12 @@ public static String nombreToString(int nombre){
 		}
 		
 	}
-	String date = year+"-"+month+"-"+day+" "+"00:00:00";
+	String date = year+"-"+month+"-"+day;
 	
 	return date;
 }
 public static Date stringToDate(String sDate) throws ParseException {
-    return formatentier.parse(sDate);
+    return formatDate.parse(sDate);
 }
 public static void triCroissant(int tableau[]) {
 	int longueur = tableau.length;
