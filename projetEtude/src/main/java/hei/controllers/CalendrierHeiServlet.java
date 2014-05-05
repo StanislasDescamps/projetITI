@@ -58,9 +58,6 @@ public class CalendrierHeiServlet extends HttpServlet {
 			listeDate.add(event.getDateDebut());
 			}
 		}
-		for (int i=0; i<listeDate.size(); i++) {
-		System.out.println("listeDate élement "+ i +" "+ listeDate.get(i));}
-		
 		
 		if(listeDate.size()!=1){
 			//Ordonne les dates - Les dates sont transformées en format long
@@ -71,9 +68,6 @@ public class CalendrierHeiServlet extends HttpServlet {
 			}
 			triCroissant(tableaus);
 			
-			for(int i=0; i<tableaus.length; i++){
-				System.out.println("element tableau " +i +" "+tableaus[i]);
-			}
 			
 			//Remise en format date et dans une liste
 			List<String> listeDateOrdonnee = new ArrayList<String>();
