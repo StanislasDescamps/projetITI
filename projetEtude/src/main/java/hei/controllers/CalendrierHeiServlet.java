@@ -86,9 +86,10 @@ public class CalendrierHeiServlet extends HttpServlet {
 			}
 			for (int i=0; i<listeDate.size(); i++) {
 				System.out.println("listeDateOrdonnee élement "+ i +" "+ listeDateOrdonnee.get(i));}
-			/*List<Evenement> listeEvent=new ArrayList<Evenement>();
-			for (int j=0; j<listeDate.size(); j++) {
-			Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnée.get(j));
+			List<Evenement> listeEvent=new ArrayList<Evenement>();
+			
+			/*for (int j=0; j<listeDate.size(); j++) {
+			Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnee.get(j));
 			listeEvent.add(Event);
 			request.setAttribute("listeEventEntiere", listeEvent);
 			}
@@ -99,7 +100,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 			listeEvent.add(Event);
 			request.setAttribute("listeEventEntiere", listeEvent);
 				}*/
-			}
+		}
 		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/calendrierHei.jsp");
 		view.forward(request, response);

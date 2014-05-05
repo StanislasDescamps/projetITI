@@ -52,17 +52,16 @@ public class EvenementDaoImpl implements EvenementDao {
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
-	                  "INSERT INTO `evenement`(`idEvenement`,`idCommission`, `titreEvent`,`descriptionEvent`,`lieuEvent`, `dateDebut`, `dateFin`, `heureDebut`, `heureFin`, `image`) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
-	        stmt.setInt(1, evenement.getIdEvenement());
-	        stmt.setInt(2, evenement.getIdCommission());
-	        stmt.setString(3, evenement.getTitreEvent());
-	        stmt.setString(4, evenement.getDescriptionEvent());
-	        stmt.setString(5, evenement.getLieu());
-	        stmt.setDate(6, (java.sql.Date) new Date(evenement.getDateDebut().getTime()));
-	        stmt.setDate(7, (java.sql.Date) new Date(evenement.getDateFin().getTime()));
-	        stmt.setTime(8, evenement.getHeureDebut());
-	        stmt.setTime(9, evenement.getHeureFin());
-	        stmt.setString(10, evenement.getImage());
+	                  "INSERT INTO `evenement`(`idCommission`, `titreEvent`,`descriptionEvent`,`lieuEvent`, `dateDebut`, `dateFin`, `heureDebut`, `heureFin`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
+	        stmt.setInt(1, evenement.getIdCommission());
+	        stmt.setString(2, evenement.getTitreEvent());
+	        stmt.setString(3, evenement.getDescriptionEvent());
+	        stmt.setString(4, evenement.getLieu());
+	        stmt.setDate(5, (java.sql.Date) new Date(evenement.getDateDebut().getTime()));
+	        stmt.setDate(6, (java.sql.Date) new Date(evenement.getDateFin().getTime()));
+	        stmt.setTime(7, evenement.getHeureDebut());
+	        stmt.setTime(8, evenement.getHeureFin());
+	        stmt.setString(9, evenement.getImage());
 	        stmt.executeUpdate();
 	        // Fermer la connexion
 	        connection.close();
