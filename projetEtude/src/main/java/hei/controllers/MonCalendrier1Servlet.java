@@ -38,7 +38,7 @@ public class MonCalendrier1Servlet extends HttpServlet {
 	public static SimpleDateFormat formatAnnee = new SimpleDateFormat("yyyy");
 	public static SimpleDateFormat formatMois = new SimpleDateFormat("MM");
 	public static SimpleDateFormat formatJour = new SimpleDateFormat("dd");
-	private long tableaus[];
+
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -50,48 +50,46 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		List<Evenement> listEvent = Manager.getInstance().listerEvenementEtudiant(idEtudiant);
 		
 		//Selectionne les événements non passés
-		List<Date> listeDate=new ArrayList<Date>();
+		List<String> listeDate=new ArrayList<String>();
 		Date dateToday=new Date();
+		Integer aujourdhui = DateToInt(dateToday);
+		
 		for (int i=0; i<listEvent.size(); i++) {
 			Evenement event= Manager.getInstance().getEvenement(listEvent.get(i).getIdEvenement());
-			if(dateToday.equals(event.getDateDebut())||dateToday.before(event.getDateDebut())){		
+			if(aujourdhui== Integer.parseInt(stringprete(event.getDateFin()))||aujourdhui<Integer.parseInt(stringprete(event.getDateFin()))){		
 			
 			listeDate.add(event.getDateDebut());
 			}
 		}
 		if(listeDate.size()!=1){
-		//Ordonne les dates - Les dates sont transformées en format long
-		tableaus = null;
-		for(int i=0; i<listeDate.size(); i++){
-			tableaus[i]= DateToInt(listeDate.get(i));
-		}
-		triCroissant(tableaus);
+			//Ordonne les dates - Les dates sont transformées en format long
+			int tableaus[] = new int[listeDate.size()];
+			for(int i=0; i<listeDate.size(); i++){
+				tableaus[i]= Integer.parseInt(stringprete(listeDate.get(i)));
+			}
+			triCroissant(tableaus);
 		
 		//Remise en format date et dans une liste
-		List<Date> listeDateOrdonnée = new ArrayList<Date>();
-		
-		for(int i=0;i<listeDate.size();i++){
-			try {
-				Date date = stringToDate(nombreToString(tableaus[i]));
-				listeDateOrdonnée.add(date);
-			} catch (ParseException e) {
-				e.printStackTrace();
-			}			
-		}
-		
-		List<Evenement> listeEvent=new ArrayList<Evenement>();
-		for (int j=0; j<listeDate.size(); j++) {
-		Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnée.get(j));
-		listeEvent.add(Event);
-		request.setAttribute("listeEventPerso", listeEvent);
-		}
-		}else {
-		List<Evenement> listeEvent=new ArrayList<Evenement>();
-			for (int j=0; j<listeDate.size(); j++) {
-		Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
-		listeEvent.add(Event);
-		request.setAttribute("listeEventPerso", listeEvent);
+			List<String> listeDateOrdonnee = new ArrayList<String>();
+			
+			for(int i=0;i<listeDate.size();i++){
+				String date =nombreToString(tableaus[i]);
+				listeDateOrdonnee.add(date);			
 			}
+		List<Evenement> listeEvent=new ArrayList<Evenement>();
+			
+			for (int j=0; j<listeDate.size(); j++) {
+			Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnee.get(j));
+			listeEvent.add(Event);
+			request.setAttribute("listeEventPerso", listeEvent);
+			}
+			}else {
+			List<Evenement> listeEvent=new ArrayList<Evenement>();
+				for (int j=0; j<listeDate.size(); j++) {
+			Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
+			listeEvent.add(Event);
+			request.setAttribute("listeEventPerso", listeEvent);
+				}
 		}
 				
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/monCalendrier1.jsp");
@@ -113,8 +111,8 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		
 		String titreEvent = event.getTitreEvent();
 		String lieu = event.getLieu();
-		Date dateDebut = event.getDateDebut();
-		Date dateFin = event.getDateFin();
+		String dateDebut = event.getDateDebut();
+		String dateFin = event.getDateFin();
 		
 		try {
 			envoyerMailEvent(idEvent,titreEvent,  lieu,  dateDebut,  dateFin,  mail);
@@ -124,7 +122,7 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		response.sendRedirect("monCalendrier1");
 	}
 	
-private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Date dateDebut, Date dateFin, String mail) throws Exception {
+private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, String dateDebut, String dateFin, String mail) throws Exception {
 		
 		try {
 			
@@ -178,32 +176,27 @@ private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Dat
 		}
 		
 	}
-public static long DateToInt (Date date){
+public static int DateToInt (Date date){
 	String annee = formatAnnee.format(date);
 	String mois = formatMois.format(date);
 	String jour = formatJour.format(date);
-	String heure = formatHeure.format(date);
-	String minute = formatMinute.format(date);
-	String seconde = formatSec.format(date);
 	
-	String nombre = annee+mois+jour+heure+minute+seconde;
+	String nombre = annee+mois+jour;
 	
-	Long dateNombre =  Long.parseLong(nombre);
+	Integer dateNombre = Integer.parseInt(nombre);
 	
 	return dateNombre;
 }
-public static String nombreToString(long nombre){
+public static String nombreToString(int nombre){
 	
 	String nomb = String.valueOf(nombre);
 	
 	String year="";
 	String month="";
 	String day = "";
-	String hour = "";
-	String minute = "";
-	String seconde = "";
+	
 	 	
-	for(int i=0; i<14;i++){
+	for(int i=0; i<8;i++){
 		if(i<4){
 			year = year + nomb.charAt(i);
 		} 
@@ -213,26 +206,33 @@ public static String nombreToString(long nombre){
 		if(i>=6 && i<8){
 			day = day + nomb.charAt(i);
 		}
-		if(i>=8 && i<10){
-			hour = hour + nomb.charAt(i);
-		}
-		if(i>=10 && i<12){
-			minute = minute + nomb.charAt(i);
-		}
-		if(i>=12 && i<14){
-			seconde = seconde + nomb.charAt(i);
-		}
+		
 	}
-	String date = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+seconde;
+	String date = year+"-"+month+"-"+day;
 	
 	return date;
+}
+public static String stringprete(String ladate){
+	int longueur = 10;
+	String string = "";
+	
+	for(int i=0; i<longueur; i++){
+		if(i<4)
+		{string = string + ladate.charAt(i);}
+		if(i>=5 && i<7)
+		{string = string + ladate.charAt(i);}
+		if(i>=8 && i<10)
+		{string = string + ladate.charAt(i);}
+	}
+	
+	return string;	
 }
 public static Date stringToDate(String sDate) throws ParseException {
     return formatDate.parse(sDate);
 }
-public static void triCroissant(long tableau[]) {
+public static void triCroissant(int tableau[]) {
 	int longueur = tableau.length;
-	long tampon = 0;
+	int tampon = 0;
 	boolean permut;
 
 	do {

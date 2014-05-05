@@ -3,7 +3,6 @@ package hei.model;
 import java.sql.Time;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Evenement {
 
@@ -16,13 +15,13 @@ public class Evenement {
 	private String titreEvent;
 	private String descriptionEvent;
 	private String lieu;
-	private Date dateDebut;
-	private Date dateFin;
+	private String dateDebut;
+	private String dateFin;
 	private Time heureDebut;
 	private Time heureFin;
 	private String image;
 	
-	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, Date debut, Date fin, Time hdebut, Time hfin, String image){
+	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, String debut, String fin, Time hdebut, Time hfin, String image){
 		super();
 		this.idEvenement = idevenement;
 		this.idCommission = idcommission;
@@ -37,6 +36,27 @@ public class Evenement {
 		this.heureFin = hfin;
 		this.image = image;
 	}
+
+	
+	public String getDateDebut() {
+		return dateDebut;
+	}
+
+
+	public void setDateDebut(String dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+
+
+	public String getDateFin() {
+		return dateFin;
+	}
+
+
+	public void setDateFin(String dateFin) {
+		this.dateFin = dateFin;
+	}
+
 
 	public Time getHeureDebut() {
 		return heureDebut;
@@ -117,23 +137,7 @@ public class Evenement {
 	public void setLieu(String lieu) {
 		this.lieu = lieu;
 	}
-
-	public Date getDateDebut() {
-		return dateDebut;
-	}
-
-	public void setDateDebut(Date dateDebut) {
-		this.dateDebut = dateDebut;
-	}
-
-	public Date getDateFin() {
-		return dateFin;
-	}
-
-	public void setDateFin(Date dateFin) {
-		this.dateFin = dateFin;
-	}
-
+	
 	public String getImage() {
 		return image;
 	}

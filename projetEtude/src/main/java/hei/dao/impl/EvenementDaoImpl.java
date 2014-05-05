@@ -1,7 +1,6 @@
 package hei.dao.impl;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -30,8 +29,8 @@ public class EvenementDaoImpl implements EvenementDao {
 	                   results.getString("titreEvent"),
 	                   results.getString("descriptionEvent"),
 	                   results.getString("lieuEvent"),
-	                   results.getDate("dateDebut"),
-	                   results.getDate("dateFin"),
+	                   results.getString("dateDebut"),
+	                   results.getString("dateFin"),
 	                   results.getTime("heureDebut"),
 	                   results.getTime("heureFin"),
 	                   results.getString("image"));
@@ -44,7 +43,7 @@ public class EvenementDaoImpl implements EvenementDao {
 		return listeEvent;
 	}
 
-	public void ajouterEvenement(Evenement evenement) {
+	/*public void ajouterEvenement(Evenement evenement) {
 
 		try {
 	        Connection connection = 
@@ -69,7 +68,7 @@ public class EvenementDaoImpl implements EvenementDao {
 	        e.printStackTrace();
 	    }
 		
-	}
+	}*/
 
 	public Evenement getEvenement(Integer idEvenement) {
 		
@@ -93,8 +92,8 @@ public class EvenementDaoImpl implements EvenementDao {
 	                    results.getString("titreEvent"),
 	                    results.getString("descriptionEvent"),
 	                    results.getString("lieuEvent"),
-	                    results.getDate("dateDebut"),
-	                    results.getDate("dateFin"),
+	                    results.getString("dateDebut"),
+	                    results.getString("dateFin"),
 	                    results.getTime("heureDebut"),
 		                results.getTime("heureFin"),
 		                results.getString("image"));
@@ -123,8 +122,8 @@ public List<Evenement> listerEvenementEtudiant(Integer idEtudiant) {
 	                   results.getString("titreEvent"),
 	                   results.getString("descriptionEvent"),
 	                   results.getString("lieuEvent"),
-	                   results.getDate("dateDebut"),
-	                   results.getDate("dateFin"),
+	                   results.getString("dateDebut"),
+	                   results.getString("dateFin"),
 	                   results.getTime("heureDebut"),
 	                   results.getTime("heureFin"),
 	                   results.getString("image"));
@@ -138,7 +137,7 @@ public List<Evenement> listerEvenementEtudiant(Integer idEtudiant) {
 	}
 
 @Override
-public Evenement getEvenementByDate(java.util.Date dateDebut) {
+public Evenement getEvenementByDate(String dateDebut) {
 	Evenement evenement= null;
 	// Cr�er une nouvelle connexion � la BDD
     try {
@@ -149,7 +148,7 @@ public Evenement getEvenementByDate(java.util.Date dateDebut) {
         PreparedStatement stmt = (PreparedStatement) connection
         		.prepareStatement("SELECT * FROM evenement WHERE dateDebut =? ");
         
-        stmt.setDate(1, (Date) dateDebut);
+        stmt.setString(1, dateDebut);
         ResultSet results = stmt.executeQuery();
         if(results.next()){
         	evenement = new Evenement(results.getInt("idEvenement"),
@@ -159,8 +158,8 @@ public Evenement getEvenementByDate(java.util.Date dateDebut) {
                     results.getString("titreEvent"),
                     results.getString("descriptionEvent"),
                     results.getString("lieuEvent"),
-                    results.getDate("dateDebut"),
-                    results.getDate("dateFin"),
+                    results.getString("dateDebut"),
+                    results.getString("dateFin"),
                     results.getTime("heureDebut"),
 	                results.getTime("heureFin"),
 	                results.getString("image"));

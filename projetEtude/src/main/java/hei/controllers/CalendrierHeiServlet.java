@@ -47,12 +47,13 @@ public class CalendrierHeiServlet extends HttpServlet {
 		
 		List<Evenement> listEvent = Manager.getInstance().listerEvenement();
 		
-		
-		List<Date> listeDate=new ArrayList<Date>();
+		List<String> listeDate=new ArrayList<String>();
 		Date dateToday=new Date();
+		Integer aujourdhui = DateToInt(dateToday);
+		
 		for (int i=0; i<listEvent.size(); i++) {
 			Evenement event= Manager.getInstance().getEvenement(listEvent.get(i).getIdEvenement());
-			if(dateToday.equals(event.getDateDebut())||dateToday.before(event.getDateDebut())){		
+			if(aujourdhui== Integer.parseInt(stringprete(event.getDateFin()))||aujourdhui<Integer.parseInt(stringprete(event.getDateFin()))){		
 			
 			listeDate.add(event.getDateDebut());
 			}
@@ -64,8 +65,9 @@ public class CalendrierHeiServlet extends HttpServlet {
 		if(listeDate.size()!=1){
 			//Ordonne les dates - Les dates sont transformées en format long
 			int tableaus[] = new int[listeDate.size()];
-			for(int i=0; i<listeDate.size(); i++){
-				tableaus[i]= DateToInt(listeDate.get(i));
+			for(int i=0; i<listeDate.size(); i++)
+			{
+				tableaus[i]= Integer.parseInt(stringprete(listeDate.get(i)));
 			}
 			triCroissant(tableaus);
 			
@@ -74,21 +76,17 @@ public class CalendrierHeiServlet extends HttpServlet {
 			}
 			
 			//Remise en format date et dans une liste
-			List<Date> listeDateOrdonnee = new ArrayList<Date>();
+			List<String> listeDateOrdonnee = new ArrayList<String>();
 			
 			for(int i=0;i<listeDate.size();i++){
-				try {
-					Date date = stringToDate(nombreToString(tableaus[i]));
-					listeDateOrdonnee.add(date);
-				} catch (ParseException e) {
-					e.printStackTrace();
-				}			
+				String date =nombreToString(tableaus[i]);
+				listeDateOrdonnee.add(date);			
 			}
 			for (int i=0; i<listeDate.size(); i++) {
 				System.out.println("listeDateOrdonnee élement "+ i +" "+ listeDateOrdonnee.get(i));}
 			List<Evenement> listeEvent=new ArrayList<Evenement>();
 			
-			/*for (int j=0; j<listeDate.size(); j++) {
+			for (int j=0; j<listeDate.size(); j++) {
 			Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnee.get(j));
 			listeEvent.add(Event);
 			request.setAttribute("listeEventEntiere", listeEvent);
@@ -99,7 +97,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 			Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
 			listeEvent.add(Event);
 			request.setAttribute("listeEventEntiere", listeEvent);
-				}*/
+				}
 		}
 		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/calendrierHei.jsp");
@@ -121,8 +119,8 @@ public class CalendrierHeiServlet extends HttpServlet {
 		
 		String titreEvent = event.getTitreEvent();
 		String lieu = event.getLieu();
-		Date dateDebut = event.getDateDebut();
-		Date dateFin = event.getDateFin();
+		String dateDebut = event.getDateDebut();
+		String dateFin = event.getDateFin();
 		
 		try {
 			envoyerMailEvent(idEvent,titreEvent,  lieu,  dateDebut,  dateFin,  mail);
@@ -131,7 +129,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 		}
 		response.sendRedirect("calendrierHei");
 	}
-private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Date dateDebut, Date dateFin, String mail) throws Exception {
+private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, String dateDebut, String dateFin, String mail) throws Exception {
 		
 		try {
 			
@@ -205,7 +203,7 @@ public static String nombreToString(int nombre){
 	String day = "";
 	
 	 	
-	for(int i=0; i<14;i++){
+	for(int i=0; i<8;i++){
 		if(i<4){
 			year = year + nomb.charAt(i);
 		} 
@@ -220,6 +218,21 @@ public static String nombreToString(int nombre){
 	String date = year+"-"+month+"-"+day;
 	
 	return date;
+}
+public static String stringprete(String ladate){
+	int longueur = 10;
+	String string = "";
+	
+	for(int i=0; i<longueur; i++){
+		if(i<4)
+		{string = string + ladate.charAt(i);}
+		if(i>=5 && i<7)
+		{string = string + ladate.charAt(i);}
+		if(i>=8 && i<10)
+		{string = string + ladate.charAt(i);}
+	}
+	
+	return string;	
 }
 public static Date stringToDate(String sDate) throws ParseException {
     return formatDate.parse(sDate);
