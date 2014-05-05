@@ -158,8 +158,8 @@ public Evenement getEvenementByDate(String dateDebut) {
                     results.getString("titreEvent"),
                     results.getString("descriptionEvent"),
                     results.getString("lieuEvent"),
-                    results.getString("dateDebut"),
-                    results.getString("dateFin"),
+                    results.getDate("dateDebut"),
+                    results.getDate("dateFin"),
                     results.getTime("heureDebut"),
 	                results.getTime("heureFin"),
 	                results.getString("image"));
