@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,7 +37,7 @@
 					<article class="description">
 						<p id="description">${evenement.descriptionEvent} </p>
 						<p id="lieu">Lieu : ${evenement.lieu}</p>
-						<p id="horaire">Début : ${evenement.dateDebut} ${evenement.heureDebut}</p>
+						<p id="horaire">Début : ${evenement.dateDebut}  ${evenement.heureDebut}</p>
 						<p id="horaire">Fin : ${evenement.dateFin}  ${evenement.heureFin}</p>
 					</article>
 					<form id="ajout" action="monCalendrier1" method="post">

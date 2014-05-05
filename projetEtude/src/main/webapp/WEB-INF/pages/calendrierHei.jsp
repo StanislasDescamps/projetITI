@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,7 +30,7 @@
 		
 		<c:forEach var="evenement" items="${listeEventEntiere}">
 		<section class="${evenement.dateDebut}">
-			<h2><fmt:formatDate value="${evenement.dateDebut}" pattern="dd MMMM yyyy"/></h2>
+			<h2>${evenement.dateDebut}</h2>
 				<article id="${evenement.nomPole}" class="resume">
 					<img src="${evenement.image}"/>
 					<h2>${evenement.titreEvent}</h2>
@@ -38,8 +38,8 @@
 					<article class="description">
 						<p id="description">${evenement.descriptionEvent} </p>
 						<p id="lieu">Lieu : ${evenement.lieu}</p>
-						<p id="horaire">Début : <fmt:formatDate value="${evenement.dateDebut}" pattern="dd MMMM yyyy "/><fmt:formatDate value="${evenement.heureDebut}" pattern=" HH:mm"/></p>
-						<p id="horaire">Fin : <fmt:formatDate value="${evenement.dateFin}" pattern="dd MMMM yyyy "/><fmt:formatDate value="${evenement.heureFin}" pattern=" HH:mm"/></p>
+						<p id="horaire">Début : ${evenement.dateDebut}  ${evenement.heureDebut}</p>
+						<p id="horaire">Fin : ${evenement.dateFin}  ${evenement.heureFin}</p>
 					</article>
 					<form id="ajout" action="calendrierHei" method="post">
 						<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
