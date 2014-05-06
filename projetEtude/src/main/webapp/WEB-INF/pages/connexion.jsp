@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="hei.model.*, hei.metier.*" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,6 +10,7 @@
 		<!-- Corps de la page 
 		<link rel="stylesheet" href="css/connexion.css">-->
 		<h1 style="position:relative; left:450px;color: red;width:400px;margin-right:0px;margin-left:0px;">Bienvenue sur HEI-Diary</h1>
+		
 		<%
        if(request.getAttribute("loginError")!=null) {
            out.print((String)request.getAttribute("loginError"));

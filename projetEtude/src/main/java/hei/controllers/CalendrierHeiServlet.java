@@ -76,8 +76,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 				String date =nombreToString(tableaus[i]);
 				listeDateOrdonnee.add(date);			
 			}
-			for (int i=0; i<listeDate.size(); i++) {
-				System.out.println("listeDateOrdonnee élement "+ i +" "+ listeDateOrdonnee.get(i));}
+			
 			List<Evenement> listeEvent=new ArrayList<Evenement>();
 			
 			for (int j=0; j<listeDate.size(); j++) {

@@ -45,7 +45,7 @@ public class ConnexionServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		//
+		
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("pass");
 		
@@ -64,9 +64,11 @@ public class ConnexionServlet extends HttpServlet {
 		else
 		{
 			request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valide.");
+			RequestDispatcher view = request.getRequestDispatcher("connexion");
+			view.forward(request, response);
 		}
 		
-		String mail2 = request.getParameter("mailmdp");
+		/*String mail2 = request.getParameter("mailmdp");
 		Etudiant etudiant2 = Manager.getInstance().getEtudiantMail(mail2);
 		
 		if(etudiant2 != null){
@@ -80,7 +82,10 @@ public class ConnexionServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else {request.setAttribute("mailError", "Votre login n'est pas bon. Veuillez rentrer une adresse mail valide et existante.\n"
-				+ " Si l'erreur persiste, créez un nouveau profil");}
+				+ " Si l'erreur persiste, créez un nouveau profil");
+				RequestDispatcher view2 = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
+				view2.forward(request, response);
+		}*/
 		
 	}
 
