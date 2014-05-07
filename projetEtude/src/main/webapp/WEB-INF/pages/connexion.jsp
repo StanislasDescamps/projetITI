@@ -36,7 +36,7 @@
 				<legend>Mot de passe oublié</legend>
 				<label for="mailmdp">Mon adresse email :</label>
 				<input type="text" name="mailmdp" id="mailmdp"required/>
-				<input type="submit" name="mdpoublie" value="Envoyer mon mot de passe"/>
+				<input type="submit" name="passoublie" value="Envoyer mon mot de passe"/>
 			</fieldset>
 		</form>
 		<%

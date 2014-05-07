@@ -50,10 +50,13 @@ public class ConnexionServlet extends HttpServlet {
 		//Récupération des informations pour la connexion
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("pass");
+		String connexion = request.getParameter("connexion");
+		String passoublie = request.getParameter("passoublie");
 		
 		Etudiant etudiant = Manager.getInstance().getEtudiantMail(mail);
 		
 		//Si password et login bon alors récupérer informations personnelles sinon message d'erreur
+		if(connexion != null){
 		if (Manager.getInstance().etudiantExiste(mail,password)) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("idEtudiant", etudiant.getIdetudiant());
@@ -67,30 +70,33 @@ public class ConnexionServlet extends HttpServlet {
 		else
 		{
 			request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valide.");
-			RequestDispatcher view = request.getRequestDispatcher("connexion");
-			view.forward(request, response);
+			ServletContext context = getServletContext();
+		    RequestDispatcher dispatcher = context.getRequestDispatcher("/connexion");
+		    dispatcher.forward(request, response);
+		    return;
 		}
-		
+		}
 		//Récupération des informations si mot de passe oublié
 		String mail2 = request.getParameter("mailmdp");
 		Etudiant etudiant2 = Manager.getInstance().getEtudiantMail(mail2);
 		
 		//Si le mail existe dans la base de donnée, envoyer un mail avec le mot de passe sinon message d'erreur
+		if(passoublie != null){
 		if(etudiant2 != null){
 			try {
-				envoyerMail(etudiant2.getNomEtudiant(), etudiant2.getPrenomEtudiant(), mail2, etudiant2.getPassWord());
-				ServletContext context = getServletContext();
-			    RequestDispatcher dispatcher = context.getRequestDispatcher("/connexion");
-			    dispatcher.forward(request, response);
-			    
+				envoyerMail(etudiant2.getNomEtudiant(), etudiant2.getPrenomEtudiant(), mail2, etudiant2.getPassWord());		
+				RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
+		    	view.forward(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}else {request.setAttribute("mailError", "Votre login n'est pas bon. Veuillez rentrer une adresse mail valide et existante.\n"
 				+ " Si l'erreur persiste, créez un nouveau profil");
-				RequestDispatcher view2 = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
-				view2.forward(request, response);
-		}
+		ServletContext context = getServletContext();
+	    RequestDispatcher dispatcher = context.getRequestDispatcher("/connexion");
+	    dispatcher.forward(request, response);
+	    return;
+		}}
 		
 	}
 
@@ -130,7 +136,7 @@ private void envoyerMail(String nom, String prenom, String mail, String password
 		    SMTPTransport transport = (SMTPTransport)session.getTransport("smtp");
 		    transport.connect("smtp.gmail.com","heidiarybystanetnico@gmail.com","heidiary2014");
 		    transport.sendMessage(message,message.getAllRecipients());
-		System.out.println("Reponse" + transport.getLastServerResponse());
+		System.out.println("Reponse " + transport.getLastServerResponse());
 		transport.close();
 		}
 		catch(NoSuchProviderException e) {

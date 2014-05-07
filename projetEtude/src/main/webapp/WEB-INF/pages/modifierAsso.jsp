@@ -27,7 +27,7 @@
 			<section id="nom">
 				<input type="text" name="idcommission" id="idcommission" value="${commission.idcommission}"required/>
 				<label for="nomAsso">Nom de l'association :</label>
-				<input type="text" name="nomAsso" id="nomAsso" value=" Nom de l'association" required/></br>
+				<input type="text" name="nomAsso" id="nomAsso" value="${commission.nomCommission}" required/></br>
 			</section>
 			<section id="responsable">
 				<label for="responsable">President de l'association :</label>
@@ -48,7 +48,7 @@
 				</select></br>
 			</section>
 			<section id="description">
-				<textarea name="description" id="description" value="${commission.description}" rows="10" cols="50" required></textarea>
+				<textarea name="description" id="description" rows="10" cols="50" required></textarea>
 			</section>
 			<section id="bouton">
 				<input type="reset" value="Réinitialiser"/>
