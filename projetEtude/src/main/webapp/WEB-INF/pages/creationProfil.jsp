@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="hei.model.*, hei.metier.*" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,10 +29,11 @@
 					<input type="submit" value="Enregistrer" id="btn"/>
 			</fieldset>
 		</form>
-		<%
+		
+		<div style="position:relative;left:400px;"><%
 		 if(request.getAttribute("loginError")!=null) {
 	           out.print((String)request.getAttribute("loginError"));
 	       }
-		%>
+		%></div>
 	</body>
 </html>

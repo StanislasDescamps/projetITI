@@ -11,13 +11,7 @@
 		<link rel="stylesheet" href="css/connexion.css">-->
 		<h1 style="position:relative; left:450px;color: red;width:400px;margin-right:0px;margin-left:0px;">Bienvenue sur HEI-Diary</h1>
 		
-		<%
-       if(request.getAttribute("loginError")!=null) {
-           out.print((String)request.getAttribute("loginError"));
-       }else{
-           out.print("Merci de vous connecter !");
-       }
-   %>
+		
 		<form id="identification" action="connexion" method="post" style="position:relative;top:20px;left:450px;margin: 10px;width:400px;height:150px;">
 			<fieldset>
 				<legend>Identifiez-vous</legend>
@@ -28,10 +22,20 @@
 				<input type="password" name="pass" id="pass"required />
 				<br/>
 				<input type="submit" name="connexion" value="Connexion"/>
-				
 			</fieldset>	
 		</form>
-		<form id="mdpoublie" action="connexion" method="post" style="position:relative;top:0px;left:450px;margin: 10px;width:400px;height:100px;">
+		
+		<div style="position:relative;left:400px;"><%
+       if(request.getAttribute("loginError")!=null) {
+           out.print((String)request.getAttribute("loginError"));
+       }else{
+           out.print("Merci de vous connecter !");
+       }
+   %></div>
+   
+   <a href="creationProfil"><input id="creation" type="submit" value="Créer un profil" style="position: relative;top: 0px;left:750px;"></a>
+   
+		<form id="mdpoublie" action="connexion" method="post" style="position:relative;top:30px;left:450px;margin: 10px;width:400px;height:100px;">
 			<fieldset>
 				<legend>Mot de passe oublié</legend>
 				<label for="mailmdp">Mon adresse email :</label>
@@ -39,11 +43,11 @@
 				<input type="submit" name="passoublie" value="Envoyer mon mot de passe"/>
 			</fieldset>
 		</form>
-		<%
+		<div style="position:relative;top:20px;left:300px;"><%
        if(request.getAttribute("mailError")!=null) {
            out.print((String)request.getAttribute("mailError"));
        }
-   %>
-		<a href="creationProfil"><input id="creation" type="submit" value="Créer un profil" style="position: relative;top: 0px;left:750px;"></a>		
+   %></div>
+			
 	</body>
 </html>

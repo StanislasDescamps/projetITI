@@ -92,6 +92,8 @@ public class CreationProfilServlet extends HttpServlet {
 		else
 		{
 		request.setAttribute("loginError", "Votre login existe deja. Veuillez rentrer un autre login ou faites mot de passe oublié.");
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/creationProfil.jsp");
+    	view.forward(request, response);
 		}
 	}
 	

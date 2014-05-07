@@ -53,6 +53,8 @@ public class AjouterAssoServlet extends HttpServlet{
 			{
 				Commexistante = true;
 				request.setAttribute("ErrorComm", "Il y a une erreur dans votre requette. Veuillez vérifier que la commission n'existe pas déjà. Si le problème persiste, voyez avec la maintenance");
+				RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/ajouterAsso.jsp");
+		    	view.forward(request, response);
 			}
 			else{j++;}
 		}	
@@ -79,6 +81,8 @@ public class AjouterAssoServlet extends HttpServlet{
 			response.sendRedirect("mesOptions");
 		}else{
 			request.setAttribute("ErrorEtudiant", "Il y a une erreur dans votre requette. Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");
+			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/ajouterAsso.jsp");
+	    	view.forward(request, response);
 		}
 	}
 }	

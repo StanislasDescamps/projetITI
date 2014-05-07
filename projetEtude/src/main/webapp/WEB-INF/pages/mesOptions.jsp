@@ -86,8 +86,8 @@
      
 		</div> <!-- .tab_container --> 
 								
-				<input type="submit" name="reinitialiser" value="Réinitialiser"/>
-				<input type="submit" name="enregistrer" value="Enregistrer"/>
+				<input type="submit" name="reinitialiser" value="Réinitialiser tous mes choix"/>
+				<input type="submit" name="enregistrer" value="Ajouter mes nouveaux choix"/>
 			</form>
 		</section>
 		

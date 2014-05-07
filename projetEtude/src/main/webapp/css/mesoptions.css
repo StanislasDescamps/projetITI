@@ -133,6 +133,13 @@ left:200px;
 width:800px;
 margin:20px;
 }
+div#message
+{
+position:relative;
+top:-300px;
+left:700px;
+width:300px;
+}
 footer
 {
 position:fixed;

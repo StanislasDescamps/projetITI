@@ -1,4 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="hei.model.*, hei.metier.*" contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
@@ -56,11 +56,12 @@
 			</section>
 		</form>	
 		
+		<div style="position:relative;top:-300px;left:700px;width:300px;">
 		<%
 		 if(request.getAttribute("ErrorEtudiant2")!=null) {
 	           out.print((String)request.getAttribute("ErrorEtudiant2"));
 	       }
-		%>
+		%></div>
 		
 		<footer>
 			<div>Réalisation HEI</div>
