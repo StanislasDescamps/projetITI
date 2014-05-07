@@ -30,9 +30,11 @@ public class AjouterAssoServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 				
+		//Récupération des listes de tous les etudiants et commissions
 		List<Etudiant> listeEtudiant = Manager.getInstance().listerEtudiant();
 		List<Commission> listeCommission=Manager.getInstance().listerCommission();
 		
+		//Récupération des champs
 		String nomAsso = request.getParameter("nomAsso");
 		String mailReferent = request.getParameter("referent");
 		String logo = request.getParameter("logo");
@@ -44,6 +46,7 @@ public class AjouterAssoServlet extends HttpServlet{
 		int i =0;
 		int j =0;
 		
+		//Vérification de l'inexistance de la commission
 		while(Commexistante == false && j<listeCommission.size())
 		{
 			if(nomAsso.toLowerCase().equalsIgnoreCase(listeCommission.get(j).getNomCommission().toLowerCase()))
@@ -54,6 +57,7 @@ public class AjouterAssoServlet extends HttpServlet{
 			else{j++;}
 		}	
 		
+		//Si inexistante, vérification de l'existance du référent
 		if(!Commexistante){
 				while(Etudiantexistant==false && i<listeEtudiant.size())
 			
@@ -65,7 +69,7 @@ public class AjouterAssoServlet extends HttpServlet{
 					else {Etudiantexistant=false;
 					i++;}
 					}
-			
+			//Si référent existant récupération de ses infos et création de la nouvelle commission sinon message erreur
 		if(Etudiantexistant){
 			Integer idEtudiant = Manager.getInstance().getEtudiantMail(mailReferent).getIdetudiant();
 			Integer idPole = Manager.getInstance().getPolebyNom(pole).getIdPole();
