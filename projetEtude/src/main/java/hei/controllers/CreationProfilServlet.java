@@ -45,12 +45,12 @@ public class CreationProfilServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
-		//Ajout du participant et de sa participation	
+		//Récupération des informations	
 		
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String mail = request.getParameter("mail");
-		String motpass= genereMdp();
+		String motpass= genereMdp();  //génération d'un mot de passe
 		
 		List<Etudiant> listEtudiant = new ArrayList<Etudiant>();
 		listEtudiant = Manager.getInstance().listerEtudiant();
@@ -61,7 +61,7 @@ public class CreationProfilServlet extends HttpServlet {
 	
 		java.util.Date date = new java.util.Date(); 
 				
-		
+		//Vérification de l'inexistance de l'étudiant
 		while(i<n && !existe)
 		{
 			if(mail.equalsIgnoreCase(listEtudiant.get(i).getEmail()))
@@ -71,6 +71,7 @@ public class CreationProfilServlet extends HttpServlet {
 			else i++;
 		}
 		
+		//Si etudiant inexistant création du profil sinon message d'erreur
 		if(!existe)
 		{
 		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, false);
@@ -78,7 +79,7 @@ public class CreationProfilServlet extends HttpServlet {
 		try {
 			envoyerMail(nom, prenom, mail, motpass);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -94,6 +95,7 @@ public class CreationProfilServlet extends HttpServlet {
 		}
 	}
 	
+	//Fonction générant un mot de passe aléatoire
 	private String genereMdp(){
 		String password = "";
 		String alphabet = "abcdefghijklmnopqrstuvwxyz1234567890";
@@ -104,10 +106,11 @@ public class CreationProfilServlet extends HttpServlet {
         } 		
 		return password;
 	}
+	//Fonction permettant l'envoi d'un mail avec le mot de passe généré
 	private void envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
 		
 		try {
-			
+			//Configuration de l'hote d'envoi du mail
 		    Properties props = System.getProperties();
 		    props.put("mail.smtps.host", "smtp.gmail.com");
 		    props.put("mail.smtps.auth", "true"); 
@@ -116,9 +119,9 @@ public class CreationProfilServlet extends HttpServlet {
 	       
 		    Session		session	    = Session.getInstance(props,null);
 	 
+		    //Rédaction du mail
 		    Message		message	    = new MimeMessage(session);
 		    message.setFrom(new InternetAddress("heidiarybystanetnico@gmail.com"));
-		    //InternetAddress	recipient   = new InternetAddress(mail);
 		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail,false));
 		    message.setSubject("Votre mot de passe HEI-Diary");
 	 
@@ -127,10 +130,11 @@ public class CreationProfilServlet extends HttpServlet {
 	
 		    message.setSentDate(new Date());
 		    
+		    //Configuration de l'envoi du mail
 		    SMTPTransport transport = (SMTPTransport)session.getTransport("smtp");
 		    transport.connect("smtp.gmail.com","heidiarybystanetnico@gmail.com","heidiary2014");
 		    transport.sendMessage(message,message.getAllRecipients());
-		System.out.println("Reponse" + transport.getLastServerResponse());
+		System.out.println("Reponse" + transport.getLastServerResponse()); 
 		transport.close();
 		}
 		catch(NoSuchProviderException e) {

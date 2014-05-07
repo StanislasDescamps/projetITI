@@ -34,11 +34,12 @@ public class ConnexionServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//Si l'utilisateur n'est pas connecté, fermer la session
         if(request.getParameter("logout") != null){
         	 HttpSession session = request.getSession(true); 
         	 session.invalidate();
         }
+        //Permet l'ouverture de la page
     	RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
     	view.forward(request, response);
 	}
@@ -46,11 +47,13 @@ public class ConnexionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
+		//Récupération des informations pour la connexion
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("pass");
 		
 		Etudiant etudiant = Manager.getInstance().getEtudiantMail(mail);
 		
+		//Si password et login bon alors récupérer informations personnelles sinon message d'erreur
 		if (Manager.getInstance().etudiantExiste(mail,password)) {
 			HttpSession session = request.getSession(true);
 			session.setAttribute("idEtudiant", etudiant.getIdetudiant());
@@ -68,9 +71,11 @@ public class ConnexionServlet extends HttpServlet {
 			view.forward(request, response);
 		}
 		
-		/*String mail2 = request.getParameter("mailmdp");
+		//Récupération des informations si mot de passe oublié
+		String mail2 = request.getParameter("mailmdp");
 		Etudiant etudiant2 = Manager.getInstance().getEtudiantMail(mail2);
 		
+		//Si le mail existe dans la base de donnée, envoyer un mail avec le mot de passe sinon message d'erreur
 		if(etudiant2 != null){
 			try {
 				envoyerMail(etudiant2.getNomEtudiant(), etudiant2.getPrenomEtudiant(), mail2, etudiant2.getPassWord());
@@ -85,22 +90,21 @@ public class ConnexionServlet extends HttpServlet {
 				+ " Si l'erreur persiste, créez un nouveau profil");
 				RequestDispatcher view2 = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
 				view2.forward(request, response);
-		}*/
+		}
 		
 	}
 
+	//Renvoi vers la page d'accueil 
 	private void redirectCal(HttpServletResponse resp) throws IOException {
 	    resp.sendRedirect(getServletContext().getContextPath()+"/monCalendrier1");
 	}
 		
-	/*private void redirectConnexion(HttpServletResponse resp) throws IOException {
-	    resp.sendRedirect(getServletContext().getContextPath()+"/connexion");
-	}*/
 	
+	//Fonction permettant l'envoi d'un mail pour rappeler le mot de passe à l'utilisateur
 private void envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
 		
 		try {
-			
+			//Configuration de l'hote d'envoi du mail
 		    Properties props = System.getProperties();
 		    props.put("mail.smtps.host", "smtp.gmail.com");
 		    props.put("mail.smtps.auth", "true"); 
@@ -109,9 +113,10 @@ private void envoyerMail(String nom, String prenom, String mail, String password
 	       
 		    Session		session	    = Session.getInstance(props,null);
 	 
+		  //Rédaction du mail
 		    Message		message	    = new MimeMessage(session);
 		    message.setFrom(new InternetAddress("heidiarybystanetnico@gmail.com"));
-		    //InternetAddress	recipient   = new InternetAddress(mail);
+		    
 		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail,false));
 		    message.setSubject("Votre mot de passe HEI-Diary");
 	 
@@ -121,6 +126,7 @@ private void envoyerMail(String nom, String prenom, String mail, String password
 	
 		    message.setSentDate(new Date());
 		    
+		  //Configuration de l'envoi du mail
 		    SMTPTransport transport = (SMTPTransport)session.getTransport("smtp");
 		    transport.connect("smtp.gmail.com","heidiarybystanetnico@gmail.com","heidiary2014");
 		    transport.sendMessage(message,message.getAllRecipients());
