@@ -70,10 +70,8 @@ public class ConnexionServlet extends HttpServlet {
 		else
 		{
 			request.setAttribute("loginError", "Votre login n'est pas bon. Veuillez rentrer un utilisateur et un mot de passe valide.");
-			ServletContext context = getServletContext();
-		    RequestDispatcher dispatcher = context.getRequestDispatcher("/connexion");
-		    dispatcher.forward(request, response);
-		    return;
+			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
+	    	view.forward(request, response);
 		}
 		}
 		//Récupération des informations si mot de passe oublié
@@ -92,10 +90,8 @@ public class ConnexionServlet extends HttpServlet {
 			}
 		}else {request.setAttribute("mailError", "Votre login n'est pas bon. Veuillez rentrer une adresse mail valide et existante.\n"
 				+ " Si l'erreur persiste, créez un nouveau profil");
-		ServletContext context = getServletContext();
-	    RequestDispatcher dispatcher = context.getRequestDispatcher("/connexion");
-	    dispatcher.forward(request, response);
-	    return;
+		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
+    	view.forward(request, response);
 		}}
 		
 	}
