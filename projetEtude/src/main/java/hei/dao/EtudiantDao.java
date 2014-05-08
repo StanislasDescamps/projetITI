@@ -6,18 +6,18 @@ import java.util.List;
 
 public interface EtudiantDao {
 
-	public List<Etudiant> listerEtudiant();
+	public List<Etudiant> listerEtudiant();//liste tous les étudiants de la bdd
 	
-	public void ajouterEtudiant(Etudiant etudiant);
+	public void ajouterEtudiant(Etudiant etudiant); //ajout d'un étudiant à la bdd
 	
-	public Etudiant getEtudiant(Integer idEtudiant);
+	public Etudiant getEtudiant(Integer idEtudiant); //Récupère les informations d'un étudiant à partir de son identifiant
 	
-	public Etudiant getEtudiantMail(String mailEtudiant);
+	public Etudiant getEtudiantMail(String mailEtudiant);//Récupère les informations d'un étudiant à partir de son mail
 	
-	public boolean etudiantExiste(String mail, String password);
+	public boolean etudiantExiste(String mail, String password); //Vérifie l'existance du doublet (mail, mot de passe) dans la bdd
 	
-	public Etudiant getEtudiantResp(Integer idCommission);
+	public Etudiant getEtudiantResp(Integer idCommission);//Récupère les informations d'un étudiant responsable de la commission dont l'identifiant est en paramètre
 	
-	public Etudiant getEtudiantNomPrenom(String nom, String prenom);
+	public Etudiant getEtudiantNomPrenom(String nom, String prenom); //Récupère les informations d'un étudiant à partir de ses nom prenom
 		
 }

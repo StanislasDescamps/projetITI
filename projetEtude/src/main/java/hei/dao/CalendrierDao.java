@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface CalendrierDao {
 
-	public List<Calendrier> listerCalendrier();
+	public List<Calendrier> listerCalendrier(); //Liste tous les calendriers de la bdd
 	
-	public void ajouterCalendrier(Calendrier calendrier);
+	public void ajouterCalendrier(Calendrier calendrier); //Ajout d'un nouveau calendrier dans la bdd
 	
-	public Calendrier getCalendrier(Integer idEtudiant);
+	public Calendrier getCalendrier(Integer idEtudiant); //Récupération d'un calendrier a partir de l'identifiant d'un étudiant
 }

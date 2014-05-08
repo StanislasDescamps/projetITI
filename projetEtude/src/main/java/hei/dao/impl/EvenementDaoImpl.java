@@ -43,7 +43,7 @@ public class EvenementDaoImpl implements EvenementDao {
 		return listeEvent;
 	}
 
-	/*public void ajouterEvenement(Evenement evenement) {
+	public void ajouterEvenement(Evenement evenement) {
 
 		try {
 	        Connection connection = 
@@ -56,8 +56,8 @@ public class EvenementDaoImpl implements EvenementDao {
 	        stmt.setString(2, evenement.getTitreEvent());
 	        stmt.setString(3, evenement.getDescriptionEvent());
 	        stmt.setString(4, evenement.getLieu());
-	        stmt.setDate(5, (java.sql.Date) new Date(evenement.getDateDebut().getTime()));
-	        stmt.setDate(6, (java.sql.Date) new Date(evenement.getDateFin().getTime()));
+	        stmt.setString(5, evenement.getDateDebut());
+	        stmt.setString(6, evenement.getDateFin());
 	        stmt.setTime(7, evenement.getHeureDebut());
 	        stmt.setTime(8, evenement.getHeureFin());
 	        stmt.setString(9, evenement.getImage());
@@ -68,7 +68,7 @@ public class EvenementDaoImpl implements EvenementDao {
 	        e.printStackTrace();
 	    }
 		
-	}*/
+	}
 
 	public Evenement getEvenement(Integer idEvenement) {
 		
