@@ -42,6 +42,8 @@ public class ModifierAssoServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		Integer idpole2 = null;
+		
 		//Récupération de l'identifiant de la commission séléctionnée
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
@@ -51,9 +53,18 @@ public class ModifierAssoServlet extends HttpServlet{
 		//Récupération des champs
 		String nom = request.getParameter("nomAsso");
 		String mailResp = request.getParameter("mailResp");
-		Integer idpole = Integer.parseInt(request.getParameter("bureau"));
+		String idpole = request.getParameter("bureau");
 		String description = request.getParameter("description");
 		String logo = request.getParameter("logo");
+		
+		if(idpole.equals("")){
+			request.setAttribute("ErrorChamps", "Il y a une erreur dans votre requette. Veuillez vérifier que vous avez bien renseigné le champ 'pole associé' avant de valider.");
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/modifierAsso.jsp");
+			view.forward(request, response);
+		}else{
+		
+			idpole2=Integer.parseInt(idpole);
+		
 		
 		//Vérification de l'existance du nouvel etudiant responsable dans la base de données
 		Etudiant etudiant = Manager.getInstance().getEtudiantMail(mailResp);
@@ -73,7 +84,7 @@ public class ModifierAssoServlet extends HttpServlet{
 	//Si existant, enregistrer les modifications sinon message d'erreur
 if(Etudiantexistant){
 		
-		Manager.getInstance().modifierCommission(idCommission, etudiant.getIdetudiant(), idpole, nom, description, logo);
+		Manager.getInstance().modifierCommission(idCommission, etudiant.getIdetudiant(), idpole2, nom, description, logo);
 		response.sendRedirect("presentationAsso?idcommission=" + idCommission);}
 else{
 	request.setAttribute("ErrorEtudiant2", "Il y a une erreur dans votre requette. Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");
@@ -81,5 +92,6 @@ else{
 	view.forward(request, response);
 	}
 
+	}
 	}
 }

@@ -47,6 +47,16 @@ public class AjouterAssoServlet extends HttpServlet{
 		int i =0;
 		int j =0;
 		
+		Integer idPole=null;
+		
+		if(pole.equals("")){
+			request.setAttribute("ErrorChamps", "Il y a une erreur dans votre requette. Veuillez vérifier que vous avez bien renseigné le champ 'pole associé' avant de valider.");
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/ajouterAsso.jsp");
+			view.forward(request, response);
+		}else{
+			idPole = Manager.getInstance().getPolebyNom(pole).getIdPole();
+		
+				
 		//Vérification de l'inexistance de la commission
 		while(Commexistante == false && j<listeCommission.size())
 		{
@@ -75,8 +85,7 @@ public class AjouterAssoServlet extends HttpServlet{
 			//Si référent existant, récupération de ses infos et création de la nouvelle commission sinon message erreur
 		if(Etudiantexistant){
 			Integer idEtudiant = Manager.getInstance().getEtudiantMail(mailReferent).getIdetudiant();
-			Integer idPole = Manager.getInstance().getPolebyNom(pole).getIdPole();
-			
+						
 			Commission nouvelleCommission = new Commission(null, idEtudiant,idPole, nomAsso, description, logo);
 			Manager.getInstance().ajouterCommission(nouvelleCommission);
 			response.sendRedirect("mesOptions");
@@ -86,6 +95,7 @@ public class AjouterAssoServlet extends HttpServlet{
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/ajouterAsso.jsp");
 	    	view.forward(request, response);
 		}
+	}
 	}
 }	
 }

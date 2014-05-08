@@ -61,6 +61,9 @@
 		 if(request.getAttribute("ErrorEtudiant2")!=null) {
 	           out.print((String)request.getAttribute("ErrorEtudiant2"));
 	       }
+		if(request.getAttribute("ErrorChamps")!=null) {
+	           out.print((String)request.getAttribute("ErrorChamps"));
+	       }
 		%></div>
 		
 		<footer>

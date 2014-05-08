@@ -64,6 +64,9 @@
 		 if(request.getAttribute("ErrorComm")!=null) {
 	           out.print((String)request.getAttribute("ErrorComm"));
 	       }
+		if(request.getAttribute("ErrorChamps")!=null) {
+	           out.print((String)request.getAttribute("ErrorChamps"));
+	       }
 		%>
 		</div>
 		<footer>
