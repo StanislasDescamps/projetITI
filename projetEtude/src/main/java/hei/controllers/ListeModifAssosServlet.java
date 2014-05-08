@@ -20,10 +20,11 @@ public class ListeModifAssosServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//Récupération de toutes les commissions dans une liste
 		List<Commission> listComm = Manager.getInstance().listerCommission();
 		request.setAttribute("listeComm", listComm);
 		
-		
+		//Affichage de la page jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/listeModifAsso.jsp");
 		view.forward(request, response);
 	}

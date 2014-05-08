@@ -22,14 +22,18 @@ public class ModifierAssoServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//Récupération de l'identifiant de la commission séléctionnée
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
+		//Récupération des informations de la commission
 		Commission commission = Manager.getInstance().getCommission(idCommission);
 		request.setAttribute("commission",commission);
 		
+		//Récupération des informations de l'étudiant responsable de la commission
 		Etudiant etudiant=Manager.getInstance().getEtudiantResp(idCommission);
 		request.setAttribute("etudiant", etudiant);
 		
+		//Affichage de la page jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/modifierAsso.jsp");
 		view.forward(request, response);
 	
@@ -38,20 +42,21 @@ public class ModifierAssoServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//Récupération de l'identifiant de la commission séléctionnée
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
+		//Récupération de tous les étudiants de la base de données dans une liste
 		List<Etudiant> listeetudiant = Manager.getInstance().listerEtudiant();
 		
+		//Récupération des champs
 		String nom = request.getParameter("nomAsso");
-		
-		
 		String mailResp = request.getParameter("mailResp");
-		Etudiant etudiant = Manager.getInstance().getEtudiantMail(mailResp);
-		
 		Integer idpole = Integer.parseInt(request.getParameter("bureau"));
 		String description = request.getParameter("description");
 		String logo = request.getParameter("logo");
 		
+		//Vérification de l'existance du nouvel etudiant responsable dans la base de données
+		Etudiant etudiant = Manager.getInstance().getEtudiantMail(mailResp);
 		boolean Etudiantexistant =false;
 		int i =0;
 		
@@ -65,7 +70,7 @@ public class ModifierAssoServlet extends HttpServlet{
 			else {Etudiantexistant=false;
 			i++;}
 			}
-	
+	//Si existant, enregistrer les modifications sinon message d'erreur
 if(Etudiantexistant){
 		
 		Manager.getInstance().modifierCommission(idCommission, etudiant.getIdetudiant(), idpole, nom, description, logo);

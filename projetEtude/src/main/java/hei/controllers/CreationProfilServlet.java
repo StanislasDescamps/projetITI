@@ -52,13 +52,15 @@ public class CreationProfilServlet extends HttpServlet {
 		String mail = request.getParameter("mail");
 		String motpass= genereMdp();  //génération d'un mot de passe
 		
+		//Récupération de tous les étudiant dans une liste
 		List<Etudiant> listEtudiant = new ArrayList<Etudiant>();
 		listEtudiant = Manager.getInstance().listerEtudiant();
 		
 		Integer i=0;
 		Integer n = listEtudiant.size();
 		Boolean existe=false;
-	
+
+		//Récupération de la date du système
 		java.util.Date date = new java.util.Date(); 
 				
 		//Vérification de l'inexistance de l'étudiant
@@ -71,7 +73,7 @@ public class CreationProfilServlet extends HttpServlet {
 			else i++;
 		}
 		
-		//Si etudiant inexistant création du profil sinon message d'erreur
+		//Si etudiant inexistant, création du profil sinon message d'erreur
 		if(!existe)
 		{
 		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, false);
@@ -82,7 +84,7 @@ public class CreationProfilServlet extends HttpServlet {
 			
 			e.printStackTrace();
 		}
-		
+		//Création du calendrier de l'étudiant
 		Calendrier nouveauCal = null;
 		nouveauCal = new Calendrier(null, Manager.getInstance().getEtudiantMail(mail).getIdetudiant(),formatDate.format(date));
 	

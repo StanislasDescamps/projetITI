@@ -5,7 +5,6 @@ import hei.model.Etudiant;
 import hei.model.Evenement;
 
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -31,6 +30,7 @@ import com.sun.mail.smtp.SMTPTransport;
 public class CalendrierHeiServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -6362843685737252100L;
+	
 	public static SimpleDateFormat formatentier = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public static SimpleDateFormat formatHeure = new SimpleDateFormat("HH");
 	public static SimpleDateFormat formatMinute = new SimpleDateFormat("mm");
@@ -45,12 +45,16 @@ public class CalendrierHeiServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//Récupération de la liste de tous les événements
 		List<Evenement> listEvent = Manager.getInstance().listerEvenement();
 		
+		//Création d'une liste de format String
 		List<String> listeDate=new ArrayList<String>();
+		//Récupération de la date du système
 		Date dateToday=new Date();
 		Integer aujourdhui = DateToInt(dateToday);
 		
+		//Récupération des dates des événements non terminés la liste listeDate
 		for (int i=0; i<listEvent.size(); i++) {
 			Evenement event= Manager.getInstance().getEvenement(listEvent.get(i).getIdEvenement());
 			if(aujourdhui== Integer.parseInt(stringprete(event.getDateFin()))||aujourdhui<Integer.parseInt(stringprete(event.getDateFin()))){		
@@ -60,7 +64,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 		}
 		
 		if(listeDate.size()!=1){
-			//Ordonne les dates - Les dates sont transformées en format long
+			//Ordonne les dates - Les dates sont transformées en format int
 			int tableaus[] = new int[listeDate.size()];
 			for(int i=0; i<listeDate.size(); i++)
 			{
@@ -69,7 +73,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 			triCroissant(tableaus);
 			
 			
-			//Remise en format date et dans une liste
+			//Remise en format String et dans une liste 
 			List<String> listeDateOrdonnee = new ArrayList<String>();
 			
 			for(int i=0;i<listeDate.size();i++){
@@ -79,12 +83,14 @@ public class CalendrierHeiServlet extends HttpServlet {
 			
 			List<Evenement> listeEvent=new ArrayList<Evenement>();
 			
+			//Récupération des événements non passés à l'aide des dates récupérées
 			for (int j=0; j<listeDate.size(); j++) {
 			Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnee.get(j));
 			listeEvent.add(Event);
 			request.setAttribute("listeEventEntiere", listeEvent);
 			}
 			}else {
+				//Si la liste de date est égale à 1, la fonction renverra immédiatement l'événement
 			List<Evenement> listeEvent=new ArrayList<Evenement>();
 				for (int j=0; j<listeDate.size(); j++) {
 			Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
@@ -92,7 +98,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 			request.setAttribute("listeEventEntiere", listeEvent);
 				}
 		}
-		
+		//Affichage de la page
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/calendrierHei.jsp");
 		view.forward(request, response);
 	}
@@ -100,21 +106,23 @@ public class CalendrierHeiServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
+		//Récupération des informations personnelles de l'étudiant
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		Etudiant etudiant = Manager.getInstance().getEtudiant(idEtudiant);
 		String mail = etudiant.getEmail();
 		
-		
+		//Récupération de l'identifiant de l'événement choisi par l'étudiant
 		Integer idEvent = Integer.parseInt(request.getParameter("idEvent"));
 		Evenement event = Manager.getInstance().getEvenement(idEvent);
 		
+		//Récupération des informations de l'événement
 		String titreEvent = event.getTitreEvent();
 		String lieu = event.getLieu();
 		String dateDebut = event.getDateDebut();
 		String dateFin = event.getDateFin();
 		
+		//Envoi d'un mail avec les informations de l'événement à l'étudiant
 		try {
 			envoyerMailEvent(idEvent,titreEvent,  lieu,  dateDebut,  dateFin,  mail);
 		} catch (Exception e) {
@@ -122,10 +130,11 @@ public class CalendrierHeiServlet extends HttpServlet {
 		}
 		response.sendRedirect("calendrierHei");
 	}
+	//Fonction permettant l'envoi du mail en format événement
 private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, String dateDebut, String dateFin, String mail) throws Exception {
 		
 		try {
-			
+			//Configuration de l'hote d'envoi du mail
 		    Properties props = System.getProperties();
 		    props.put("mail.smtps.host", "smtp.gmail.com");
 		    props.put("mail.smtps.auth", "true"); 
@@ -134,13 +143,13 @@ private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Str
 	       
 		    Session		session	    = Session.getInstance(props,null);
 	 
+		  //Rédaction du mail
 		    Message		message	    = new MimeMessage(session);
 		    message.setFrom(new InternetAddress("heidiarybystanetnico@gmail.com"));
-		    //InternetAddress	recipient   = new InternetAddress(mail);
 		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail,false));
 		    message.setSubject("Evenement " + nomEvent);
 	 
-		    
+		    //Format événement
 		    message.setText("BEGIN:VCALENDAR\n"
 		    		+ "VERSION:2.0\n"
 		    		+ "PRODID:-//HEI DAIRY//Event//FR \n"
@@ -156,6 +165,7 @@ private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Str
 	
 		    message.setSentDate(new Date());
 		    
+		  //Configuration de l'envoi du mail
 		    SMTPTransport transport = (SMTPTransport)session.getTransport("smtp");
 		    transport.connect("smtp.gmail.com","heidiarybystanetnico@gmail.com","heidiary2014");
 		    transport.sendMessage(message,message.getAllRecipients());
@@ -176,6 +186,7 @@ private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Str
 		}
 		
 	}
+//Fonction permettant de transformer un format date en entier
 public static int DateToInt (Date date){
 	String annee = formatAnnee.format(date);
 	String mois = formatMois.format(date);
@@ -187,6 +198,7 @@ public static int DateToInt (Date date){
 	
 	return dateNombre;
 }
+//Fonction permettant de transformer un format entier en string
 public static String nombreToString(int nombre){
 	
 	String nomb = String.valueOf(nombre);
@@ -212,6 +224,7 @@ public static String nombreToString(int nombre){
 	
 	return date;
 }
+//Permet de passer une string de type "yyyy-mm-dd" en string "yyyymmdd" (enlève les "-")
 public static String stringprete(String ladate){
 	int longueur = 10;
 	String string = "";
@@ -227,9 +240,7 @@ public static String stringprete(String ladate){
 	
 	return string;	
 }
-public static Date stringToDate(String sDate) throws ParseException {
-    return formatDate.parse(sDate);
-}
+//Fonction permettant le tri d'un tableau d'entier
 public static void triCroissant(int tableau[]) {
 	int longueur = tableau.length;
 	int tampon = 0;

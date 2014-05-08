@@ -22,6 +22,7 @@ public class AjouterAssoServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//Affichage de la page ajouterAsso.jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/ajouterAsso.jsp");
 		view.forward(request, response);
 	}
@@ -71,7 +72,7 @@ public class AjouterAssoServlet extends HttpServlet{
 					else {Etudiantexistant=false;
 					i++;}
 					}
-			//Si référent existant récupération de ses infos et création de la nouvelle commission sinon message erreur
+			//Si référent existant, récupération de ses infos et création de la nouvelle commission sinon message erreur
 		if(Etudiantexistant){
 			Integer idEtudiant = Manager.getInstance().getEtudiantMail(mailReferent).getIdetudiant();
 			Integer idPole = Manager.getInstance().getPolebyNom(pole).getIdPole();
@@ -80,7 +81,8 @@ public class AjouterAssoServlet extends HttpServlet{
 			Manager.getInstance().ajouterCommission(nouvelleCommission);
 			response.sendRedirect("mesOptions");
 		}else{
-			request.setAttribute("ErrorEtudiant", "Il y a une erreur dans votre requette. Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");
+			request.setAttribute("ErrorEtudiant", "Il y a une erreur dans votre requette. "
+					+ "Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/ajouterAsso.jsp");
 	    	view.forward(request, response);
 		}

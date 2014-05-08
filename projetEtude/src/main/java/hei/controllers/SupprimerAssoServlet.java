@@ -19,11 +19,14 @@ public class SupprimerAssoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//Récupération de l'identifiant de la commission séléctionnée
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
+		//Récupération des informations de la commission
 		Commission commission = Manager.getInstance().getCommission(idCommission);
 		request.setAttribute("commission",commission);
 		
+		//Affichage de la page jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/supprimerAsso.jsp");
 		view.forward(request, response);
 	}
@@ -32,15 +35,19 @@ public class SupprimerAssoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//Récupération de l'identifiant de la commission séléctionnée
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
+		//Récupération de la séléction du bouton
 		String reponse1=request.getParameter("trap1");
 		String reponse2=request.getParameter("trap2");
 		
+		//Si oui est seléctionner alors supprimer la commission de la base de données
 		if(reponse1 !=null){
 			if(reponse1.equalsIgnoreCase("OUI")){
 			Manager.getInstance().supprimerCommission(idCommission);
 			response.sendRedirect("listeModifAsso");}}
+		//Si non est seléctionner alors retour à la page précédente
 		if(reponse2 != null){
 			if(reponse2.equalsIgnoreCase("NON")){
 				response.sendRedirect("listeModifAsso");}}
