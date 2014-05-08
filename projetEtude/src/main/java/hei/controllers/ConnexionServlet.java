@@ -81,9 +81,11 @@ public class ConnexionServlet extends HttpServlet {
 		if(passoublie != null){
 		if(etudiant2 != null){
 			try {
-				envoyerMail(etudiant2.getNomEtudiant(), etudiant2.getPrenomEtudiant(), mail2, etudiant2.getPassWord());		
-				RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
-		    	view.forward(request, response);
+				boolean envoi=envoyerMail(etudiant2.getNomEtudiant(), etudiant2.getPrenomEtudiant(), mail2, etudiant2.getPassWord());		
+				if(envoi){
+					request.setAttribute("mailEnvoye", "Votre mot de passe a bien été envoyé sur votre boite mail");
+					RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
+					view.forward(request, response);}
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -102,8 +104,9 @@ public class ConnexionServlet extends HttpServlet {
 		
 	
 	//Fonction permettant l'envoi d'un mail pour rappeler le mot de passe à l'utilisateur
-private void envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
+private boolean envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
 		
+	boolean envoi = false;
 		try {
 			//Configuration de l'hote d'envoi du mail
 		    Properties props = System.getProperties();
@@ -131,6 +134,9 @@ private void envoyerMail(String nom, String prenom, String mail, String password
 		    SMTPTransport transport = (SMTPTransport)session.getTransport("smtp");
 		    transport.connect("smtp.gmail.com","heidiarybystanetnico@gmail.com","heidiary2014");
 		    transport.sendMessage(message,message.getAllRecipients());
+		    if(transport.getLastServerResponse() != null){
+		    	envoi=true;
+		    }
 		System.out.println("Reponse " + transport.getLastServerResponse());
 		transport.close();
 		}
@@ -146,6 +152,6 @@ private void envoyerMail(String nom, String prenom, String mail, String password
 		    System.err.println("Erreur dans le message");
 		    System.err.println(e);
 		}
-		
+		return envoi;
 	}
 }

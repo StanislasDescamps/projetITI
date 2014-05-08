@@ -30,7 +30,7 @@
 			</fieldset>
 		</form>
 		
-		<div style="position:relative;left:400px;"><%
+		<div style="position:relative;left:400px;max-width:800px;"><%
 		 if(request.getAttribute("loginError")!=null) {
 	           out.print((String)request.getAttribute("loginError"));
 	       }

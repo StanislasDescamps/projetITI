@@ -25,7 +25,7 @@
 			</fieldset>	
 		</form>
 		
-		<div style="position:relative;left:400px;"><%
+		<div style="position:relative;left:400px;max-width:800px;"><%
        if(request.getAttribute("loginError")!=null) {
            out.print((String)request.getAttribute("loginError"));
        }else{
@@ -43,10 +43,13 @@
 				<input type="submit" name="passoublie" value="Envoyer mon mot de passe"/>
 			</fieldset>
 		</form>
-		<div style="position:relative;top:20px;left:300px;"><%
+		<div style="position:relative;top:20px;left:300px;max-width:900px;"><%
        if(request.getAttribute("mailError")!=null) {
            out.print((String)request.getAttribute("mailError"));
        }
+		if(request.getAttribute("mailEnvoye")!=null) {
+	           out.print((String)request.getAttribute("mailEnvoye"));
+	       }
    %></div>
 			
 	</body>
