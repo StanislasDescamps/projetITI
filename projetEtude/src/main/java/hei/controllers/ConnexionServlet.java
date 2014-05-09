@@ -125,7 +125,7 @@ private boolean envoyerMail(String nom, String prenom, String mail, String passw
 		    message.setSubject("Votre mot de passe HEI-Diary");
 	 
 		    
-		    message.setText("Bonjour "+ prenom +" " + nom +", Nous vous rappelons votre mot de passe : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
+		    message.setText("Bonjour "+ prenom +" " + nom +",\nNous vous rappelons votre mot de passe : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
 	 
 	
 		    message.setSentDate(new Date());

@@ -34,6 +34,9 @@
 		 if(request.getAttribute("loginError")!=null) {
 	           out.print((String)request.getAttribute("loginError"));
 	       }
+		if(request.getAttribute("mailEnvoye")!=null) {
+	           out.print((String)request.getAttribute("mailEnvoye"));
+	       }
 		%></div>
 	</body>
 </html>

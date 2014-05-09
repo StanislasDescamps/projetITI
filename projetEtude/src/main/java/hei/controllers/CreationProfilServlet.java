@@ -79,7 +79,11 @@ public class CreationProfilServlet extends HttpServlet {
 		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, false);
 		Manager.getInstance().ajouterEtudiant(nouvelEtudiant);
 		try {
-			envoyerMail(nom, prenom, mail, motpass);
+			boolean envoi = envoyerMail(nom, prenom, mail, motpass);
+			if(envoi){
+				request.setAttribute("mailEnvoye", "Votre mot de passe a bien été envoyé sur votre boite mail.");
+				RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/creationProfil.jsp");
+				view.forward(request, response);}
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -89,7 +93,6 @@ public class CreationProfilServlet extends HttpServlet {
 		nouveauCal = new Calendrier(null, Manager.getInstance().getEtudiantMail(mail).getIdetudiant(),formatDate.format(date));
 	
 		Manager.getInstance().ajouterCalendrier(nouveauCal);
-		response.sendRedirect("connexion");
 		} 
 		else
 		{
@@ -111,8 +114,9 @@ public class CreationProfilServlet extends HttpServlet {
 		return password;
 	}
 	//Fonction permettant l'envoi d'un mail avec le mot de passe généré
-	private void envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
+	private boolean envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
 		
+		boolean envoi = false;
 		try {
 			//Configuration de l'hote d'envoi du mail
 		    Properties props = System.getProperties();
@@ -130,7 +134,7 @@ public class CreationProfilServlet extends HttpServlet {
 		    message.setSubject("Votre mot de passe HEI-Diary");
 	 
 		    
-		    message.setText("Bonjour "+ prenom +" " + nom +", merci de vous être inscrit sur HEI-Diary. votre mot de passe sera : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
+		    message.setText("Bonjour "+ prenom +" " + nom +", \nmerci de vous être inscrit sur HEI-Diary. votre mot de passe sera : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
 	
 		    message.setSentDate(new Date());
 		    
@@ -138,6 +142,9 @@ public class CreationProfilServlet extends HttpServlet {
 		    SMTPTransport transport = (SMTPTransport)session.getTransport("smtp");
 		    transport.connect("smtp.gmail.com","heidiarybystanetnico@gmail.com","heidiary2014");
 		    transport.sendMessage(message,message.getAllRecipients());
+		    if(transport.getLastServerResponse() != null){
+		    	envoi=true;
+		    }
 		System.out.println("Reponse" + transport.getLastServerResponse()); 
 		transport.close();
 		}
@@ -153,6 +160,6 @@ public class CreationProfilServlet extends HttpServlet {
 		    System.err.println("Erreur dans le message");
 		    System.err.println(e);
 		}
-		
+		return envoi;
 	}
 }
