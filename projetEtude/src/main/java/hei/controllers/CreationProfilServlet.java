@@ -63,7 +63,7 @@ public class CreationProfilServlet extends HttpServlet {
 		//Récupération de la date du système
 		java.util.Date date = new java.util.Date(); 
 				
-		//Vérification de l'inexistance de l'étudiant
+		//Vérification de l'inexistence de l'étudiant
 		while(i<n && !existe)
 		{
 			if(mail.equalsIgnoreCase(listEtudiant.get(i).getEmail()))

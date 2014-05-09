@@ -20,7 +20,7 @@ public class PresentationAssoServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération de l'identifiant de la commission séléctionnée
+		//Récupération de l'identifiant de la commission sélectionnée
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
 		//Récupération des informations de la commission

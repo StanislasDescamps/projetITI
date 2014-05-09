@@ -1,7 +1,6 @@
 package hei.controllers;
 
 import hei.metier.Manager;
-import hei.model.Etudiant;
 import hei.model.Evenement;
 
 import java.io.IOException;
@@ -48,7 +47,7 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		List<Evenement> listEvent = Manager.getInstance().listerEvenementEtudiant(idEtudiant);
 		
-		//Selectionne les événements non passés
+		//Récupération de la date du systeme
 		List<String> listeDate=new ArrayList<String>();
 		Date dateToday=new Date();
 		Integer aujourdhui = DateToInt(dateToday);
@@ -104,8 +103,7 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		//Récupération des informations personnelles de l'étudiant
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
-		Etudiant etudiant = Manager.getInstance().getEtudiant(idEtudiant);
-		String mail = etudiant.getEmail();
+		String mail = Manager.getInstance().getEtudiant(idEtudiant).getEmail();
 		
 		//Récupération de l'identifiant de l'événement choisi par l'étudiant
 		Integer idEvent = Integer.parseInt(request.getParameter("idEvent"));

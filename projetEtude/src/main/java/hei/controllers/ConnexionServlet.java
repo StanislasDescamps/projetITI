@@ -49,6 +49,7 @@ public class ConnexionServlet extends HttpServlet {
 		//Récupération des informations pour la connexion
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("pass");
+		//Récupération de la valeur du bouton actionné
 		String connexion = request.getParameter("connexion");
 		String passoublie = request.getParameter("passoublie");
 		

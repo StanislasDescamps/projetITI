@@ -42,17 +42,17 @@ public class MesOptionsServlet extends HttpServlet{
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		
-		//Récupération du bouton séléctionner
+		//Récupération du bouton sélectionner
 		String btnenregistrer = request.getParameter("enregistrer");
 		String btnreinitialiser = request.getParameter("reinitialiser");
 		
-		//Si selection du bouton enregistrer
+		//Si sélection du bouton enregistrer
 		if(btnenregistrer != null){
 			//Récupération de tous les éléments cochés et ajout dans une liste de format string
 			String[] preference = request.getParameterValues("commission");
 			for(int i=0;i<preference.length;i++)
 			{
-				//Ajout du choix de l'utilisateur dans la base de donnée
+				//Ajout du choix de l'utilisateur dans la base de données
 				Integer idCommission=Integer.parseInt(preference[i]);
 				Manager.getInstance().ajouterChoixCommission(idEtudiant,idCommission);
 				
