@@ -35,6 +35,7 @@
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
 				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
+				<h4>${etudiant.email}</h4>
 			</article>
 		</article>
 		</c:if>
@@ -51,6 +52,7 @@
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
 				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
+				<h4>${etudiant.email}</h4>
 			</article>
 		</article>
 		</c:if>
@@ -67,6 +69,7 @@
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
 				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
+				<h4>${etudiant.email}</h4>
 			</article>
 		</article>
 		</c:if>
@@ -83,6 +86,7 @@
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
 				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
+				<h4>${etudiant.email}</h4>
 			</article>
 		</article>
 		</c:if>
@@ -99,6 +103,7 @@
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
 				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
+				<h4>${etudiant.email}</h4>
 			</article>
 		</article>
 		</c:if>
