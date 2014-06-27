@@ -10,6 +10,8 @@ public interface EtudiantDao {
 	
 	public void ajouterEtudiant(Etudiant etudiant); //ajout d'un étudiant à la bdd
 	
+	public void firstConnexionSetFalse(Integer idEtudiant); //Modifie le statut de connexion de l'étudiant
+	
 	public Etudiant getEtudiant(Integer idEtudiant); //Récupère les informations d'un étudiant à partir de son identifiant
 	
 	public Etudiant getEtudiantMail(String mailEtudiant);//Récupère les informations d'un étudiant à partir de son mail

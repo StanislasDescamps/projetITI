@@ -64,8 +64,18 @@ public class ConnexionServlet extends HttpServlet {
 			session.setAttribute("prenom", etudiant.getPrenomEtudiant());
 			session.setAttribute("email", etudiant.getEmail());
 			session.setAttribute("idDroit", etudiant.getIdDroit());
+			session.setAttribute("firstConnexion", etudiant.isFirstConnexion());
 			session.setAttribute("etudiantConnecte", new Etudiant(mail,password));
-			redirectCal(response);
+			
+			//Récupération de firstConnexion
+			Boolean firstConnexion = (Boolean) session.getAttribute("firstConnexion");
+			Integer idetudiant= (Integer) session.getAttribute("idEtudiant");
+			//Si premiere connexion rediriger vers mes Preferences sinon vers mon calendrier
+			if(firstConnexion) {
+				redirectPref(response);
+				Manager.getInstance().firstConnexionSetFalse(idetudiant);
+			}
+			else redirectCal(response);
 		}
 		else
 		{
@@ -102,7 +112,10 @@ public class ConnexionServlet extends HttpServlet {
 	private void redirectCal(HttpServletResponse resp) throws IOException {
 	    resp.sendRedirect(getServletContext().getContextPath()+"/monCalendrier1");
 	}
-		
+	//Renvoi vers la page de préférence
+		private void redirectPref(HttpServletResponse resp) throws IOException {
+		    resp.sendRedirect(getServletContext().getContextPath()+"/mesOptions");
+		}	
 	
 	//Fonction permettant l'envoi d'un mail pour rappeler le mot de passe à l'utilisateur
 private boolean envoyerMail(String nom, String prenom, String mail, String password) throws Exception {

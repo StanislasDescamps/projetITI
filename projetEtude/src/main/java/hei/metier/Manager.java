@@ -43,6 +43,9 @@ public class Manager {
 	public void ajouterEtudiant(Etudiant etudiant) {
 		etudiantDao.ajouterEtudiant(etudiant);
 	}
+	public void firstConnexionSetFalse(Integer idEtudiant) {
+		etudiantDao.firstConnexionSetFalse(idEtudiant);
+	}
 	public Etudiant getEtudiant(Integer idEtudiant){
 		return etudiantDao.getEtudiant(idEtudiant);
 	}

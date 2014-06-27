@@ -209,4 +209,24 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	    }
 	    return etudiant;
 	}
+
+	@Override
+	public void firstConnexionSetFalse(Integer idEtudiant) {
+		try {
+	        Connection connection = 
+	            DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt1 = (PreparedStatement) connection.prepareStatement(
+	                  "UPDATE `etudiant` SET `firstConnexion`= 0 WHERE `idEtudiant`=?");
+	       
+	        stmt1.setInt(1,idEtudiant);	        
+	        stmt1.executeUpdate();
+	        
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
 }
