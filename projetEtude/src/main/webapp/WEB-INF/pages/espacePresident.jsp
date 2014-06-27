@@ -18,7 +18,7 @@
 		</header>
 		<jsp:include page="menu.jsp"/>
 		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
-		<jsp:include page="menuAdmin.jsp"/>
+		<jsp:include page="${menuOption}.jsp"/>
 		<c:set var="pageSelectionnee" value="espacePresident" scope="request"></c:set>
 		<aside class="deconnexion">
 			<a href="connexion?logout">Déconnexion</a>

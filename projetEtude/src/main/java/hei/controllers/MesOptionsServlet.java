@@ -27,12 +27,16 @@ public class MesOptionsServlet extends HttpServlet{
 		
 		//Récupération du statut de l'utilisateur connecté
 		HttpSession session = request.getSession(true);
-		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		Integer statut = (Integer) session.getAttribute("idDroit");
-		request.setAttribute("statut", statut);
+		//request.setAttribute("statut", statut);
 		
-		
-		
+		if(statut==2){
+			request.setAttribute("menuOption","menuAdmin");
+		}else if(statut==1){
+			request.setAttribute("menuOption","menuPres");
+		}else{
+			request.setAttribute("menuOption","menuOption");
+		}
 		
 		
 		//Affichage de la page jsp
