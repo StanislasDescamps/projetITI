@@ -25,13 +25,13 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("Jean", etudiant.get(0).getPrenomEtudiant());
 		Assert.assertEquals("admin", etudiant.get(0).getPassWord());
 		Assert.assertEquals("jean.gladieux@hei.fr", etudiant.get(0).getEmail());
-		Assert.assertEquals(true, etudiant.get(0).isAdmin());
+		Assert.assertEquals(1, etudiant.get(0).getIdDroit().intValue());
 		
 	}
 	@Test
 	public void testAjouterEtudiant() throws Exception {
 		
-		Etudiant nouveauEtudiant = new Etudiant(null,"Thomas", "Robert", "hei", "adressemail", false);
+		Etudiant nouveauEtudiant = new Etudiant(null,"Thomas", "Robert", "hei", "adressemail", 1);
 		etudiantDao.ajouterEtudiant(nouveauEtudiant);
 
 		Connection connection = DataSourceProvider.getDataSource()
@@ -46,7 +46,7 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("Robert", results.getString("prenomEtudiant"));
 		Assert.assertEquals("hei",results.getString("password"));
 		Assert.assertEquals("adressemail",results.getString("email"));		
-		Assert.assertEquals(false,results.getBoolean("admin"));
+		Assert.assertEquals(1,results.getInt("idDroit"));
 		// On v�rifie qu'il n'y a qu'un r�sultat
 		Assert.assertFalse(results.next());
 	}
@@ -58,7 +58,7 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("Jean", etudiant.getPrenomEtudiant());
 		Assert.assertEquals("admin", etudiant.getPassWord());
 		Assert.assertEquals("jean.gladieux@hei.fr", etudiant.getEmail());
-		Assert.assertEquals(true, etudiant.isAdmin());
+		Assert.assertEquals(1, etudiant.getIdDroit().intValue());
 	}
 	@Test
 	public void testgetEtudiantMail() {
@@ -68,7 +68,7 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("Jean", etudiant.getPrenomEtudiant());
 		Assert.assertEquals("admin", etudiant.getPassWord());
 		Assert.assertEquals("jean.gladieux@hei.fr", etudiant.getEmail());
-		Assert.assertEquals(true, etudiant.isAdmin());
+		Assert.assertEquals(1, etudiant.getIdDroit().intValue());
 	}
 	@Test
 	public void testgetEtudiantResp() {
@@ -78,7 +78,7 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("Jean", etudiant.getPrenomEtudiant());
 		Assert.assertEquals("admin", etudiant.getPassWord());
 		Assert.assertEquals("jean.gladieux@hei.fr", etudiant.getEmail());
-		Assert.assertEquals(true, etudiant.isAdmin());
+		Assert.assertEquals(1, etudiant.getIdDroit().intValue());
 	}
 	@Test
 	public void testgetEtudiantNomPrenom() {
@@ -88,7 +88,7 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("Jean", etudiant.getPrenomEtudiant());
 		Assert.assertEquals("admin", etudiant.getPassWord());
 		Assert.assertEquals("jean.gladieux@hei.fr", etudiant.getEmail());
-		Assert.assertEquals(true, etudiant.isAdmin());
+		Assert.assertEquals(1, etudiant.getIdDroit().intValue());
 	}
 	
 }
