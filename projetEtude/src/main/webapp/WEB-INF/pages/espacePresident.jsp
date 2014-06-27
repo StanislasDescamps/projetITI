@@ -18,7 +18,7 @@
 		</header>
 		<jsp:include page="menu.jsp"/>
 		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
-		<jsp:include page="${menuOption}.jsp"/>
+		<jsp:include page="${menuOption}"/>
 		<c:set var="pageSelectionnee" value="espacePresident" scope="request"></c:set>
 		<aside class="deconnexion">
 			<a href="connexion?logout">Déconnexion</a>
@@ -26,7 +26,7 @@
 		
 		<!--cette section est pour tous les étudiants -->
 		
-			<h3 id="titre">Administration</h3>
+			<h3 id="titre">Espace président</h3>
 			
 	
 		<footer>
