@@ -26,7 +26,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	                   results.getString("prenomEtudiant"),
 	                   results.getString("password"),
 	                   results.getString("email"),
-	                   results.getBoolean("admin"));
+	                   results.getInt("idDroit"));
 	    	listeEtudiant.add(etudiant);
 	    }
 		connection.close();
@@ -49,7 +49,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	        stmt.setString(2, etudiant.getPrenomEtudiant());
 	        stmt.setString(3, etudiant.getPassWord());
 	        stmt.setString(4, etudiant.getEmail());
-	        stmt.setBoolean(5,etudiant.isAdmin());
+	        stmt.setInt(5,etudiant.getIdDroit());
 	        stmt.executeUpdate();
 	        // Fermer la connexion
 	        connection.close();
@@ -101,7 +101,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	                    results.getString("prenomEtudiant"),
 	                    results.getString("password"),
 	                    results.getString("email"),
-	                    results.getBoolean("admin"));
+	                    results.getInt("idDroit"));
 	        }
 
 	        // Fermer la connexion
@@ -130,7 +130,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	                    results.getString("prenomEtudiant"),
 	                    results.getString("password"),
 	                    results.getString("email"),
-	                    results.getBoolean("admin"));
+	                    results.getInt("idDroit"));
 	        }
 
 	        // Fermer la connexion
@@ -161,7 +161,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	                    results.getString("prenomEtudiant"),
 	                    results.getString("password"),
 	                    results.getString("email"),
-	                    results.getBoolean("admin"));
+	                    results.getInt("idDroit"));
 	        }
 
 	        // Fermer la connexion
@@ -193,7 +193,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	                    results.getString("prenomEtudiant"),
 	                    results.getString("password"),
 	                    results.getString("email"),
-	                    results.getBoolean("admin"));
+	                    results.getInt("idDroit"));
 	        }
 
 	        // Fermer la connexion

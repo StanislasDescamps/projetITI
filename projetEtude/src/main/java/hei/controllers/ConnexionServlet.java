@@ -63,7 +63,7 @@ public class ConnexionServlet extends HttpServlet {
 			session.setAttribute("nom", etudiant.getNomEtudiant());
 			session.setAttribute("prenom", etudiant.getPrenomEtudiant());
 			session.setAttribute("email", etudiant.getEmail());
-			session.setAttribute("admin", etudiant.isAdmin());
+			session.setAttribute("idDroit", etudiant.getIdDroit());
 			session.setAttribute("etudiantConnecte", new Etudiant(mail,password));
 			redirectCal(response);
 		}

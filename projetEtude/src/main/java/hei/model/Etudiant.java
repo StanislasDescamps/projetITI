@@ -7,9 +7,9 @@ public class Etudiant {
 	private String prenomEtudiant;
 	private String passWord;
 	private String email;
-	private boolean admin;
+	private Integer idDroit;
 	
-	public Etudiant(Integer idetudiant, String nom, String prenom, String motdepass, String email, boolean admin){
+	public Etudiant(Integer idetudiant, String nom, String prenom, String motdepass, String email, Integer iddroit){
 		
 		super();
 		this.idEtudiant = idetudiant;
@@ -17,15 +17,15 @@ public class Etudiant {
 		this.prenomEtudiant = prenom;
 		this.passWord = motdepass;
 		this.email = email;
-		this.admin = admin;
+		this.setIdDroit(iddroit);
 	}
 	
-	public Etudiant(Integer idetudiant, String nom, String prenom, String email, boolean admin){
+	public Etudiant(Integer idetudiant, String nom, String prenom, String email, Integer iddroit){
 		this.idEtudiant = idetudiant;
 		this.nomEtudiant = nom;
 		this.prenomEtudiant = prenom;
 		this.email = email;
-		this.admin = admin;
+		this.idDroit = iddroit;
 	}
 	public Etudiant(String email, String password){
 		this.email = email;
@@ -62,10 +62,13 @@ public class Etudiant {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public boolean isAdmin() {
-		return admin;
+
+	public Integer getIdDroit() {
+		return idDroit;
 	}
-	public void setAdmin(boolean admin) {
-		this.admin = admin;
+
+	public void setIdDroit(Integer idDroit) {
+		this.idDroit = idDroit;
 	}
+	
 }

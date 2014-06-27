@@ -76,7 +76,7 @@ public class CreationProfilServlet extends HttpServlet {
 		//Si etudiant inexistant, création du profil sinon message d'erreur
 		if(!existe)
 		{
-		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, false);
+		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, 0);
 		Manager.getInstance().ajouterEtudiant(nouvelEtudiant);
 		try {
 			boolean envoi = envoyerMail(nom, prenom, mail, motpass);
