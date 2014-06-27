@@ -20,15 +20,20 @@ public class MesOptionsServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-				
+						
 		//Récupération de toutes les commissions dans une liste
 		List<Commission> listComm = Manager.getInstance().listerCommission();
 		request.setAttribute("listeComm",listComm);
 		
 		//Récupération du statut de l'utilisateur connecté
 		HttpSession session = request.getSession(true);
+		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		boolean statut = (Boolean) session.getAttribute("admin");
 		request.setAttribute("statut", statut);
+		
+		
+		
+		
 		
 		//Affichage de la page jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesOptions.jsp");

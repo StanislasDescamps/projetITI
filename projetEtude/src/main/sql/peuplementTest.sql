@@ -4,6 +4,7 @@ DELETE FROM `evenement`;
 DELETE FROM `pole`;
 DELETE FROM `commission`;
 DELETE FROM `etudiant`;
+DELETE FROM `droits`;
 DELETE FROM `choix`;
 DELETE FROM `doubletcalevent`;
 
@@ -31,7 +32,7 @@ INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`d
 
 
 
--- pole
+-- Pole
 INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (1,'BDA',1);
 INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (2,'BDS',3);
 INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (3,'CapSo',1);
@@ -40,11 +41,15 @@ INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (5,'PET',1);
 
 
 -- Etudiant
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`admin`) VALUES (1,'Gladieux','Jean','admin','jean.gladieux@hei.fr',1);
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`admin`) VALUES (2,'Denis','Martin','etudiant','martin.denis@hei.fr',0);
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`admin`) VALUES (3,'Descamps','Stanislas','admin','stanislas.descamps@hei.fr',1);
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`admin`) VALUES (4,'Merchez','Nicolas','admin','nicolas.merchez@hei.fr',1);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`admin`) VALUES (1,'Gladieux','Jean','pres','jean.gladieux@hei.fr',1);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`) VALUES (2,'Denis','Martin','etudiant','martin.denis@hei.fr',0);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`) VALUES (3,'Descamps','Stanislas','admin','stanislas.descamps@hei.fr',2);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`) VALUES (4,'Merchez','Nicolas','admin','nicolas.merchez@hei.fr',2);
 
+-- Droits
+INSERT INTO `droits`(`idDroit`,`libelle`) VALUES (0,'Etudiant',);
+INSERT INTO `droits`(`idDroit`,`libelle`) VALUES (1,'President',);
+INSERT INTO `droits`(`idDroit`,`libelle`) VALUES (2,'Administrateur');
 -- Choix
 INSERT INTO `choix`(`idEtudiant`,`idCommission`) VALUES (2,1);
 INSERT INTO `choix`(`idEtudiant`,`idCommission`) VALUES (3,2);

@@ -1,12 +1,3 @@
-DROP TABLE `choix`;
-DROP TABLE `doubletcalevent`;
-DROP TABLE `evenement`;
-DROP TABLE `commission`;
-DROP TABLE `pole`;
-DROP TABLE `calendrier`;
-DROP TABLE `etudiant`;
-
-
 CREATE TABLE `calendrier` (
   `idCalendrier` int(11) NOT NULL AUTO_INCREMENT,
   `idEtudiant` int(11) NOT NULL,
@@ -58,8 +49,14 @@ CREATE TABLE `etudiant` (
   `prenomEtudiant` varchar(30) NOT NULL,
   `password` varchar(8) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `admin` tinyint(1) NOT NULL,
+  `idDroit` int(11) NOT NULL,
   PRIMARY KEY (`idEtudiant`)
+) CHARSET=utf8;
+
+CREATE TABLE `droits` (
+  `idDroit` int(11) NOT NULL,
+  `libelle` varchar(50) NOT NULL,
+  PRIMARY KEY (`idDroit`)
 ) CHARSET=utf8;
 
 CREATE TABLE `choix` (
