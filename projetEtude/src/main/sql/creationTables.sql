@@ -50,6 +50,7 @@ CREATE TABLE `etudiant` (
   `password` varchar(8) NOT NULL,
   `email` varchar(45) NOT NULL,
   `idDroit` int(11) NOT NULL,
+  `firstConnexion` tinyint(1) NOT NULL,
   PRIMARY KEY (`idEtudiant`)
 ) CHARSET=utf8;
 

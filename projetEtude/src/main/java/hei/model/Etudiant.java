@@ -8,8 +8,9 @@ public class Etudiant {
 	private String passWord;
 	private String email;
 	private Integer idDroit;
+	private boolean firstConnexion;
 	
-	public Etudiant(Integer idetudiant, String nom, String prenom, String motdepass, String email, Integer iddroit){
+	public Etudiant(Integer idetudiant, String nom, String prenom, String motdepass, String email, Integer iddroit, boolean first){
 		
 		super();
 		this.idEtudiant = idetudiant;
@@ -17,7 +18,8 @@ public class Etudiant {
 		this.prenomEtudiant = prenom;
 		this.passWord = motdepass;
 		this.email = email;
-		this.setIdDroit(iddroit);
+		this.idDroit  =iddroit;
+		this.firstConnexion=first;
 	}
 	
 	public Etudiant(Integer idetudiant, String nom, String prenom, String email, Integer iddroit){
@@ -62,13 +64,16 @@ public class Etudiant {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
 	public Integer getIdDroit() {
 		return idDroit;
 	}
-
 	public void setIdDroit(Integer idDroit) {
 		this.idDroit = idDroit;
 	}
-	
+	public boolean isFirstConnexion() {
+		return firstConnexion;
+	}
+	public void setFirstConnexion(boolean firstConnexion) {
+		this.firstConnexion = firstConnexion;
+	}
 }

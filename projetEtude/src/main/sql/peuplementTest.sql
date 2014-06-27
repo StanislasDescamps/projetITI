@@ -41,10 +41,10 @@ INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (5,'PET',1);
 
 
 -- Etudiant
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`) VALUES (1,'Gladieux','Jean','pres','jean.gladieux@hei.fr',1);
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`) VALUES (2,'Denis','Martin','etudiant','martin.denis@hei.fr',0);
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`) VALUES (3,'Descamps','Stanislas','admin','stanislas.descamps@hei.fr',2);
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`) VALUES (4,'Merchez','Nicolas','admin','nicolas.merchez@hei.fr',2);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (1,'Gladieux','Jean','pres','jean.gladieux@hei.fr',1,0);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (2,'Denis','Martin','etudiant','martin.denis@hei.fr',0,0);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (3,'Descamps','Stanislas','admin','stanislas.descamps@hei.fr',2,0);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (4,'Merchez','Nicolas','admin','nicolas.merchez@hei.fr',2,0);
 
 -- Droits
 INSERT INTO `droits`(`idDroit`,`libelle`) VALUES (0,'Etudiant');

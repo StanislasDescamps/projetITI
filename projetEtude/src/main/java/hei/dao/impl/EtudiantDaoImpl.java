@@ -26,7 +26,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	                   results.getString("prenomEtudiant"),
 	                   results.getString("password"),
 	                   results.getString("email"),
-	                   results.getInt("idDroit"));
+	                   results.getInt("idDroit"),
+	                   results.getBoolean("firstConnexion"));
 	    	listeEtudiant.add(etudiant);
 	    }
 		connection.close();
@@ -44,12 +45,13 @@ public class EtudiantDaoImpl implements EtudiantDao {
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
-	                  "INSERT INTO `etudiant`( `nomEtudiant`, `prenomEtudiant`, `password`, `email`, `admin`) VALUES(?, ?, ?, ?, ?)"); 
+	                  "INSERT INTO `etudiant`( `nomEtudiant`, `prenomEtudiant`, `password`, `email`, `idDroit`, `firstConnexion`) VALUES(?, ?, ?, ?, ?, ?)"); 
 	        stmt.setString(1, etudiant.getNomEtudiant());
 	        stmt.setString(2, etudiant.getPrenomEtudiant());
 	        stmt.setString(3, etudiant.getPassWord());
 	        stmt.setString(4, etudiant.getEmail());
 	        stmt.setInt(5,etudiant.getIdDroit());
+	        stmt.setBoolean(6, etudiant.isFirstConnexion());
 	        stmt.executeUpdate();
 	        // Fermer la connexion
 	        connection.close();
@@ -101,7 +103,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	                    results.getString("prenomEtudiant"),
 	                    results.getString("password"),
 	                    results.getString("email"),
-	                    results.getInt("idDroit"));
+	                    results.getInt("idDroit"),
+	                    results.getBoolean("firstConnexion"));
 	        }
 
 	        // Fermer la connexion
@@ -130,7 +133,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	                    results.getString("prenomEtudiant"),
 	                    results.getString("password"),
 	                    results.getString("email"),
-	                    results.getInt("idDroit"));
+	                    results.getInt("idDroit"),
+	                    results.getBoolean("firstConnexion"));
 	        }
 
 	        // Fermer la connexion
@@ -161,7 +165,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	                    results.getString("prenomEtudiant"),
 	                    results.getString("password"),
 	                    results.getString("email"),
-	                    results.getInt("idDroit"));
+	                    results.getInt("idDroit"),
+	                    results.getBoolean("firstConnexion"));
 	        }
 
 	        // Fermer la connexion
@@ -193,7 +198,8 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	                    results.getString("prenomEtudiant"),
 	                    results.getString("password"),
 	                    results.getString("email"),
-	                    results.getInt("idDroit"));
+	                    results.getInt("idDroit"),
+	                    results.getBoolean("firstConnexion"));
 	        }
 
 	        // Fermer la connexion

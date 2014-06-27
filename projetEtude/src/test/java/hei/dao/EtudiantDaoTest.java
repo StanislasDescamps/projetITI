@@ -26,12 +26,13 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("admin", etudiant.get(0).getPassWord());
 		Assert.assertEquals("jean.gladieux@hei.fr", etudiant.get(0).getEmail());
 		Assert.assertEquals(1, etudiant.get(0).getIdDroit().intValue());
+		Assert.assertEquals(0,etudiant.get(0).isFirstConnexion());
 		
 	}
 	@Test
 	public void testAjouterEtudiant() throws Exception {
 		
-		Etudiant nouveauEtudiant = new Etudiant(null,"Thomas", "Robert", "hei", "adressemail", 1);
+		Etudiant nouveauEtudiant = new Etudiant(null,"Thomas", "Robert", "hei", "adressemail", 1,false);
 		etudiantDao.ajouterEtudiant(nouveauEtudiant);
 
 		Connection connection = DataSourceProvider.getDataSource()
@@ -47,6 +48,7 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("hei",results.getString("password"));
 		Assert.assertEquals("adressemail",results.getString("email"));		
 		Assert.assertEquals(1,results.getInt("idDroit"));
+		Assert.assertEquals(0,results.getBoolean("firstConnexion"));
 		// On v�rifie qu'il n'y a qu'un r�sultat
 		Assert.assertFalse(results.next());
 	}
@@ -59,6 +61,7 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("admin", etudiant.getPassWord());
 		Assert.assertEquals("jean.gladieux@hei.fr", etudiant.getEmail());
 		Assert.assertEquals(1, etudiant.getIdDroit().intValue());
+		Assert.assertEquals(0,etudiant.isFirstConnexion());
 	}
 	@Test
 	public void testgetEtudiantMail() {
@@ -69,6 +72,7 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("admin", etudiant.getPassWord());
 		Assert.assertEquals("jean.gladieux@hei.fr", etudiant.getEmail());
 		Assert.assertEquals(1, etudiant.getIdDroit().intValue());
+		Assert.assertEquals(0,etudiant.isFirstConnexion());
 	}
 	@Test
 	public void testgetEtudiantResp() {
@@ -79,6 +83,7 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("admin", etudiant.getPassWord());
 		Assert.assertEquals("jean.gladieux@hei.fr", etudiant.getEmail());
 		Assert.assertEquals(1, etudiant.getIdDroit().intValue());
+		Assert.assertEquals(0,etudiant.isFirstConnexion());
 	}
 	@Test
 	public void testgetEtudiantNomPrenom() {
@@ -89,6 +94,7 @@ public class EtudiantDaoTest {
 		Assert.assertEquals("admin", etudiant.getPassWord());
 		Assert.assertEquals("jean.gladieux@hei.fr", etudiant.getEmail());
 		Assert.assertEquals(1, etudiant.getIdDroit().intValue());
+		Assert.assertEquals(0,etudiant.isFirstConnexion());
 	}
 	
 }
