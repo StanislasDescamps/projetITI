@@ -28,6 +28,10 @@
 		
 			<h3 id="titre">Espace président</h3>
 			
+		<section id="president">
+			<a href="ajouterAsso"><input type="submit" value="Ajouter une association"/></a>
+			<a href="listeModifAsso"><input type="submit" value="Modifier une association"/></a>
+		</section>
 	
 		<footer>
 			<div> Réalisation HEI </div>

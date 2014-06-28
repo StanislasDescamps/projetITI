@@ -92,13 +92,6 @@
 				<input type="submit" name="enregistrer" value="Ajouter mes nouveaux choix"/>
 			</form>
 		</section>
-		
-
-		<section id="president_${statut}">
-			<a href="ajouterAsso"><input type="submit" value="Ajouter une association"/></a>
-			<a href="listeModifAsso"><input type="submit" value="Modifier une association"/></a>
-		</section>
-	
 		<footer>
 			<div> Réalisation HEI </div>
 		</footer>

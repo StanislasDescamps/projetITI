@@ -128,11 +128,7 @@ position: relative;
 margin: 20px;
 
 }
-section#president_false
-{
-display: none;	
-}
-section#president_true
+section#president
 {
 position: relative;
 margin-top: 70px;
