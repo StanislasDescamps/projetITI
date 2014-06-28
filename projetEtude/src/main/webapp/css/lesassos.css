@@ -60,13 +60,14 @@ width:100px;
 aside.retour
 {
 position: relative;
+top:-15px;
 left:190px;
 width:100px;
 }
 h3#titre
 {
 position:relative;
-top:20px;
+top:-10px;
 left:530px;
 width:300px;
 }

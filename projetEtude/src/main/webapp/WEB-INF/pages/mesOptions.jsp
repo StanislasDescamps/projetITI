@@ -18,11 +18,11 @@
 		</header>
 		<jsp:include page="menu.jsp"/>
 		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
-		<jsp:include page="${menuOption}"/>
-		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
+		<jsp:include page="${menuOption}"/>
+		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
 		<h3 id="presentation">
 			Cette page vous permet de sélectionner vos associations préférées, de les faire apparaître dans votre calendrier personnel et de synchroniser leurs événements sur votre smartphone!
 		</h3>

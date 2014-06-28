@@ -28,6 +28,15 @@ padding:5px 20px 5px 20px;
 background: #C0C0C0;
 margin-right:30px;
 }
+nav#navigationOption li
+{
+position: relative;
+top:10px;
+display:inline-block;
+padding:5px 10px 5px 10px;
+background: #C0C0C0;
+margin-right:10px;
+}
 nav#navigation
 {
 position : relative;
@@ -39,19 +48,10 @@ text-align : center;
 height : 50px;
 box-shadow : 0px 10px 5px 0px #A9A9A9;
 }
-nav#navigationOption li
-{
-position: relative;
-top:10px;
-display:inline-block;
-padding:5px 10px 5px 10px;
-background: #C0C0C0;
-margin-right:10px;
-}
 nav#navigationOption
 {
 position : relative;
-top : 10px;
+top : -45px;
 left : 170px;
 width:900px;
 text-align : center;
@@ -84,14 +84,13 @@ width:100px;
 h3#presentation
 {
 position:relative;
-top:30px;
+top:0px;
 left:190px;
 width:850px;
 }
 h3#titre
 {
 position:relative;
-top:20px;
 left:530px;
 width:500px;
 }
