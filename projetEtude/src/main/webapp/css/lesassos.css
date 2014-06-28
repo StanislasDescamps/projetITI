@@ -51,9 +51,11 @@ position:relative;
 top:25px;
 left:950px;
 width:100px;
-background-color:red;
-text-align:center;
 padding: 0px 5px 0px 5px;
+}
+aside.deconnexion img
+{
+width:100px;
 }
 aside.retour
 {

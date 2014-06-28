@@ -16,7 +16,7 @@
 		<jsp:include page="menu.jsp"/>
 		<c:set var="pageSelectionnee" value="lesAssos" scope="request"></c:set>
 		<aside class="deconnexion">
-			<a href="connexion?logout">Déconnexion</a>
+			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
 		<aside class="retour">
 			<a href="lesAssos">Retour</a>
