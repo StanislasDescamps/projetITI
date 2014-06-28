@@ -19,7 +19,7 @@ background-size: 1280px auto;
 margin-bottom: 50px;
 }
 
-nav li
+nav#navigation li
 {
 position: relative;
 top:10px;
@@ -36,21 +36,26 @@ left : 170px;
 width:900px;
 background : #7F7764;
 text-align : center;
-color : #FFEEC9;
 height : 50px;
 box-shadow : 0px 10px 5px 0px #A9A9A9;
+}
+nav#navigationOption li
+{
+position: relative;
+top:10px;
+display:inline-block;
+padding:5px 10px 5px 10px;
+background: #C0C0C0;
+margin-right:10px;
 }
 nav#navigationOption
 {
 position : relative;
-top : 20px;
+top : 10px;
 left : 170px;
 width:900px;
-background : #7F7764;
 text-align : center;
-color : #FFEEC9;
 height : 50px;
-box-shadow : 0px 10px 5px 0px #A9A9A9;
 }
 nav a
 {
@@ -72,6 +77,7 @@ width:100px;
 aside.retour
 {
 position: relative;
+top:-15px;
 left:190px;
 width:100px;
 }

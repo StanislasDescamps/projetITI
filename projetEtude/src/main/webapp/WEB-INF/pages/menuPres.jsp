@@ -1,4 +1,4 @@
-<nav id="navigationOption2">
+<nav id="navigationOption">
 			<ul>
 				<li class=${pageSelectionnee=='mesOptions'?'active':'inactive'}><a href="mesOptions">Mes préférences</a></li>
 				<li class=${pageSelectionnee=='mesInfos'?'active':'inactive'}><a href="mesInfos">Mes informations</a></li>
