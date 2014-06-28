@@ -19,7 +19,7 @@
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
 		<aside class="retour">
-			<a href="listeModifAsso">Retour</a>
+			<a href="listeModifAsso"><img id=retour src="img/btnRetour.jpg" alt="Retour" title="Retour à la liste des associations"/></a>
 		</aside>
 		<h3 id="titre">Modifier une association</h3>
 		<form class="ajoutAsso" action="modifierAsso" method="post">
