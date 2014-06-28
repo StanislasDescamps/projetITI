@@ -19,7 +19,7 @@
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
 		<aside class="retour">
-			<a href="lesAssos">Retour</a>
+			<a href="lesAssos"><img id=retour src="img/btnRetour.jpg" alt="Retour" title="Retour à la liste des associations"/></a>
 		</aside>
 		<h3 id="titre">Vous consultez :</h3>
 		<c:if test="${commission.idpole==1}">
