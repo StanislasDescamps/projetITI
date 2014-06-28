@@ -10,7 +10,7 @@
     </head>
 	<body>
 		<!-- Corps de la page -->
-		<link rel="stylesheet" href="css/calendrier1.css">
+		<link rel="stylesheet" href="css/calendrier.css">
 		<header id="entete">
 			<h1>HEI-Diary</h1>
 		</header>
