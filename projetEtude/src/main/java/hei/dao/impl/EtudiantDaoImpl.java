@@ -231,7 +231,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	}
 
 	@Override
-	public void modifierMail(int idEtudiant, String mail){
+	public void modifierMail(Integer idEtudiant, String mail){
 		
 		try{
 			 Connection connection = 
@@ -252,7 +252,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		}
 	}
 	@Override
-	public void modifierMdP(int idEtudiant, String mdp){
+	public void modifierMdP(Integer idEtudiant, String mdp){
 		
 		try{
 			 Connection connection = 

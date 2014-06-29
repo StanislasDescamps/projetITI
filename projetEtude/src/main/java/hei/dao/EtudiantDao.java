@@ -22,7 +22,7 @@ public interface EtudiantDao {
 	
 	public Etudiant getEtudiantNomPrenom(String nom, String prenom); //Récupère les informations d'un étudiant à partir de ses nom prenom
 	
-	public void modifierMail(int idEtudiant, String mail); //permet de modifier le mail de l'utilisateur
+	public void modifierMail(Integer idEtudiant, String mail); //permet de modifier le mail de l'utilisateur
 
-	public void modifierMdP(int idEtudiant, String mdp); //permet de modifier le mot de passe de l'utilisateur
+	public void modifierMdP(Integer idEtudiant, String mdp); //permet de modifier le mot de passe de l'utilisateur
 }

@@ -29,7 +29,45 @@
 		
 			<h3 id="titre">Mes informations personnelles</h3>
 			
-	
+		<div style="position:relative;top:10px;left:700px;width:300px;color:green;">
+		<%
+		 if(request.getAttribute("ModifOk")!=null) {
+	           out.print((String)request.getAttribute("ModifOk"));
+	       }
+		%></div>	
+			<section class="mesInfos">
+				<h2>Bonjour ${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h2>
+			
+				<form class="email" method="post" action="mesInfos"> 
+					<div>Votre adresse email actuelle : ${etudiant.email}</div>
+					<label for="newEmail">Entrez votre nouvelle adresse email</label>
+					<input type="text" name="newEmail" id="newEmail" required/></br>
+					<input type="submit" value="Modifier" name="modifEmail"/>
+				</form>
+			
+		<div style="position:relative;top:10px;left:700px;width:300px;color:red;">
+		<%
+		 if(request.getAttribute("ModifMailKo")!=null) {
+	           out.print((String)request.getAttribute("ModifKo"));
+	       }
+		%></div>
+			
+				<form class="mdp" method="post" action="mesInfos"> 
+					<label for="newMdp1">Entrez votre nouveau mot de passe</label>
+					<input type="text" name="newMdp1" id="newMdp1" required/></br>
+					<label for="newMdp2">Confirmez votre nouveau mot de passe</label>
+					<input type="text" name="newMdp2" id="newMdp2" required/></br>
+					<input type="submit" value="Modifier" name="modifMdp"/>
+				</form>
+				
+		<div style="position:relative;top:10px;left:700px;width:300px;color:red;">
+		<%
+		 if(request.getAttribute("ModifMdpKo")!=null) {
+	           out.print((String)request.getAttribute("ModifKo"));
+	       }
+		%></div>
+			</section>
+			
 		<footer>
 			<div> Réalisation HEI </div>
 		</footer>
