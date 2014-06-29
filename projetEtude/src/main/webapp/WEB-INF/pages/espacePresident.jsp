@@ -25,12 +25,17 @@
 		<c:set var="pageSelectionnee" value="espacePresident" scope="request"></c:set>
 		
 		
-		<!--cette section est pour tous les étudiants -->
+		<!--cette section est pour tous les présidents -->
 		
 			<h3 id="titre">Espace président</h3>
 			
-		<section id="president">
-			<a href="ajouterAsso"><input type="submit" value="Ajouter une association"/></a>
+		<section id="newEvent">
+			<a href="listeModifAsso"><input type="submit" value="Ajouter un événement"/></a>
+		</section>
+		<section id="modifEvent">
+			<a href="listeModifAsso"><input type="submit" value="Modifier un événement"/></a>
+		</section>
+		<section id="modifAsso">
 			<a href="listeModifAsso"><input type="submit" value="Modifier une association"/></a>
 		</section>
 	

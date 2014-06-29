@@ -25,10 +25,14 @@
 		<c:set var="pageSelectionnee" value="configuration" scope="request"></c:set>
 		
 		
-		<!--cette section est pour tous les étudiants -->
+		<!--cette section est pour tous les administrateurs -->
 		
 			<h3 id="titre">Configuration</h3>
 			
+		<section id="ajoutAsso">
+			<a href="ajouterAsso"><input type="submit" value="Ajouter une association"/></a>
+			<a href="listeModifAsso"><input type="submit" value="Modifier une association"/></a>
+		</section>
 	
 		<footer>
 			<div> Réalisation HEI </div>
