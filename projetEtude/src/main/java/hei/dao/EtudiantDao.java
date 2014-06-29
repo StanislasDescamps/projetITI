@@ -21,5 +21,8 @@ public interface EtudiantDao {
 	public Etudiant getEtudiantResp(Integer idCommission);//Récupère les informations d'un étudiant responsable de la commission dont l'identifiant est en paramètre
 	
 	public Etudiant getEtudiantNomPrenom(String nom, String prenom); //Récupère les informations d'un étudiant à partir de ses nom prenom
-		
+	
+	public void modifierMail(int idEtudiant, String mail); //permet de modifier le mail de l'utilisateur
+
+	public void modifierMdP(int idEtudiant, String mdp); //permet de modifier le mot de passe de l'utilisateur
 }

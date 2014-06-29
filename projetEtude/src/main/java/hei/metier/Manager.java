@@ -43,6 +43,12 @@ public class Manager {
 	public void ajouterEtudiant(Etudiant etudiant) {
 		etudiantDao.ajouterEtudiant(etudiant);
 	}
+	public void modifierMail(Integer idEtudiant, String mail) {
+		etudiantDao.modifierMail(idEtudiant,mail);
+	}
+	public void modifierMdP(Integer idEtudiant, String mdp) {
+		etudiantDao.modifierMdP(idEtudiant,mdp);
+	}
 	public void firstConnexionSetFalse(Integer idEtudiant) {
 		etudiantDao.firstConnexionSetFalse(idEtudiant);
 	}

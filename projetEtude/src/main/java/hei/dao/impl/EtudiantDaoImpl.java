@@ -229,4 +229,47 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	        e.printStackTrace();
 	    }
 	}
+
+	@Override
+	public void modifierMail(int idEtudiant, String mail){
+		
+		try{
+			 Connection connection = 
+			            DataSourceProvider.getDataSource().getConnection();
+
+			        // Utiliser la connexion
+			        PreparedStatement stmt1 = (PreparedStatement) connection.prepareStatement(
+			        		"UPDATE etudiant SET email =? WHERE idEtudiant =?");
+			  
+			        stmt1.setString(1,mail);	 
+			        stmt1.setInt(2,idEtudiant);	        
+			        stmt1.executeUpdate();
+			
+		connection.close();
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public void modifierMdP(int idEtudiant, String mdp){
+		
+		try{
+			 Connection connection = 
+			            DataSourceProvider.getDataSource().getConnection();
+
+			        // Utiliser la connexion
+			        PreparedStatement stmt1 = (PreparedStatement) connection.prepareStatement(
+			        		"UPDATE etudiant SET password =? WHERE idEtudiant =?");
+			  
+			        stmt1.setString(1,mdp);	 
+			        stmt1.setInt(2,idEtudiant);	        
+			        stmt1.executeUpdate();
+			
+		connection.close();
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+	}
 }
