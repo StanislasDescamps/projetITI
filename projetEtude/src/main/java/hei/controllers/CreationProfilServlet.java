@@ -101,7 +101,7 @@ public class CreationProfilServlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/creationProfil.jsp");
     	view.forward(request, response);
 		}
-		}else{//a modifier
+		}else{
 			request.setAttribute("ErrorMail", "Votre adresse email doit être une adresse email hei.");
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/creationProfil.jsp");
 	    	view.forward(request, response);
