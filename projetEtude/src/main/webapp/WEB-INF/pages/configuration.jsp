@@ -18,11 +18,12 @@
 		</header>
 		<jsp:include page="menu.jsp"/>
 		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
-		<jsp:include page="${menuOption}"/>
-		<c:set var="pageSelectionnee" value="configuration" scope="request"></c:set>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
+		<jsp:include page="${menuOption}"/>
+		<c:set var="pageSelectionnee" value="configuration" scope="request"></c:set>
+		
 		
 		<!--cette section est pour tous les étudiants -->
 		
