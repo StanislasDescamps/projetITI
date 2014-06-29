@@ -3,10 +3,10 @@ package hei.controllers;
 import hei.metier.Manager;
 import hei.model.Commission;
 
-
 import hei.model.Etudiant;
 
 import java.io.IOException;
+
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 public class AjouterAssoServlet extends HttpServlet{
 
@@ -38,8 +39,8 @@ public class AjouterAssoServlet extends HttpServlet{
 		//Récupération des champs
 		String nomAsso = request.getParameter("nomAsso");
 		String mailReferent = request.getParameter("referent");
-		String logo = request.getParameter("logo");
 		String pole = request.getParameter("bureau");
+		String logo =request.getParameter("logo");
 		String description = request.getParameter("description");
 		
 		boolean Etudiantexistant =false;
@@ -55,7 +56,6 @@ public class AjouterAssoServlet extends HttpServlet{
 			view.forward(request, response);
 		}else{
 			idPole = Manager.getInstance().getPolebyNom(pole).getIdPole();
-		
 				
 		//Vérification de l'inexistance de la commission
 		while(Commexistante == false && j<listeCommission.size())
@@ -85,10 +85,10 @@ public class AjouterAssoServlet extends HttpServlet{
 			//Si référent existant, récupération de ses infos et création de la nouvelle commission sinon message erreur
 		if(Etudiantexistant){
 			Integer idEtudiant = Manager.getInstance().getEtudiantMail(mailReferent).getIdetudiant();
-						
+			
 			Commission nouvelleCommission = new Commission(null, idEtudiant,idPole, nomAsso, description, logo);
 			Manager.getInstance().ajouterCommission(nouvelleCommission);
-			response.sendRedirect("mesOptions");
+			response.sendRedirect("espacePresident");
 		}else{
 			request.setAttribute("ErrorEtudiant", "Il y a une erreur dans votre requette. "
 					+ "Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");

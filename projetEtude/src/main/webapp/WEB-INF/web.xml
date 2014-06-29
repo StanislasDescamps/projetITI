@@ -62,6 +62,16 @@
 		<servlet-name>PresentationAsso</servlet-name>
 		<servlet-class>hei.controllers.PresentationAssoServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Test</servlet-name>
+		<servlet-class>hei.controllers.FileUploadServlet</servlet-class>
+		<multipart-config>
+			<location>D:/Images</location>
+			<max-file-size>10485760</max-file-size> <!-- 10 Mo -->
+			<max-request-size>52428800</max-request-size> <!-- 5 x 10 Mo -->
+			<file-size-threshold>1048576</file-size-threshold> <!-- 1 Mo -->
+		</multipart-config>
+	</servlet>
 	<filter>
 		<filter-name>SessionFilter</filter-name>
 		<filter-class>hei.Filter.SessionFilter</filter-class>
@@ -122,6 +132,10 @@
 	<servlet-mapping>
 		<servlet-name>PresentationAsso</servlet-name>
 		<url-pattern>/presentationAsso</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Test</servlet-name>
+		<url-pattern>/test</url-pattern>
 	</servlet-mapping>
 	<filter-mapping>
 		<filter-name>SessionFilter</filter-name>

@@ -33,11 +33,11 @@
 			</section>
 			<section id="logo">
 				<label for="logo">Logo :</label>
-				<input type="file" name="logo" id="logo"/></br>
+				<input type="file" name="logo" id="logo" required/></br>
 			</section>
 			<section id="bureau">
 				<select id="bureau" name="bureau" >
-						<option value="">--Pôle Associé--</option>
+						<option value=" ">--Pôle Associé--</option>
 						<option value="BDA">BDA</option>
 						<option value="BDS">BDS</option>
 						<option value="CapSo">Cap Solidaire</option>
@@ -59,13 +59,14 @@
 		 if(request.getAttribute("ErrorEtudiant")!=null) {
 	           out.print((String)request.getAttribute("ErrorEtudiant"));
 	       }
-		%>
-		<%
 		 if(request.getAttribute("ErrorComm")!=null) {
 	           out.print((String)request.getAttribute("ErrorComm"));
 	       }
 		if(request.getAttribute("ErrorChamps")!=null) {
 	           out.print((String)request.getAttribute("ErrorChamps"));
+	       }
+		if(request.getAttribute("ErrorImage")!=null) {
+	           out.print((String)request.getAttribute("ErrorImage"));
 	       }
 		%>
 		</div>
