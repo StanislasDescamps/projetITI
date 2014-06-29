@@ -63,6 +63,7 @@ public class CreationProfilServlet extends HttpServlet {
 		//Récupération de la date du système
 		java.util.Date date = new java.util.Date(); 
 				
+		if(mail.endsWith("@hei.fr")){
 		//Vérification de l'inexistence de l'étudiant
 		while(i<n && !existe)
 		{
@@ -99,6 +100,11 @@ public class CreationProfilServlet extends HttpServlet {
 		request.setAttribute("loginError", "Votre login existe deja. Veuillez rentrer un autre login ou faites mot de passe oublié.");
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/creationProfil.jsp");
     	view.forward(request, response);
+		}
+		}else{//a modifier
+			request.setAttribute("ErrorMail", "Votre adresse email doit être une adresse email hei.");
+			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/creationProfil.jsp");
+	    	view.forward(request, response);
 		}
 	}
 	

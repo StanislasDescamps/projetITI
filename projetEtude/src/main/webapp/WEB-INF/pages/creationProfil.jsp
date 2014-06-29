@@ -37,6 +37,9 @@
 		if(request.getAttribute("mailEnvoye")!=null) {
 	           out.print((String)request.getAttribute("mailEnvoye"));
 	       }
+		if(request.getAttribute("ErrorMail")!=null) {
+	           out.print((String)request.getAttribute("ErrorMail"));
+	       }
 		%></div>
 	</body>
 </html>
