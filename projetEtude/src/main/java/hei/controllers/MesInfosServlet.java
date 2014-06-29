@@ -4,7 +4,6 @@ import hei.metier.Manager;
 import hei.model.Etudiant;
 
 import java.io.IOException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -49,19 +48,20 @@ public class MesInfosServlet extends HttpServlet{
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		
-		String modifMail=request.getParameter("modifMail");
+		String modifMail=request.getParameter("modifEmail");
 		String modifMdp=request.getParameter("modifMdp");
+		String suffix= "@hei.fr";
 		
 		if(modifMail !=null){
-			String mail=request.getParameter("newMail");
-			if(mail.endsWith("@hei.fr")){
+			String mail=request.getParameter("newEmail");
+			if(mail.endsWith(suffix)){
 				Manager.getInstance().modifierMail(idEtudiant, mail);
-				request.setAttribute("ModifOk", "Vos modifications ont bien été enregistré.");
-				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/modifierAsso.jsp");
+				request.setAttribute("ModifOk", "Vos modifications ont bien été enregistrées.");
+				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesInfos.jsp");
 				view.forward(request, response);
 			}else{
 				request.setAttribute("ModifMailKo", "Votre adresse email doit être une adresse mail hei.");
-			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/modifierAsso.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesInfos.jsp");
 			view.forward(request, response);
 			}
 		}
@@ -72,11 +72,11 @@ public class MesInfosServlet extends HttpServlet{
 			if(mdp1.equals(mdp2)){
 				Manager.getInstance().modifierMdP(idEtudiant, mdp2);
 				request.setAttribute("ModifOk", "Vos modifications ont bien été enregistré.");
-				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/modifierAsso.jsp");
+				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesInfos.jsp");
 				view.forward(request, response);
 			}else{
 				request.setAttribute("ModifMdpKo", "Les deux champs doivent être identiques.");
-			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/modifierAsso.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesInfos.jsp");
 			view.forward(request, response);
 			}
 		}

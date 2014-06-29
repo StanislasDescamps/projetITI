@@ -91,6 +91,7 @@ width:850px;
 h3#titre
 {
 position:relative;
+top:-30px;
 left:530px;
 width:500px;
 }
@@ -140,6 +141,12 @@ margin-top: 70px;
 left:480px;
 width:400px;
 }
+section.mesInfos
+{
+position:relative;
+top:-20px;
+left:480px;
+}
 form.ajoutAsso
 {
 position: relative;
@@ -147,6 +154,17 @@ top:20px;
 left:200px;
 width:800px;
 margin:20px;
+}
+form.email
+{
+position:relative;
+right:250px;
+}
+form.mdp
+{
+position:relative;
+margin-top:40px;
+right:250px;
 }
 div#message
 {

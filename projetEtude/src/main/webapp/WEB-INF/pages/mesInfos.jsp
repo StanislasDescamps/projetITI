@@ -29,7 +29,7 @@
 		
 			<h3 id="titre">Mes informations personnelles</h3>
 			
-		<div style="position:relative;top:10px;left:700px;width:300px;color:green;">
+		<div style="position:relative;margin-top:10px;left:700px;width:300px;color:green;">
 		<%
 		 if(request.getAttribute("ModifOk")!=null) {
 	           out.print((String)request.getAttribute("ModifOk"));
@@ -45,25 +45,25 @@
 					<input type="submit" value="Modifier" name="modifEmail"/>
 				</form>
 			
-		<div style="position:relative;top:10px;left:700px;width:300px;color:red;">
+		<div style="position:relative;top:-20px;right:150px;width:400px;color:red;">
 		<%
 		 if(request.getAttribute("ModifMailKo")!=null) {
-	           out.print((String)request.getAttribute("ModifKo"));
+	           out.print((String)request.getAttribute("ModifMailKo"));
 	       }
 		%></div>
 			
 				<form class="mdp" method="post" action="mesInfos"> 
 					<label for="newMdp1">Entrez votre nouveau mot de passe</label>
-					<input type="text" name="newMdp1" id="newMdp1" required/></br>
+					<input type="password" name="newMdp1" id="newMdp1" required/></br>
 					<label for="newMdp2">Confirmez votre nouveau mot de passe</label>
-					<input type="text" name="newMdp2" id="newMdp2" required/></br>
+					<input type="password" name="newMdp2" id="newMdp2" required/></br>
 					<input type="submit" value="Modifier" name="modifMdp"/>
 				</form>
 				
-		<div style="position:relative;top:10px;left:700px;width:300px;color:red;">
+		<div style="position:relative;top:-20px;right:150px;width:300px;color:red;">
 		<%
 		 if(request.getAttribute("ModifMdpKo")!=null) {
-	           out.print((String)request.getAttribute("ModifKo"));
+	           out.print((String)request.getAttribute("ModifMdpKo"));
 	       }
 		%></div>
 			</section>
