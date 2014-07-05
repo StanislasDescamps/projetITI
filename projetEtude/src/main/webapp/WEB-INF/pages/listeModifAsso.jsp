@@ -18,15 +18,23 @@
 		<header id="entete">
 			<h1>HEI-Diary</h1>
 		</header>
+		
 		<jsp:include page="menu.jsp"/>
 		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
-		<aside class="retour">
-			<a href="espacePresident"><img id=retour src="img/btnRetour.jpg" alt="Retour" title="Retour à la liste des associations"/></a>
-		</aside>
+		
+		<jsp:include page="${menuOption}">
+			<jsp:param name="pageSelectionnee" value="configuration"/>
+		</jsp:include>
+		
 		<h3 id="titre">Modifier une association</h3>
+		
+		<jsp:include page="menuConfig.jsp">
+			<jsp:param name="pageSelectionnee" value="listeModifAsso"/>
+		</jsp:include>
+		
 		<section class="listModif">
 			<ul class="tabs"> 
 				<li class="active" rel="tab1"> BDA</li>

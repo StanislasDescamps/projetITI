@@ -23,7 +23,7 @@ public class ModifierAssoServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		/*//Récupération de l'identifiant de la commission sélectionnée
+		//Récupération de l'identifiant de la commission sélectionnée
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
 		//Récupération des informations de la commission
@@ -32,12 +32,12 @@ public class ModifierAssoServlet extends HttpServlet{
 		
 		//Récupération des informations de l'étudiant responsable de la commission
 		Etudiant etudiant=Manager.getInstance().getEtudiantResp(idCommission);
-		request.setAttribute("etudiant", etudiant);*/
+		request.setAttribute("etudiant", etudiant);
 		
 		//Récupération du statut de l'utilisateur connecté
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
-		//request.setAttribute("statut", statut);
+		request.setAttribute("statut", statut);
 		
 		if(statut==2){
 			request.setAttribute("menuOption","menuAdmin.jsp");

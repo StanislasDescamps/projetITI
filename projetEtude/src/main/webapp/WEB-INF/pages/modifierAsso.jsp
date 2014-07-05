@@ -29,7 +29,7 @@
 		<h3 id="titre">Modifier une association</h3>
 		
 		<jsp:include page="menuConfig.jsp">
-			<jsp:param name="pageSelectionnee" value="modifierAsso"/>
+			<jsp:param name="pageSelectionnee" value="listeModifAsso"/>
 		</jsp:include>
 		
 		<form class="ajoutAsso" action="modifierAsso" method="post">

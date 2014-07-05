@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class ListeModifAssosServlet extends HttpServlet {
 
@@ -24,6 +25,19 @@ public class ListeModifAssosServlet extends HttpServlet {
 		List<Commission> listComm = Manager.getInstance().listerCommission();
 		request.setAttribute("listeComm", listComm);
 		
+		//Récupération du statut de l'utilisateur connecté
+				HttpSession session = request.getSession(true);
+				Integer statut = (Integer) session.getAttribute("idDroit");
+				//request.setAttribute("statut", statut);
+				
+				if(statut==2){
+					request.setAttribute("menuOption","menuAdmin.jsp");
+				}else if(statut==1){
+					request.setAttribute("menuOption","menuPres.jsp");
+				}else{
+					request.setAttribute("menuOption","menuOption.jsp");
+				}
+				
 		//Affichage de la page jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/listeModifAsso.jsp");
 		view.forward(request, response);

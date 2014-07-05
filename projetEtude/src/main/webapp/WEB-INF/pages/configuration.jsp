@@ -38,11 +38,10 @@
 			<jsp:param name="pageSelectionnee" value="configDroit"/>
 		</jsp:include>
 			
-		<section id="ajoutAsso">
-			<a href="ajouterAsso"><input type="submit" value="Ajouter une association"/></a>
-			<a href="listeModifAsso"><input type="submit" value="Modifier une association"/></a>
-		</section>
-	
+			
+			
+			
+				
 		<footer>
 			<div> Réalisation HEI </div>
 		</footer>
