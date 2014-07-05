@@ -1,0 +1,175 @@
+nav#navigation li
+{
+position: relative;
+top:10px;
+display:inline-block;
+padding:5px 20px 5px 20px;
+background: #C0C0C0;
+margin-right:30px;
+}
+nav#navigation
+{
+position : relative;
+top : 10px;
+left:170px;
+width:900px;
+background : #7F7764;
+text-align : center;
+height : 50px;
+box-shadow : 0px 10px 5px 0px #A9A9A9;
+margin:0px;
+}
+nav#navigation a
+{
+text-decoration:none;
+color :#483D8B;
+}
+nav#navigation li.active a
+{
+color :#FF4500;
+}
+nav#navigationOption
+{
+position : relative;
+top : -45px;
+left : 170px;
+width:900px;
+text-align : center;
+height : 50px;
+}
+nav#navigationOption li
+{
+position: relative;
+top:10px;
+display:inline-block;
+padding:5px 10px 5px 10px;
+background: #C0C0C0;
+margin-right:10px;
+}
+nav#navigationOption a
+{
+text-decoration:none;
+color :#483D8B;
+}
+nav#navigationOption li.active a
+{
+color :#FF4500;
+}
+nav#navigationPres ul
+{
+position: relative;
+top:-40px;
+left:150px;
+}
+nav#navigationPres li
+{
+display:inline-block;
+margin-right:30px;
+}
+
+aside.deconnexion 
+{
+position:relative;
+top:25px;
+left:950px;
+width:100px;
+padding: 0px 5px 0px 5px;
+}
+aside.deconnexion img
+{
+width:100px;
+}
+aside.retour
+{
+position: relative;
+top:-15px;
+left:190px;
+width:100px;
+}
+h3#presentation
+{
+position:relative;
+top:0px;
+left:190px;
+width:850px;
+}
+h3#titre
+{
+position:relative;
+top:-30px;
+left:530px;
+width:500px;
+}
+h3#titre2
+{
+position:relative;
+top:20px;
+left:480px;
+width:500px;
+}
+h2#asuppr
+{
+position:relative;
+top:50px;
+margin:20px;
+left:530px;
+width:300px;
+}
+input#trap
+{
+position:relative;
+top:70px;
+left:400px;
+width:200px;	
+}
+input#idcommission
+{
+display:none;
+}
+section.tous
+{
+position: relative;
+top: 20px;
+left:200px;
+width:600px;
+}
+section#asso
+{
+position: relative;
+margin: 20px;
+
+}
+section#president
+{
+position: relative;
+margin-top: 70px;
+left:480px;
+width:400px;
+}
+section.mesInfos
+{
+position:relative;
+top:-20px;
+left:480px;
+}
+section.espacePres
+{
+position:relative;
+left:500px;
+}
+form.ajoutAsso
+{
+position: relative;
+top:20px;
+left:200px;
+width:800px;
+margin:20px;
+}
+
+div#message
+{
+position:relative;
+top:-300px;
+left:700px;
+width:300px;
+}
