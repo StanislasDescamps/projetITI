@@ -1,0 +1,55 @@
+aside.deconnexion 
+{
+position:relative;
+top:25px;
+left:950px;
+width:100px;
+padding: 0px 5px 0px 5px;
+}
+aside.deconnexion img
+{
+width:100px;
+}
+aside.retour
+{
+position: relative;
+top:-15px;
+left:190px;
+width:100px;
+}
+h3#presentation
+{
+position:relative;
+top:0px;
+left:190px;
+width:850px;
+}
+h3#titre
+{
+position:relative;
+top:-30px;
+left:530px;
+width:500px;
+}
+form
+ {
+ position:relative;
+ left:300px;
+ height:70px;
+ }
+section#droits
+{
+position:relative;
+top:-80px;
+left:400px;
+}
+input#btnValider
+{
+position:relative;
+top:-80px;
+left:400px;
+}
+input#idEtudiant
+{
+display:none;
+}
