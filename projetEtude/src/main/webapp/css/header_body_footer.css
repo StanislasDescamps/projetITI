@@ -1,0 +1,30 @@
+header#entete
+{
+position: relative;
+top: 0;
+left:170px;
+width:900px;
+text-align:center;
+border-style:groove;
+border-width:5px;
+border-color:red;
+border-radius: 10px;
+background:white;
+}
+body
+{
+font-family: "Arial", sans-serif, 1em;
+background-image: url(../img/test2.jpg);
+background-size: 1280px auto;
+margin-bottom: 50px;
+}
+footer
+{
+position:fixed;
+right:0;
+left:0;
+bottom:0;
+text-align:center;
+background-color:grey;
+color:white;
+}

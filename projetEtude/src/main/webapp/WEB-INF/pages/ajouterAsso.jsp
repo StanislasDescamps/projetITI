@@ -9,6 +9,7 @@
     </head>
 	<body>
 		<!-- Corps de la page -->
+		<link rel="stylesheet" href="css/header_body_footer.css">
 		<link rel="stylesheet" href="css/mesoptions.css">
 		<header id="entete">
 			<h1>HEI-Diary</h1>

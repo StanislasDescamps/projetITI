@@ -9,6 +9,7 @@
     </head>
 	<body>
 		<!-- Corps de la page -->
+		<link rel="stylesheet" href="css/header_body_footer.css">
 		<link rel="stylesheet" href="css/mesoptions.css">
 		<script type="text/javascript" src="js/jquery.js" ></script>
 		<script language="javascript" type="text/javascript" src="js/js.js"></script>
@@ -16,14 +17,15 @@
 		<header id="entete">
 			<h1>HEI-Diary</h1>
 		</header>
-		<jsp:include page="menu.jsp"/>
-		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
+		<jsp:include page="menu.jsp">
+			<jsp:param name="pageSelectionnee" value="mesOptions" />
+		</jsp:include>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
-		<jsp:include page="${menuOption}"/>
-		<c:set var="pageSelectionnee" value="mesInfos" scope="request"></c:set>
-		
+		<jsp:include page="${menuOption}">
+			<jsp:param name="pageSelectionnee" value="mesInfos"/>
+		</jsp:include>
 		
 		<!--cette section est pour tous les étudiants -->
 		

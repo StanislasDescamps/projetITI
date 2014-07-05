@@ -10,12 +10,14 @@
     </head>
 	<body>
 		<!-- Corps de la page -->
+		<link rel="stylesheet" href="css/header_body_footer.css">
 		<link rel="stylesheet" href="css/calendrier.css">
 		<header id="entete">
 			<h1>HEI-Diary</h1>
 		</header>
-		<jsp:include page="menu.jsp"/>
-		<c:set var="pageSelectionnee" value="calendrierHei" scope="request"></c:set>
+		<jsp:include page="menu.jsp">
+			<jsp:param name="pageSelectionnee" value="calendrierHei" />
+		</jsp:include>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
@@ -38,7 +40,7 @@
 					<article class="description">
 						<p id="description">${evenement.descriptionEvent} </p>
 						<p id="lieu">Lieu : ${evenement.lieu}</p>
-						<p id="horaire">Début :<fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.heureDebut}</p>
+						<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.heureDebut}</p>
 						<p id="horaire">Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.heureFin}</p>
 					</article>
 					<form id="ajout" action="calendrierHei" method="post">

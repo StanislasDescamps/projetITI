@@ -10,12 +10,14 @@
     </head>
 	<body>
 		<!-- Corps de la page -->
+		<link rel="stylesheet" href="css/header_body_footer.css">
 		<link rel="stylesheet" href="css/calendrier.css">
 		<header id="entete">
 			<h1>HEI-Diary</h1>
 		</header>
-		<jsp:include page="menu.jsp"/>
-		<c:set var="pageSelectionnee" value="monCalendrier1" scope="request"></c:set>
+		<jsp:include page="menu.jsp">
+			<jsp:param name="pageSelectionnee" value="monCalendrier1" />
+		</jsp:include>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>

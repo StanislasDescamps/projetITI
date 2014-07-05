@@ -1,24 +1,3 @@
-header#entete
-{
-position: relative;
-top: 0;
-left:170px;
-width:900px;
-text-align:center;
-border-style:groove;
-border-width:5px;
-border-color:red;
-border-radius: 10px;
-background:white;
-}
-body
-{
-font-family: "Arial", sans-serif, 1em;
-background-image: url(../img/test2.jpg);
-background-size: 1280px auto;
-margin-bottom: 50px;
-}
-
 nav#navigation li
 {
 position: relative;
@@ -28,6 +7,28 @@ padding:5px 20px 5px 20px;
 background: #C0C0C0;
 margin-right:30px;
 }
+nav#navigation
+{
+position : relative;
+top : 10px;
+left:170px;
+width:900px;
+background : #7F7764;
+text-align : center;
+height : 50px;
+box-shadow : 0px 10px 5px 0px #A9A9A9;
+margin:0px;
+}
+nav#navigation a
+{
+text-decoration:none;
+color :#483D8B;
+}
+nav#navigation li.active a
+{
+color :#FF4500;
+}
+
 nav#navigationOption li
 {
 position: relative;
@@ -36,17 +37,6 @@ display:inline-block;
 padding:5px 10px 5px 10px;
 background: #C0C0C0;
 margin-right:10px;
-}
-nav#navigation
-{
-position : relative;
-top : 10px;
-left : 170px;
-width:900px;
-background : #7F7764;
-text-align : center;
-height : 50px;
-box-shadow : 0px 10px 5px 0px #A9A9A9;
 }
 nav#navigationOption
 {
@@ -147,6 +137,11 @@ position:relative;
 top:-20px;
 left:480px;
 }
+section.espacePres
+{
+position:relative;
+left:500px;
+}
 form.ajoutAsso
 {
 position: relative;
@@ -172,16 +167,6 @@ position:relative;
 top:-300px;
 left:700px;
 width:300px;
-}
-footer
-{
-position:fixed;
-right:0;
-left:0;
-bottom:0;
-text-align:center;
-background-color:grey;
-color:white;
 }
 section.listModif{
 position:relative;
