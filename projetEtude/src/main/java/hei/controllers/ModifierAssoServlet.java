@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 public class ModifierAssoServlet extends HttpServlet{
@@ -22,7 +23,7 @@ public class ModifierAssoServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération de l'identifiant de la commission sélectionnée
+		/*//Récupération de l'identifiant de la commission sélectionnée
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
 		//Récupération des informations de la commission
@@ -31,8 +32,20 @@ public class ModifierAssoServlet extends HttpServlet{
 		
 		//Récupération des informations de l'étudiant responsable de la commission
 		Etudiant etudiant=Manager.getInstance().getEtudiantResp(idCommission);
-		request.setAttribute("etudiant", etudiant);
+		request.setAttribute("etudiant", etudiant);*/
 		
+		//Récupération du statut de l'utilisateur connecté
+		HttpSession session = request.getSession(true);
+		Integer statut = (Integer) session.getAttribute("idDroit");
+		//request.setAttribute("statut", statut);
+		
+		if(statut==2){
+			request.setAttribute("menuOption","menuAdmin.jsp");
+		}else if(statut==1){
+			request.setAttribute("menuOption","menuPres.jsp");
+		}else{
+			request.setAttribute("menuOption","menuOption.jsp");
+		}
 		//Affichage de la page jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/modifierAsso.jsp");
 		view.forward(request, response);

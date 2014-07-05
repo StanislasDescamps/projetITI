@@ -51,8 +51,16 @@
 		<servlet-class>hei.controllers.ModifierAssoServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>ModifierEvent</servlet-name>
+		<servlet-class>hei.controllers.ModifierEventServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>AjouterAsso</servlet-name>
 		<servlet-class>hei.controllers.AjouterAssoServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AjouterEvent</servlet-name>
+		<servlet-class>hei.controllers.AjouterEventServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>SupprimerAsso</servlet-name>
@@ -122,8 +130,16 @@
 		<url-pattern>/modifierAsso</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
+		<servlet-name>ModifierEvent</servlet-name>
+		<url-pattern>/modifierEvent</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>AjouterAsso</servlet-name>
 		<url-pattern>/ajouterAsso</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AjouterEvent</servlet-name>
+		<url-pattern>/ajouterEvent</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>SupprimerAsso</servlet-name>
