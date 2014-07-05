@@ -26,7 +26,6 @@
 				
 		<h3 id="titre">Modifier un évènement</h3>
 		
-		
 		<jsp:include page="menuEspacePres.jsp">
 			<jsp:param name="pageSelectionnee" value="modifierEvent"/>
 		</jsp:include>
