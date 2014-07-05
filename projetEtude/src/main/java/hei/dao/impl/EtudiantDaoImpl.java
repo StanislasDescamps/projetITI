@@ -19,7 +19,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	    try {
 	    	Connection connection = DataSourceProvider.getDataSource().getConnection();
 	    	Statement stmt = connection.createStatement();
-	    	ResultSet results = stmt.executeQuery("SELECT * FROM etudiant");
+	    	ResultSet results = stmt.executeQuery("SELECT * FROM etudiant ORDER BY nomEtudiant ASC");
 	    while (results.next()) {
 	    	Etudiant etudiant = new Etudiant(results.getInt("idEtudiant"), 
 	                   results.getString("nomEtudiant"),
@@ -263,6 +263,28 @@ public class EtudiantDaoImpl implements EtudiantDao {
 			        		"UPDATE etudiant SET password =? WHERE idEtudiant =?");
 			  
 			        stmt1.setString(1,mdp);	 
+			        stmt1.setInt(2,idEtudiant);	        
+			        stmt1.executeUpdate();
+			
+		connection.close();
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void setAdmin(Integer idEtudiant, Integer idDroit) {
+		
+		try{
+			 Connection connection = 
+			            DataSourceProvider.getDataSource().getConnection();
+
+			        // Utiliser la connexion
+			        PreparedStatement stmt1 = (PreparedStatement) connection.prepareStatement(
+			        		"UPDATE etudiant SET idDroit =? WHERE idEtudiant =?");
+			  
+			        stmt1.setInt(1,idDroit);	 
 			        stmt1.setInt(2,idEtudiant);	        
 			        stmt1.executeUpdate();
 			

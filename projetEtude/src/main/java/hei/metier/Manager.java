@@ -52,6 +52,9 @@ public class Manager {
 	public void firstConnexionSetFalse(Integer idEtudiant) {
 		etudiantDao.firstConnexionSetFalse(idEtudiant);
 	}
+	public void setAdmin(Integer idEtudiant, Integer idDroit) {
+		etudiantDao.setAdmin(idEtudiant,idDroit);
+	}
 	public Etudiant getEtudiant(Integer idEtudiant){
 		return etudiantDao.getEtudiant(idEtudiant);
 	}

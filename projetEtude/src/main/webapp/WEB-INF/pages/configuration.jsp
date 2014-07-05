@@ -11,7 +11,7 @@
 		<!-- Corps de la page -->
 		<link rel="stylesheet" href="css/header_body_footer.css">
 		<link rel="stylesheet" href="css/navigation.css">
-		<link rel="stylesheet" href="css/mesoptions.css">
+		<link rel="stylesheet" href="css/configuration.css">
 		<script type="text/javascript" src="js/jquery.js" ></script>
 		<script language="javascript" type="text/javascript" src="js/js.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
@@ -38,7 +38,23 @@
 			<jsp:param name="pageSelectionnee" value="configDroit"/>
 		</jsp:include>
 			
+		<c:forEach var="etudiant" items="${listEtudiant}">
+			<form class="gestionDroits" action="configuration" method="post">
+			<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
+				<h5>${etudiant.email}</h5>
+			<section id="droits">
+				<select id="droits" name="droits" >
+						<option value="0">Etudiant</option>
+						<option value="1">Président</option>
+						<option value="2">Administrateur</option>
+				</select></br>
+			</section>
+			<input type="text" name="idEtudiant" id="idEtudiant" value="${etudiant.idetudiant}"/>
+			<input id="btnValider" name="btnValider" type="submit" value="Valider"/>
 			
+			</form>
+		
+		</c:forEach>
 			
 			
 				

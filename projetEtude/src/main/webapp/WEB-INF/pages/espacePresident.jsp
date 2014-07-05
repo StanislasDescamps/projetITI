@@ -37,15 +37,6 @@
 		</jsp:include>
 		
 		
-		<section class="espacePres" id="newEvent">
-			<a href="listeModifAsso"><input type="submit" value="Ajouter un événement"/></a>
-		</section>
-		<section class="espacePres" id="modifEvent">
-			<a href="listeModifAsso"><input type="submit" value="Modifier un événement"/></a>
-		</section>
-		<section class="espacePres" id="modifAsso">
-			<a href="listeModifAsso"><input type="submit" value="Modifier une association"/></a>
-		</section>
 	
 		<footer>
 			<div> Réalisation HEI </div>

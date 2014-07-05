@@ -25,4 +25,7 @@ public interface EtudiantDao {
 	public void modifierMail(Integer idEtudiant, String mail); //permet de modifier le mail de l'utilisateur
 
 	public void modifierMdP(Integer idEtudiant, String mdp); //permet de modifier le mot de passe de l'utilisateur
+
+	public void setAdmin(Integer idEtudiant, Integer idDroit); //permet de changer les droits utilisateur
+
 }
