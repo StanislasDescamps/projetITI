@@ -10,6 +10,7 @@
 	<body>
 		<!-- Corps de la page -->
 		<link rel="stylesheet" href="css/header_body_footer.css">
+		<link rel="stylesheet" href="css/navigation.css">
 		<link rel="stylesheet" href="css/lesassos.css">
 		<header id="entete">
 			<h1>HEI-Diary</h1>
