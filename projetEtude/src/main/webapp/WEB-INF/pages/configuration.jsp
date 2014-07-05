@@ -39,21 +39,20 @@
 		</jsp:include>
 			
 		<c:forEach var="etudiant" items="${listEtudiant}">
+		
 			<form class="gestionDroits" action="configuration" method="post">
 			<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
 				<h5>${etudiant.email}</h5>
 			<section id="droits">
 				<select id="droits" name="droits" >
-						<option value="0">Etudiant</option>
-						<option value="1">Président</option>
-						<option value="2">Administrateur</option>
+						<option value="0" <c:if test="${etudiant.idDroit==0}"> selected="selected" </c:if>>Etudiant</option>
+						<option value="1" <c:if test="${etudiant.idDroit==1}"> selected="selected" </c:if>>Président</option>
+						<option value="2" <c:if test="${etudiant.idDroit==2}"> selected="selected" </c:if>>Administrateur</option>
 				</select></br>
 			</section>
 			<input type="text" name="idEtudiant" id="idEtudiant" value="${etudiant.idetudiant}"/>
 			<input id="btnValider" name="btnValider" type="submit" value="Valider"/>
-			
 			</form>
-		
 		</c:forEach>
 			
 			

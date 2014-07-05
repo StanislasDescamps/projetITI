@@ -45,12 +45,25 @@ public class MesInfosServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//Récupération du statut de l'utilisateur connecté
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
+		Integer statut = (Integer) session.getAttribute("idDroit");
+		Etudiant etudiant=Manager.getInstance().getEtudiant(idEtudiant);
 		
 		String modifMail=request.getParameter("modifEmail");
 		String modifMdp=request.getParameter("modifMdp");
 		String suffix= "@hei.fr";
+		
+							
+		if(statut==2){
+			request.setAttribute("menuOption","menuAdmin.jsp");
+		}else if(statut==1){
+			request.setAttribute("menuOption","menuPres.jsp");
+		}else{
+			request.setAttribute("menuOption","menuOption.jsp");
+		}
+		request.setAttribute("etudiant",etudiant);
 		
 		if(modifMail !=null){
 			String mail=request.getParameter("newEmail");
