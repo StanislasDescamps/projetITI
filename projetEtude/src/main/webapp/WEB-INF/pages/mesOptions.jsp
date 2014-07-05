@@ -27,12 +27,13 @@
 		<jsp:include page="${menuOption}">
 			<jsp:param name="pageSelectionnee" value="mesOptions"/>
 		</jsp:include>
-		<h3 id="presentation">
-			Cette page vous permet de sélectionner vos associations préférées, de les faire apparaître dans votre calendrier personnel et de synchroniser leurs événements sur votre smartphone!
-		</h3>
 		<!--cette section est pour tous les étudiants -->
 		
-			<h3 id="titre">Mes préférences</h3>
+		<h3 id="titre">Mes préférences</h3>
+			
+		<h3 id="presentation">
+			Cette page vous permet de sélectionner vos associations préférées et de les faire apparaître dans votre calendrier personnel! 
+		</h3>
 			<section class="tous">
 				<label for="bureau">Choississez l'ensemble qui vous intéresse : </label>
 			<ul class="tabs"> 

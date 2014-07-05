@@ -19,12 +19,12 @@ height : 50px;
 box-shadow : 0px 10px 5px 0px #A9A9A9;
 margin:0px;
 }
-nav#navigation a
+nav a
 {
 text-decoration:none;
 color :#483D8B;
 }
-nav#navigation li.active a
+nav li.active a
 {
 color :#FF4500;
 }
@@ -47,15 +47,7 @@ padding:5px 10px 5px 10px;
 background: #C0C0C0;
 margin-right:10px;
 }
-nav#navigationOption a
-{
-text-decoration:none;
-color :#483D8B;
-}
-nav#navigationOption li.active a
-{
-color :#FF4500;
-}
+
 nav#navigationPres ul
 {
 position: relative;

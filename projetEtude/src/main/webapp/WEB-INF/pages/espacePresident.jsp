@@ -27,13 +27,16 @@
 		<jsp:include page="${menuOption}">
 			<jsp:param name="pageSelectionnee" value="espacePresident"/>
 		</jsp:include>
-		<jsp:include page="menuEspacePres.jsp"/>
-		<c:set var="pageSelectionnee" value="espacePresident" scope="request"></c:set>
-		
+				
 		<!--cette section est pour tous les présidents -->
 		
 			<h3 id="titre">Espace président</h3>
 			
+		<jsp:include page="menuEspacePres.jsp">
+			<jsp:param name="pageSelectionnee" value="espacePresident"/>
+		</jsp:include>
+		
+		
 		<section class="espacePres" id="newEvent">
 			<a href="listeModifAsso"><input type="submit" value="Ajouter un événement"/></a>
 		</section>
