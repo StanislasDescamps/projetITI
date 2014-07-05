@@ -172,4 +172,22 @@ public Evenement getEvenementByDate(String dateDebut) {
     }
     return evenement;
 }
+@Override
+public void supprimerEvenement(Integer idEvenement) {
+	try {
+        Connection connection = 
+            DataSourceProvider.getDataSource().getConnection();
+
+        // Utiliser la connexion
+        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
+                  "DELETE FROM `evenement` WHERE idEvenement = ?"); 
+        
+        stmt.setInt(1,idEvenement);
+        stmt.executeUpdate();
+        // Fermer la connexion
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
 }

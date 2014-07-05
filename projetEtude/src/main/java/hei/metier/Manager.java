@@ -85,6 +85,12 @@ public class Manager {
 	public List<Evenement> listerEvenement() {
 		return evenementDao.listerEvenement();
 	}
+	public void ajouterEvenement(Evenement evenement){
+		evenementDao.ajouterEvenement(evenement);
+	}
+	public void supprimerEvenement(Integer idEvenement){
+		evenementDao.supprimerEvenement(idEvenement);
+	}
 	public List<Evenement> listerEvenementEtudiant(Integer idEtudiant) {
 		return evenementDao.listerEvenementEtudiant(idEtudiant);
 	}

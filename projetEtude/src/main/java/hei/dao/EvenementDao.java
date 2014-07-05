@@ -14,4 +14,6 @@ public interface EvenementDao {
 	public List<Evenement> listerEvenementEtudiant(Integer idEtudiant); //Liste tous les événements associés aux commissions que l'étudiant, dont l'identifiant est en paramètre, a choisi
 
 	public Evenement getEvenementByDate(String dateDebut); //Récupération des information d'un évément à partir de sa date
+
+	public void supprimerEvenement(Integer idEvenement); //Supprime l'évènement dont l'id est en parametre
 }
