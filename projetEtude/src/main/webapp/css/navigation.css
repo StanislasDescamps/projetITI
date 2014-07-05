@@ -48,14 +48,16 @@ background: #C0C0C0;
 margin-right:10px;
 }
 
-nav#navigationPres ul
+nav#navigationPres
 {
-position: relative;
-top:-40px;
+position : relative;
+top : -40px;
 left:150px;
+width:900px;
 }
 nav#navigationPres li
 {
+position: relative;
 display:inline-block;
 margin-right:30px;
 }

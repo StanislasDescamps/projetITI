@@ -24,7 +24,7 @@
 			<jsp:param name="pageSelectionnee" value="espacePresident"/>
 		</jsp:include>
 				
-		<h3 id="titre">Modifier une association</h3>
+		<h3 id="titre">Modifier un évènement</h3>
 		
 		
 		<jsp:include page="menuEspacePres.jsp">

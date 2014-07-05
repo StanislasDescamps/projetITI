@@ -38,10 +38,9 @@
 	           out.print((String)request.getAttribute("ModifOk"));
 	       }
 		%></div>	
+		<h2 id="bjr">Bonjour ${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h2>
 			<section class="mesInfos">
-				<h2>Bonjour ${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h2>
-			
-				<form class="email" method="post" action="mesInfos"> 
+				<form class="mesInfos" method="post" action="mesInfos"> 
 					<div>Votre adresse email actuelle : ${etudiant.email}</div>
 					<label for="newEmail">Entrez votre nouvelle adresse email</label>
 					<input type="text" name="newEmail" id="newEmail" required/></br>
@@ -55,7 +54,7 @@
 	       }
 		%></div>
 			
-				<form class="mdp" method="post" action="mesInfos"> 
+				<form class="mesInfos" method="post" action="mesInfos"> 
 					<label for="newMdp1">Entrez votre nouveau mot de passe</label>
 					<input type="password" name="newMdp1" id="newMdp1" required/></br>
 					<label for="newMdp2">Confirmez votre nouveau mot de passe</label>
