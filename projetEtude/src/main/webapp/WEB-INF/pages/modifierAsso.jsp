@@ -50,11 +50,11 @@
 			<section id="bureau">
 				<select id="bureau" name="bureau">
 						<option value="">--Pôle Associé--</option>
-						<option value="1">BDA</option>
-						<option value="2">BDS</option>
-						<option value="3">Cap Solidaire</option>
-						<option value="4">PES</option>
-						<option value="5">PET</option>
+						<option value="1" <c:if test="${commission.idpole==1}"> selected="selected" </c:if>>BDA</option>
+						<option value="2" <c:if test="${commission.idpole==2}"> selected="selected" </c:if>>BDS</option>
+						<option value="3" <c:if test="${commission.idpole==3}"> selected="selected" </c:if>>Cap Solidaire</option>
+						<option value="4" <c:if test="${commission.idpole==4}"> selected="selected" </c:if>>PES</option>
+						<option value="5" <c:if test="${commission.idpole==5}"> selected="selected" </c:if>>PET</option>
 				</select></br>
 			</section>
 			<section id="description">
