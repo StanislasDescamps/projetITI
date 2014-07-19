@@ -21,7 +21,7 @@ public class EspacePresidentServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Récupération des informations de l'utilisateur connecté
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
