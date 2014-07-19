@@ -48,12 +48,18 @@ public class AjouterEventServlet extends HttpServlet {
 		@Override
 		protected void doPost(HttpServletRequest request, HttpServletResponse response)
 				throws ServletException, IOException {
-						
-			//Récupération des listes de tous les evenements 
-			List<Evenement> listeEvenement =Manager.getInstance().listerEvenement();
 			
-			//Récupération des champs
-			String idCommissionString=request.getParameter("choixCommission");
+			//Récupération des informations personnelles de l'étudiant
+			HttpSession session = request.getSession(true);
+			Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
+			Commission maCommission=Manager.getInstance().getCommissionByIdRef(idEtudiant);
+			
+			
+			
+			//Récupération des listes de tous les evenements 
+			List<Evenement> listeEvenement = Manager.getInstance().listerEvenement();
+			
+			//Récupération des champs			
 			String nomEvent = request.getParameter("nomEvent");
 			String dateDebut=request.getParameter("dateDebut");
 			String heureDebut=request.getParameter("heureDebut");
@@ -88,11 +94,10 @@ public class AjouterEventServlet extends HttpServlet {
 				addAnHour(heureFin);
 			}
 			
-			Integer idCommission=Integer.parseInt(idCommissionString);
-			Commission commissionAssocie=Manager.getInstance().getCommission(idCommission);
-			String nomCommission=commissionAssocie.getNomCommission();
-			String logo=commissionAssocie.getLogo();
-			Integer idPole= commissionAssocie.getIdpole();
+			Integer idCommission=maCommission.getIdcommission();
+			String nomCommission=maCommission.getNomCommission();
+			String logo=maCommission.getLogo();
+			Integer idPole= maCommission.getIdpole();
 			Pole poleAssocie=Manager.getInstance().getPole(idPole);
 			String nomPole=poleAssocie.getNomPole();
 			
