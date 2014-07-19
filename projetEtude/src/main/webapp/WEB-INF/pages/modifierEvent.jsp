@@ -30,6 +30,35 @@
 			<jsp:param name="pageSelectionnee" value="modifierEvent"/>
 		</jsp:include>
 		
+		<form class="ajoutEvent" action="modifierEvent" method="post">
+			<legend>${evenement.titreEvent}</legend></br>
+						
+			<section id="nom">
+				<label for="nomEvent">Titre de l'évènement :</label>
+				<input type="text" name="nomEvent" id="nomEvent"  value="${evenement.titreEvent}" required/></br>
+			</section>
+			<section id="dateEvent">
+				<label for="dateDebut">Date de début de l'évènement :</label>
+				<input type="date" name="dateDebut" id="dateDebut" value="${evenement.dateDebut}" required/>
+				<label for="heureDebut">Heure de début de l'évènement :</label>
+				<input type="time" name="heureDebut" id="heureDebut" value="${evenement.heureDebut}" required/>
+				
+				<label for="dateFin">Date de fin de l'évènement :</label>
+				<input type="date" name="dateFin" id="dateFin" value="${evenement.dateFin}"/>
+				<label for="heureFin">Heure de fin de l'évènement :</label>
+				<input type="time" name="heureFin" id="heureFin" value="${evenement.heureFin}"/>
+				<i id="precision">Si vous ne sélectionnez aucune heure de fin, celle-ci comptera une heure supplémentaire par défaut</i>
+			</section>
+			<section id="description">
+				<label for="lieu">Lieu :</label>
+				<input type="text" name="lieu" id="lieu" value="${evenement.lieu}"/>
+				<textarea name="description" id="description" placeholder="Description de l'évènement" rows="10" cols="50" required></textarea>
+			</section>
+			<section id="bouton">
+				<input type="reset" value="Réinitialiser"/>
+				<input type="submit" value="Enregistrer"/>
+			</section>
+		</form>	
 		
 		<footer>
 			<div> Réalisation HEI </div>

@@ -32,11 +32,9 @@
 		<form class="ajoutEvent" action="ajouterEvent" method="post">
 			<legend>Nouvel évènement</legend></br>
 			
-			<select id="choixCommission" name="choixCommission">
-				<c:forEach var="commission" items="${listeMesComm}">
-					<option value="${commission.idcommission}">${commission.nomCommission}</option>
-				</c:forEach>
-			</select>
+			<section id="commission">
+				Votre commission est ${commission.nomCommission}
+			</section>
 			
 			<section id="nom">
 				<label for="nomEvent">Titre de l'évènement :</label>
@@ -49,9 +47,9 @@
 				<input type="time" name="heureDebut" id="heureDebut" required/>
 				
 				<label for="dateFin">Date de fin de l'évènement :</label>
-				<input type="date" name="dateFin" id="dateFin"/>
+				<input type="date" name="dateFin" id="dateFin" />
 				<label for="heureFin">Heure de fin de l'évènement :</label>
-				<input type="time" name="heureFin" id="heureFin"/>
+				<input type="time" name="heureFin" id="heureFin" />
 				<i id="precision">Si vous ne sélectionnez aucune heure de fin, celle-ci comptera une heure supplémentaire par défaut</i>
 			</section>
 			<section id="description">
