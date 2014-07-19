@@ -18,13 +18,15 @@ public class Evenement {
 	private String lieu;
 	private String dateDebut;
 	private String dateFin;
+	private String heureDebut;
+	private String heureFin;
 	private Date debut;
 	private Date fin;
-	private Time heureDebut;
-	private Time heureFin;
+	private Time hDebut;
+	private Time hFin;
 	private String image;
 	
-	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, String debut, String fin, Time hdebut, Time hfin, String image){
+	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, String debut, String fin, String hdebut, String hfin, String image){
 		super();
 		this.idEvenement = idevenement;
 		this.idCommission = idcommission;
@@ -39,6 +41,23 @@ public class Evenement {
 		this.heureFin = hfin;
 		this.image = image;
 	}
+	
+	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, String debut, String fin, Time hdebut, Time hfin, String image){
+		super();
+		this.idEvenement = idevenement;
+		this.idCommission = idcommission;
+		this.nomCommission = nomCommission;
+		this.nomPole = nomPole;
+		this.titreEvent = titre;
+		this.descriptionEvent = description;
+		this.lieu = lieu;
+		this.dateDebut = debut;
+		this.dateFin = fin;
+		this.hDebut = hdebut;
+		this.hFin = hfin;
+		this.image = image;
+	}
+	
 	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, Date debut, Date fin, Time hdebut, Time hfin, String image){
 		super();
 		this.idEvenement = idevenement;
@@ -50,12 +69,83 @@ public class Evenement {
 		this.lieu = lieu;
 		this.debut = debut;
 		this.fin = fin;
-		this.heureDebut = hdebut;
-		this.heureFin = hfin;
+		this.hDebut = hdebut;
+		this.hFin = hfin;
 		this.image = image;
 	}
-
 	
+	public static DateFormat getDateFormat() {
+		return dateFormat;
+	}
+	public static void setDateFormat(DateFormat dateFormat) {
+		Evenement.dateFormat = dateFormat;
+	}
+	public Integer getIdEvenement() {
+		return idEvenement;
+	}
+	public void setIdEvenement(Integer idEvenement) {
+		this.idEvenement = idEvenement;
+	}
+	public Integer getIdCommission() {
+		return idCommission;
+	}
+	public void setIdCommission(Integer idCommission) {
+		this.idCommission = idCommission;
+	}
+	public String getNomCommission() {
+		return nomCommission;
+	}
+	public void setNomCommission(String nomCommission) {
+		this.nomCommission = nomCommission;
+	}
+	public String getNomPole() {
+		return nomPole;
+	}
+	public void setNomPole(String nomPole) {
+		this.nomPole = nomPole;
+	}
+	public String getTitreEvent() {
+		return titreEvent;
+	}
+	public void setTitreEvent(String titreEvent) {
+		this.titreEvent = titreEvent;
+	}
+	public String getDescriptionEvent() {
+		return descriptionEvent;
+	}
+	public void setDescriptionEvent(String descriptionEvent) {
+		this.descriptionEvent = descriptionEvent;
+	}
+	public String getLieu() {
+		return lieu;
+	}
+	public void setLieu(String lieu) {
+		this.lieu = lieu;
+	}
+	public String getDateDebut() {
+		return dateDebut;
+	}
+	public void setDateDebut(String dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+	public String getDateFin() {
+		return dateFin;
+	}
+	public void setDateFin(String dateFin) {
+		this.dateFin = dateFin;
+	}
+	public String getHeureDebut() {
+		return heureDebut;
+	}
+	public void setHeureDebut(String heureDebut) {
+		this.heureDebut = heureDebut;
+	}
+	public String getHeureFin() {
+		return heureFin;
+	}
+	public void setHeureFin(String heureFin) {
+		this.heureFin = heureFin;
+	}
 	public Date getDebut() {
 		return debut;
 	}
@@ -68,113 +158,23 @@ public class Evenement {
 	public void setFin(Date fin) {
 		this.fin = fin;
 	}
-	public String getDateDebut() {
-		return dateDebut;
+	public Time gethDebut() {
+		return hDebut;
 	}
-
-
-	public void setDateDebut(String dateDebut) {
-		this.dateDebut = dateDebut;
+	public void sethDebut(Time hDebut) {
+		this.hDebut = hDebut;
 	}
-
-
-	public String getDateFin() {
-		return dateFin;
+	public Time gethFin() {
+		return hFin;
 	}
-
-
-	public void setDateFin(String dateFin) {
-		this.dateFin = dateFin;
+	public void sethFin(Time hFin) {
+		this.hFin = hFin;
 	}
-
-
-	public Time getHeureDebut() {
-		return heureDebut;
-	}
-
-	public void setHeureDebut(Time heureDebut) {
-		this.heureDebut = heureDebut;
-	}
-
-	public Time getHeureFin() {
-		return heureFin;
-	}
-
-	public void setHeureFin(Time heureFin) {
-		this.heureFin = heureFin;
-	}
-
-	public static DateFormat getDateFormat() {
-		return dateFormat;
-	}
-
-	public static void setDateFormat(DateFormat dateFormat) {
-		Evenement.dateFormat = dateFormat;
-	}
-
-	public Integer getIdEvenement() {
-		return idEvenement;
-	}
-
-	public void setIdEvenement(Integer idEvenement) {
-		this.idEvenement = idEvenement;
-	}
-
-	public Integer getIdCommission() {
-		return idCommission;
-	}
-
-	public void setIdCommission(Integer idCommission) {
-		this.idCommission = idCommission;
-	}
-
-	public String getNomCommission() {
-		return nomCommission;
-	}
-
-	public void setNomCommission(String nomCommission) {
-		this.nomCommission = nomCommission;
-	}
-
-	public String getNomPole() {
-		return nomPole;
-	}
-
-	public void setNomPole(String nomPole) {
-		this.nomPole = nomPole;
-	}
-
-	public String getTitreEvent() {
-		return titreEvent;
-	}
-
-	public void setTitreEvent(String titreEvent) {
-		this.titreEvent = titreEvent;
-	}
-
-	public String getDescriptionEvent() {
-		return descriptionEvent;
-	}
-
-	public void setDescriptionEvent(String descriptionEvent) {
-		this.descriptionEvent = descriptionEvent;
-	}
-
-	public String getLieu() {
-		return lieu;
-	}
-
-	public void setLieu(String lieu) {
-		this.lieu = lieu;
-	}
-	
 	public String getImage() {
 		return image;
 	}
-
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 	
 }
