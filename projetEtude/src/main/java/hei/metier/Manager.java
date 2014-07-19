@@ -97,6 +97,9 @@ public class Manager {
 	public List<Evenement> listerEvenementEtudiant(Integer idEtudiant) {
 		return evenementDao.listerEvenementEtudiant(idEtudiant);
 	}
+	public List<Evenement> listerEvenementByCommission(Integer idCommission) {
+		return evenementDao.listerEvenementByCommission(idCommission);
+	}
 	public Evenement getEvenement(Integer idEvenement){
 		return evenementDao.getEvenement(idEvenement);
 	}
@@ -126,8 +129,8 @@ public class Manager {
 	public List<Commission> listerChoixCommission(Integer idEtudiant) {
 		return commissionDao.listerChoixCommission(idEtudiant);
 	}
-	public List<Commission> listerCommissionByIdRef(Integer idEtudiant) {
-		return commissionDao.listerCommissionByIdRef(idEtudiant);
+	public Commission getCommissionByIdRef(Integer idEtudiant) {
+		return commissionDao.getCommissionByIdRef(idEtudiant);
 	}
 	public void modifierCommission(Integer idCommission, Integer idetudiant,Integer idpole , String nom, String description, String logo){
 		commissionDao.modifierCommission(idCommission, idetudiant, idpole ,  nom,  description,  logo);

@@ -272,8 +272,8 @@ public void supprimerChoix(Integer idEtudiant) {
 }
 
 @Override
-public List<Commission> listerCommissionByIdRef(Integer idEtudiant) {
-	List<Commission> listeCommission = new ArrayList<Commission>();
+public Commission getCommissionByIdRef(Integer idEtudiant) {
+	Commission commission = null;
     try {
     	Connection connection = DataSourceProvider.getDataSource().getConnection();
     
@@ -281,18 +281,17 @@ public List<Commission> listerCommissionByIdRef(Integer idEtudiant) {
     	stmt.setInt(1, idEtudiant);
     	ResultSet results = stmt.executeQuery();
     while (results.next()) {
-    	Commission commission = new Commission(results.getInt("idCommission"), 
+    		commission = new Commission(results.getInt("idCommission"), 
                 results.getInt("idEtudiant"),
                 results.getInt("idPole"),
                 results.getString("nomCommission"),
                 results.getString("descriptionCom"),
                 results.getString("adresseLogo"));
-    	listeCommission.add(commission);
     }
 	connection.close();
     } catch (SQLException e) {
         e.printStackTrace();
     }
-	return listeCommission;
+	return commission;
 	}
 }

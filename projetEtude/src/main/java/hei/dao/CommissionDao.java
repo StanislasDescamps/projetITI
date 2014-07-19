@@ -8,7 +8,7 @@ public interface CommissionDao {
 
 	public List<Commission> listerCommission(); //Liste toutes les commisssions
 	
-	public List<Commission> listerCommissionByIdRef(Integer idEtudiant); //Liste toutes les commisssions dont l'utilisateur est responsable
+	public Commission getCommissionByIdRef(Integer idEtudiant); //Liste toutes les commisssions dont l'utilisateur est responsable
 	
 	public void ajouterCommission(Commission commission); //Ajout d'une commission dans la bdd
 	
