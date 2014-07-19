@@ -51,16 +51,18 @@ public class EvenementDaoImpl implements EvenementDao {
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
-	                  "INSERT INTO `evenement`(`idCommission`, `titreEvent`,`descriptionEvent`,`lieuEvent`, `dateDebut`, `dateFin`, `heureDebut`, `heureFin`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
+	                  "INSERT INTO `evenement`(`idCommission`,`nomCommission`,`nomPole`, `titreEvent`,`descriptionEvent`,`lieuEvent`, `dateDebut`, `dateFin`, `heureDebut`, `heureFin`, `image`) VALUES (?,?,?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
 	        stmt.setInt(1, evenement.getIdCommission());
-	        stmt.setString(2, evenement.getTitreEvent());
-	        stmt.setString(3, evenement.getDescriptionEvent());
-	        stmt.setString(4, evenement.getLieu());
-	        stmt.setString(5, evenement.getDateDebut());
-	        stmt.setString(6, evenement.getDateFin());
-	        stmt.setTime(7, evenement.getHeureDebut());
-	        stmt.setTime(8, evenement.getHeureFin());
-	        stmt.setString(9, evenement.getImage());
+	        stmt.setString(2, evenement.getNomCommission());
+	        stmt.setString(3, evenement.getNomPole());
+	        stmt.setString(4, evenement.getTitreEvent());
+	        stmt.setString(5, evenement.getDescriptionEvent());
+	        stmt.setString(6, evenement.getLieu());
+	        stmt.setString(7, evenement.getDateDebut());
+	        stmt.setString(8, evenement.getDateFin());
+	        stmt.setString(9, evenement.getHeureDebut());
+	        stmt.setString(10, evenement.getHeureFin());
+	        stmt.setString(11, evenement.getImage());
 	        stmt.executeUpdate();
 	        // Fermer la connexion
 	        connection.close();

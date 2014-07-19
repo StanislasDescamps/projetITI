@@ -7,7 +7,7 @@ public interface EvenementDao {
 
 	public List<Evenement> listerEvenement(); //Liste tous les évéments de la bdd
 	
-	public void ajouterEvenement(Evenement evenement); //ajout d'un nouvel événement..fonction non utilisé mais déjà créer en prevision
+	public void ajouterEvenement(Evenement evenement); //ajout d'un nouvel événement
 	
 	public Evenement getEvenement(Integer idEvenement);//Récupération des informations d'un événement à partir de son identifiant
 	

@@ -74,6 +74,9 @@ public class Manager {
 	public List<Pole> listerPole() {
 		return poleDao.listerPole();
 	}
+	public Pole getPole(Integer idPole){
+		return poleDao.getPole(idPole);
+	}
 	public Pole getPoleEvent(Integer idEvenement){
 		return poleDao.getPoleEvent(idEvenement);
 	}
