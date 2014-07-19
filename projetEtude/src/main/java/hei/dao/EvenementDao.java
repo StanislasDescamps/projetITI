@@ -1,6 +1,7 @@
 package hei.dao;
 
 import hei.model.Evenement;
+
 import java.util.List;
 
 public interface EvenementDao {
@@ -8,6 +9,8 @@ public interface EvenementDao {
 	public List<Evenement> listerEvenement(); //Liste tous les évéments de la bdd
 	
 	public void ajouterEvenement(Evenement evenement); //ajout d'un nouvel événement
+	
+	public void modifierEvenement(Integer idEvenement, Integer idCommission, String nomCommission, String nomPole , String titre, String description, String lieu, String dateDebut, String dateFin, String heureDebut, String heureFin);//modifie les informations d'un evenement
 	
 	public Evenement getEvenement(Integer idEvenement);//Récupération des informations d'un événement à partir de son identifiant
 	

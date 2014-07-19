@@ -91,6 +91,9 @@ public class Manager {
 	public void ajouterEvenement(Evenement evenement){
 		evenementDao.ajouterEvenement(evenement);
 	}
+	public void modifierEvenement(Integer idEvenement, Integer idCommission, String nomCommission, String nomPole, String nomEvent, String description, String lieu, String dateDebut, String dateFin, String heureDebut, String heureFin){
+	evenementDao.modifierEvenement(idEvenement, idCommission,nomCommission,nomPole, nomEvent, description, lieu, dateDebut, dateFin, heureDebut, heureFin);
+	}
 	public void supprimerEvenement(Integer idEvenement){
 		evenementDao.supprimerEvenement(idEvenement);
 	}

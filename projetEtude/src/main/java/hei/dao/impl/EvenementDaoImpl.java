@@ -222,4 +222,70 @@ public List<Evenement> listerEvenementByCommission(Integer idCommission) {
     }
 	return listeEvent;
 	}
+
+@Override
+public void modifierEvenement(Integer idEvenement, Integer idCommission, String nomCommission, String nomPole, String titre, String description, String lieu, String dateDebut, String dateFin, String heureDebut, String heureFin) {
+	try {
+        Connection connection = 
+            DataSourceProvider.getDataSource().getConnection();
+
+        // Utiliser la connexion
+        PreparedStatement stmt1 = (PreparedStatement) connection.prepareStatement(
+                  "UPDATE `evenement` SET `idCommission`= ? WHERE `idEvenement`=?");
+        PreparedStatement stmt2 = (PreparedStatement) connection.prepareStatement(
+        		"UPDATE `evenement` SET `nomCommission`=? WHERE `idEvenement`=?");
+        PreparedStatement stmt3 = (PreparedStatement) connection.prepareStatement(
+        		"UPDATE `evenement` SET `nomPole`=? WHERE `idEvenement`=?");
+        PreparedStatement stmt4 = (PreparedStatement) connection.prepareStatement(
+        		"UPDATE `evenement` SET `titreEvent`=? WHERE `idEvenement`=?");
+        PreparedStatement stmt5 = (PreparedStatement) connection.prepareStatement(
+        		"UPDATE `evenement` SET `descriptionEvent`=? WHERE `idEvenement`=?");
+        PreparedStatement stmt6 = (PreparedStatement) connection.prepareStatement( 
+        		"UPDATE `evenement` SET `lieuEvent`=? WHERE `idEvenement`=?"); 
+        PreparedStatement stmt7 = (PreparedStatement) connection.prepareStatement( 
+        		"UPDATE `evenement` SET `dateDebut`=? WHERE `idEvenement`=?");
+        PreparedStatement stmt8 = (PreparedStatement) connection.prepareStatement( 
+        		"UPDATE `evenement` SET `dateFin`=? WHERE `idEvenement`=?");
+        PreparedStatement stmt9 = (PreparedStatement) connection.prepareStatement( 
+        		"UPDATE `evenement` SET `heureDebut`=? WHERE `idEvenement`=?");
+        PreparedStatement stmt10 = (PreparedStatement) connection.prepareStatement( 
+        		"UPDATE `evenement` SET `heureFin`=? WHERE `idEvenement`=?");
+        
+        stmt1.setInt(1,idCommission);
+        stmt1.setInt(2,idEvenement);
+        stmt2.setString(1,nomCommission);
+        stmt2.setInt(2,idEvenement);
+        stmt3.setString(1,nomPole);
+        stmt3.setInt(2,idEvenement);
+        stmt4.setString(1,titre);
+        stmt4.setInt(2,idEvenement);
+        stmt5.setString(1,description);
+        stmt5.setInt(2,idEvenement);
+        stmt6.setString(1,lieu);
+        stmt6.setInt(2,idEvenement);
+        stmt7.setString(1,dateDebut);
+        stmt7.setInt(2,idEvenement);
+        stmt8.setString(1,dateFin);
+        stmt8.setInt(2,idEvenement);
+        stmt9.setString(1,heureDebut);
+        stmt9.setInt(2,idEvenement);
+        stmt10.setString(1,heureFin);
+        stmt10.setInt(2,idEvenement);
+        
+        stmt1.executeUpdate();
+        stmt2.executeUpdate();
+        stmt3.executeUpdate();
+        stmt4.executeUpdate();
+        stmt5.executeUpdate();
+        stmt6.executeUpdate();
+        stmt7.executeUpdate();
+        stmt8.executeUpdate();
+        stmt9.executeUpdate();
+        stmt10.executeUpdate();
+        // Fermer la connexion
+        connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+	}
 }
