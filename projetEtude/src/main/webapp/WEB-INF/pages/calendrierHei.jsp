@@ -41,8 +41,8 @@
 					<article class="description">
 						<p id="description">${evenement.descriptionEvent} </p>
 						<p id="lieu">Lieu : ${evenement.lieu}</p>
-						<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.heureDebut}</p>
-						<p id="horaire">Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.heureFin}</p>
+						<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut}</p>
+						<p id="horaire">Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
 					</article>
 					<form id="ajout" action="calendrierHei" method="post">
 						<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
