@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,8 +47,11 @@
 						<h4>${evenement.titreEvent}</h4>
 						<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut}</p>
 						<p id="horaire">Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
-						<input type="submit" name="modifier" value="Modifier"/>
-						<input type="submit" name="supprimer" value="Supprimer"/>
+						<form id="actionEvent" action="espacePresident" method="post">
+							<input name="idEvent" value="${evenement.idEvenement}" style="display:none;"/>
+							<input type="submit" name="modifier" value="Modifier"/>
+							<input type="submit" name="supprimer" value="Supprimer"/>
+						</form>
 					</c:forEach>
 				</article>
 				
