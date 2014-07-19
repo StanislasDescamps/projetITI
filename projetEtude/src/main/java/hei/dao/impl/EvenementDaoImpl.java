@@ -192,4 +192,34 @@ public void supprimerEvenement(Integer idEvenement) {
         e.printStackTrace();
     }
 }
+
+@Override
+public List<Evenement> listerEvenementByCommission(Integer idCommission) {
+	List<Evenement> listeEvent = new ArrayList<Evenement>();
+    try {
+    	Connection connection = DataSourceProvider.getDataSource().getConnection();
+    	PreparedStatement stmt = (PreparedStatement) connection.prepareStatement("SELECT * FROM evenement WHERE idCommission=? ");
+    	stmt.setInt(1, idCommission);
+    	ResultSet results = stmt.executeQuery();
+    	while (results.next()) {
+    	Evenement evenement = new Evenement(results.getInt("idEvenement"), 
+                   results.getInt("idCommission"),
+                   results.getString("nomCommission"),
+                   results.getString("nomPole"),
+                   results.getString("titreEvent"),
+                   results.getString("descriptionEvent"),
+                   results.getString("lieuEvent"),
+                   results.getString("dateDebut"),
+                   results.getString("dateFin"),
+                   results.getTime("heureDebut"),
+                   results.getTime("heureFin"),
+                   results.getString("image"));
+    	listeEvent.add(evenement);
+    }
+	connection.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+	return listeEvent;
+	}
 }
