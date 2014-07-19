@@ -47,11 +47,7 @@
 						<h4>${evenement.titreEvent}</h4>
 						<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut}</p>
 						<p id="horaire">Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
-						<form id="actionEvent" action="espacePresident" method="post">
-							<input name="idEvent" value="${evenement.idEvenement}" style="display:none;"/>
-							<input type="submit" name="modifier" value="Modifier"/>
-							<input type="submit" name="supprimer" value="Supprimer"/>
-						</form>
+						<a href="modifierEvent?idevenement=${evenement.idEvenement}">Modifier</a>    <a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer</a></li>
 					</c:forEach>
 				</article>
 				
