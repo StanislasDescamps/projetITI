@@ -99,3 +99,27 @@ top:-300px;
 left:700px;
 width:300px;
 }
+
+img#logo
+{
+height:60px;
+width:auto;	
+}
+article.entier
+{
+margin-left:170px;
+margin-top:50px;
+height:auto;
+width:830px;
+padding:20px;
+border-width: 2px;
+border-style:outset;
+border-color:grey;
+border-radius: 10px 10px 10px 10px;
+box-shadow:none;
+}
+article.description
+{
+position:relative;
+left:100px;
+}

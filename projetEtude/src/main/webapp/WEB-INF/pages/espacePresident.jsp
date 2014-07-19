@@ -35,8 +35,18 @@
 		<jsp:include page="menuEspacePres.jsp">
 			<jsp:param name="pageSelectionnee" value="espacePresident"/>
 		</jsp:include>
-		
-		
+		<h3 id="titre2">Vous êtes président de :</h3>
+		<c:forEach var="commission" items="${listeMesComm}">
+			<article class="entier" id="BDA">
+				<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+				<article class="description">
+					<h3>${commission.nomCommission}</h3>
+					<div id="description">
+					${commission.description}
+					</div>
+				</article>
+			</article>
+		</c:forEach>
 	
 		<footer>
 			<div> Réalisation HEI </div>
