@@ -37,8 +37,8 @@ public class AjouterEventServlet extends HttpServlet {
 				request.setAttribute("menuOption","menuOption.jsp");
 			}
 			
-			List<Commission> listComm = Manager.getInstance().listerCommissionByIdRef(idEtudiant);
-			request.setAttribute("listeMesComm", listComm);
+			Commission maComm = Manager.getInstance().getCommissionByIdRef(idEtudiant);
+			request.setAttribute("commission", maComm);
 			
 			//Affichage de la page ajouterAsso.jsp
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/ajouterEvent.jsp");
@@ -65,38 +65,59 @@ public class AjouterEventServlet extends HttpServlet {
 			boolean eventExist =false;
 			int i =0;
 			
-			if(idCommissionString.equals("")){
-				request.setAttribute("ErrorChamps", "Il y a une erreur dans votre requette. Veuillez vérifier que vous avez bien renseigné le champ 'commission associé' avant de valider.");
-				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/ajouterEvent.jsp");
-				view.forward(request, response);
-			}else{
-				
-				//Vérification de l'inexistance de l'évènement
-				while(eventExist == false && i<listeEvenement.size())
+					
+			//Vérification de l'inexistance de l'évènement
+			while(eventExist == false && i<listeEvenement.size())
+			{
+				if(nomEvent.toLowerCase().equals(listeEvenement.get(i).getTitreEvent().toLowerCase()) && dateDebut.equals(listeEvenement.get(i).getDateDebut()) && heureDebut.equals(listeEvenement.get(i).getHeureDebut()))
 				{
-					if(nomEvent.toLowerCase().equals(listeEvenement.get(i).getTitreEvent().toLowerCase()) && dateDebut.equals(listeEvenement.get(i).getDateDebut()) && heureDebut.equals(listeEvenement.get(i).getHeureDebut()))
-					{
-						eventExist = true;
-						request.setAttribute("ErrorEvent", "Il y a une erreur dans votre requette. Veuillez vérifier que l'évènement n'existe pas déjà. Si le problème persiste, voyez avec la maintenance");
-						RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/ajouterEvent.jsp");
-				    	view.forward(request, response);
-					}
-					else{
-						i++;
-					}
-				}	
-				
-				Integer idCommission=Integer.parseInt(idCommissionString);
-				Commission commissionAssocie=Manager.getInstance().getCommission(idCommission);
-				String nomCommission=commissionAssocie.getNomCommission();
-				String logo=commissionAssocie.getLogo();
-				Integer idPole= commissionAssocie.getIdpole();
-				Pole poleAssocie=Manager.getInstance().getPole(idPole);
-				String nomPole=poleAssocie.getNomPole();
+					eventExist = true;
+					request.setAttribute("ErrorEvent", "Il y a une erreur dans votre requette. Veuillez vérifier que l'évènement n'existe pas déjà. Si le problème persiste, voyez avec la maintenance");
+					RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/ajouterEvent.jsp");
+				   	view.forward(request, response);
+				}
+				else{
+					i++;
+				}
+			}	
 			
-				Evenement nouvelEvenement = new Evenement(null, idCommission,nomCommission,nomPole, nomEvent, description, lieu, dateDebut, dateFin, heureDebut, heureFin,logo);
-				Manager.getInstance().ajouterEvenement(nouvelEvenement);
-				response.sendRedirect("espacePresident");			
+			if(dateFin.equals("")){
+				dateFin=dateDebut;
 			}
-	}	
+			if(heureFin.equals("")){
+				addAnHour(heureFin);
+			}
+			
+			Integer idCommission=Integer.parseInt(idCommissionString);
+			Commission commissionAssocie=Manager.getInstance().getCommission(idCommission);
+			String nomCommission=commissionAssocie.getNomCommission();
+			String logo=commissionAssocie.getLogo();
+			Integer idPole= commissionAssocie.getIdpole();
+			Pole poleAssocie=Manager.getInstance().getPole(idPole);
+			String nomPole=poleAssocie.getNomPole();
+			
+			Evenement nouvelEvenement = new Evenement(null, idCommission,nomCommission,nomPole, nomEvent, description, lieu, dateDebut, dateFin, heureDebut, heureFin,logo);
+			Manager.getInstance().ajouterEvenement(nouvelEvenement);
+			response.sendRedirect("espacePresident");			
+			}
+		
+	private String addAnHour(String heure){
+		
+		String h="";
+		String reste="";
+		
+		for(int i=0; i<8;i++){
+			if(i<2){	
+			h = h + heure.charAt(i);
+			}else{
+			reste= reste + heure.charAt(i);
+			}
+		} 
+		Integer h1=Integer.parseInt(h) +1;
+		
+		String newHour=String.valueOf(h1)+reste;
+		
+		return newHour;
+		}
+	
 }
