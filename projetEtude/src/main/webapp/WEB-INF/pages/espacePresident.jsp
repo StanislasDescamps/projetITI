@@ -36,17 +36,23 @@
 			<jsp:param name="pageSelectionnee" value="espacePresident"/>
 		</jsp:include>
 		<h3 id="titre2">Vous êtes président de :</h3>
-		<c:forEach var="commission" items="${listeMesComm}">
+		
 			<article class="entier" id="BDA">
 				<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
-				<article class="description">
-					<h3>${commission.nomCommission}</h3>
-					<div id="description">
-					${commission.description}
-					</div>
+				<h3>${commission.nomCommission}</h3>
+				<div id="description">${commission.description}</div>
+				<article class="events">
+					<c:forEach var="evenement" items="${listEvent}">
+						<h4>${evenement.titreEvent}</h4>
+						<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut}</p>
+						<p id="horaire">Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
+						<input type="submit" name="modifier" value="Modifier"/>
+						<input type="submit" name="supprimer" value="Supprimer"/>
+					</c:forEach>
 				</article>
+				
 			</article>
-		</c:forEach>
+		
 	
 		<footer>
 			<div> Réalisation HEI </div>

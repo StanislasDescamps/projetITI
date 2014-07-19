@@ -2,6 +2,7 @@ package hei.controllers;
 
 import hei.metier.Manager;
 import hei.model.Commission;
+import hei.model.Evenement;
 
 import java.io.IOException;
 import java.util.List;
@@ -34,12 +35,17 @@ public class EspacePresidentServlet extends HttpServlet{
 			request.setAttribute("menuOption","menuOption.jsp");
 		}
 		
-		//Récupération de la liste de tous les événements
-		List<Commission> listComm = Manager.getInstance().listerCommissionByIdRef(idEtudiant);
-		request.setAttribute("listeMesComm", listComm);
+		//Récupération de la liste des évènements dont l'utilisateur est responsable
+		Commission comm = Manager.getInstance().getCommissionByIdRef(idEtudiant);
+		request.setAttribute("commission", comm);
 		
+		Integer idCommission=comm.getIdcommission();
+		//Récupération de la liste des évènements dont l'utilisateur est responsable
+		List<Evenement> listEvent = Manager.getInstance().listerEvenementByCommission(idCommission);
+		request.setAttribute("listEvent", listEvent);
+
 		//Affichage de la page espacePresident.jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/espacePresident.jsp");
 		view.forward(request, response);
-	}
+		}
 }
