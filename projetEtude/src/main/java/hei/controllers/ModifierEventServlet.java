@@ -1,5 +1,8 @@
 package hei.controllers;
 
+import hei.metier.Manager;
+import hei.model.Evenement;
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -18,17 +21,24 @@ public class ModifierEventServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		//Récupération du statut de l'utilisateur connecté
-				HttpSession session = request.getSession(true);
-				Integer statut = (Integer) session.getAttribute("idDroit");
-				//request.setAttribute("statut", statut);
+		HttpSession session = request.getSession(true);
+		Integer statut = (Integer) session.getAttribute("idDroit");
+		//request.setAttribute("statut", statut);
 				
-				if(statut==2){
-					request.setAttribute("menuOption","menuAdmin.jsp");
-				}else if(statut==1){
-					request.setAttribute("menuOption","menuPres.jsp");
-				}else{
-					request.setAttribute("menuOption","menuOption.jsp");
-				}
+		if(statut==2){
+			request.setAttribute("menuOption","menuAdmin.jsp");
+		}else if(statut==1){
+			request.setAttribute("menuOption","menuPres.jsp");
+		}else{
+			request.setAttribute("menuOption","menuOption.jsp");
+		}
+				
+		//Récupération de l'identifiant de la commission sélectionnée
+		Integer idEvent = Integer.parseInt(request.getParameter("idevenement"));
+		
+		//Récupération des informations de la commission
+		Evenement event = Manager.getInstance().getEvenement(idEvent);
+		request.setAttribute("evenement",event);
 				
 		//Affichage de la page ajouterAsso.jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/modifierEvent.jsp");
