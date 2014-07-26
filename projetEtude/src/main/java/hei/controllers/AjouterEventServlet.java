@@ -86,25 +86,37 @@ public class AjouterEventServlet extends HttpServlet {
 					i++;
 				}
 			}	
-			
 			if(dateFin.equals("")){
 				dateFin=dateDebut;
 			}
 			if(heureFin.equals("")){
 				addAnHour(heureFin);
 			}
-			
-			Integer idCommission=maCommission.getIdcommission();
-			String nomCommission=maCommission.getNomCommission();
-			String logo=maCommission.getLogo();
-			Integer idPole= maCommission.getIdpole();
-			Pole poleAssocie=Manager.getInstance().getPole(idPole);
-			String nomPole=poleAssocie.getNomPole();
-			
-			Evenement nouvelEvenement = new Evenement(null, idCommission,nomCommission,nomPole, nomEvent, description, lieu, dateDebut, dateFin, heureDebut, heureFin,logo);
-			Manager.getInstance().ajouterEvenement(nouvelEvenement);
-			response.sendRedirect("espacePresident");			
+			if(dateDebut.compareTo(dateFin)<=0){
+				
+				if(dateDebut.compareTo(dateFin)==0 && heureDebut.compareTo(heureFin)<=0){
+					Integer idCommission=maCommission.getIdcommission();
+					String nomCommission=maCommission.getNomCommission();
+					String logo=maCommission.getLogo();
+					Integer idPole= maCommission.getIdpole();
+					Pole poleAssocie=Manager.getInstance().getPole(idPole);
+					String nomPole=poleAssocie.getNomPole();
+					
+					Evenement nouvelEvenement = new Evenement(null, idCommission,nomCommission,nomPole, nomEvent, description, lieu, dateDebut, dateFin, heureDebut, heureFin,logo);
+					Manager.getInstance().ajouterEvenement(nouvelEvenement);
+					response.sendRedirect("espacePresident");	
+				}else{
+					request.setAttribute("ErrorTime", "Il y a une erreur dans votre requette. Veuillez vérifier que l'heure de fin soit bien plus tard que l'heure de début de l'évènement.");
+					RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/ajouterEvent.jsp");
+				   	view.forward(request, response);
+				}
+			}else{
+				request.setAttribute("ErrorDate", "Il y a une erreur dans votre requette. Veuillez vérifier que la date de fin soit bien plus tard que la date de début de l'évènement.");
+				RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/ajouterEvent.jsp");
+			   	view.forward(request, response);
 			}
+					
+		}
 		
 	private String addAnHour(String heure){
 		
