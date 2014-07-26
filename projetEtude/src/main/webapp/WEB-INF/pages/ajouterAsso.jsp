@@ -9,10 +9,11 @@
     </head>
 	<body>
 		<!-- Corps de la page -->
-		<link rel="stylesheet" href="css/header_body_footer.css">
-		<link rel="stylesheet" href="css/navigation.css">
-		<link rel="stylesheet" href="css/mesoptions.css">
 		<header id="entete">
+			<link rel="stylesheet" href="css/header_body_footer.css">
+			<link rel="stylesheet" href="css/navigation.css">
+			<link rel="stylesheet" href="css/mesoptions.css">
+			<link rel="stylesheet" href="css/espacePres.css">
 			<h1>HEI-Diary</h1>
 		</header>
 		<jsp:include page="menu.jsp"/>
