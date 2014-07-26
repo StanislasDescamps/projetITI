@@ -67,6 +67,10 @@
 		<servlet-class>hei.controllers.SupprimerAssoServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>SupprimerEvent</servlet-name>
+		<servlet-class>hei.controllers.SupprimerEventServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>PresentationAsso</servlet-name>
 		<servlet-class>hei.controllers.PresentationAssoServlet</servlet-class>
 	</servlet>
@@ -144,6 +148,10 @@
 	<servlet-mapping>
 		<servlet-name>SupprimerAsso</servlet-name>
 		<url-pattern>/supprimerAsso</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SupprimerEvent</servlet-name>
+		<url-pattern>/supprimerEvent</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>PresentationAsso</servlet-name>
