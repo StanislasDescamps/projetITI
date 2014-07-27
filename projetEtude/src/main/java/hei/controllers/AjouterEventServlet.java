@@ -94,7 +94,7 @@ public class AjouterEventServlet extends HttpServlet {
 			}
 			if(dateDebut.compareTo(dateFin)<=0){
 				
-				if(dateDebut.compareTo(dateFin)==0 && heureDebut.compareTo(heureFin)<=0){
+				if(dateDebut.compareTo(dateFin)!=0 && heureDebut.compareTo(heureFin)>=0){
 					Integer idCommission=maCommission.getIdcommission();
 					String nomCommission=maCommission.getNomCommission();
 					String logo=maCommission.getLogo();
