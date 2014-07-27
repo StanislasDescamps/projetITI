@@ -6,7 +6,7 @@
         <meta charset="utf-8" />
         <title>Identification HEI-Diary</title>
     </head>
-	<body style="font-family: Arial, Helvetica, sans-serif, 1em;">
+	<body style="font-family: Arial, Helvetica;">
 		<!-- Corps de la page 
 		<link rel="stylesheet" href="css/connexion.css">-->
 		<h1 style="text-align:center;color: red;width:100%;margin:0 auto;">Bienvenue sur HEI-Diary</h1>
@@ -25,7 +25,7 @@
 			</fieldset>	
 		</form>
 		
-		<div style="position:relative;margin-left:30%;max-width:50%;">
+		<div style="margin-left: 30%;max-height: 20px;max-width: 30%;">
 		<%
        if(request.getAttribute("loginError")!=null) {
            out.print((String)request.getAttribute("loginError"));
