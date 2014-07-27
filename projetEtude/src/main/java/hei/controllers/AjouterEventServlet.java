@@ -86,12 +86,16 @@ public class AjouterEventServlet extends HttpServlet {
 					i++;
 				}
 			}	
-			if(dateFin.equals("")){
+			/*if(dateFin.equals("")){
 				dateFin=dateDebut;
 			}
 			if(heureFin.equals("")){
 				addAnHour(heureFin);
+			}*/
+			if(lieu.equals("")){
+				lieu="Non renseigné";
 			}
+			
 			if(dateDebut.compareTo(dateFin)<=0){
 				
 				if(dateDebut.compareTo(dateFin)!=0 && heureDebut.compareTo(heureFin)>=0){
@@ -118,7 +122,7 @@ public class AjouterEventServlet extends HttpServlet {
 					
 		}
 		
-	private String addAnHour(String heure){
+/*	private String addAnHour(String heure){
 		
 		String h="";
 		String reste="";
@@ -135,6 +139,6 @@ public class AjouterEventServlet extends HttpServlet {
 		String newHour=String.valueOf(h1)+reste;
 		
 		return newHour;
-		}
+		}*/
 	
 }

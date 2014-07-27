@@ -48,10 +48,10 @@
 				<input type="time" name="heureDebut" id="heureDebut" required/>
 				
 				<label for="dateFin">Date de fin de l'évènement :</label>
-				<input type="date" name="dateFin" id="dateFin" />
+				<input type="date" name="dateFin" id="dateFin" required />
 				<label for="heureFin">Heure de fin de l'évènement :</label>
-				<input type="time" name="heureFin" id="heureFin" />
-				<i id="precision">Si vous ne sélectionnez aucune heure de fin, celle-ci comptera une heure supplémentaire par défaut</i>
+				<input type="time" name="heureFin" id="heureFin" required/>
+			<!-- <i id="precision">Si vous ne sélectionnez aucune heure de fin, celle-ci comptera une heure supplémentaire par défaut</i> -->
 			</section>
 			<section id="description">
 				<label for="lieu">Lieu :</label>
