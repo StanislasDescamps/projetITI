@@ -6,13 +6,13 @@
         <meta charset="utf-8" />
         <title>Identification HEI-Diary</title>
     </head>
-	<body style="font-family: arial, sans-serif, 1em;height:800;width:1280;">
+	<body style="font-family: Arial, Helvetica, sans-serif, 1em;">
 		<!-- Corps de la page 
 		<link rel="stylesheet" href="css/connexion.css">-->
-		<h1 style="position:relative; left:450px;color: red;width:400px;margin-right:0px;margin-left:0px;">Bienvenue sur HEI-Diary</h1>
+		<h1 style="text-align:center;color: red;width:100%;margin:0 auto;">Bienvenue sur HEI-Diary</h1>
 		
 		
-		<form id="identification" action="connexion" method="post" style="position:relative;top:20px;left:450px;margin: 10px;width:400px;height:150px;">
+		<form id="identification" action="connexion" method="post" style="float:left;margin: 30px 30% 10px 30%;width:40%;height:150px;">
 			<fieldset>
 				<legend>Identifiez-vous</legend>
 				<label for="mail">Mon adresse email :</label>
@@ -25,17 +25,19 @@
 			</fieldset>	
 		</form>
 		
-		<div style="position:relative;left:400px;max-width:800px;"><%
+		<div style="position:relative;margin-left:30%;max-width:50%;">
+		<%
        if(request.getAttribute("loginError")!=null) {
            out.print((String)request.getAttribute("loginError"));
        }else{
            out.print("Merci de vous connecter !");
        }
-   %></div>
+   %>
+   </div>
    
-   <a href="creationProfil"><input id="creation" type="submit" value="Créer un profil" style="position: relative;top: 0px;left:750px;"></a>
+   <a href="creationProfil"><input id="creation" type="submit" value="Créer un profil" style="margin:0 30% 0 0;float:right;"></a>
    
-		<form id="mdpoublie" action="connexion" method="post" style="position:relative;top:30px;left:450px;margin: 10px;width:400px;height:100px;">
+		<form id="mdpoublie" action="connexion" method="post" style="float:left;margin: 30px 30% 10px 30%;width:40%;height:100px;">
 			<fieldset>
 				<legend>Mot de passe oublié</legend>
 				<label for="mailmdp">Mon adresse email :</label>
@@ -43,14 +45,16 @@
 				<input type="submit" name="passoublie" value="Envoyer mon mot de passe"/>
 			</fieldset>
 		</form>
-		<div style="position:relative;top:20px;left:300px;max-width:900px;"><%
+		<div style="position:relative;top:20px;left:300px;max-width:900px;">
+		<%
        if(request.getAttribute("mailError")!=null) {
            out.print((String)request.getAttribute("mailError"));
        }
 		if(request.getAttribute("mailEnvoye")!=null) {
 	           out.print((String)request.getAttribute("mailEnvoye"));
 	       }
-   %></div>
+   %>
+   </div>
 			
 	</body>
 </html>
