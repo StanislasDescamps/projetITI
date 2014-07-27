@@ -1,0 +1,110 @@
+
+/**** Desktop ****/
+/*Body*/
+
+body{
+	font-family: Arial, Helvetica;
+}
+footer
+{
+position:fixed;
+right:0;
+left:0;
+bottom:0;
+text-align:center;
+background-color:grey;
+color:white;
+}
+
+.clear{
+	clear:both;
+}
+/*Connexion*/
+.titreBienvenue{
+	text-align:center;
+	color: red;
+	width:100%;
+	margin:0 auto;
+}
+
+.identification{
+	float:left;
+	margin: 30px 30% 10px 30%;
+	width:40%;
+	height:150px;
+}
+
+.mdpOublie{
+	float:left;
+	margin: 30px 30% 10px 30%;
+	width:40%;
+	height:100px;
+}
+
+.inputConnexion{
+		margin:10px 0;
+	}
+	
+.bouton_submit{
+	float:right;
+}
+
+.errorConnexion1{
+	 margin-left: 30%;
+	 max-height: 20px;
+	 max-width: 30%;
+}
+
+.errorConnexion2{
+	 margin-left: 30%;
+	 max-height: 20px;
+	 max-width: 44%;
+	 margin-bottom:70px;
+}
+	
+.creerProfil{
+	margin:0 30% 0 0;
+	float:right;
+	text-decoration:none;
+}
+
+/**** Mobile ****/
+@media only screen and (max-device-width:480px) {
+/*Body*/
+
+	body{
+		padding:5px;
+	}
+
+/*Connexion*/
+	.identification{
+		margin: 30px auto 10px auto;
+		width:100%;
+		height:188px;
+	}
+	
+	.mdpOublie{
+		float:left;
+		margin: 30px auto 10px auto;
+		width:100%;
+		height:150px;
+	}
+	
+	.inputConnexion{
+		width:100%;
+	}
+	
+	.errorConnexion1{
+		 margin: 10px 0 10px 0 ;
+		 max-height:5%;
+		 max-width: 100%;
+	}
+	
+	.errorConnexion2{
+		 margin: 10px 0 20px 0 ;
+		 max-height:5%;
+		 max-width: 100%;
+	}
+	
+
+}

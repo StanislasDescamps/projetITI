@@ -5,47 +5,49 @@
         <!-- En-tête de la page -->
         <meta charset="utf-8" />
         <title>Identification HEI-Diary</title>
+        <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body style="font-family: Arial, Helvetica;">
 		<!-- Corps de la page 
 		<link rel="stylesheet" href="css/connexion.css">-->
-		<h1 style="text-align:center;color: red;width:100%;margin:0 auto;">Bienvenue sur HEI-Diary</h1>
+		<h1 class="titreBienvenue">Bienvenue sur HEI-Diary</h1>
 		
 		
-		<form id="identification" action="connexion" method="post" style="float:left;margin: 30px 30% 10px 30%;width:40%;height:150px;">
+		<form class="identification" action="connexion" method="post">
 			<fieldset>
 				<legend>Identifiez-vous</legend>
 				<label for="mail">Mon adresse email :</label>
-				<input type="text" name="mail" id="mail"required/>
+				<input class="inputConnexion" type="text" name="mail" id="mail" required/>
 				<br/>
 				<label for="pass"> Mon mot de passe :</label>
-				<input type="password" name="pass" id="pass"required />
+				<input  class="inputConnexion" type="password" name="pass" id="pass"required />
 				<br/>
-				<input type="submit" name="connexion" value="Connexion"/>
+				<input type="submit" name="connexion" value="Connexion" class="bouton_submit"/>
 			</fieldset>	
 		</form>
-		
-		<div style="margin-left: 30%;max-height: 20px;max-width: 30%;">
+		<div class="clear"></div>
+		<div class="errorConnexion1">
 		<%
        if(request.getAttribute("loginError")!=null) {
            out.print((String)request.getAttribute("loginError"));
        }else{
            out.print("Merci de vous connecter !");
        }
-   %>
-   </div>
+   		%>
+   		</div>
    
-   <a href="creationProfil"><input id="creation" type="submit" value="Créer un profil" style="margin:0 30% 0 0;float:right;"></a>
+  		<a href="creationProfil" class="creerProfil" ><input id="creation" type="submit" value="Créer un profil"></a>
    
-		<form id="mdpoublie" action="connexion" method="post" style="float:left;margin: 30px 30% 10px 30%;width:40%;height:100px;">
+		<form id="mdpoublie" action="connexion" method="post" class="mdpOublie">
 			<fieldset>
 				<legend>Mot de passe oublié</legend>
 				<label for="mailmdp">Mon adresse email :</label>
-				<input type="text" name="mailmdp" id="mailmdp"required/>
-				<input type="submit" name="passoublie" value="Envoyer mon mot de passe"/>
+				<input type="text" name="mailmdp" id="mailmdp" class="inputConnexion" required/>
+				<input type="submit" name="passoublie" value="Envoyer mon mot de passe" class="bouton_submit"/>
 			</fieldset>
 		</form>
-		<div style="position:relative;top:20px;left:300px;max-width:900px;">
+		<div class="clear"></div>
+		<div class="errorConnexion2">
 		<%
        if(request.getAttribute("mailError")!=null) {
            out.print((String)request.getAttribute("mailError"));
@@ -53,8 +55,11 @@
 		if(request.getAttribute("mailEnvoye")!=null) {
 	           out.print((String)request.getAttribute("mailEnvoye"));
 	       }
-   %>
-   </div>
-			
+   			%>
+   		</div>
+		<div class="clear"></div>
+		<footer>
+			<div>Réalisation HEI</div>
+		</footer>
 	</body>
 </html>
