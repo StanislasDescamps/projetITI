@@ -7,14 +7,14 @@
         <!-- En-tête de la page -->
         <meta charset="utf-8" />
         <title>HEI-Diary Mon calendrier</title>
+        <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body>
 		<!-- Corps de la page -->
-		<link rel="stylesheet" href="css/header_body_footer.css">
 		<link rel="stylesheet" href="css/navigation.css">
-		<link rel="stylesheet" href="css/calendrier.css">
+		
 		<header id="entete">
-			<h1>HEI-Diary</h1>
+			<h1 class="entete">HEI-Diary</h1>
 		</header>
 		<jsp:include page="menu.jsp">
 			<jsp:param name="pageSelectionnee" value="monCalendrier1" />
@@ -31,23 +31,28 @@
 			</form>
 		</section>-->
 		<c:forEach var="evenement" items="${listeEventPerso}">
-		<section class="${evenement.debut}">
-			<h2><fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/></h2>
+		<section id="${evenement.debut}">
+			<h2  class="dateEvent"><fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/></h2>
 				<article id="${evenement.nomPole}" class="resume">
-					<img src="${evenement.image}"/>
-					<h2>${evenement.titreEvent}</h2>
-					<p id="nomCom">Par la commission : ${evenement.nomCommission}</p>
+					<img class="imgCal" src="${evenement.image}"/>
 					<article class="description">
+						<h2 class="titreEvent">${evenement.titreEvent}</h2>
+						<p id="nomCom">Par la commission : ${evenement.nomCommission}</p>
+						<div class="clear"></div>
 						<p id="description">${evenement.descriptionEvent} </p>
 						<p id="lieu">Lieu : ${evenement.lieu}</p>
-						<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut}</p>
-						<p id="horaire">Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
+						<div class="desktop"><p id="horaire"> Début :<fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut} </br>
+						Fin :<fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p></div>
+							<div class="mobile"><p id="horaire"> De : ${evenement.hDebut}</br>
+						A : <c:if test="${evenement.debut != evenement.fin}"><fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/></c:if>  ${evenement.hFin}</p></div>
 					</article>
-					<form id="ajout" action="monCalendrier1" method="post">
+					<!--   <form id="ajout" action="monCalendrier1" method="post"> 
 						<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
 						<input type="submit" name="synchroniser"value="Synchroniser" />
-					</form>
+					</form> -->
+					<div class="clear"></div>
 				</article>
+			<div class="clear"></div>	
 		</section>
 		</c:forEach>
 		<footer>

@@ -1,19 +1,43 @@
 
 /**** Desktop ****/
 /*Body*/
+.mobile{
+	display:none;
+}
+
+.desktop{
+	display:block;
+}
 
 body{
 	font-family: Arial, Helvetica;
 }
-footer
-{
-position:fixed;
-right:0;
-left:0;
-bottom:0;
-text-align:center;
-background-color:grey;
-color:white;
+
+#entete{	
+	margin:0 auto;
+	width:72%;
+	text-align:center;
+	border-style:groove;
+	border-width:5px;
+	border-color:red;
+	border-radius: 10px;
+	background:white;
+}
+
+body{
+	background-image: url(../img/test2.jpg);
+	background-size: 100% auto;
+	margin-bottom: 100px;
+}
+
+footer{
+	position:fixed;
+	right:0;
+	left:0;
+	bottom:0;
+	text-align:center;
+	background-color:grey;
+	color:white;
 }
 
 .clear{
@@ -42,8 +66,8 @@ color:white;
 }
 
 .inputConnexion{
-		margin:10px 0;
-	}
+	margin:10px 0;
+}
 	
 .bouton_submit{
 	float:right;
@@ -68,14 +92,143 @@ color:white;
 	text-decoration:none;
 }
 
+/*Aside*/
+
+.deconnexion {
+	float:left;
+	top:25px;
+	margin:2% 0 0 76%;
+	width:100%;
+}
+
+.deconnexion img{
+	width:100px;
+}
+
+/*Calendrier*/
+.dateEvent{
+	width:17%;
+	margin:20px 15%;
+}
+
+.resume{
+	margin:0 13% 5px;
+	min-height:200px;
+	width:69%;
+	padding:20px;
+	border-width: 2px;
+	border-style:outset;
+	border-color:grey;
+	border-radius: 10px 10px 10px 10px;
+	-webkit-transition-property:border-style,box-shadow;
+	box-shadow:none;
+}
+
+.resume:hover{
+	border-style:inset;
+	box-shadow : 0px 5px 2px 0px #A9A9A9;
+}
+
+.titreEvent{
+	max-width: 400px;
+	margin:0px 20px;
+	float:left;
+}
+
+.description{
+	width:75%;
+	float:left;
+}
+
+article#BDA{
+	background-color:rgba(255,0,0,0.5);
+}
+
+article#BDS{
+	background-color:rgba(0,255,0,0.5);
+}
+
+article#CapSo{
+	background-color:rgba(0,0,255,0.5);
+}
+
+article#PES{
+	background-color:rgba(255,127,0,0.5);
+}
+
+article#PET{
+	background-color:rgba(127,0,255,0.5);
+}
+
+#lieu{
+	float:left;
+	margin:0 20px;
+	width:47%;
+}
+
+#nomCom{
+	float:right;	
+	width:40%;
+}
+
+#description{
+	margin:20px;
+	height:60px;
+	width:75%;
+}
+
+#horaire{
+	margin: 0 20px;
+	float:left;
+	width:40%;
+}
+
+form#ajout{
+	
+	
+	width:100px;
+}
+
+input#idEvent{
+	display:none;
+}
+
+.imgCal{
+	float:left;
+	height: auto;
+	width:10%;
+}
+
+
+
+
+
 /**** Mobile ****/
 @media only screen and (max-device-width:480px) {
 /*Body*/
 
-	body{
-		padding:5px;
+	.desktop{
+	display:none;
 	}
-
+	
+	.mobile{
+	display:block;
+	}
+	
+	body{
+		padding:0;
+		background-image:none;
+	}
+	
+	#entete{	
+		width:97%;
+		text-align:left;
+	}
+	
+	h1.entete{
+		margin:5px 25%;
+		width:100%;
+	}
 /*Connexion*/
 	.identification{
 		margin: 30px auto 10px auto;
@@ -106,5 +259,73 @@ color:white;
 		 max-width: 100%;
 	}
 	
+/*Calendrier*/
+	
+	.dateEvent{
+		width:90%;
+		margin:0 20px 10px;
+	}
+	
+	.resume{
+		margin:0 0 10px;
+		min-height:65px;
+		width:93%;
+		padding:3%;
+	}
+	
+	.resume:hover{
+		border-style:inset;
+		box-shadow : 0px 5px 2px 0px #A9A9A9;
+	}
+	
+	.titreEvent{
+		max-width: 80%;
+		margin:0px 20px;
+		float:left;
+		font-size:15px;
+	}
+	
+	.description{
+		width:75%;
+		float:left;
+	}
+	
+	#lieu{
+		display:none;
+		float:left;
+		margin:20px;
+		width:47%;
+	}
+	
+	#nomCom{
+		float:right;	
+		width:40%;
+		display:none;
+	}
+	
+	#description{
+		display:none;
+		margin:20px;
+		height:60px;
+		width:75%;
+	}
+	
+	#horaire{
+		margin-left:10px;
+		float:left;
+		width:100%;
+	}
+	
+	form#ajout{
+		width:100px;
+	}
+	
+	input#idEvent{
+		display:none;
+	}
+	
+	.imgCal{
+		width:16%;
+	}
 
 }
