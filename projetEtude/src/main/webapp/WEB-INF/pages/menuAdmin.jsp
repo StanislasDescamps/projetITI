@@ -1,4 +1,4 @@
-<nav id="navigationOption">
+<nav id="navigationOption" class="desktop">
 			<ul>
 				<li <%if("mesOptions".equals(request.getParameter("pageSelectionnee"))) {%> class="active" <% } %>><a href="mesOptions">Mes préférences</a></li>
 				<li <%if("mesInfos".equals(request.getParameter("pageSelectionnee"))) {%> class="active" <% } %>><a href="mesInfos">Mes informations</a></li>

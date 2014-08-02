@@ -41,8 +41,8 @@
 						<div class="clear"></div>
 						<p id="description">${evenement.descriptionEvent} </p>
 						<p id="lieu">Lieu : ${evenement.lieu}</p>
-						<div class="desktop"><p id="horaire"> Début :<fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut} </br>
-						Fin :<fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p></div>
+						<div class="desktop"><p id="horaire"> Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut} </br>
+						Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p></div>
 							<div class="mobile"><p id="horaire"> De : ${evenement.hDebut}</br>
 						A : <c:if test="${evenement.debut != evenement.fin}"><fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/></c:if>  ${evenement.hFin}</p></div>
 					</article>

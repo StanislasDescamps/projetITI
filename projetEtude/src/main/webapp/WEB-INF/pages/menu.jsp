@@ -1,4 +1,5 @@
-<nav id="navigation">
+
+<nav id="navigation" class="desktop">
 			<ul>
 				<li <%if("monCalendrier1".equals(request.getParameter("pageSelectionnee"))) {%> class="active" <% } %> ><a href="monCalendrier1">Mon calendrier</a></li>
 				<li <%if("calendrierHei".equals(request.getParameter("pageSelectionnee"))) {%> class="active" <% } %> ><a href="calendrierHei">Calendrier HEI</a></li>

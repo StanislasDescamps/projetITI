@@ -93,17 +93,90 @@ footer{
 }
 
 /*Aside*/
-
 .deconnexion {
+	margin:2% 0 1% 77%;
+	width:8%;
+}
+
+.deconnexion2 {
 	float:left;
 	top:25px;
-	margin:2% 0 0 76%;
-	width:100%;
+	margin:2% 0 0 2%;
+	width:8%;
 }
 
 .deconnexion img{
 	width:100px;
 }
+
+.retour{
+	position: relative;
+	top:-15px;
+	left:190px;
+	width:100px;
+}
+/*Navigation*/
+
+nav#navigation li{
+	position: relative;
+	top:10px;
+	display:inline-block;
+	padding:5px 20px 5px 20px;
+	background: #C0C0C0;
+	margin-right:30px;
+}
+
+nav#navigation{
+	position : relative;
+	top : 10px;
+	left:170px;
+	width:900px;
+	background : #7F7764;
+	text-align : center;
+	height : 50px;
+	box-shadow : 0px 10px 5px 0px #A9A9A9;
+	margin:0px;
+}
+
+nav a{
+	text-decoration:none;
+	color :#483D8B;
+}
+
+nav li.active a{
+	color :#FF4500;
+}
+
+nav#navigationOption{
+	float:left;
+	width:52%;
+	height:50px;
+	margin-left:23%;
+	margin-bottom:10px;
+}
+
+nav#navigationOption li{
+	position: relative;
+	top:10px;
+	display:inline-block;
+	padding:5px 10px 5px 10px;
+	background: #C0C0C0;
+	margin-right:10px;
+}
+
+nav#navigationPres{
+	position : relative;
+	top : -40px;
+	left:150px;
+	width:900px;
+}
+
+nav#navigationPres li{
+	position: relative;
+	display:inline-block;
+	margin-right:30px;
+}
+
 
 /*Calendrier*/
 .dateEvent{
@@ -140,23 +213,23 @@ footer{
 	float:left;
 }
 
-article#BDA{
+#BDA{
 	background-color:rgba(255,0,0,0.5);
 }
 
-article#BDS{
+#BDS{
 	background-color:rgba(0,255,0,0.5);
 }
 
-article#CapSo{
+#CapSo{
 	background-color:rgba(0,0,255,0.5);
 }
 
-article#PES{
+#PES{
 	background-color:rgba(255,127,0,0.5);
 }
 
-article#PET{
+#PET{
 	background-color:rgba(127,0,255,0.5);
 }
 
@@ -183,12 +256,6 @@ article#PET{
 	width:40%;
 }
 
-form#ajout{
-	
-	
-	width:100px;
-}
-
 input#idEvent{
 	display:none;
 }
@@ -198,9 +265,248 @@ input#idEvent{
 	height: auto;
 	width:10%;
 }
+/*Mes options*/
 
+#presentation{
+	margin-left:15%;
+	width:70%;
+}
 
+#titre{
+	width:30%;
+	margin:5px auto;
+	text-align:center;
+}
 
+#titre2{
+	position:relative;
+	top:20px;
+	left:480px;
+	width:500px;
+}
+
+#asuppr{
+	position:relative;
+	top:50px;
+	margin:20px;
+	left:530px;
+	width:300px;
+}
+
+#bjr{
+	position:relative;
+	left:400px;
+	padding-bottom:20px;
+	width:600px;
+}
+
+input#trap{
+	position:relative;
+	top:70px;
+	left:400px;
+	width:200px;	
+}
+
+input#idcommission{
+	display:none;
+}
+
+.tous{
+	margin-left:15%;
+	width:70%;
+}
+
+section#asso{
+	position: relative;
+	margin: 20px;
+}
+
+section#president{
+	position: relative;
+	margin-top: 70px;
+	left:480px;
+	width:400px;
+}
+
+section.espacePres{
+	position:relative;
+	left:500px;
+}
+
+form.mesInfos{
+	margin:20px;
+}
+
+form.ajoutAsso{
+	position: relative;
+	top:20px;
+	left:200px;
+	width:800px;
+	margin:20px;
+}
+
+section.mesInfos{
+	position:relative;
+	margin-top:40px;
+	left:200px;
+	width:500px;
+}
+
+div#message{
+	position:relative;
+	top:-300px;
+	left:700px;
+	width:300px;
+}
+
+section.listModif{
+	position:relative;
+	top:20px;
+}
+
+ul.tabs {
+	margin-right: auto;
+	margin-left: auto;
+	padding: 0;
+	list-style: none;
+	height: 32px;
+	border-bottom: 1px solid #999999;
+	border-left: 1px solid #999999;
+	width:100%;
+}
+
+ul.tabs li {
+	float: left;
+	margin-right: auto;
+	margin-left: auto;
+	cursor: pointer;
+	padding: 0px 21px ;
+	height: 31px;	
+	line-height: 31px;
+	border: 1px solid #999999;
+	border-left: none;
+	font-weight: bold;
+	background: #EEEEEE;
+	overflow: hidden;
+	position: relative;
+}
+
+ul.tabs li:hover {
+	background: #CCCCCC;
+}	
+
+ul.tabs li.active{
+	background: #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+}
+
+.tab_container {
+	border: 1px solid #999999;
+	border-top: none;
+	clear: both;
+	margin: 0 auto 10px;
+	width: 100%;
+	background: #FFFFFF;
+}
+
+.tab_content {
+	padding: 20px;
+	font-size: 1.2em;
+	display: none;
+}
+/*Les Assos*/
+
+form#preference{
+position: relative;
+top: 20px;
+left:200px;
+width:300px;
+}
+
+.listAsso{
+	margin-top:15px;
+}
+
+.asso{
+	margin-left:170px;
+	height:40px;
+	width:68%;
+	padding:10px;
+	border-width: 2px;
+	border-style:outset;
+	border-color:grey;
+	border-radius: 10px 10px 10px 10px;
+	-webkit-transition-property:border-style,box-shadow;
+	box-shadow:none;
+}
+
+article.asso:hover{
+	border-style:inset;
+	box-shadow : 0px 5px 2px 0px #A9A9A9;
+}
+
+.nomAssoContact{
+	margin:10px 0 5px 20%;
+	max-width:80%;
+}
+.nomAssoContact a{
+	text-decoration:none;
+}
+
+img#presentation2{
+	height:100%;
+	width:auto;
+	float:left;
+	margin-right:10px;
+}
+
+img#logo{
+height:60px;
+width:auto;	
+}
+
+article.presentation{
+position:relative;
+top:20px;
+left:250px;
+width:700px;
+}
+
+div#description{
+position:relative;
+top:-70px;
+}
+article.entier{
+margin-left:170px;
+margin-top:50px;
+height:auto;
+width:830px;
+padding:20px;
+border-width: 2px;
+border-style:outset;
+border-color:grey;
+border-radius: 10px 10px 10px 10px;
+box-shadow:none;
+}
+
+article.contact{
+position: relative;
+right:200px;
+top: 70px;
+}
+
+h3#responsable{
+position:relative;
+width:400px;
+left:200px;
+}
+
+h4{
+position:relative;
+top:-80px;
+width:900px;
+left:250px;
+}
 
 
 /**** Mobile ****/
@@ -208,11 +514,11 @@ input#idEvent{
 /*Body*/
 
 	.desktop{
-	display:none;
+		display:none;
 	}
 	
 	.mobile{
-	display:block;
+		display:block;
 	}
 	
 	body{
@@ -227,8 +533,13 @@ input#idEvent{
 	
 	h1.entete{
 		margin:5px 25%;
-		width:100%;
+		width:50%;
 	}
+	
+	aside{
+	display:none;
+	}
+	
 /*Connexion*/
 	.identification{
 		margin: 30px auto 10px auto;
@@ -263,7 +574,7 @@ input#idEvent{
 	
 	.dateEvent{
 		width:90%;
-		margin:0 20px 10px;
+		margin:5px 20px 10px;
 	}
 	
 	.resume{
@@ -327,5 +638,43 @@ input#idEvent{
 	.imgCal{
 		width:16%;
 	}
+/*Mes options*/
 
+	#presentation{
+		font-size:11px;
+		margin-left:0;
+		width:100%;
+	}
+	
+	#titre{
+		width:100%;
+		text-align:center;
+	}
+	
+	.labelExpliChoix{
+		font-size:15px;
+	}
+	
+	.tous{
+		margin-left:0;
+		width:100%;
+	}
+	
+	.listeAssoTAb{
+	padding-left:20px;
+	}
+	
+	ul.tabs li {
+		padding: 0px 11px ;
+	}
+	
+	.tab_content {
+		padding: 0px;
+	}
+
+/*Les Assos*/
+	.asso{
+		margin-left:0;
+		width:92%;
+	}
 }
