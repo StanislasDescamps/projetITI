@@ -472,7 +472,7 @@ form.mesInfos{
 
 #titre2{
 	text-align:center;
-	width:18%;
+	width:71%;
 	margin:0 auto;
 }
 
@@ -512,6 +512,28 @@ form.mesInfos{
 	border-top:1px solid #ccc;
 }
 
+/*Ajouter un événement*/
+.ajoutEvent{
+	margin-left:15%;
+	width:70%;
+}
+
+.commissionNewEvent, .titreNewEvent, .dateNewEvent, .descriptionNewEvent, .lieuNewEvent {
+	float:left;
+	width:100%;
+	margin-bottom:10px;
+}
+
+#lieuNewEvent{
+	float:left;
+}
+
+#descriptionNewEvent{
+	width:60%;
+	height:100px;
+	float:left;
+
+}
 
 /*Présentation asso*/
 
@@ -520,6 +542,7 @@ img#logo{
 	width:auto;	
 	float:left;
 }
+
 
 /**** Mobile ****/
 @media only screen and (max-device-width:480px) {
@@ -705,9 +728,24 @@ img#logo{
 	}
 	
 	section.mesInfos{
-	margin-top:10px;
-	margin-left:0;
-	width:90%;
-}
+		margin-top:10px;
+		margin-left:0;
+		width:90%;
+	}
+	
+/*Espace Président*/
+	
+	.entier{
+		margin-left:0;
+		margin-top:20px;
+		width:86%;
+		padding:20px;
+	}
+	
+	.titreAsso{
+		width: 50%;
+		margin:10px 20px;
+	}
+	
 	
 }

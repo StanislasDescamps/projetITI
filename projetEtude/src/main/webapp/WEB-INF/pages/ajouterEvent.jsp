@@ -6,58 +6,59 @@
         <!-- En-tête de la page -->
         <meta charset="utf-8" />
         <title>HEI-Diary Ajouter un évènement</title>
+        <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body>
 		<!-- Corps de la page -->
 		<header id="entete">
-			<link rel="stylesheet" href="css/header_body_footer.css">
-			<link rel="stylesheet" href="css/navigation.css">
-			<link rel="stylesheet" href="css/mesoptions.css">
-			<link rel="stylesheet" href="css/espacePres.css">
-			<h1>HEI-Diary</h1>
+			<h1 class="entete">HEI-Diary</h1>
 		</header>
 		<jsp:include page="menu.jsp"/>
+		<div class="clear"></div>
+		<jsp:include page="${menuOption}">
+			<jsp:param name="pageSelectionnee" value="espacePresident"/>
+		</jsp:include>
 		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
-		<jsp:include page="${menuOption}">
-			<jsp:param name="pageSelectionnee" value="espacePresident"/>
-		</jsp:include>
 		<h3 id="titre">Ajouter un évènement</h3>
-		
 		<jsp:include page="menuEspacePres.jsp">
 			<jsp:param name="pageSelectionnee" value="ajouterEvent"/>
 		</jsp:include>
-		
+		<div class="clear"></div>
 		<form class="ajoutEvent" action="ajouterEvent" method="post">
 			<legend>Nouvel évènement</legend></br>
 			
-			<section id="commission">
+			<section class="commissionNewEvent">
 				Votre commission est ${commission.nomCommission}
 			</section>
 			
-			<section id="nom">
+			<section class="titreNewEvent">
 				<label for="nomEvent">Titre de l'évènement :</label>
 				<input type="text" name="nomEvent" id="nomEvent" placeholder="Titre de l'évènement" required/></br>
 			</section>
-			<section id="dateEvent">
+			<section class="dateNewEvent">
 				<label for="dateDebut">Date de début de l'évènement :</label>
 				<input type="date" name="dateDebut" id="dateDebut" required/>
 				<label for="heureDebut">Heure de début de l'évènement :</label>
 				<input type="time" name="heureDebut" id="heureDebut" required/>
-				
+				</br>
 				<label for="dateFin">Date de fin de l'évènement :</label>
 				<input type="date" name="dateFin" id="dateFin" required />
 				<label for="heureFin">Heure de fin de l'évènement :</label>
 				<input type="time" name="heureFin" id="heureFin" required/>
 			<!-- <i id="precision">Si vous ne sélectionnez aucune heure de fin, celle-ci comptera une heure supplémentaire par défaut</i> -->
 			</section>
-			<section id="description">
-				<label for="lieu">Lieu :</label>
-				<input type="text" name="lieu" id="lieu"/>
-				<textarea name="description" id="description" placeholder="Description de l'évènement" rows="10" cols="50" required></textarea>
+			<div class="clear"></div>
+			<section class="lieuNewEvent">
+				<label id="lieuNewEvent" for="lieu">Lieu : </label>
+				<input type="text" name="lieu"/>
+			</section>	
+			<section class="descriptionNewEvent">	
+				<textarea name="description" id="descriptionNewEvent" placeholder="Description de l'évènement" rows="10" cols="50" required></textarea>
 			</section>
+			<div class="clear"></div>
 			<section id="bouton">
 				<input type="reset" value="Réinitialiser"/>
 				<input type="submit" value="Enregistrer"/>
