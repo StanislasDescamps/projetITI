@@ -6,7 +6,7 @@
         <meta charset="utf-8"/>
         <title>Création du profil</title>
     </head>
-	<body style="font-family: arial, sans-serif, 1em;">
+	<body style="font-family: arial, Helvetica;">
 		<!-- Corps de la page 
 		<link rel="stylesheet" href="css/creationProfil.css">-->
 		<h1 style="text-align:center;color: red;width:100%;margin:10px auto;" id="titre1">HEI-Diary</h1>

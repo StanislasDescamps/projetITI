@@ -10,18 +10,18 @@
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body>
-		<!-- Corps de la page -->
-		<link rel="stylesheet" href="css/navigation.css">
-		
+		<!-- Corps de la page -->	
 		<header id="entete">
 			<h1 class="entete">HEI-Diary</h1>
 		</header>
 		<jsp:include page="menu.jsp">
 			<jsp:param name="pageSelectionnee" value="monCalendrier1" />
 		</jsp:include>
+		<div class="clear"></div>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
+		<div class="clear"></div>
 		<!--  <section class="choix1">
 			<form id="choix" action="calendrierHei" method="get">
 					<input type="radio" id="liste" name="box1" value="liste" checked>

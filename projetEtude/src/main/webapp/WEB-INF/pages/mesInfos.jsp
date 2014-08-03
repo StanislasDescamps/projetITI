@@ -6,27 +6,27 @@
         <!-- En-tête de la page -->
         <meta charset="utf-8" />
         <title>HEI-Diary Mes options</title>
+        <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body>
 		<!-- Corps de la page -->
-		<link rel="stylesheet" href="css/header_body_footer.css">
-		<link rel="stylesheet" href="css/navigation.css">
-		<link rel="stylesheet" href="css/mesoptions.css">
 		<script type="text/javascript" src="js/jquery.js" ></script>
 		<script language="javascript" type="text/javascript" src="js/js.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<header id="entete">
-			<h1>HEI-Diary</h1>
+			<h1 class="entete">HEI-Diary</h1>
 		</header>
 		<jsp:include page="menu.jsp">
 			<jsp:param name="pageSelectionnee" value="mesOptions" />
 		</jsp:include>
-		<aside class="deconnexion">
-			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
-		</aside>
+		<div class="clear"></div>
 		<jsp:include page="${menuOption}">
 			<jsp:param name="pageSelectionnee" value="mesInfos"/>
 		</jsp:include>
+		<aside class="deconnexion">
+			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
+		</aside>
+		<div class="clear"></div>
 		
 		<!--cette section est pour tous les étudiants -->
 		
@@ -43,7 +43,7 @@
 				<form class="mesInfos" method="post" action="mesInfos"> 
 					<div>Votre adresse email actuelle : ${etudiant.email}</div>
 					<label for="newEmail">Entrez votre nouvelle adresse email</label>
-					<input type="text" name="newEmail" id="newEmail" required/></br>
+					<input type="text" name="newEmail" id="newEmail" class="tailleInput" required/></br>
 					<input type="submit" value="Modifier" name="modifEmail"/>
 				</form>
 			
@@ -56,9 +56,9 @@
 			
 				<form class="mesInfos" method="post" action="mesInfos"> 
 					<label for="newMdp1">Entrez votre nouveau mot de passe</label>
-					<input type="password" name="newMdp1" id="newMdp1" required/></br>
+					<input type="password" name="newMdp1" id="newMdp1" class="tailleInput" required/></br>
 					<label for="newMdp2">Confirmez votre nouveau mot de passe</label>
-					<input type="password" name="newMdp2" id="newMdp2" required/></br>
+					<input type="password" name="newMdp2" id="newMdp2" class="tailleInput" required/></br>
 					<input type="submit" value="Modifier" name="modifMdp"/>
 				</form>
 				

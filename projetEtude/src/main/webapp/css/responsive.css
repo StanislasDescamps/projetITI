@@ -94,7 +94,7 @@ footer{
 
 /*Aside*/
 .deconnexion {
-	margin:2% 0 1% 77%;
+	margin:2% 0 0 77%;
 	width:8%;
 }
 
@@ -118,8 +118,7 @@ footer{
 /*Navigation*/
 
 nav#navigation li{
-	position: relative;
-	top:10px;
+	margin-top:10px;
 	display:inline-block;
 	padding:5px 20px 5px 20px;
 	background: #C0C0C0;
@@ -127,15 +126,12 @@ nav#navigation li{
 }
 
 nav#navigation{
-	position : relative;
-	top : 10px;
-	left:170px;
-	width:900px;
+	margin-left:14%;
+	width:72%;
 	background : #7F7764;
 	text-align : center;
 	height : 50px;
 	box-shadow : 0px 10px 5px 0px #A9A9A9;
-	margin:0px;
 }
 
 nav a{
@@ -156,7 +152,6 @@ nav#navigationOption{
 }
 
 nav#navigationOption li{
-	position: relative;
 	top:10px;
 	display:inline-block;
 	padding:5px 10px 5px 10px;
@@ -165,14 +160,11 @@ nav#navigationOption li{
 }
 
 nav#navigationPres{
-	position : relative;
-	top : -40px;
-	left:150px;
+	margin-left:15%;
 	width:900px;
 }
 
 nav#navigationPres li{
-	position: relative;
 	display:inline-block;
 	margin-right:30px;
 }
@@ -181,7 +173,7 @@ nav#navigationPres li{
 /*Calendrier*/
 .dateEvent{
 	width:17%;
-	margin:20px 15%;
+	margin:0 15% 20px;
 }
 
 .resume{
@@ -278,26 +270,12 @@ input#idEvent{
 	text-align:center;
 }
 
-#titre2{
-	position:relative;
-	top:20px;
-	left:480px;
-	width:500px;
-}
-
 #asuppr{
 	position:relative;
 	top:50px;
 	margin:20px;
 	left:530px;
 	width:300px;
-}
-
-#bjr{
-	position:relative;
-	left:400px;
-	padding-bottom:20px;
-	width:600px;
 }
 
 input#trap{
@@ -333,23 +311,12 @@ section.espacePres{
 	left:500px;
 }
 
-form.mesInfos{
-	margin:20px;
-}
-
 form.ajoutAsso{
 	position: relative;
 	top:20px;
 	left:200px;
 	width:800px;
 	margin:20px;
-}
-
-section.mesInfos{
-	position:relative;
-	margin-top:40px;
-	left:200px;
-	width:500px;
 }
 
 div#message{
@@ -460,33 +427,11 @@ img#presentation2{
 	margin-right:10px;
 }
 
-img#logo{
-height:60px;
-width:auto;	
-}
-
 article.presentation{
 position:relative;
 top:20px;
 left:250px;
 width:700px;
-}
-
-div#description{
-position:relative;
-top:-70px;
-}
-article.entier{
-margin-left:170px;
-margin-top:50px;
-height:auto;
-width:830px;
-padding:20px;
-border-width: 2px;
-border-style:outset;
-border-color:grey;
-border-radius: 10px 10px 10px 10px;
-box-shadow:none;
 }
 
 article.contact{
@@ -501,13 +446,80 @@ width:400px;
 left:200px;
 }
 
-h4{
-position:relative;
-top:-80px;
-width:900px;
-left:250px;
+/*Mes infos*/
+
+section.mesInfos{
+	margin-top:40px;
+	margin-left:15%;
+	width:50%;
 }
 
+#bjr{
+	margin-left:15%;
+	width:70%;
+}
+
+.tailleInput{
+	width:60%;
+	margin-bottom:5px;
+}
+
+form.mesInfos{
+	margin:20px;
+}
+
+/*Espace président*/
+
+#titre2{
+	text-align:center;
+	width:18%;
+	margin:0 auto;
+}
+
+.entier{
+	margin-left:14%;
+	margin-top:20px;
+	height:auto;
+	width:68%;
+	padding:20px;
+	border-width: 2px;
+	border-style:outset;
+	border-color:grey;
+	border-radius: 10px 10px 10px 10px;
+	box-shadow:none;
+}
+
+.titreAsso{
+	width: 80%;
+	margin:0px 20px;
+	float:left;
+}
+
+#descriptionAssoPres{
+	margin-left:20px;
+	float:left;
+	width:90%;
+	margin-bottom:20px;
+}
+
+.titreEventPres{
+	float:left;
+	width:92%;
+	margin-left:20px;
+}
+
+.events{
+	border-top:1px solid #ccc;
+}
+
+
+/*Présentation asso*/
+
+img#logo{
+	height:60px;
+	width:auto;	
+	float:left;
+}
 
 /**** Mobile ****/
 @media only screen and (max-device-width:480px) {
@@ -677,4 +689,25 @@ left:250px;
 		margin-left:0;
 		width:92%;
 	}
+	
+/*Mes Infos*/
+
+	#bjr{
+		margin-left:0;
+		width:90%;
+		font-size:15px;
+		text-align:center;
+	}
+	
+	.tailleInput{
+		width:100%;
+		margin-bottom:5px;
+	}
+	
+	section.mesInfos{
+	margin-top:10px;
+	margin-left:0;
+	width:90%;
+}
+	
 }
