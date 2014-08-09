@@ -20,17 +20,24 @@
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
+		<c:if test="${noMenu==false}">
+			<jsp:include page="${menuOption}">
+				<jsp:param name="pageSelectionnee" value="configuration"/>
+			</jsp:include>
 		
-		<jsp:include page="${menuOption}">
-			<jsp:param name="pageSelectionnee" value="configuration"/>
-		</jsp:include>
+			<h3 id="titre">Modifier une association</h3>
+			
+			<jsp:include page="menuConfig.jsp">
+				<jsp:param name="pageSelectionnee" value="listeModifAsso"/>
+			</jsp:include>
+		</c:if>
+		<c:if test="${noMenu==true}">
+			<jsp:include page="${menuOption}">
+				<jsp:param name="pageSelectionnee" value="espacePresident"/>
+			</jsp:include>
+			<h3 id="titre">Modifier mon association</h3>
+		</c:if>
 		
-		
-		<h3 id="titre">Modifier une association</h3>
-		
-		<jsp:include page="menuConfig.jsp">
-			<jsp:param name="pageSelectionnee" value="listeModifAsso"/>
-		</jsp:include>
 		
 		<form class="ajoutAsso" action="modifierAsso" method="post">
 			<legend>${commission.nomCommission}</legend></br>

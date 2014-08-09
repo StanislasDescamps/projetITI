@@ -44,6 +44,7 @@
 				<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3 class="titreAsso">${commission.nomCommission}</h3>
 				<div id="descriptionAssoPres">${commission.description}</div>
+				<a href="modifierAsso?idcommission=${commission.idcommission}">Modifier mon asso</a>
 				<div class="clear"></div>
 				<article class="events">
 					<div>Vos évènements :</div>
