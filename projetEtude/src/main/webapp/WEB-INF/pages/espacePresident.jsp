@@ -40,7 +40,7 @@
 		<div class="clear"></div>
 		<h3 id="titre2">Vous êtes président de :</h3>
 		
-			<article class="entier" id="BDA">
+			<article class="entier" <c:if test="${commission.idpole==1}"> id="BDA"</c:if><c:if test="${commission.idpole==2}"> id="BDS"</c:if><c:if test="${commission.idpole==3}">  id="CapSo"</c:if><c:if test="${commission.idpole==4}"> id="PES"</c:if><c:if test="${commission.idpole==1}"> id="PET"</c:if>>
 				<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3 class="titreAsso">${commission.nomCommission}</h3>
 				<div id="descriptionAssoPres">${commission.description}</div>
