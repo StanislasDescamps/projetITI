@@ -77,6 +77,14 @@ CREATE TABLE `choix` (
   KEY `idCommission_fk` (`idCommission`)
 ) CHARSET=utf8;
 
+CREATE TABLE `participation` (
+  `idEtudiant` int(11) NOT NULL,
+  `idEvenement` int(11) NOT NULL,
+  PRIMARY KEY (`idEtudiant`,`idEvenement`),
+  KEY `idEtudiant_fk` (`idEtudiant`),
+  KEY `idCommission_fk` (`idEvenement`)
+) CHARSET=utf8;
+
 CREATE TABLE `doubletcalevent` (
   `idCalendrier` int(11) NOT NULL,
   `idEvenement` int(11) NOT NULL,

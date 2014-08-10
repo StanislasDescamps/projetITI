@@ -1,6 +1,7 @@
 -- Purge
 DELETE FROM `doubletcalevent`;
 DELETE FROM `choix`;
+DELETE FROM `participation`;
 DELETE FROM `evenement`;
 DELETE FROM `commission`;
 DELETE FROM `pole`;
@@ -10,10 +11,10 @@ DELETE FROM `etudiant`;
 
 
 -- Etudiant
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (1,'Gladieux','Jean','pres','jean.gladieux@hei.fr',1,0);
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (2,'Denis','Martin','etudiant','martin.denis@hei.fr',1,0);
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (3,'Descamps','Stanislas','admin','stanislas.descamps@hei.fr',2,0);
-INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (4,'Merchez','Nicolas','admin','nicolas.merchez@hei.fr',2,0);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (1,'Gladieux','Jean','pres','jean.gladieux@hei.fr',2,0);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (2,'Denis','Martin','etudiant','martin.denis@hei.fr',0,0);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (3,'Descamps','Stanislas','admin','stanislas.descamps@hei.fr',3,0);
+INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (4,'Merchez','Nicolas','admin','nicolas.merchez@hei.fr',3,0);
 INSERT INTO `etudiant`(`idEtudiant`,`nomEtudiant`,`prenomEtudiant`,`password`,`email`,`idDroit`,`firstConnexion`) VALUES (5,'Bizouri','Billel','pres','billel.bizouri@hei.fr',1,1);
 
 -- Calendrier
@@ -24,17 +25,17 @@ INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (4,4
 INSERT INTO `calendrier`(`idCalendrier`,`idEtudiant`,`dateEmission`) VALUES (5,5,'2014-07-19');
 
 -- Pole
-INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (1,'BDA',4);
-INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (2,'BDS',3);
-INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (3,'CapSo',4);
-INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (4,'PES',3);
-INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (5,'PET',4);
+INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (1,'BDA',1);
+INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (2,'BDS',1);
+INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (3,'CapSo',1);
+INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (4,'PES',1);
+INSERT INTO `pole`(`idPole`,`nomPole`,`idEtudiant`) VALUES (5,'PET',1);
 
 -- Commission
-INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (1,2,1,'La Sauce','Le plaisir de manger entre etudiants','img/logo/bda.jpg');
-INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (2,3,2,'Club Rock HEI','Cours de danse tous les mercredi soir','img/logo/rock.jpg');
-INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (3,1,3,'SolidBear','Super association humanitaire','img/logo/CapSolidaire.jpg');
-INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (5,4,4,'Cosmo','Vous aimez voyager? Cette asso est pour vous','img/logo/cosmo.jpg');
+INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (1,5,1,'La Sauce','Le plaisir de manger entre etudiants','img/logo/bda.jpg');
+INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (2,5,2,'Club Rock HEI','Cours de danse tous les mercredi soir','img/logo/rock.jpg');
+INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (3,5,3,'SolidBear','Super association humanitaire','img/logo/CapSolidaire.jpg');
+INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (5,5,4,'Cosmo','Vous aimez voyager? Cette asso est pour vous','img/logo/cosmo.jpg');
 INSERT INTO `commission`(`idCommission`,`idEtudiant`,`idPole`,`nomCommission`,`descriptionCom`,`adresseLogo`) VALUES (4,5,5,'HEIvolution','Association en faveur du developpement durable','img/logo/heivolution.jpg');
 
 -- Evenement
