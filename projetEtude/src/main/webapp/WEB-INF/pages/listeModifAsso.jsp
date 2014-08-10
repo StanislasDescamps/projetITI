@@ -26,7 +26,7 @@
 		</aside>
 		
 		<jsp:include page="${menuOption}">
-			<jsp:param name="pageSelectionnee" value="configuration"/>
+			<jsp:param name="pageSelectionnee" value="administration"/>
 		</jsp:include>
 		
 		<h3 id="titre">Modifier une association</h3>

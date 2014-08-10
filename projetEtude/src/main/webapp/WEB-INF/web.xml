@@ -35,8 +35,8 @@
 		<servlet-class>hei.controllers.EspaceRespServlet</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>Configuration</servlet-name>
-		<servlet-class>hei.controllers.ConfigurationServlet</servlet-class>
+		<servlet-name>Administration</servlet-name>
+		<servlet-class>hei.controllers.AdministrationServlet</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>LesAssos</servlet-name>
@@ -122,8 +122,8 @@
 		<url-pattern>/espaceResp</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>Configuration</servlet-name>
-		<url-pattern>/configuration</url-pattern>
+		<servlet-name>Administration</servlet-name>
+		<url-pattern>/administration</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>ListeModifAssos</servlet-name>

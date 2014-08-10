@@ -22,7 +22,7 @@
 		</aside>
 		<c:if test="${noMenu==false}">
 			<jsp:include page="${menuOption}">
-				<jsp:param name="pageSelectionnee" value="configuration"/>
+				<jsp:param name="pageSelectionnee" value="administration"/>
 			</jsp:include>
 		
 			<h3 id="titre">Modifier une association</h3>
@@ -33,7 +33,7 @@
 		</c:if>
 		<c:if test="${noMenu==true}">
 			<jsp:include page="${menuOption}">
-				<jsp:param name="pageSelectionnee" value="espacePresident"/>
+				<jsp:param name="pageSelectionnee" value="espaceResp"/>
 			</jsp:include>
 			<h3 id="titre">Modifier mon association</h3>
 		</c:if>

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class ConfigurationServlet extends HttpServlet {
+public class AdministrationServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 8206984011824134407L;
 
@@ -37,7 +37,7 @@ public class ConfigurationServlet extends HttpServlet {
 			request.setAttribute("menuOption","menuOption.jsp");
 		}
 		//Affichage de la page configuration.jsp
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/configuration.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/administration.jsp");
 		view.forward(request, response);
 	}
 	
@@ -66,7 +66,7 @@ public class ConfigurationServlet extends HttpServlet {
 		}
 				
 		Manager.getInstance().setAdmin(idEtudiant, idDroit);
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/configuration.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/administration.jsp");
 		view.forward(request, response);
 	}
 }
