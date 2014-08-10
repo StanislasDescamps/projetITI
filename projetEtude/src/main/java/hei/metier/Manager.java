@@ -83,6 +83,9 @@ public class Manager {
 	public Pole getPolebyNom(String nomPole){
 		return poleDao.getPolebyNom(nomPole);
 	}
+	public Pole getPoleByResp(Integer idEtudiant){
+		return poleDao.getPoleByResp(idEtudiant);
+	}
 	
 	//Evenement
 	public List<Evenement> listerEvenement() {

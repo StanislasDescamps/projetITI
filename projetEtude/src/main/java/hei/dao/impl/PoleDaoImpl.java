@@ -113,4 +113,32 @@ public class PoleDaoImpl implements PoleDao {
 	    }
 	    return pole;
 	}
+
+	@Override
+	public Pole getPoleByResp(Integer idEtudiant) {
+			Pole pole= null;
+			// Cr�er une nouvelle connexion � la BDD
+		    try {
+		        Connection connection = 
+		            DataSourceProvider.getDataSource().getConnection();
+
+		        // Utiliser la connexion
+		        PreparedStatement stmt = (PreparedStatement) connection
+		        		.prepareStatement("SELECT * FROM pole WHERE idEtudiant = ?");
+		        
+		        stmt.setInt(1, idEtudiant);
+		        ResultSet results = stmt.executeQuery();
+		        if(results.next()){
+		        	pole = new Pole(results.getInt("idPole"),
+		                    results.getInt("idEtudiant"),
+		                    results.getString("nomPole"));
+		        }
+
+		        // Fermer la connexion
+		        connection.close();
+		    } catch (SQLException e) {
+		        e.printStackTrace();
+		    }
+		    return pole;
+		}
 }

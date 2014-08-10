@@ -13,4 +13,6 @@ public interface PoleDao {
 	public Pole getPoleEvent (Integer idEvenement); //Récupération des informations d'un pole à partir de l'identifiant d'un événement auquel il est associé
 	
 	public Pole getPolebyNom(String nomPole); //Récupération des informations d'un pole à partir de son nom
+
+	public Pole getPoleByResp(Integer idEtudiant); //Récupération des informations d'un pole à partir de son respasable
 }
