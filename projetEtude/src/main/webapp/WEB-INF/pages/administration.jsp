@@ -25,7 +25,7 @@
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
 		<jsp:include page="${menuOption}">
-			<jsp:param name="pageSelectionnee" value="configuration"/>
+			<jsp:param name="pageSelectionnee" value="administration"/>
 		</jsp:include>
 		
 		
