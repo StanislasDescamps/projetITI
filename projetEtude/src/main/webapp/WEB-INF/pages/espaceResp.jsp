@@ -32,7 +32,7 @@
 				
 		<!--cette section est pour tous les présidents -->
 		
-			<h3 id="titre">Espace président</h3>
+			<h3 id="titre">Espace Resp'</h3>
 			
 		<jsp:include page="menuEspaceResp.jsp">
 			<jsp:param name="pageSelectionnee" value="espaceResp"/>

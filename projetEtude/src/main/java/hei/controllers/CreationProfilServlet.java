@@ -91,7 +91,7 @@ public class CreationProfilServlet extends HttpServlet {
 		}
 		//Création du calendrier de l'étudiant
 		Calendrier nouveauCal = null;
-		nouveauCal = new Calendrier(null, Manager.getInstance().getEtudiantMail(mail).getIdetudiant(),formatDate.format(date));
+		nouveauCal = new Calendrier(null, Manager.getInstance().getEtudiantMail(mail).getIdEtudiant(),formatDate.format(date));
 	
 		Manager.getInstance().ajouterCalendrier(nouveauCal);
 		} 

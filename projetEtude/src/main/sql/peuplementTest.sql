@@ -57,6 +57,7 @@ INSERT INTO `doubletcalevent`(`idCalendrier`,`idEvenement`) VALUES (3,2);
 -- Droits
 INSERT INTO `droits`(`idDroit`,`libelle`) VALUES (0,'Etudiant');
 INSERT INTO `droits`(`idDroit`,`libelle`) VALUES (1,'President');
-INSERT INTO `droits`(`idDroit`,`libelle`) VALUES (2,'Administrateur');
+INSERT INTO `droits`(`idDroit`,`libelle`) VALUES (2,'ResponsablePole');
+INSERT INTO `droits`(`idDroit`,`libelle`) VALUES (3,'Administrateur');
 
 

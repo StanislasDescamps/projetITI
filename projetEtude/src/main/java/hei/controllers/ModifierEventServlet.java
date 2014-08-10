@@ -28,9 +28,9 @@ public class ModifierEventServlet extends HttpServlet {
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		//request.setAttribute("statut", statut);
 				
-		if(statut==2){
+		if(statut==3){
 			request.setAttribute("menuOption","menuAdmin.jsp");
-		}else if(statut==1){
+		}else if(statut==2 || statut==1){
 			request.setAttribute("menuOption","menuResp.jsp");
 		}else{
 			request.setAttribute("menuOption","menuOption.jsp");

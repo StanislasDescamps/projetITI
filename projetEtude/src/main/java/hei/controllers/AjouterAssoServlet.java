@@ -28,9 +28,9 @@ public class AjouterAssoServlet extends HttpServlet{
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		//request.setAttribute("statut", statut);
 		
-		if(statut==2){
+		if(statut==3){
 			request.setAttribute("menuOption","menuAdmin.jsp");
-		}else if(statut==1){
+		}else if(statut==2 || statut==1){
 			request.setAttribute("menuOption","menuResp.jsp");
 		}else{
 			request.setAttribute("menuOption","menuOption.jsp");
@@ -97,11 +97,11 @@ public class AjouterAssoServlet extends HttpServlet{
 					}
 			//Si référent existant, récupération de ses infos et création de la nouvelle commission sinon message erreur
 		if(Etudiantexistant){
-			Integer idEtudiant = Manager.getInstance().getEtudiantMail(mailReferent).getIdetudiant();
+			Integer idEtudiant = Manager.getInstance().getEtudiantMail(mailReferent).getIdEtudiant();
 			
 			Commission nouvelleCommission = new Commission(null, idEtudiant,idPole, nomAsso, description, logo);
 			Manager.getInstance().ajouterCommission(nouvelleCommission);
-			response.sendRedirect("espacePresident");
+			response.sendRedirect("espaceResp");
 		}else{
 			request.setAttribute("ErrorEtudiant", "Il y a une erreur dans votre requette. "
 					+ "Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");

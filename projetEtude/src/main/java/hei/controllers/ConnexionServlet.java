@@ -59,7 +59,7 @@ public class ConnexionServlet extends HttpServlet {
 		if(connexion != null){
 		if (Manager.getInstance().etudiantExiste(mail,password)) {
 			HttpSession session = request.getSession(true);
-			session.setAttribute("idEtudiant", etudiant.getIdetudiant());
+			session.setAttribute("idEtudiant", etudiant.getIdEtudiant());
 			session.setAttribute("nom", etudiant.getNomEtudiant());
 			session.setAttribute("prenom", etudiant.getPrenomEtudiant());
 			session.setAttribute("email", etudiant.getEmail());

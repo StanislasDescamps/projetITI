@@ -46,7 +46,7 @@ public class SupprimerEventServlet extends HttpServlet {
 		if(reponse1 !=null){
 			if(reponse1.equalsIgnoreCase("OUI")){
 			Manager.getInstance().supprimerEvenement(idEvent);
-			response.sendRedirect("espacePresident");}}
+			response.sendRedirect("espaceResp");}}
 		//Si non est seléctionner alors retour à la page précédente
 		if(reponse2 != null){
 			if(reponse2.equalsIgnoreCase("NON")){

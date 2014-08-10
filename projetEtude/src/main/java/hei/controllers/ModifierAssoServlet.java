@@ -39,10 +39,10 @@ public class ModifierAssoServlet extends HttpServlet{
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		request.setAttribute("statut", statut);
 		
-		if(statut==2){
+		if(statut==3){
 			request.setAttribute("menuOption","menuAdmin.jsp");
 			request.setAttribute("noMenu", false);
-		}else if(statut==1){
+		}else if(statut==2 || statut==1){
 			request.setAttribute("menuOption","menuResp.jsp");
 			request.setAttribute("noMenu", true);
 		}else{
@@ -99,7 +99,7 @@ public class ModifierAssoServlet extends HttpServlet{
 	//Si existant, enregistrer les modifications sinon message d'erreur
 if(Etudiantexistant){
 		
-		Manager.getInstance().modifierCommission(idCommission, etudiant.getIdetudiant(), idpole2, nom, description, logo);
+		Manager.getInstance().modifierCommission(idCommission, etudiant.getIdEtudiant(), idpole2, nom, description, logo);
 		response.sendRedirect("presentationAsso?idcommission=" + idCommission);}
 else{
 	request.setAttribute("ErrorEtudiant2", "Il y a une erreur dans votre requette. Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");
