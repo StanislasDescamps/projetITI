@@ -43,7 +43,7 @@ public class ModifierAssoServlet extends HttpServlet{
 			request.setAttribute("menuOption","menuAdmin.jsp");
 			request.setAttribute("noMenu", false);
 		}else if(statut==1){
-			request.setAttribute("menuOption","menuPres.jsp");
+			request.setAttribute("menuOption","menuResp.jsp");
 			request.setAttribute("noMenu", true);
 		}else{
 			request.setAttribute("menuOption","menuOption.jsp");

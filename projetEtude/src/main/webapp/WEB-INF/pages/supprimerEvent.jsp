@@ -22,7 +22,7 @@
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
 		<aside class="retour">
-			<a href="espacePresident"><img id=retour src="img/btnRetour.jpg" alt="Retour" title="Retour"/></a>
+			<a href="espaceResp"><img id=retour src="img/btnRetour.jpg" alt="Retour" title="Retour"/></a>
 		</aside>
 		<h3 id="titre2">Etes-vous sur de vouloir supprimer ?</h3>
 		<h2 id="asuppr">${evenement.titreEvent}</h2>

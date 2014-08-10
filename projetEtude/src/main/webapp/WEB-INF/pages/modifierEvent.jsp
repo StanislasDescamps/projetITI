@@ -21,12 +21,12 @@
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
 		<jsp:include page="${menuOption}">
-			<jsp:param name="pageSelectionnee" value="espacePresident"/>
+			<jsp:param name="pageSelectionnee" value="espaceResp"/>
 		</jsp:include>
 				
 		<h3 id="titre">Modifier un évènement</h3>
 		
-		<jsp:include page="menuEspacePres.jsp">
+		<jsp:include page="menuEspaceResp.jsp">
 			<jsp:param name="pageSelectionnee" value="modifierEvent"/>
 		</jsp:include>
 		

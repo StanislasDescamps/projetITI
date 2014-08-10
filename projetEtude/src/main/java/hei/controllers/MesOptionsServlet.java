@@ -33,7 +33,7 @@ public class MesOptionsServlet extends HttpServlet{
 		if(statut==2){
 			request.setAttribute("menuOption","menuAdmin.jsp");
 		}else if(statut==1){
-			request.setAttribute("menuOption","menuPres.jsp");
+			request.setAttribute("menuOption","menuResp.jsp");
 		}else{
 			request.setAttribute("menuOption","menuOption.jsp");
 		}

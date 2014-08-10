@@ -16,14 +16,14 @@
 		<jsp:include page="menu.jsp"/>
 		<div class="clear"></div>
 		<jsp:include page="${menuOption}">
-			<jsp:param name="pageSelectionnee" value="espacePresident"/>
+			<jsp:param name="pageSelectionnee" value="espaceResp"/>
 		</jsp:include>
 		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
 		<h3 id="titre">Ajouter un évènement</h3>
-		<jsp:include page="menuEspacePres.jsp">
+		<jsp:include page="menuEspaceResp.jsp">
 			<jsp:param name="pageSelectionnee" value="ajouterEvent"/>
 		</jsp:include>
 		<div class="clear"></div>

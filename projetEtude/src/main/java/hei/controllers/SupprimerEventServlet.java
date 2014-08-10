@@ -50,7 +50,7 @@ public class SupprimerEventServlet extends HttpServlet {
 		//Si non est seléctionner alors retour à la page précédente
 		if(reponse2 != null){
 			if(reponse2.equalsIgnoreCase("NON")){
-				response.sendRedirect("espacePresident");}}
+				response.sendRedirect("espaceResp");}}
 		
 	}
 }

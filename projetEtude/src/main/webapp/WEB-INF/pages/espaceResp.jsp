@@ -22,7 +22,7 @@
 		</jsp:include>
 		<div class="clear"></div>
 		<jsp:include page="${menuOption}">
-			<jsp:param name="pageSelectionnee" value="espacePresident"/>
+			<jsp:param name="pageSelectionnee" value="espaceResp"/>
 		</jsp:include>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
@@ -34,8 +34,8 @@
 		
 			<h3 id="titre">Espace président</h3>
 			
-		<jsp:include page="menuEspacePres.jsp">
-			<jsp:param name="pageSelectionnee" value="espacePresident"/>
+		<jsp:include page="menuEspaceResp.jsp">
+			<jsp:param name="pageSelectionnee" value="espaceResp"/>
 		</jsp:include>
 		<div class="clear"></div>
 		<h3 id="titre2">Vous êtes président de :</h3>
