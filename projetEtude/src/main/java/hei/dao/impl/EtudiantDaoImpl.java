@@ -217,11 +217,11 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	            DataSourceProvider.getDataSource().getConnection();
 
 	        // Utiliser la connexion
-	        PreparedStatement stmt1 = (PreparedStatement) connection.prepareStatement(
+	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
 	                  "UPDATE `etudiant` SET `firstConnexion`= 0 WHERE `idEtudiant`=?");
 	       
-	        stmt1.setInt(1,idEtudiant);	        
-	        stmt1.executeUpdate();
+	        stmt.setInt(1,idEtudiant);	        
+	        stmt.executeUpdate();
 	        
 	        // Fermer la connexion
 	        connection.close();
@@ -238,12 +238,12 @@ public class EtudiantDaoImpl implements EtudiantDao {
 			            DataSourceProvider.getDataSource().getConnection();
 
 			        // Utiliser la connexion
-			        PreparedStatement stmt1 = (PreparedStatement) connection.prepareStatement(
+			        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
 			        		"UPDATE etudiant SET email =? WHERE idEtudiant =?");
 			  
-			        stmt1.setString(1,mail);	 
-			        stmt1.setInt(2,idEtudiant);	        
-			        stmt1.executeUpdate();
+			        stmt.setString(1,mail);	 
+			        stmt.setInt(2,idEtudiant);	        
+			        stmt.executeUpdate();
 			
 		connection.close();
 		}
@@ -259,12 +259,12 @@ public class EtudiantDaoImpl implements EtudiantDao {
 			            DataSourceProvider.getDataSource().getConnection();
 
 			        // Utiliser la connexion
-			        PreparedStatement stmt1 = (PreparedStatement) connection.prepareStatement(
+			        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
 			        		"UPDATE etudiant SET password =? WHERE idEtudiant =?");
 			  
-			        stmt1.setString(1,mdp);	 
-			        stmt1.setInt(2,idEtudiant);	        
-			        stmt1.executeUpdate();
+			        stmt.setString(1,mdp);	 
+			        stmt.setInt(2,idEtudiant);	        
+			        stmt.executeUpdate();
 			
 		connection.close();
 		}
@@ -281,17 +281,60 @@ public class EtudiantDaoImpl implements EtudiantDao {
 			            DataSourceProvider.getDataSource().getConnection();
 
 			        // Utiliser la connexion
-			        PreparedStatement stmt1 = (PreparedStatement) connection.prepareStatement(
+			        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
 			        		"UPDATE etudiant SET idDroit =? WHERE idEtudiant =?");
 			  
-			        stmt1.setInt(1,idDroit);	 
-			        stmt1.setInt(2,idEtudiant);	        
-			        stmt1.executeUpdate();
+			        stmt.setInt(1,idDroit);	 
+			        stmt.setInt(2,idEtudiant);	        
+			        stmt.executeUpdate();
 			
 		connection.close();
 		}
 		catch (SQLException e){
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void bannirEtudiant(String nom, String prenom, String email, String motif) {
+		try {
+	        Connection connection = 
+	            DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
+	                  "INSERT INTO `listenoire`( `nomEtudiant`, `prenomEtudiant`, `email`, `motif`) VALUES(?, ?, ?, ?)"); 
+	        stmt.setString(1, nom);
+	        stmt.setString(2, prenom);
+	        stmt.setString(3, email);
+	        stmt.setString(4, motif);
+	        stmt.executeUpdate();
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		
+	}
+
+	@Override
+	public void supprimerEtudiant(Integer idEtudiant) {
+		try{
+			 Connection connection = 
+			            DataSourceProvider.getDataSource().getConnection();
+
+			        // Utiliser la connexion
+			        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
+			        		"DELETE FROM etudiant WHERE idEtudiant =?");
+			  
+			        stmt.setInt(1,idEtudiant);	 	        
+			        stmt.executeUpdate();
+			
+		connection.close();
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+		
 	}
 }

@@ -6,3 +6,4 @@ DROP TABLE `pole`;
 DROP TABLE `droits`;
 DROP TABLE `calendrier`;
 DROP TABLE `etudiant`;
+DROP TABLE `listenoire`;

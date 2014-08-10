@@ -28,4 +28,7 @@ public interface EtudiantDao {
 
 	public void setAdmin(Integer idEtudiant, Integer idDroit); //permet de changer les droits utilisateur
 
+	public void bannirEtudiant(String nom, String prenom, String email, String motif); //permet de bannir un utilisateur
+
+	public void supprimerEtudiant(Integer idEtudiant); //permet de supprimer un utilisateur de la BDD
 }

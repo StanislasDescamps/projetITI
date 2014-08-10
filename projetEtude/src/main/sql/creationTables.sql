@@ -54,6 +54,15 @@ CREATE TABLE `etudiant` (
   PRIMARY KEY (`idEtudiant`)
 ) CHARSET=utf8;
 
+CREATE TABLE `listenoire` (
+  `idBanni` int(11) NOT NULL AUTO_INCREMENT,
+  `nomEtudiant` varchar(30) NOT NULL,
+  `prenomEtudiant` varchar(30) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `motif` varchar(100) NOT NULL,
+  PRIMARY KEY (`idBanni`)
+) CHARSET=utf8;
+
 CREATE TABLE `droits` (
   `idDroit` int(11) NOT NULL,
   `libelle` varchar(50) NOT NULL,
