@@ -3,6 +3,7 @@ package hei.controllers;
 import hei.metier.Manager;
 import hei.model.Commission;
 import hei.model.Evenement;
+import hei.model.Pole;
 
 import java.io.IOException;
 import java.util.List;
@@ -31,19 +32,32 @@ public class EspaceRespServlet extends HttpServlet{
 			request.setAttribute("menuOption","menuAdmin.jsp");
 		}else if(statut==2 || statut==1){
 			request.setAttribute("menuOption","menuResp.jsp");
+			request.setAttribute("statut", statut);
 		}else{
 			request.setAttribute("menuOption","menuOption.jsp");
 		}
 		
-		//Récupération de la liste des évènements dont l'utilisateur est responsable
-		Commission comm = Manager.getInstance().getCommissionByIdRef(idEtudiant);
-		request.setAttribute("commission", comm);
+		if(statut==1){
+			//Récupération de la liste des évènements dont l'utilisateur est responsable
+			Commission comm = Manager.getInstance().getCommissionByIdRef(idEtudiant);
+			request.setAttribute("commission", comm);
+			
+			Integer idCommission=comm.getIdcommission();
+			//Récupération de la liste des évènements dont l'utilisateur est responsable
+			List<Evenement> listEvent = Manager.getInstance().listerEvenementByCommission(idCommission);
+			request.setAttribute("listEvent", listEvent);
+		}
 		
-		Integer idCommission=comm.getIdcommission();
-		//Récupération de la liste des évènements dont l'utilisateur est responsable
-		List<Evenement> listEvent = Manager.getInstance().listerEvenementByCommission(idCommission);
-		request.setAttribute("listEvent", listEvent);
-
+		if(statut==2){
+			Pole pole=Manager.getInstance().getPoleByResp(idEtudiant);
+			request.setAttribute("pole", pole);
+			List<Commission> listeCommission = Manager.getInstance().listerCommissionPole(pole.getNomPole());
+			request.setAttribute("listeCommission", listeCommission);
+		}
+		
+		if(statut==3){
+			
+		}
 		//Affichage de la page espacePresident.jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/espaceResp.jsp");
 		view.forward(request, response);

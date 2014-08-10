@@ -33,31 +33,58 @@
 		<!--cette section est pour tous les présidents -->
 		
 			<h3 id="titre">Espace Resp'</h3>
+		<c:if test="${statut==1}">
+			<jsp:include page="menuEspaceResp.jsp">
+				<jsp:param name="pageSelectionnee" value="espaceResp"/>
+			</jsp:include>
+			<div class="clear"></div>
+			<h3 id="titre2">Vous êtes président de :</h3>
 			
-		<jsp:include page="menuEspaceResp.jsp">
-			<jsp:param name="pageSelectionnee" value="espaceResp"/>
-		</jsp:include>
-		<div class="clear"></div>
-		<h3 id="titre2">Vous êtes président de :</h3>
-		
-			<article class="entier" <c:if test="${commission.idpole==1}"> id="BDA"</c:if><c:if test="${commission.idpole==2}"> id="BDS"</c:if><c:if test="${commission.idpole==3}">  id="CapSo"</c:if><c:if test="${commission.idpole==4}"> id="PES"</c:if><c:if test="${commission.idpole==1}"> id="PET"</c:if>>
-				<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
-				<h3 class="titreAsso">${commission.nomCommission}</h3>
-				<div id="descriptionAssoPres">${commission.description}</div>
-				<a href="modifierAsso?idcommission=${commission.idcommission}">Modifier mon asso</a>
-				<div class="clear"></div>
-				<article class="events">
-					<div>Vos évènements :</div>
-					<c:forEach var="evenement" items="${listEvent}">
-						<h4 class="titreEventPres">${evenement.titreEvent}</h4>
-						<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut}
-						Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
-						<a href="modifierEvent?idevenement=${evenement.idEvenement}">Modifier</a>    <a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer</a>
-					</c:forEach>
+				<article class="entier" <c:if test="${commission.idpole==1}"> id="BDA"</c:if><c:if test="${commission.idpole==2}"> id="BDS"</c:if><c:if test="${commission.idpole==3}">  id="CapSo"</c:if><c:if test="${commission.idpole==4}"> id="PES"</c:if><c:if test="${commission.idpole==1}"> id="PET"</c:if>>
+					<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+					<h3 class="titreAsso">${commission.nomCommission}</h3>
+					<div id="descriptionAssoPres">${commission.description}</div>
+					<a href="modifierAsso?idcommission=${commission.idcommission}">Modifier mon asso</a>
+					<div class="clear"></div>
+					<article class="events">
+						<div>Vos évènements :</div>
+						<c:forEach var="evenement" items="${listEvent}">
+							<h4 class="titreEventPres">${evenement.titreEvent}</h4>
+							<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut}
+							Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
+							<a href="modifierEvent?idevenement=${evenement.idEvenement}">Modifier</a>    <a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer</a>
+						</c:forEach>
+					</article>
+					<div class="clear"></div>
 				</article>
+			</c:if>
+			
+			<c:if test="${statut==2}">
+				<jsp:include page="menuEspaceResp.jsp">
+					<jsp:param name="pageSelectionnee" value="espaceResp"/>
+				</jsp:include>
 				<div class="clear"></div>
-			</article>
-		
+				<h3 id="titre2">Vous êtes responsable du pôle : ${pole.nomPole}</h3>
+				
+				<article class="entier" id="${pole.nomPole}">
+					<c:forEach var="commission" items="${listeCommission}">
+						<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
+						<h3 class="titreAsso">${commission.nomCommission}</h3>
+						<div id="descriptionAssoPres">${commission.description}</div>
+						<a href="modifierAsso?idcommission=${commission.idcommission}">Modifier cette asso</a>
+						<div class="clear"></div>
+					</c:forEach>	
+				</article>
+			</c:if>
+			
+			<c:if test="${statut==3}">
+				<jsp:include page="menuEspaceResp.jsp">
+					<jsp:param name="pageSelectionnee" value="espaceResp"/>
+				</jsp:include>
+				<div class="clear"></div>
+				<h3 id="titre2">Bonjour Administrateur</h3>
+				
+			</c:if>
 	
 		<footer>
 			<div> Réalisation HEI </div>
