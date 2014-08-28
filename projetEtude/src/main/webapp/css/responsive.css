@@ -312,14 +312,6 @@ section.espacePres{
 	left:500px;
 }
 
-form.ajoutAsso{
-	position: relative;
-	top:20px;
-	left:200px;
-	width:800px;
-	margin:20px;
-}
-
 div#message{
 	position:relative;
 	top:-300px;
@@ -547,7 +539,7 @@ img#logo{
 /*Administration*/
 
 .gestionDroits{
-	 margin-left:25%;
+	 margin-left:15%;
 	 height:70px;
 	 width:50%;
  }
@@ -576,6 +568,33 @@ img#logo{
 
 input#idEtudiant{
 	display:none;
+}
+
+/*Ajouter une asso*/
+
+.line2{
+	margin-bottom:10px;
+}
+
+.inputNomAsso{
+	width:36%;
+	margin-left:32px;
+}
+
+.inputMailReferent{
+	width:36%;
+	margin-left:5px;
+}
+
+section#bureau{
+	margin: 10px 0;
+}
+
+form.ajoutAsso{
+	position: relative;
+	top:20px;
+	margin:20px 20px 20px 15%;
+	width:65%;
 }
 
 /**** Mobile ****/
@@ -607,6 +626,10 @@ input#idEtudiant{
 	
 	aside{
 	display:none;
+	}
+	
+	.btnEnregistrer{
+	float:right;
 	}
 	
 /*Connexion*/
@@ -781,6 +804,26 @@ input#idEtudiant{
 		margin:10px 20px;
 	}
 	
+	/*Ajouter un événement*/
+	.ajoutEvent{
+		margin-left:15%;
+		width:70%;
+	}
+	
+	.commissionNewEvent, .titreNewEvent, .dateNewEvent, .descriptionNewEvent, .lieuNewEvent {
+		float:left;
+		width:100%;
+		margin-bottom:10px;
+	}
+	
+	#lieuNewEvent{
+		float:left;
+	}
+	
+	#descriptionNewEvent{
+		width:100%;
+	}
+	
 /*Administration*/
 
 	.gestionDroits{
@@ -805,5 +848,34 @@ input#idEtudiant{
 		width:75%;
 		float:left;
 		margin:0;
+	}
+	
+	/*Ajouter une asso*/
+
+	.line2{
+		margin-bottom:10px;
+	}
+	
+	.inputNomAsso{
+		width:100%;
+		margin-left:0px;
+		margin-top:5px;
+	}
+	
+	.inputMailReferent{
+		width:100%;
+		margin-left:0px;
+		margin-top:5px;
+	}
+	
+	section#bureau{
+		margin: 10px 0;
+	}
+	
+	form.ajoutAsso{
+		position: relative;
+		top:20px;
+		margin:20px 20px 20px 10px;
+		width:90%;
 	}
 }

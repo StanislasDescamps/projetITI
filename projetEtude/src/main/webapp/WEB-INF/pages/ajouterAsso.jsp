@@ -6,38 +6,40 @@
         <!-- En-tête de la page -->
         <meta charset="utf-8" />
         <title>HEI-Diary Ajouter une asso</title>
+        <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body>
 		<!-- Corps de la page -->
 		<header id="entete">
-			<link rel="stylesheet" href="css/header_body_footer.css">
-			<link rel="stylesheet" href="css/navigation.css">
-			<link rel="stylesheet" href="css/mesoptions.css">
-			<link rel="stylesheet" href="css/espacePres.css">
-			<h1>HEI-Diary</h1>
+			<h1 class="entete">HEI-Diary</h1>
 		</header>
 		<jsp:include page="menu.jsp"/>
+		<div class="clear"></div>	
+		<jsp:include page="${menuOption}">
+			<jsp:param name="pageSelectionnee" value="administration"/>
+		</jsp:include>
 		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
-		<jsp:include page="${menuOption}">
-			<jsp:param name="pageSelectionnee" value="administration"/>
-		</jsp:include>
-		
 		<h3 id="titre">Ajouter une association</h3>
 				
 		<jsp:include page="menuConfig.jsp">
 			<jsp:param name="pageSelectionnee" value="ajouterAsso"/>
 		</jsp:include>
+		<div class="clear"></div>
 		
 		<form class="ajoutAsso" action="ajouterAsso" method="post">
-			<legend>Nouvelle association</legend></br>
+			<!--  <legend>Nouvelle association</legend></br> -->
 			<section id="nom">
-				<label for="nomAsso">Nom de l'association :</label>
-				<input type="text" name="nomAsso" id="nomAsso" placeholder=" Nom de l'association" required/></br>
-				<label for="referent">Mail de l'étudiant référent:</label>
-				<input type="text" name="referent" id="referent" placeholder=" etudiant.référent@hei.fr" required/></br>
+				<div class="line2">
+					<label for="nomAsso" class="labelNomAsso">Nom de l'association :</label>
+					<input type="text" name="nomAsso" id="nomAsso" class="inputNomAsso" placeholder=" Nom de l'association" required/></br>
+				</div>
+				<div class="line2">
+					<label for="referent" class="labelMailReferent">Mail de l'étudiant référent:</label>
+					<input type="text" name="referent" id="referent" class="inputMailReferent" placeholder=" etudiant.référent@hei.fr" required/></br>
+				</div>
 			</section>
 			<section id="logo">
 				<label for="logo">Logo :</label>
@@ -53,12 +55,12 @@
 						<option value="PET">PET</option>
 				</select></br>
 			</section>
-			<section id="description">
-				<textarea name="description" id="description" placeholder="Description de l'association" rows="10" cols="50" required></textarea>
+			<section class="descriptionNewEvent">
+				<textarea name="description" id="descriptionNewEvent" placeholder="Description de l'association" rows="10" cols="50" required></textarea>
 			</section>
 			<section id="bouton">
 				<input type="reset" value="Réinitialiser"/>
-				<input type="submit" value="Enregistrer"/>
+				<input type="submit" class="btnEnregistrer" value="Enregistrer"/>
 			</section>
 		</form>	
 		
