@@ -6,38 +6,34 @@
         <!-- En-tête de la page -->
         <meta charset="utf-8" />
         <title>HEI-Diary Présentation</title>
+        <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body>
 		<!-- Corps de la page -->
-		<link rel="stylesheet" href="css/header_body_footer.css">
-		<link rel="stylesheet" href="css/navigation.css">
-		<link rel="stylesheet" href="css/lesassos.css">
 		<header id="entete">
-			<h1>HEI-Diary</h1>
+			<h1 class="entete">HEI-Diary</h1>
 		</header>
-		<jsp:include page="menu.jsp"/>
-		<c:set var="pageSelectionnee" value="lesAssos" scope="request"></c:set>
+		<jsp:include page="menu.jsp">
+			<jsp:param name="pageSelectionnee" value="lesAssos" />
+		</jsp:include>
+		<div class="clear"></div>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
-		</aside>
-		<aside class="retour">
-			<a href="lesAssos"><img id=retour src="img/btnRetour.jpg" alt="Retour" title="Retour à la liste des associations"/></a>
 		</aside>
 		<h3 id="titre">Vous consultez :</h3>
 		<c:if test="${commission.idpole==1}">
 		<article class="entier" id="BDA">
 			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 			<article class="description">
-				<h3>${commission.nomCommission}</h3>
-				<div id="description">
-				${commission.description}
-				</div>
+				<h3 class="titrePresAsso">${commission.nomCommission}</h3>
+				<div class="clear"></div>
+				<div class="descriptionPresAsso">${commission.description}</div>
 			</article>
-			
+			<div class="clear"></div>
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
-				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
-				<h4>${etudiant.email}</h4>
+				<h5 class="nomResp">${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h5>
+				<h5 class="mailResp">${etudiant.email}</h5>
 			</article>
 		</article>
 		</c:if>

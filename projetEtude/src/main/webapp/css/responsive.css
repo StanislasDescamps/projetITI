@@ -427,18 +427,6 @@ left:250px;
 width:700px;
 }
 
-article.contact{
-position: relative;
-right:200px;
-top: 70px;
-}
-
-h3#responsable{
-position:relative;
-width:400px;
-left:200px;
-}
-
 /*Mes infos*/
 
 section.mesInfos{
@@ -473,7 +461,7 @@ form.mesInfos{
 	margin-left:14%;
 	margin-top:20px;
 	height:auto;
-	width:68%;
+	width:65%;
 	padding:20px;
 	border-width: 2px;
 	border-style:outset;
@@ -557,6 +545,26 @@ img#logo{
 	height:60px;
 	width:auto;	
 	float:left;
+}
+
+.titrePresAsso{
+	float: left;
+    margin:19px;
+    width: 100%;
+}
+
+.descriptionPresAsso{
+	height: auto;
+    margin: 20px 20px 20px 0;
+    width: 100%;
+}
+
+.nomResp{
+	margin-bottom:5px;
+}
+
+.mailResp{
+	margin-top:10px;
 }
 
 /*Administration*/
