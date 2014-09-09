@@ -6,25 +6,25 @@
         <!-- En-tête de la page -->
         <meta charset="utf-8" />
         <title>HEI-Diary Modifier une asso</title>
+        <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body>
 		<!-- Corps de la page -->
-		<link rel="stylesheet" href="css/header_body_footer.css">
-		<link rel="stylesheet" href="css/navigation.css">
-		<link rel="stylesheet" href="css/mesoptions.css">
 		<header id="entete">
-			<h1>HEI-Diary</h1>
+			<h1 class="entete">HEI-Diary</h1>
 		</header>
-		<jsp:include page="menu.jsp"/>
-		<c:set var="pageSelectionnee" value="mesOptions" scope="request"></c:set>
-		<aside class="deconnexion">
-			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
-		</aside>
+		<jsp:include page="menu.jsp">
+			<jsp:param name="pageSelectionnee" value="mesOptions"/>
+		</jsp:include>
+		<div class="clear"></div>
 		<c:if test="${noMenu==false}">
 			<jsp:include page="${menuOption}">
 				<jsp:param name="pageSelectionnee" value="administration"/>
 			</jsp:include>
-		
+			<aside class="deconnexion">
+				<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
+			</aside>
+			<div class="clear"></div>
 			<h3 id="titre">Modifier une association</h3>
 			
 			<jsp:include page="menuConfig.jsp">
@@ -35,6 +35,10 @@
 			<jsp:include page="${menuOption}">
 				<jsp:param name="pageSelectionnee" value="espaceResp"/>
 			</jsp:include>
+			<aside class="deconnexion">
+				<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
+			</aside>
+			<div class="clear"></div>
 			<h3 id="titre">Modifier mon association</h3>
 		</c:if>
 		
@@ -47,7 +51,7 @@
 				<input type="text" name="nomAsso" id="nomAsso" value="${commission.nomCommission}" required/></br>
 			</section>
 			<section id="responsable">
-				<label for="responsable">President de l'association :</label>
+				<label for="responsable">Président de l'association :</label>
 				<input type="text" name="mailResp" id="mailResp" value=" ${etudiant.email}" required/></br>
 			</section>
 			<section id="logo">
@@ -64,9 +68,11 @@
 						<option value="5" <c:if test="${commission.idpole==5}"> selected="selected" </c:if>>PET</option>
 				</select></br>
 			</section>
-			<section id="description">
-				<textarea name="description" id="description" rows="10" cols="50" required></textarea>
+			<div class="clear"></div>
+			<section class="descriptionAsso">
+				<textarea name="description" rows="10" cols="50" required></textarea>
 			</section>
+			<div class="clear"></div>
 			<section id="bouton">
 				<input type="reset" value="Réinitialiser"/>
 				<input type="submit" value="Enregistrer"/>

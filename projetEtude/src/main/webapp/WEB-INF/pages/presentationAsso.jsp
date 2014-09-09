@@ -41,16 +41,15 @@
 		<article class="entier" id="BDS">
 			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 			<article class="description">
-				<h3>${commission.nomCommission}</h3>
-				<div id="description">
-				${commission.description}
-				</div>
+				<h3 class="titrePresAsso">${commission.nomCommission}</h3>
+				<div class="clear"></div>
+				<div class="descriptionPresAsso">${commission.description}</div>
 			</article>
-			
+			<div class="clear"></div>
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
-				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
-				<h4>${etudiant.email}</h4>
+				<h5 class="nomResp">${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h5>
+				<h5 class="mailResp">${etudiant.email}</h5>
 			</article>
 		</article>
 		</c:if>
@@ -58,16 +57,15 @@
 		<article class="entier" id="CapSo">
 			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 			<article class="description">
-				<h3>${commission.nomCommission}</h3>
-				<div id="description">
-				${commission.description}
-				</div>
+				<h3 class="titrePresAsso">${commission.nomCommission}</h3>
+				<div class="clear"></div>
+				<div class="descriptionPresAsso">${commission.description}</div>
 			</article>
-			
+			<div class="clear"></div>
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
-				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
-				<h4>${etudiant.email}</h4>
+				<h5 class="nomResp">${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h5>
+				<h5 class="mailResp">${etudiant.email}</h5>
 			</article>
 		</article>
 		</c:if>
@@ -75,16 +73,15 @@
 		<article class="entier" id="PES">
 			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 			<article class="description">
-				<h3>${commission.nomCommission}</h3>
-				<div id="description">
-				${commission.description}
-				</div>
+				<h3 class="titrePresAsso">${commission.nomCommission}</h3>
+				<div class="clear"></div>
+				<div class="descriptionPresAsso">${commission.description}</div>
 			</article>
-			
+			<div class="clear"></div>
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
-				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
-				<h4>${etudiant.email}</h4>
+				<h5 class="nomResp">${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h5>
+				<h5 class="mailResp">${etudiant.email}</h5>
 			</article>
 		</article>
 		</c:if>
@@ -92,16 +89,15 @@
 		<article class="entier" id="PET">
 			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 			<article class="description">
-				<h3>${commission.nomCommission}</h3>
-				<div id="description">
-				${commission.description}
-				</div>
+				<h3 class="titrePresAsso">${commission.nomCommission}</h3>
+				<div class="clear"></div>
+				<div class="descriptionPresAsso">${commission.description}</div>
 			</article>
-			
+			<div class="clear"></div>
 			<article class="contact">
 				<h3 id="responsable">Responsable de la commission</h3>
-				<h4>${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
-				<h4>${etudiant.email}</h4>
+				<h5 class="nomResp">${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h5>
+				<h5 class="mailResp">${etudiant.email}</h5>
 			</article>
 		</article>
 		</c:if>
