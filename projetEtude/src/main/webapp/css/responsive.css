@@ -493,6 +493,11 @@ form.mesInfos{
 	border-top:1px solid #ccc;
 }
 
+.modifAsso{
+	float:left;
+	margin-bottom:10px;
+}
+
 /*Ajouter un événement*/
 .ajoutEvent{
 	margin-left:15%;
