@@ -525,7 +525,30 @@ form.mesInfos{
 	width:60%;
 	height:100px;
 	float:left;
+}
 
+.dateDebut, #dateDebut{
+	float:left;
+}
+#dateDebut{
+	margin:0 0 5px 10px;
+}
+
+.heureDebut, #heureDevut{
+	float:left;
+}
+
+.dateFin{
+	margin-right:10px;
+}
+
+.blocDate1{
+	float:left;
+	width:51%;
+}
+.blocDate2{
+	float:right;
+	margin-right:25px;
 }
 
 /*Présentation asso*/

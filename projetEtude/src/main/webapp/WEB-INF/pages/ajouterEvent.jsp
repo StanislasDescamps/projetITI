@@ -28,7 +28,7 @@
 		</jsp:include>
 		<div class="clear"></div>
 		<form class="ajoutEvent" action="ajouterEvent" method="post">
-			<legend>Nouvel évènement</legend></br>
+			<!--  <legend>Nouvel évènement</legend></br> -->
 			
 			<section class="commissionNewEvent">
 				Votre commission est ${commission.nomCommission}
@@ -39,15 +39,22 @@
 				<input type="text" name="nomEvent" id="nomEvent" placeholder="Titre de l'évènement" required/></br>
 			</section>
 			<section class="dateNewEvent">
-				<label for="dateDebut">Date de début de l'évènement :</label>
-				<input type="date" name="dateDebut" id="dateDebut" required/>
-				<label for="heureDebut">Heure de début de l'évènement :</label>
-				<input type="time" name="heureDebut" id="heureDebut" required/>
-				</br>
-				<label for="dateFin">Date de fin de l'évènement :</label>
-				<input type="date" name="dateFin" id="dateFin" required />
-				<label for="heureFin">Heure de fin de l'évènement :</label>
-				<input type="time" name="heureFin" id="heureFin" required/>
+				<div class="blocDate1">
+					<label for="dateDebut" class="dateDebut">Date de début de l'évènement :</label>
+					<input type="date" name="dateDebut" id="dateDebut" required/>
+				</div>
+				<div class="blocDate2">
+					<label for="dateFin" class="dateFin">Date de fin de l'évènement :</label>
+					<input type="date" name="dateFin" id="dateFin" required />
+				</div>
+				<div class="blocDate1">
+					<label for="heureDebut" class="heureDebut">Heure de début de l'évènement :</label>
+					<input type="time" name="heureDebut" id="heureDebut" required/>
+				</div>
+				<div class="blocDate2">
+					<label for="heureFin" class="heureFin">Heure de fin de l'évènement :</label>
+					<input type="time" name="heureFin" id="heureFin" required/>
+				</div>
 			<!-- <i id="precision">Si vous ne sélectionnez aucune heure de fin, celle-ci comptera une heure supplémentaire par défaut</i> -->
 			</section>
 			<div class="clear"></div>
