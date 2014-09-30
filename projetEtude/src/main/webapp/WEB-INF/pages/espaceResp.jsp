@@ -47,7 +47,7 @@
 					<a href="modifierAsso?idcommission=${commission.idcommission}" class="modifAsso">Modifier mon asso</a>
 					<div class="clear"></div>
 					<article class="events">
-						<div>Vos évènements :</div>
+						<div class="labelArticle">Vos évènements :</div>
 						<c:forEach var="evenement" items="${listEvent}">
 							<h4 class="titreEventPres">${evenement.titreEvent}</h4>
 							<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut}
@@ -75,15 +75,6 @@
 						<div class="clear"></div>
 					</c:forEach>	
 				</article>
-			</c:if>
-			
-			<c:if test="${statut==3}">
-				<jsp:include page="menuEspaceResp.jsp">
-					<jsp:param name="pageSelectionnee" value="espaceResp"/>
-				</jsp:include>
-				<div class="clear"></div>
-				<h3 id="titre2">Bonjour Administrateur</h3>
-				
 			</c:if>
 	
 		<footer>

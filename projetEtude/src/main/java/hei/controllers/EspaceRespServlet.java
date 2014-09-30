@@ -30,6 +30,7 @@ public class EspaceRespServlet extends HttpServlet{
 						
 		if(statut==3){
 			request.setAttribute("menuOption","menuAdmin.jsp");
+			request.setAttribute("statut", statut);
 		}else if(statut==2 || statut==1){
 			request.setAttribute("menuOption","menuResp.jsp");
 			request.setAttribute("statut", statut);
@@ -56,7 +57,7 @@ public class EspaceRespServlet extends HttpServlet{
 		}
 		
 		if(statut==3){
-			
+			//Code
 		}
 		//Affichage de la page espacePresident.jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/espaceResp.jsp");
