@@ -479,6 +479,10 @@ form.mesInfos{
 	margin-bottom:10px;
 }
 
+.labelArticle{
+	margin-top:10px;
+}
+
 /*Ajouter un événement*/
 .ajoutEvent{
 	margin-left:15%;
