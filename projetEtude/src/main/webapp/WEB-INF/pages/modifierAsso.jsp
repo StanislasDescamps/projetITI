@@ -44,7 +44,7 @@
 		
 		
 		<form class="ajoutAsso" action="modifierAsso" method="post">
-			<legend>${commission.nomCommission}</legend></br>
+			<legend>Vous modifiez l'association : ${commission.nomCommission}</legend></br>
 			<section id="nom">
 				<input type="text" name="idcommission" id="idcommission" value="${commission.idcommission}"required/>
 				<label for="nomAsso">Nom de l'association :</label>
