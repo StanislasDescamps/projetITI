@@ -43,11 +43,16 @@
 						<div class="clear"></div>
 						<p id="description">${evenement.descriptionEvent} </p>
 						<p id="lieu">Lieu : ${evenement.lieu}</p>
-						<div class="desktop"><p id="horaire"> Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut} </br>
-						Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p></div>
-						<div class="mobile"><p id="horaire"> De : ${evenement.hDebut}</br>
-						A : <c:if test="${evenement.debut != evenement.fin}"><fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/></c:if>  ${evenement.hFin}</p></div>
+						<div class="desktop">
+							<p id="horaire"> Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut} </br>
+						Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
+						</div>
+						<div class="mobile">
+							<p id="horaire"> De : ${evenement.hDebut}</br>
+						A : <c:if test="${evenement.debut != evenement.fin}"><fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/></c:if>  ${evenement.hFin}</p>
+						</div>
 					</article>
+					<c:if test="${statut==3}"><a href="modifierEvent?idevenement=${evenement.idEvenement}">Modifier</a>    <a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer</a></c:if>
 					<!-- <form id="ajout" action="calendrierHei" method="post">
 						<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
 						<input type="submit" name="synchroniser"value="Synchroniser" />

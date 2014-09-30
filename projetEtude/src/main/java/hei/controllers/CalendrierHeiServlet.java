@@ -48,6 +48,13 @@ public class CalendrierHeiServlet extends HttpServlet {
 		//Récupération de la liste de tous les événements
 		List<Evenement> listEvent = Manager.getInstance().listerEvenement();
 		
+		//Récupération du statut de l'utilisateur
+		HttpSession session = request.getSession(true);
+		Integer statut = (Integer) session.getAttribute("idDroit");
+		if(statut==3){
+			request.setAttribute("statut", statut);
+		}
+		
 		//Création d'une liste de format String
 		List<String> listeDate=new ArrayList<String>();
 		//Récupération de la date du système
