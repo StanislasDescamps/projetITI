@@ -258,6 +258,11 @@ input#idEvent{
 	height: auto;
 	width:10%;
 }
+
+.posModSuppr{
+	float:right;
+	margin-top:18%;
+}
 /*Mes options*/
 
 #presentation{

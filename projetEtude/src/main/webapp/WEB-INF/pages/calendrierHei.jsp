@@ -52,7 +52,12 @@
 						A : <c:if test="${evenement.debut != evenement.fin}"><fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/></c:if>  ${evenement.hFin}</p>
 						</div>
 					</article>
-					<c:if test="${statut==3}"><a href="modifierEvent?idevenement=${evenement.idEvenement}">Modifier</a>    <a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer</a></c:if>
+					<c:if test="${statut==3}">
+						<div class="posModSuppr desktop">
+							<a href="modifierEvent?idevenement=${evenement.idEvenement}">Modifier</a></br>    
+							<a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer</a>
+						</div>
+					</c:if>
 					<!-- <form id="ajout" action="calendrierHei" method="post">
 						<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
 						<input type="submit" name="synchroniser"value="Synchroniser" />
