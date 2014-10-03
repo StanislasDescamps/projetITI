@@ -75,6 +75,10 @@
 		<servlet-class>hei.controllers.PresentationAssoServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>Redirection</servlet-name>
+		<servlet-class>hei.controllers.RedirectionServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>Test</servlet-name>
 		<servlet-class>hei.controllers.FileUploadServlet</servlet-class>
 		<multipart-config>
@@ -156,6 +160,10 @@
 	<servlet-mapping>
 		<servlet-name>PresentationAsso</servlet-name>
 		<url-pattern>/presentationAsso</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Redirection</servlet-name>
+		<url-pattern>/redirection</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Test</servlet-name>
