@@ -21,24 +21,26 @@ public class AdministrationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//Récupération du statut de l'utilisateur connecté
+		HttpSession session = request.getSession(true);
+		Integer statut = (Integer) session.getAttribute("idDroit");
+		
+		//Vérification du droit d'accès à cette page
+		if(statut !=3){
+			response.sendRedirect("redirection");
+		}else{
+		
 		//Récupération de la liste de tous les utilisateurs
 		List<Etudiant> listEtudiant = Manager.getInstance().listerEtudiant();
 		request.setAttribute("listEtudiant", listEtudiant);
 		
-		//Récupération du statut de l'utilisateur connecté
-		HttpSession session = request.getSession(true);
-		Integer statut = (Integer) session.getAttribute("idDroit");
-				
-		if(statut==3){
-			request.setAttribute("menuOption","menuAdmin.jsp");
-		}else if(statut==2 || statut==1){
-			request.setAttribute("menuOption","menuResp.jsp");
-		}else{
-			request.setAttribute("menuOption","menuOption.jsp");
-		}
+		//Mise en place du menu administrateur
+		request.setAttribute("menuOption","menuAdmin.jsp");
+		
 		//Affichage de la page configuration.jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/administration.jsp");
 		view.forward(request, response);
+		}
 	}
 	
 	@Override
