@@ -30,8 +30,6 @@
 		<%
        if(request.getAttribute("loginError")!=null) {
            out.print((String)request.getAttribute("loginError"));
-       }else{
-           out.print("Merci de vous connecter !");
        }
    		%>
    		</div>
