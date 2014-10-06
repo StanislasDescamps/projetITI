@@ -14,7 +14,7 @@
 			<h1 class="entete">HEI-Diary</h1>
 		</header>
 		<jsp:include page="menu.jsp">
-			<jsp:param name="pageSelectionnee" value="calendrierHei" />
+			<jsp:param name="pageSelectionnee" value="mesOptions" />
 		</jsp:include>
 		
 		<h3> Vous n'avez pas les droits pour acéder à cette page, veuillez vous rediriger vers une de vos pages accessible</h3>
