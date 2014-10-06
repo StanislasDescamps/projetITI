@@ -141,4 +141,30 @@ public class PoleDaoImpl implements PoleDao {
 		    }
 		    return pole;
 		}
+
+	@Override
+	public Integer getIdRespPoleByComm(Integer idCommission) {
+		Integer idResp= null;
+		// Cr�er une nouvelle connexion � la BDD
+	    try {
+	        Connection connection = 
+	            DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = (PreparedStatement) connection
+	        		.prepareStatement("SELECT pole.idEtudiant FROM pole INNER JOIN commission ON pole.idPole=commission.idPOle WHERE idCommission = ?");
+	        
+	        stmt.setInt(1, idCommission);
+	        ResultSet results = stmt.executeQuery();
+	        if(results.next()){
+	        	idResp = results.getInt("idEtudiant");
+	        }
+
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return idResp;
+	}
 }

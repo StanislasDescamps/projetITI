@@ -86,6 +86,9 @@ public class Manager {
 	public Pole getPoleByResp(Integer idEtudiant){
 		return poleDao.getPoleByResp(idEtudiant);
 	}
+	public Integer getIdRespPoleByComm(Integer idCommission){
+		return poleDao.getIdRespPoleByComm(idCommission);
+	}
 	
 	//Evenement
 	public List<Evenement> listerEvenement() {
