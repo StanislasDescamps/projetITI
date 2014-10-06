@@ -28,17 +28,18 @@ public class AjouterAssoServlet extends HttpServlet{
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		//request.setAttribute("statut", statut);
 		
-		if(statut==3){
-			request.setAttribute("menuOption","menuAdmin.jsp");
-		}else if(statut==2 || statut==1){
-			request.setAttribute("menuOption","menuResp.jsp");
-		}else{
-			request.setAttribute("menuOption","menuOption.jsp");
-		}
+		//Vérification du droit d'accès à cette page
+		if(statut!=3){
+			response.sendRedirect("redirection");
+			
+		}else {
+		//Mise en place du menu administrateur
+		request.setAttribute("menuOption","menuAdmin.jsp");
 		
 		//Affichage de la page ajouterAsso.jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/ajouterAsso.jsp");
 		view.forward(request, response);
+		}
 	}
 
 	@Override
