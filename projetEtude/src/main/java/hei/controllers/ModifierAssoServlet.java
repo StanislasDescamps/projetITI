@@ -30,28 +30,47 @@ public class ModifierAssoServlet extends HttpServlet{
 		Commission commission = Manager.getInstance().getCommission(idCommission);
 		request.setAttribute("commission",commission);
 		
+		Integer idRespPole = Manager.getInstance().getIdRespPoleByComm(idCommission);
+		
 		//Récupération des informations de l'étudiant responsable de la commission
 		Etudiant etudiant=Manager.getInstance().getEtudiantResp(idCommission);
 		request.setAttribute("etudiant", etudiant);
+		Integer idRespComm=etudiant.getIdEtudiant();
 		
 		//Récupération du statut de l'utilisateur connecté
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		request.setAttribute("statut", statut);
+		Integer idEtudiant=(Integer) session.getAttribute("idEtudiant");
+		
+		System.out.println("IdUser:"+ idEtudiant);
+		System.out.println("IdRespComm:"+ idRespComm);
+		System.out.println("IdRespPole:"+ idRespPole);
+		
 		
 		if(statut==3){
 			request.setAttribute("menuOption","menuAdmin.jsp");
 			request.setAttribute("noMenu", false);
-		}else if(statut==2 || statut==1){
-			request.setAttribute("menuOption","menuResp.jsp");
-			request.setAttribute("noMenu", true);
+		}else if(statut==2){
+			if(idEtudiant==idRespPole){
+				request.setAttribute("menuOption","menuResp.jsp");
+				request.setAttribute("noMenu", true);
+			}else{
+				response.sendRedirect("redirection");
+			}
+		}else if(statut==1){
+			if(idEtudiant==idRespComm){
+				request.setAttribute("menuOption","menuResp.jsp");
+				request.setAttribute("noMenu", true);
+			}else{
+				response.sendRedirect("redirection");
+				}
 		}else{
-			request.setAttribute("menuOption","menuOption.jsp");
+			response.sendRedirect("redirection");
 		}
 		//Affichage de la page jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/modifierAsso.jsp");
 		view.forward(request, response);
-	
 	}
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
