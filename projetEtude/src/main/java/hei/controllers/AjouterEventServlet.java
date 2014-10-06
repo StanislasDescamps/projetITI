@@ -34,9 +34,9 @@ public class AjouterEventServlet extends HttpServlet {
 			}else if(statut==2 || statut==1){
 				request.setAttribute("menuOption","menuResp.jsp");
 			}else{
-				request.setAttribute("menuOption","menuOption.jsp");
+				response.sendRedirect("redirection");
 			}
-			
+		
 			Commission maComm = Manager.getInstance().getCommissionByIdRef(idEtudiant);
 			request.setAttribute("commission", maComm);
 			
