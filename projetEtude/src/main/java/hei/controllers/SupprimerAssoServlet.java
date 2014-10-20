@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class SupprimerAssoServlet extends HttpServlet {
 
@@ -19,6 +20,14 @@ public class SupprimerAssoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//Récupération du statut de l'utilisateur connecté
+		HttpSession session = request.getSession(true);
+		Integer statut = (Integer) session.getAttribute("idDroit");
+		
+		if(statut!=3){
+			response.sendRedirect("redirection");
+		}else{
+		
 		//Récupération de l'identifiant de la commission sélectionnée
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
@@ -26,9 +35,11 @@ public class SupprimerAssoServlet extends HttpServlet {
 		Commission commission = Manager.getInstance().getCommission(idCommission);
 		request.setAttribute("commission",commission);
 		
+		
 		//Affichage de la page jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/supprimerAsso.jsp");
 		view.forward(request, response);
+		}
 	}
 	
 	@Override
