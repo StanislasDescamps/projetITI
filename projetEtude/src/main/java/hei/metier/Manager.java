@@ -70,6 +70,9 @@ public class Manager {
 	public Etudiant getEtudiantNomPrenom(String nom, String prenom ){
 		return etudiantDao.getEtudiantNomPrenom(nom, prenom);
 	}
+	public void ajouterParticipant(Integer idEvenement, Integer idEtudiant) {
+		etudiantDao.ajouterParticipant(idEvenement,idEtudiant);
+	}
 	// Pole
 	public List<Pole> listerPole() {
 		return poleDao.listerPole();

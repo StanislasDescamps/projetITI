@@ -337,4 +337,23 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		}
 		
 	}
+
+	@Override
+	public void ajouterParticipant(Integer idEvenement, Integer idEtudiant) {
+		try {
+	        Connection connection = 
+	            DataSourceProvider.getDataSource().getConnection();
+
+	        // Utiliser la connexion
+	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
+	                  "INSERT INTO `participation`( `idEtudiant`, `idEvenement`) VALUES(?, ?)"); 
+	        stmt.setInt(1, idEtudiant);
+	        stmt.setInt(2, idEvenement);
+	        stmt.executeUpdate();
+	        // Fermer la connexion
+	        connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	}
 }

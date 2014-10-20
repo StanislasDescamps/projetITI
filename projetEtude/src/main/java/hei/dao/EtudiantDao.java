@@ -31,4 +31,6 @@ public interface EtudiantDao {
 	public void bannirEtudiant(String nom, String prenom, String email, String motif); //permet de bannir un utilisateur
 
 	public void supprimerEtudiant(Integer idEtudiant); //permet de supprimer un utilisateur de la BDD
+
+	public void ajouterParticipant(Integer idEvenement, Integer idEtudiant); //ajoute un participant à un événement 
 }
