@@ -1,6 +1,7 @@
 package hei.controllers;
 
 import hei.metier.Manager;
+import hei.model.Commission;
 import hei.model.Evenement;
 
 import java.io.IOException;
@@ -10,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class SupprimerEventServlet extends HttpServlet {
 
@@ -19,8 +21,25 @@ public class SupprimerEventServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//Récupération du statut de l'utilisateur connecté
+		HttpSession session = request.getSession(true);
+		Integer statut = (Integer) session.getAttribute("idDroit");
+		Integer idEtudiant=(Integer) session.getAttribute("idEtudiant");
+		
 		//Récupération de l'identifiant de l'évènement sélectionné
 		Integer idEvent = Integer.parseInt(request.getParameter("idevenement"));
+		
+		//Récupération des information de la commission concernée
+		Commission comm = Manager.getInstance().getCommissionEvent(idEvent);
+		//Récupération de l'identifiant du responsable de commission et du responsable de pole associé
+		Integer idRespComm = comm.getIdetudiant();
+		
+		//Vérification du droit d'accès à cette page
+		if(statut==0){
+			response.sendRedirect("redirection");
+		}else if(statut==1 && idEtudiant!=idRespComm){
+			response.sendRedirect("redirection");
+		}else{		
 		
 		//Récupération des informations de la commission
 		Evenement event = Manager.getInstance().getEvenement(idEvent);
@@ -29,6 +48,7 @@ public class SupprimerEventServlet extends HttpServlet {
 		//Affichage de la page jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/supprimerEvent.jsp");
 		view.forward(request, response);
+		}
 	}
 	
 	@Override
