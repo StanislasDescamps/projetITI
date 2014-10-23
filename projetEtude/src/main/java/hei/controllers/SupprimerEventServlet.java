@@ -55,6 +55,10 @@ public class SupprimerEventServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
+		//Récupération du statut de l'utilisateur connecté
+		HttpSession session = request.getSession(true);
+		Integer statut = (Integer) session.getAttribute("idDroit");
+		
 		//Récupération de l'identifiant de l'évènement sélectionné
 		Integer idEvent = Integer.parseInt(request.getParameter("idevenement"));
 		
@@ -66,11 +70,24 @@ public class SupprimerEventServlet extends HttpServlet {
 		if(reponse1 !=null){
 			if(reponse1.equalsIgnoreCase("OUI")){
 			Manager.getInstance().supprimerEvenement(idEvent);
-			response.sendRedirect("espaceResp");}}
+			if(statut==1 || statut==2){
+				response.sendRedirect("espaceResp");
+			}else{
+				response.sendRedirect("administration");
+				}
+			}
+		}
 		//Si non est seléctionner alors retour à la page précédente
 		if(reponse2 != null){
 			if(reponse2.equalsIgnoreCase("NON")){
-				response.sendRedirect("espaceResp");}}
+				if(statut==1 || statut==2){
+					response.sendRedirect("espaceResp");
+				}else{
+					response.sendRedirect("administration");
+					}
+			
+			}
+		}
 		
 	}
 }
