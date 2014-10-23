@@ -34,7 +34,7 @@
 		
 			<h3 id="titre">Espace Resp'</h3>
 		<c:if test="${statut==1}">
-			<jsp:include page="menuEspaceResp.jsp">
+			<jsp:include page="menuEspaceRespComm.jsp">
 				<jsp:param name="pageSelectionnee" value="espaceResp"/>
 			</jsp:include>
 			<div class="clear"></div>
@@ -60,7 +60,7 @@
 			</c:if>
 			
 			<c:if test="${statut==2}">
-				<jsp:include page="menuEspaceResp.jsp">
+				<jsp:include page="menuEspaceRespPole.jsp">
 					<jsp:param name="pageSelectionnee" value="espaceResp"/>
 				</jsp:include>
 				<div class="clear"></div>
