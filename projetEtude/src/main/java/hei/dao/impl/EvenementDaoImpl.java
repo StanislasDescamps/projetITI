@@ -33,7 +33,8 @@ public class EvenementDaoImpl implements EvenementDao {
 	                   results.getString("dateFin"),
 	                   results.getTime("heureDebut"),
 	                   results.getTime("heureFin"),
-	                   results.getString("image"));
+	                   results.getString("image"),
+	                   results.getBoolean("moderation"));
 	    	listeEvent.add(evenement);
 	    }
 		connection.close();
@@ -51,7 +52,7 @@ public class EvenementDaoImpl implements EvenementDao {
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
-	                  "INSERT INTO `evenement`(`idCommission`,`nomCommission`,`nomPole`, `titreEvent`,`descriptionEvent`,`lieuEvent`, `dateDebut`, `dateFin`, `heureDebut`, `heureFin`, `image`) VALUES (?,?,?, ?, ?, ?, ?, ?, ?, ?, ?)"); 
+	                  "INSERT INTO `evenement`(`idCommission`,`nomCommission`,`nomPole`, `titreEvent`,`descriptionEvent`,`lieuEvent`, `dateDebut`, `dateFin`, `heureDebut`, `heureFin`, `image`, `moderation`) VALUES (?,?,?, ?, ?, ?, ?, ?, ?, ?, ?,false)"); 
 	        stmt.setInt(1, evenement.getIdCommission());
 	        stmt.setString(2, evenement.getNomCommission());
 	        stmt.setString(3, evenement.getNomPole());
@@ -98,7 +99,8 @@ public class EvenementDaoImpl implements EvenementDao {
 	                    results.getString("dateFin"),
 	                    results.getTime("heureDebut"),
 		                results.getTime("heureFin"),
-		                results.getString("image"));
+		                results.getString("image"),
+		                results.getBoolean("moderation"));
 	        }
 
 	        // Fermer la connexion
@@ -128,7 +130,8 @@ public List<Evenement> listerEvenementEtudiant(Integer idEtudiant) {
 	                   results.getString("dateFin"),
 	                   results.getTime("heureDebut"),
 	                   results.getTime("heureFin"),
-	                   results.getString("image"));
+	                   results.getString("image"),
+	                   results.getBoolean("moderation"));
 	    	listeEvent.add(evenement);
 	    }
 		connection.close();
@@ -164,7 +167,8 @@ public Evenement getEvenementByDate(String dateDebut) {
                     results.getDate("dateFin"),
                     results.getTime("heureDebut"),
 	                results.getTime("heureFin"),
-	                results.getString("image"));
+	                results.getString("image"),
+	                results.getBoolean("moderation"));
         }
 
         // Fermer la connexion
@@ -213,7 +217,8 @@ public List<Evenement> listerEvenementByCommission(Integer idCommission) {
                    results.getString("dateFin"),
                    results.getTime("heureDebut"),
                    results.getTime("heureFin"),
-                   results.getString("image"));
+                   results.getString("image"),
+                   results.getBoolean("moderation"));
     	listeEvent.add(evenement);
     }
 	connection.close();

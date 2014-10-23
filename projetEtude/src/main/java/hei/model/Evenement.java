@@ -25,8 +25,9 @@ public class Evenement {
 	private Time hDebut;
 	private Time hFin;
 	private String image;
+	private boolean moderation;
 	
-	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, String debut, String fin, String hdebut, String hfin, String image){
+	public Evenement(Integer idevenement, Integer idcommission, String nomCommission, String nomPole, String titre, String description, String lieu, String debut, String fin, String hdebut, String hfin, String image, boolean moderation){
 		super();
 		this.idEvenement = idevenement;
 		this.idCommission = idcommission;
@@ -40,9 +41,10 @@ public class Evenement {
 		this.heureDebut = hdebut;
 		this.heureFin = hfin;
 		this.image = image;
+		this.setModeration(moderation);
 	}
 	
-	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, String debut, String fin, Time hdebut, Time hfin, String image){
+	public Evenement(Integer idevenement, Integer idcommission, String nomCommission, String nomPole, String titre, String description, String lieu, String debut, String fin, Time hdebut, Time hfin, String image, boolean moderation){
 		super();
 		this.idEvenement = idevenement;
 		this.idCommission = idcommission;
@@ -56,9 +58,10 @@ public class Evenement {
 		this.hDebut = hdebut;
 		this.hFin = hfin;
 		this.image = image;
+		this.setModeration(moderation);
 	}
 	
-	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, Date debut, Date fin, Time hdebut, Time hfin, String image){
+	public Evenement(Integer idevenement, Integer idcommission,String nomCommission, String nomPole, String titre, String description, String lieu, Date debut, Date fin, Time hdebut, Time hfin, String image, boolean moderation){
 		super();
 		this.idEvenement = idevenement;
 		this.idCommission = idcommission;
@@ -72,6 +75,7 @@ public class Evenement {
 		this.hDebut = hdebut;
 		this.hFin = hfin;
 		this.image = image;
+		this.setModeration(moderation);
 	}
 	
 	public static DateFormat getDateFormat() {
@@ -175,6 +179,14 @@ public class Evenement {
 	}
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public boolean isModeration() {
+		return moderation;
+	}
+
+	public void setModeration(boolean moderation) {
+		this.moderation = moderation;
 	}
 	
 }
