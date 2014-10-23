@@ -19,6 +19,7 @@ CREATE TABLE `evenement` (
   `heureDebut` time NOT NULL,
   `heureFin` time NOT NULL,
   `image` varchar(50) NOT NULL,
+  `moderation` tinyint(1) NOT NULL,
   PRIMARY KEY (`idEvenement`),
   KEY `idCommission`(`idCommission`)
 ) CHARSET=utf8;
@@ -52,15 +53,6 @@ CREATE TABLE `etudiant` (
   `idDroit` int(11) NOT NULL,
   `firstConnexion` tinyint(1) NOT NULL,
   PRIMARY KEY (`idEtudiant`)
-) CHARSET=utf8;
-
-CREATE TABLE `listenoire` (
-  `idBanni` int(11) NOT NULL AUTO_INCREMENT,
-  `nomEtudiant` varchar(30) NOT NULL,
-  `prenomEtudiant` varchar(30) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `motif` varchar(100) NOT NULL,
-  PRIMARY KEY (`idBanni`)
 ) CHARSET=utf8;
 
 CREATE TABLE `droits` (
