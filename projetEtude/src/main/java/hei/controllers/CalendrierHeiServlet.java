@@ -51,7 +51,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 		//Récupération du statut de l'utilisateur
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
-		if(statut==3){
+		if(statut==3||statut==2){
 			request.setAttribute("statut", statut);
 		}
 		
