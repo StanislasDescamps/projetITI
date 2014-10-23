@@ -34,31 +34,28 @@ public class EspaceRespServlet extends HttpServlet{
 		}else if(statut==2 || statut==1){
 			request.setAttribute("menuOption","menuResp.jsp");
 			request.setAttribute("statut", statut);
+			if(statut==1){
+				//Récupération de la liste des évènements dont l'utilisateur est responsable
+				Commission comm = Manager.getInstance().getCommissionByIdRef(idEtudiant);
+				request.setAttribute("commission", comm);
+				
+				Integer idCommission=comm.getIdcommission();
+				//Récupération de la liste des évènements dont l'utilisateur est responsable
+				List<Evenement> listEvent = Manager.getInstance().listerEvenementByCommission(idCommission);
+				request.setAttribute("listEvent", listEvent);
+			}
+			if(statut==2){
+				Pole pole=Manager.getInstance().getPoleByResp(idEtudiant);
+				request.setAttribute("pole", pole);
+				List<Commission> listeCommission = Manager.getInstance().listerCommissionPole(pole.getNomPole());
+				request.setAttribute("listeCommission", listeCommission);
+			}
 		}else{
 			request.setAttribute("menuOption","menuOption.jsp");
 		}
 		
-		if(statut==1){
-			//Récupération de la liste des évènements dont l'utilisateur est responsable
-			Commission comm = Manager.getInstance().getCommissionByIdRef(idEtudiant);
-			request.setAttribute("commission", comm);
-			
-			Integer idCommission=comm.getIdcommission();
-			//Récupération de la liste des évènements dont l'utilisateur est responsable
-			List<Evenement> listEvent = Manager.getInstance().listerEvenementByCommission(idCommission);
-			request.setAttribute("listEvent", listEvent);
-		}
 		
-		if(statut==2){
-			Pole pole=Manager.getInstance().getPoleByResp(idEtudiant);
-			request.setAttribute("pole", pole);
-			List<Commission> listeCommission = Manager.getInstance().listerCommissionPole(pole.getNomPole());
-			request.setAttribute("listeCommission", listeCommission);
-		}
 		
-		if(statut==3){
-			//Code
-		}
 		//Affichage de la page espacePresident.jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/espaceResp.jsp");
 		view.forward(request, response);
