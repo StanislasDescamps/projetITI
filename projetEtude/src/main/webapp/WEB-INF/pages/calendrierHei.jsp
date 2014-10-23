@@ -58,6 +58,11 @@
 							<a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer</a>
 						</div>
 					</c:if>
+					<c:if test="${statut==2}">
+						<div class="posModSuppr desktop">
+							<a href="modererEvent?idevenement=${evenement.idEvenement}">Modérer</a></br>    
+						</div>
+					</c:if>
 					<!-- <form id="ajout" action="calendrierHei" method="post">
 						<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
 						<input type="submit" name="synchroniser"value="Synchroniser" />

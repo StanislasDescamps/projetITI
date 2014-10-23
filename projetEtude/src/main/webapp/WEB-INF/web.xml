@@ -79,6 +79,10 @@
 		<servlet-class>hei.controllers.RedirectionServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>Moderation</servlet-name>
+		<servlet-class>hei.controllers.ModerationServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>Test</servlet-name>
 		<servlet-class>hei.controllers.FileUploadServlet</servlet-class>
 		<multipart-config>
@@ -164,6 +168,10 @@
 	<servlet-mapping>
 		<servlet-name>Redirection</servlet-name>
 		<url-pattern>/redirection</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Moderation</servlet-name>
+		<url-pattern>/moderation</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Test</servlet-name>
