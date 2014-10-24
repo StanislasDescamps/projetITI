@@ -46,7 +46,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		//Récupération de la liste de tous les événements
-		List<Evenement> listEvent = Manager.getInstance().listerEvenement();
+		List<Evenement> listEvent = Manager.getInstance().listerEvenementNonModere();
 		
 		//Récupération du statut de l'utilisateur
 		HttpSession session = request.getSession(true);
