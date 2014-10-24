@@ -263,6 +263,10 @@ input#idEvent{
 	float:right;
 	margin-top:18%;
 }
+
+.posModeration{
+	float:right;
+}
 /*Mes options*/
 
 #presentation{
