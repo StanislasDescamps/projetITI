@@ -4,7 +4,6 @@ import hei.metier.Manager;
 import hei.model.Evenement;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -32,18 +31,8 @@ public class ModerationServlet extends HttpServlet {
 		}else{
 			
 			//Récupération de la liste de tous les événements
-			List<Evenement> listEvent = Manager.getInstance().listerEvenement();
+			List<Evenement> listeEventModere = Manager.getInstance().listerEvenementModere();
 			
-			//Création d'une liste vide
-			List<Evenement> listeEventModere=new ArrayList<Evenement>();
-			
-			//Recherche des événements modérés
-			for(int i=0;i<listEvent.size();i++){
-				Evenement event= Manager.getInstance().getEvenement(listEvent.get(i).getIdEvenement());
-				if(event.isModeration()){
-					listeEventModere.add(event);
-				}
-			}
 			//Attribution des listes
 			request.setAttribute("listeEventModere", listeEventModere);
 			request.setAttribute("statut", statut);
