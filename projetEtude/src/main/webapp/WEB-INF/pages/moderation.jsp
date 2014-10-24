@@ -24,9 +24,17 @@
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
 		<h3 id="titre">Evénements modérés</h3>
-		<jsp:include page="menuEspaceRespPole.jsp">
-			<jsp:param name="pageSelectionnee" value="moderation"/>
-		</jsp:include>
+		
+		<c:if test="${statut==3}">		
+			<jsp:include page="menuConfig.jsp">
+				<jsp:param name="pageSelectionnee" value="moderation"/>
+			</jsp:include>
+		</c:if>
+		<c:if test="${statut==2}">		
+			<jsp:include page="menuEspaceRespPole.jsp">
+				<jsp:param name="pageSelectionnee" value="moderation"/>
+			</jsp:include>
+		</c:if>
 		<div class="clear"></div>
 		
 		<c:forEach var="evenement" items="${listeEventModere}">		
@@ -48,7 +56,7 @@
 						</div>
 					</article>
 					<c:if test="${statut==3}">
-						<div class="posModSuppr desktop">
+						<div class="posModeration desktop">
 							<a href=""> <!--javascript fonction  -->Annuler la modération</a></br>    
 							<a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer l'événement</a>
 						</div>
