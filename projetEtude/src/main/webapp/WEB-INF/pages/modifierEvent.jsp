@@ -5,7 +5,7 @@
     <head>
         <!-- En-tête de la page -->
         <meta charset="utf-8" />
-        <title>HEI-Diary Modifier une asso</title>
+        <title>HEI-Diary Modifier un évènement</title>
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body>

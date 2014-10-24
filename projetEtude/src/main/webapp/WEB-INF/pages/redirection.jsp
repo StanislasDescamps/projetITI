@@ -4,7 +4,7 @@
     <head>
         <!-- En-tête de la page -->
         <meta charset="utf-8" />
-        <title>HEI-Diary Calendrier HEI</title>
+        <title>HEI-Diary Redirection</title>
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body>

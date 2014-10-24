@@ -5,7 +5,7 @@
     <head>
         <!-- En-tête de la page -->
         <meta charset="utf-8" />
-        <title>HEI-Diary Mes options</title>
+        <title>HEI-Diary Administration</title>
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body>
