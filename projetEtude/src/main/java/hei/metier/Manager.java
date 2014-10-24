@@ -97,6 +97,12 @@ public class Manager {
 	public List<Evenement> listerEvenement() {
 		return evenementDao.listerEvenement();
 	}
+	public List<Evenement> listerEvenementModere() {
+		return evenementDao.listerEvenementModere();
+	}
+	public List<Evenement> listerEvenementNonModere() {
+		return evenementDao.listerEvenementNonModere();
+	}
 	public void ajouterEvenement(Evenement evenement){
 		evenementDao.ajouterEvenement(evenement);
 	}
@@ -117,6 +123,12 @@ public class Manager {
 	}
 	public Evenement getEvenementByDate(String dateDebut) {
 		return evenementDao.getEvenementByDate(dateDebut);
+	}
+	public void setModeration(Integer idEvenement) {
+		evenementDao.setModeration(idEvenement);
+	}
+	public void setUnModeration(Integer idEvenement) {
+		evenementDao.setUnModeration(idEvenement);
 	}
 	
 	//Commission
