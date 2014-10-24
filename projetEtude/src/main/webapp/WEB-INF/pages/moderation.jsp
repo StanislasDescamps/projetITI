@@ -49,8 +49,8 @@
 					</article>
 					<c:if test="${statut==3}">
 						<div class="posModSuppr desktop">
-							<a href=""> <!--javascript fonction  -->Autoriser</a></br>    
-							<a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer</a>
+							<a href=""> <!--javascript fonction  -->Annuler la modération</a></br>    
+							<a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer l'événement</a>
 						</div>
 					</c:if>
 					<div class="clear"></div>
