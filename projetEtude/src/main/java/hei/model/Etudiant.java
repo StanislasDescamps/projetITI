@@ -8,7 +8,6 @@ public class Etudiant {
 	private String passWord;
 	private String email;
 	private Integer idDroit;
-	private String motif;
 	private boolean firstConnexion;
 	
 	public Etudiant(Integer idetudiant, String nom, String prenom, String motdepass, String email, Integer iddroit, boolean first){
@@ -34,13 +33,12 @@ public class Etudiant {
 		this.email = email;
 		this.passWord = password;
 	}
-	public Etudiant(String nom, String prenom, String email, String motif){
+	public Etudiant(String nom, String prenom, String email){
 		this.nomEtudiant = nom;
 		this.prenomEtudiant = prenom;
 		this.email = email;
-		this.motif = motif;
 	}
-
+	
 	public Integer getIdEtudiant() {
 		return idEtudiant;
 	}
@@ -87,14 +85,6 @@ public class Etudiant {
 
 	public void setIdDroit(Integer idDroit) {
 		this.idDroit = idDroit;
-	}
-
-	public String getMotif() {
-		return motif;
-	}
-
-	public void setMotif(String motif) {
-		this.motif = motif;
 	}
 
 	public boolean isFirstConnexion() {
