@@ -179,7 +179,7 @@
 	</servlet-mapping>
 	<filter-mapping>
 		<filter-name>SessionFilter</filter-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/*jsf</url-pattern>
 	</filter-mapping>
 	
 	<welcome-file-list>
