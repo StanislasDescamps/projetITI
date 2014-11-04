@@ -295,7 +295,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 		}
 	}
 
-	@Override
+	/*@Override
 	public void bannirEtudiant(String nom, String prenom, String email, String motif) {
 		try {
 	        Connection connection = 
@@ -314,8 +314,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
-		
-	}
+	}*/
 
 	@Override
 	public void supprimerEtudiant(Integer idEtudiant) {
@@ -355,5 +354,28 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    }
+	}
+
+	@Override
+	public List<Etudiant> listerParticipant(Integer idEvenement) {
+		List<Etudiant> listeParticipant = new ArrayList<Etudiant>();
+	    try {
+	    	Connection connection = DataSourceProvider.getDataSource().getConnection();
+	    	PreparedStatement stmt = (PreparedStatement) connection
+	        		.prepareStatement("SELECT * FROM etudiant INNER JOIN participation ON etudiant.idEtudiant=participation.idEtudiant WHERE participation.idEvenement =? ");
+	        
+	        stmt.setInt(1, idEvenement);
+	        ResultSet results = stmt.executeQuery();
+	    while (results.next()) {
+	    	Etudiant etudiant = new Etudiant(results.getString("nomEtudiant"),
+	                   results.getString("prenomEtudiant"),
+	                   results.getString("email"));
+	    	listeParticipant.add(etudiant);
+	    }
+		connection.close();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		return listeParticipant;
 	}
 }

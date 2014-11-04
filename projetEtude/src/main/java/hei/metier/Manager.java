@@ -73,6 +73,9 @@ public class Manager {
 	public void ajouterParticipant(Integer idEvenement, Integer idEtudiant) {
 		etudiantDao.ajouterParticipant(idEvenement,idEtudiant);
 	}
+	public List<Etudiant> listerParticipant(Integer idEvenement) {
+		return etudiantDao.listerParticipant(idEvenement);
+	}
 	// Pole
 	public List<Pole> listerPole() {
 		return poleDao.listerPole();
