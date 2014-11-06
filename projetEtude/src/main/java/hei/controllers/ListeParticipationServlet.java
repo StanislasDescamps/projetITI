@@ -34,7 +34,11 @@ public class ListeParticipationServlet extends HttpServlet {
 			
 		//Récupération de la liste des participants
 		List<Etudiant> listParticipant = Manager.getInstance().listerParticipant(idEvenement);
+		
+		//Taille de la liste de participant
 		Integer nbParticipant=listParticipant.size();
+		
+		//attribution des variables pour la jsp
 		request.setAttribute("nbParticipant", nbParticipant);
 		request.setAttribute("listParticipant", listParticipant);
 
