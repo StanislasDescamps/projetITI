@@ -658,6 +658,20 @@ input#idcommission, input#idevenement{
 	display:none;
 }
 
+/*listeParticipation*/
+
+.nomParticipant{
+	width:70%;
+	margin-left:15%;
+	margin-top:10px;
+}
+
+#titrePart{
+	width:30%;
+	margin:5px auto 40px;
+	text-align:center;
+}
+
 /**** Mobile ****/
 @media only screen and (max-device-width:480px) {
 /*Body*/
