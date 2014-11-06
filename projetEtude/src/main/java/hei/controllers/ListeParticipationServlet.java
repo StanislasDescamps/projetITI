@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class listeParticipationServlet extends HttpServlet {
+public class ListeParticipationServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -6072167007489569453L;
 
@@ -34,8 +34,10 @@ public class listeParticipationServlet extends HttpServlet {
 			
 		//Récupération de la liste des participants
 		List<Etudiant> listParticipant = Manager.getInstance().listerParticipant(idEvenement);
+		Integer nbParticipant=listParticipant.size();
+		request.setAttribute("nbParticipant", nbParticipant);
 		request.setAttribute("listParticipant", listParticipant);
-		
+
 		//Affichage de la page configuration.jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/listeParticipation.jsp");
 		view.forward(request, response);
