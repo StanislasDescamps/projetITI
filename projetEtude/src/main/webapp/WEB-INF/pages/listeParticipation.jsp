@@ -26,13 +26,19 @@
 		
 		<!--cette section est pour tous les administrateurs -->
 		
-			<h3 id="titre">Participant de l'événement</h3>
-			
-			
-			
-			
-			
-			
+	
+			<c:if test="${nbParticipant<=1}">
+				<h3 id="titrePart">Participant de l'événement</h3>
+				<c:if test="${nbParticipant==0}">
+					<p class="nomParticipant">Aucun participant.</p>
+				</c:if>
+			</c:if>
+			<c:if test="${nbParticipant>1}">
+				<h3 id="titrePart">Participants de l'événement</h3>
+			</c:if>
+			<c:forEach var="etudiant" items="${listParticipant}">
+				<h4 class="nomParticipant">${etudiant.nomEtudiant} ${etudiant.prenomEtudiant}</h4>			
+			</c:forEach>
 		<footer>
 			<div> Réalisation HEI </div>
 		</footer>
