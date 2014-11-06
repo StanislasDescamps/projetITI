@@ -53,6 +53,7 @@
 							<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut}
 							Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
 							<a href="modifierEvent?idevenement=${evenement.idEvenement}">Modifier</a>    <a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer</a>
+							<a href="listeParticipation?idevenement=${evenement.idEvenement}">Voir participants</a>
 						</c:forEach>
 					</article>
 					<div class="clear"></div>
