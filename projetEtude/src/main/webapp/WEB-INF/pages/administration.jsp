@@ -46,7 +46,8 @@
 				<select id="droits" name="droits" >
 						<option value="0" <c:if test="${etudiant.idDroit==0}"> selected="selected" </c:if>>Etudiant</option>
 						<option value="1" <c:if test="${etudiant.idDroit==1}"> selected="selected" </c:if>>Président</option>
-						<option value="2" <c:if test="${etudiant.idDroit==2}"> selected="selected" </c:if>>Administrateur</option>
+						<option value="2" <c:if test="${etudiant.idDroit==2}"> selected="selected" </c:if>>Responsable pole</option>
+						<option value="3" <c:if test="${etudiant.idDroit==3}"> selected="selected" </c:if>>Administrateur</option>
 				</select>
 			</section>
 			<section class="line">
