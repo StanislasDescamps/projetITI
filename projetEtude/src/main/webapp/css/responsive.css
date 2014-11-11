@@ -267,6 +267,15 @@ input#idEvent{
 .posModeration{
 	float:right;
 }
+
+#takePart{
+	width:11%;
+	height:0;
+}
+
+.btnParticiper{
+	margin-top:30px;
+}
 /*Mes options*/
 
 #presentation{
@@ -670,6 +679,17 @@ input#idcommission, input#idevenement{
 	width:30%;
 	margin:5px auto 40px;
 	text-align:center;
+}
+
+/*Redirection*/
+.posTextRedirect{
+	width: 75%;
+	margin: 2% 0 0 15%;
+}
+
+#erreurConnexion{
+	width: 15%;
+	margin: 5% 0 0 45%;
 }
 
 /**** Mobile ****/
