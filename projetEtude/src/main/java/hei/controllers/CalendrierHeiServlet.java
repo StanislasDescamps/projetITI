@@ -1,7 +1,7 @@
 package hei.controllers;
 
 import hei.metier.Manager;
-import hei.model.Etudiant;
+//import hei.model.Etudiant;
 import hei.model.Evenement;
 
 import java.io.IOException;
@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Properties;
+/*import java.util.Properties;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -17,7 +17,7 @@ import javax.mail.NoSuchProviderException;
 import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMessage;*/
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.sun.mail.smtp.SMTPTransport;
+//import com.sun.mail.smtp.SMTPTransport;
 
 public class CalendrierHeiServlet extends HttpServlet {
 
@@ -51,6 +51,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 		//Récupération du statut de l'utilisateur
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
+		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		if(statut==3||statut==2){
 			request.setAttribute("statut", statut);
 		}
@@ -65,16 +66,14 @@ public class CalendrierHeiServlet extends HttpServlet {
 		for (int i=0; i<listEvent.size(); i++) {
 			Evenement event= Manager.getInstance().getEvenement(listEvent.get(i).getIdEvenement());
 			if(aujourdhui== Integer.parseInt(stringprete(event.getDateFin()))||aujourdhui<Integer.parseInt(stringprete(event.getDateFin()))){		
-			
-			listeDate.add(event.getDateDebut());
+				listeDate.add(event.getDateDebut());
 			}
 		}
 		
 		if(listeDate.size()!=1){
 			//Ordonne les dates - Les dates sont transformées en format int
 			int tableaus[] = new int[listeDate.size()];
-			for(int i=0; i<listeDate.size(); i++)
-			{
+			for(int i=0; i<listeDate.size(); i++){
 				tableaus[i]= Integer.parseInt(stringprete(listeDate.get(i)));
 			}
 			triCroissant(tableaus);
@@ -92,19 +91,24 @@ public class CalendrierHeiServlet extends HttpServlet {
 			
 			//Récupération des événements non passés à l'aide des dates récupérées
 			for (int j=0; j<listeDate.size(); j++) {
-			Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnee.get(j));
-			listeEvent.add(Event);
-			request.setAttribute("listeEventEntiere", listeEvent);
+				Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnee.get(j));
+				listeEvent.add(Event);
+				request.setAttribute("listeEventEntiere", listeEvent);
 			}
-			}else {
-				//Si la liste de date est égale à 1, la fonction renverra immédiatement l'événement
+		}else{
+			//Si la liste de date est égale à 1, la fonction renverra immédiatement l'événement
 			List<Evenement> listeEvent=new ArrayList<Evenement>();
-				for (int j=0; j<listeDate.size(); j++) {
-			Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
-			listeEvent.add(Event);
-			request.setAttribute("listeEventEntiere", listeEvent);
-				}
+			for (int j=0; j<listeDate.size(); j++) {
+				Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
+				listeEvent.add(Event);
+				request.setAttribute("listeEventEntiere", listeEvent);
+			}
 		}
+		
+		//Récupération de la liste des identifiants des événements auxquel paticipe l'utilisateur
+		List<Integer> listeEventPart=Manager.getInstance().listerEvenementParticipationByUser(idEtudiant);
+		request.setAttribute("listeEventPart", listeEventPart);
+		
 		//Affichage de la page
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/calendrierHei.jsp");
 		view.forward(request, response);
@@ -116,7 +120,31 @@ public class CalendrierHeiServlet extends HttpServlet {
 		//Récupération des informations personnelles de l'étudiant
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
-		Etudiant etudiant = Manager.getInstance().getEtudiant(idEtudiant);
+		
+		//Récupération de la valeur du bouton préssé
+		String valueBouton=request.getParameter("participer");
+		
+		//Récupération de l'identifiant de l'événement choisi par l'étudiant
+		Integer idEvent = Integer.parseInt(request.getParameter("idEvent"));
+		
+		if(valueBouton.equals("Participer")){
+			//Ajout de la participation de l'utilisateur dans la base de données
+			try {
+				Manager.getInstance().ajouterParticipant(idEvent,idEtudiant);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}else if(valueBouton.equals("Ne plus Participer")){
+			//Retirer de la participation de l'utilisateur dans la base de données
+			try {
+				Manager.getInstance().supprimerParticipant(idEvent,idEtudiant);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		/*Etudiant etudiant = Manager.getInstance().getEtudiant(idEtudiant);
 		String mail = etudiant.getEmail();
 		
 		//Récupération de l'identifiant de l'événement choisi par l'étudiant
@@ -134,10 +162,11 @@ public class CalendrierHeiServlet extends HttpServlet {
 			envoyerMailEvent(idEvent,titreEvent,  lieu,  dateDebut,  dateFin,  mail);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
 		response.sendRedirect("calendrierHei");
 	}
-	//Fonction permettant l'envoi du mail en format événement
+	
+/*	//Fonction permettant l'envoi du mail en format événement
 private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, String dateDebut, String dateFin, String mail) throws Exception {
 		
 		try {
@@ -192,7 +221,8 @@ private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Str
 		    System.err.println(e);
 		}
 		
-	}
+	}*/
+
 //Fonction permettant de transformer un format date en entier
 public static int DateToInt (Date date){
 	String annee = formatAnnee.format(date);

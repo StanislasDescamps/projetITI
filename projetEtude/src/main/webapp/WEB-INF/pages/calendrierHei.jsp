@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,6 +38,26 @@
 			<h2 class="dateEvent"><fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/></h2>
 				<article id="${evenement.nomPole}" class="resume">
 					<img class="imgCal"src="${evenement.image}"/>
+						
+						<c:set var="idEvent" value="${evenement.idEvenement}"/>
+						<c:forEach var="item" items="${listeEventPart}">
+						 	<c:choose>
+							  <c:when test="${item eq idEvent}">
+							    <form id="takePart" action="calendrierHei" method="post">
+									<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
+									<input class="btnParticiper" type="submit" name="participer"value="Ne plus Participer" />
+								</form>
+							  </c:when>
+							  <c:otherwise>
+							  	<form id="takePart" action="calendrierHei" method="post">
+									<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
+									<input class="btnParticiper" type="submit" name="participer"value="Participer" />
+								</form>
+							  </c:otherwise>
+							 </c:choose>
+						</c:forEach>
+						
+					  				
 					<article class="description">
 						<h2 class="titreEvent">${evenement.titreEvent}</h2>
 						<p id="nomCom">Par la commission : ${evenement.nomCommission}</p>
