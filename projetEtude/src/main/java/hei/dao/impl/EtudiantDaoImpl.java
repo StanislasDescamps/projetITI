@@ -378,4 +378,25 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	    }
 		return listeParticipant;
 	}
+
+	@Override
+	public void supprimerParticipant(Integer idEvenement, Integer idEtudiant) {
+		try{
+			 Connection connection = 
+			            DataSourceProvider.getDataSource().getConnection();
+
+			        // Utiliser la connexion
+			        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
+			        		"DELETE FROM participation WHERE idEtudiant =? AND idEvenement=?");
+			  
+			        stmt.setInt(1,idEtudiant);
+			        stmt.setInt(2,idEvenement);
+			        stmt.executeUpdate();
+			
+		connection.close();
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+	}
 }

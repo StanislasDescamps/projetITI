@@ -33,6 +33,8 @@ public interface EtudiantDao {
 	public void supprimerEtudiant(Integer idEtudiant); //permet de supprimer un utilisateur de la BDD
 
 	public void ajouterParticipant(Integer idEvenement, Integer idEtudiant); //ajoute un participant à un événement 
+	
+	public void supprimerParticipant(Integer idEvenement, Integer idEtudiant); //retire la participation de l'etudiant à un événement 
 
 	public List<Etudiant> listerParticipant(Integer idEvenement);//liste tous les participants de l'événement en parametre
 }

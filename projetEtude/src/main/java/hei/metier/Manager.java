@@ -76,6 +76,9 @@ public class Manager {
 	public List<Etudiant> listerParticipant(Integer idEvenement) {
 		return etudiantDao.listerParticipant(idEvenement);
 	}
+	public void supprimerParticipant(Integer idEvenement, Integer idEtudiant) {
+		etudiantDao.supprimerParticipant(idEvenement,idEtudiant);
+	}
 	// Pole
 	public List<Pole> listerPole() {
 		return poleDao.listerPole();
@@ -133,7 +136,7 @@ public class Manager {
 	public void setUnModeration(Integer idEvenement) {
 		evenementDao.setUnModeration(idEvenement);
 	}
-	public List<Evenement> listerEvenementParticipationByUser(Integer idEtudiant) {
+	public List<Integer> listerEvenementParticipationByUser(Integer idEtudiant) {
 		return evenementDao.listerEvenementParticipationByUser(idEtudiant);
 	}
 	
