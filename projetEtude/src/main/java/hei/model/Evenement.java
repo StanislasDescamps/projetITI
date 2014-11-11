@@ -78,6 +78,10 @@ public class Evenement {
 		this.setModeration(moderation);
 	}
 	
+	public Evenement(Integer idevenement){
+		this.idEvenement = idevenement;
+	}
+	
 	public static DateFormat getDateFormat() {
 		return dateFormat;
 	}
