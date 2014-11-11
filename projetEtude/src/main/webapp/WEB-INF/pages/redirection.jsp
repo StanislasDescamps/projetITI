@@ -17,7 +17,8 @@
 			<jsp:param name="pageSelectionnee" value="mesOptions" />
 		</jsp:include>
 		
-		<h3> Vous n'avez pas les droits pour acéder à cette page, veuillez vous rediriger vers une de vos pages accessible</h3>
+		<img id="erreurConnexion" src="img/boutonOups.jpg" alt="Erreur" title="Erreur"/>
+		<h3 class="posTextRedirect"> Vous n'avez pas les droits pour acéder à cette page, veuillez vous rediriger vers une de vos pages accessibles</h3>
 		
 		
 		<footer>
