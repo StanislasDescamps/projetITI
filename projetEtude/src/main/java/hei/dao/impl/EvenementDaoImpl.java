@@ -389,16 +389,15 @@ public class EvenementDaoImpl implements EvenementDao {
 	}
 
 	@Override
-	public List<Evenement> listerEvenementParticipationByUser(Integer idEtudiant) {
-		List<Evenement> listeEventPart = new ArrayList<Evenement>();
+	public List<Integer> listerEvenementParticipationByUser(Integer idEtudiant) {
+		List<Integer> listeEventPart = new ArrayList<Integer>();
 	    try {
 	    	Connection connection = DataSourceProvider.getDataSource().getConnection();
 	    	PreparedStatement stmt = (PreparedStatement) connection.prepareStatement("SELECT idEvenement FROM participation WHERE idEtudiant=? ");
 	    	stmt.setInt(1, idEtudiant);
 	    	ResultSet results = stmt.executeQuery();
 	    while (results.next()) {
-	    	Evenement evenement = new Evenement(results.getInt("idEvenement"));
-	    	listeEventPart.add(evenement);
+	    	listeEventPart.add(results.getInt("idEvenement"));
 	    }
 		connection.close();
 	    } catch (SQLException e) {
