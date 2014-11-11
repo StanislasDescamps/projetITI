@@ -133,6 +133,9 @@ public class Manager {
 	public void setUnModeration(Integer idEvenement) {
 		evenementDao.setUnModeration(idEvenement);
 	}
+	public List<Evenement> listerEvenementParticipationByUser(Integer idEtudiant) {
+		return evenementDao.listerEvenementParticipationByUser(idEtudiant);
+	}
 	
 	//Commission
 	public List<Commission> listerCommission() {

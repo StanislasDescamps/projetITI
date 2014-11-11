@@ -30,4 +30,5 @@ public interface EvenementDao {
 	
 	public void setUnModeration(Integer idEvenement); //Permet de retirer la modération de l'événement dont l'id est en paramètre
 
+	public List<Evenement> listerEvenementParticipationByUser(Integer idEtudiant); //Permet de récupérer tous les événements auxquel participe l'utilisateur
 }
