@@ -17,4 +17,6 @@ public interface PoleDao {
 	public Pole getPoleByResp(Integer idEtudiant); //Récupération des informations d'un pole à partir de son respasable
 
 	public Integer getIdRespPoleByComm(Integer idCommission); //Récupération de l'identifiant du responsable de pole à partir d'une commission
+
+	public void attribuerNouveauRepPole(Integer idPole, Integer idEtudiant); //attribue un nouveau responsable au pole en paramètre
 }

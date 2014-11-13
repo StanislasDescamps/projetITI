@@ -167,4 +167,26 @@ public class PoleDaoImpl implements PoleDao {
 	    }
 	    return idResp;
 	}
+
+	@Override
+	public void attribuerNouveauRepPole(Integer idPole, Integer idEtudiant) {
+		try{
+			 Connection connection = 
+			            DataSourceProvider.getDataSource().getConnection();
+
+			        // Utiliser la connexion
+			        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
+			        		"UPDATE pole SET idEtudiant =? WHERE idPole =?");
+			  
+			        stmt.setInt(1,idEtudiant);	  
+			        stmt.setInt(2,idPole);	 
+			        stmt.executeUpdate();
+			
+		connection.close();
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+		
+	}
 }
