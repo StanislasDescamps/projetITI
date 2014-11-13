@@ -27,4 +27,6 @@ public interface CommissionDao {
 	public void supprimerCommission(Integer idCommission);// Supprime une commission 
 	
 	public void supprimerChoix(Integer idEtudiant); // Supprime toutes les préférences d'un étudiant
+	
+	public void attribuerNouveauRepComm(Integer idCommission, Integer idEtudiant); //attribue un nouveau responsable a la commission en paramètre
 }
