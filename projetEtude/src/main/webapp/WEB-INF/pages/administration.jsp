@@ -7,11 +7,12 @@
         <meta charset="utf-8" />
         <title>HEI-Diary Administration</title>
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
+        <link rel="stylesheet" href="css/csstest.css" type="text/css"/>
     </head>
 	<body>
 		<!-- Corps de la page -->
 		<script type="text/javascript" src="js/jquery.js" ></script>
-		<script language="javascript" type="text/javascript" src="js/js.js"></script>
+		<script language="javascript" type="text/javascript" src="js/js2.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<header id="entete">
 			<h1 class="entete">HEI-Diary</h1>
@@ -43,11 +44,21 @@
 			<form class="gestionDroits" action="configuration" method="post">
 			<section class="line">
 				<h4 class="nomEtudiant">${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
-				<select id="droits" name="droits" >
+				<select class="droits" name="droits" >
 						<option value="0" <c:if test="${etudiant.idDroit==0}"> selected="selected" </c:if>>Etudiant</option>
-						<option value="1" <c:if test="${etudiant.idDroit==1}"> selected="selected" </c:if>>Président</option>
-						<option value="2" <c:if test="${etudiant.idDroit==2}"> selected="selected" </c:if>>Responsable pole</option>
+						<option value="1" id="presidentSelected" <c:if test="${etudiant.idDroit==1}"> selected="selected" </c:if>>Président</option>
+						<option value="2" id="respPoleSelected" <c:if test="${etudiant.idDroit==2}"> selected="selected" </c:if>>Responsable pole</option>
 						<option value="3" <c:if test="${etudiant.idDroit==3}"> selected="selected" </c:if>>Administrateur</option>
+				</select>
+				<select class="assignationCommission cache" name="assignationCommission">
+					<c:forEach var="commission" items="${listeComm}">
+						<option value="${commission.idcommission}">${commission.nomCommission}</option>
+					</c:forEach>
+				</select>
+				<select class="assignationPole cache" name="assignationPole">
+					<c:forEach var="pole" items="${listePole}">
+						<option value="${pole.idPole}">${pole.nomPole}</option>
+					</c:forEach>
 				</select>
 			</section>
 			<section class="line">

@@ -1,7 +1,9 @@
 package hei.controllers;
 
 import hei.metier.Manager;
+import hei.model.Commission;
 import hei.model.Etudiant;
+import hei.model.Pole;
 
 import java.io.IOException;
 import java.util.List;
@@ -33,6 +35,14 @@ public class AdministrationServlet extends HttpServlet {
 		//Récupération de la liste de tous les utilisateurs
 		List<Etudiant> listEtudiant = Manager.getInstance().listerEtudiant();
 		request.setAttribute("listEtudiant", listEtudiant);
+		
+		//Récupération de toutes les commissions
+		List<Commission> listeComm = Manager.getInstance().listerCommission();
+		request.setAttribute("listeComm", listeComm);
+		
+		//Récupération de toutes les commissions
+		List<Pole> listePole = Manager.getInstance().listerPole();
+		request.setAttribute("listePole", listePole);
 		
 		//Mise en place du menu administrateur
 		request.setAttribute("menuOption","menuAdmin.jsp");
@@ -66,8 +76,18 @@ public class AdministrationServlet extends HttpServlet {
 		}else{
 			request.setAttribute("menuOption","menuOption.jsp");
 		}
-				
-		Manager.getInstance().setAdmin(idEtudiant, idDroit);
+		
+		Integer nouvelleAsso=Integer.parseInt(request.getParameter("assignationCommission"));
+		Integer nouveauPole=Integer.parseInt(request.getParameter("assignationPole"));
+		
+		if(nouvelleAsso !=null){
+			Manager.getInstance().attribuerNouveauRepComm(nouvelleAsso, idEtudiant);
+		}
+		else if(nouveauPole !=null){
+			Manager.getInstance().attribuerNouveauRepPole(nouveauPole, idEtudiant);
+		}else{
+			Manager.getInstance().setAdmin(idEtudiant, idDroit);
+		}
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/administration.jsp");
 		view.forward(request, response);
 	}
