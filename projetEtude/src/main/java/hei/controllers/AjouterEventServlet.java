@@ -106,7 +106,7 @@ public class AjouterEventServlet extends HttpServlet {
 					Pole poleAssocie=Manager.getInstance().getPole(idPole);
 					String nomPole=poleAssocie.getNomPole();
 					
-					Evenement nouvelEvenement = new Evenement(null, idCommission,nomCommission,nomPole, nomEvent, description, lieu, dateDebut, dateFin, heureDebut, heureFin,logo);
+					Evenement nouvelEvenement = new Evenement(null, idCommission,nomCommission,nomPole, nomEvent, description, lieu, dateDebut, dateFin, heureDebut, heureFin,logo,false);
 					Manager.getInstance().ajouterEvenement(nouvelEvenement);
 					response.sendRedirect("espacePresident");	
 				}else{

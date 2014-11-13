@@ -112,7 +112,7 @@ public class EvenementDaoImpl implements EvenementDao {
 
 	        // Utiliser la connexion
 	        PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(
-	                  "INSERT INTO `evenement`(`idCommission`,`nomCommission`,`nomPole`, `titreEvent`,`descriptionEvent`,`lieuEvent`, `dateDebut`, `dateFin`, `heureDebut`, `heureFin`, `image`, `moderation`) VALUES (?,?,?, ?, ?, ?, ?, ?, ?, ?, ?,false)"); 
+	                  "INSERT INTO `evenement`(`idCommission`,`nomCommission`,`nomPole`, `titreEvent`,`descriptionEvent`,`lieuEvent`, `dateDebut`, `dateFin`, `heureDebut`, `heureFin`, `image`, `moderation`) VALUES (?,?,?, ?, ?, ?, ?, ?, ?, ?, ?,?)"); 
 	        stmt.setInt(1, evenement.getIdCommission());
 	        stmt.setString(2, evenement.getNomCommission());
 	        stmt.setString(3, evenement.getNomPole());
@@ -124,6 +124,7 @@ public class EvenementDaoImpl implements EvenementDao {
 	        stmt.setString(9, evenement.getHeureDebut());
 	        stmt.setString(10, evenement.getHeureFin());
 	        stmt.setString(11, evenement.getImage());
+	        stmt.setBoolean(12, evenement.isModeration());
 	        stmt.executeUpdate();
 	        // Fermer la connexion
 	        connection.close();
