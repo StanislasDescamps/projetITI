@@ -98,6 +98,9 @@ public class Manager {
 	public Integer getIdRespPoleByComm(Integer idCommission){
 		return poleDao.getIdRespPoleByComm(idCommission);
 	}
+	public void attribuerNouveauRepPole(Integer idPole, Integer idEtudiant){
+		poleDao.attribuerNouveauRepPole(idPole, idEtudiant);
+	}
 	
 	//Evenement
 	public List<Evenement> listerEvenement() {
@@ -173,6 +176,9 @@ public class Manager {
 	}
 	public void supprimerChoix(Integer idEtudiant){
 		commissionDao.supprimerChoix(idEtudiant);
+	}
+	public void attribuerNouveauRepComm(Integer idCommission, Integer idEtudiant){
+		commissionDao.attribuerNouveauRepComm(idCommission, idEtudiant);
 	}
 	
 	//Calendrier
