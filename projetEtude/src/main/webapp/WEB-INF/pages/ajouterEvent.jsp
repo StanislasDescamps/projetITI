@@ -23,7 +23,7 @@
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
 		<h3 id="titre">Ajouter un évènement</h3>
-		<jsp:include page="menuEspaceResp.jsp">
+		<jsp:include page="menuEspaceRespComm.jsp">
 			<jsp:param name="pageSelectionnee" value="ajouterEvent"/>
 		</jsp:include>
 		<div class="clear"></div>

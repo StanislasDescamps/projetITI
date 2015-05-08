@@ -20,7 +20,7 @@ public class EtudiantDaoTest {
 	public void testListerEtudiant() {
 		List<Etudiant> etudiant = etudiantDao.listerEtudiant();
 		Assert.assertEquals(4, etudiant.size());
-		Assert.assertEquals(1, etudiant.get(0).getIdetudiant().intValue());
+		Assert.assertEquals(1, etudiant.get(0).getIdEtudiant().intValue());
 		Assert.assertEquals("Gladieux", etudiant.get(0).getNomEtudiant());
 		Assert.assertEquals("Jean", etudiant.get(0).getPrenomEtudiant());
 		Assert.assertEquals("admin", etudiant.get(0).getPassWord());
@@ -55,7 +55,7 @@ public class EtudiantDaoTest {
 	@Test
 	public void testgetEtudiant() {
 		Etudiant etudiant = etudiantDao.getEtudiant(1);
-		Assert.assertEquals(1, etudiant.getIdetudiant().intValue());
+		Assert.assertEquals(1, etudiant.getIdEtudiant().intValue());
 		Assert.assertEquals("Gladieux", etudiant.getNomEtudiant());
 		Assert.assertEquals("Jean", etudiant.getPrenomEtudiant());
 		Assert.assertEquals("admin", etudiant.getPassWord());
@@ -66,7 +66,7 @@ public class EtudiantDaoTest {
 	@Test
 	public void testgetEtudiantMail() {
 		Etudiant etudiant = etudiantDao.getEtudiantMail("jean.gladieux@hei.fr");
-		Assert.assertEquals(1, etudiant.getIdetudiant().intValue());
+		Assert.assertEquals(1, etudiant.getIdEtudiant().intValue());
 		Assert.assertEquals("Gladieux", etudiant.getNomEtudiant());
 		Assert.assertEquals("Jean", etudiant.getPrenomEtudiant());
 		Assert.assertEquals("admin", etudiant.getPassWord());
@@ -77,7 +77,7 @@ public class EtudiantDaoTest {
 	@Test
 	public void testgetEtudiantResp() {
 		Etudiant etudiant = etudiantDao.getEtudiantResp(3);
-		Assert.assertEquals(1, etudiant.getIdetudiant().intValue());
+		Assert.assertEquals(1, etudiant.getIdEtudiant().intValue());
 		Assert.assertEquals("Gladieux", etudiant.getNomEtudiant());
 		Assert.assertEquals("Jean", etudiant.getPrenomEtudiant());
 		Assert.assertEquals("admin", etudiant.getPassWord());
@@ -88,7 +88,7 @@ public class EtudiantDaoTest {
 	@Test
 	public void testgetEtudiantNomPrenom() {
 		Etudiant etudiant = etudiantDao.getEtudiantNomPrenom("Gladieux", "Jean");
-		Assert.assertEquals(1, etudiant.getIdetudiant().intValue());
+		Assert.assertEquals(1, etudiant.getIdEtudiant().intValue());
 		Assert.assertEquals("Gladieux", etudiant.getNomEtudiant());
 		Assert.assertEquals("Jean", etudiant.getPrenomEtudiant());
 		Assert.assertEquals("admin", etudiant.getPassWord());

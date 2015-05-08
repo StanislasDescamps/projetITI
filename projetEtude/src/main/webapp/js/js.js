@@ -10,4 +10,5 @@ $(document).ready(function() {
 		var activeTab = $(this).attr("rel"); 
 		$("#"+activeTab).fadeIn(); 
 	});
+	
 });
