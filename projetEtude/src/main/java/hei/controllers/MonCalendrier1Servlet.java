@@ -43,16 +43,16 @@ public class MonCalendrier1Servlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		HttpSession session = request.getSession(true);
-		//Récupération des événements personnels
+		//Recuperation des evenements personnels
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		List<Evenement> listEvent = Manager.getInstance().listerEvenementEtudiant(idEtudiant);
 		
-		//Récupération de la date du systeme
+		//Recuperation de la date du systeme
 		List<String> listeDate=new ArrayList<String>();
 		Date dateToday=new Date();
 		Integer aujourdhui = DateToInt(dateToday);
 		
-		//Récupération des dates des événements non terminés la liste listeDate
+		//Recuperation des dates des evnements non termines la liste listeDate
 		for (int i=0; i<listEvent.size(); i++) {
 			Evenement event= Manager.getInstance().getEvenement(listEvent.get(i).getIdEvenement());
 			if(aujourdhui== Integer.parseInt(stringprete(event.getDateFin()))||aujourdhui<Integer.parseInt(stringprete(event.getDateFin()))){		
@@ -61,7 +61,7 @@ public class MonCalendrier1Servlet extends HttpServlet {
 			}
 		}
 		if(listeDate.size()!=1){
-			//Ordonne les dates - Les dates sont transformées en format int
+			//Ordonne les dates - Les dates sont transformees en format int
 			int tableaus[] = new int[listeDate.size()];
 			for(int i=0; i<listeDate.size(); i++){
 				tableaus[i]= Integer.parseInt(stringprete(listeDate.get(i)));
@@ -77,14 +77,14 @@ public class MonCalendrier1Servlet extends HttpServlet {
 			}
 		List<Evenement> listeEvent=new ArrayList<Evenement>();
 			
-			//Récupération des événements non passés à l'aide des dates récupérées
+			//Recuperation des evenements non passes a l'aide des dates recuperees
 			for (int j=0; j<listeDate.size(); j++) {
 			Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnee.get(j));
 			listeEvent.add(Event);
 			request.setAttribute("listeEventPerso", listeEvent);
 			}
 			}else {
-				//Si la liste de date est égale à 1, la fonction renverra immédiatement l'événement
+				//Si la liste de date est egale a 1, la fonction renverra immediatement l'evenement
 			List<Evenement> listeEvent=new ArrayList<Evenement>();
 				for (int j=0; j<listeDate.size(); j++) {
 			Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
@@ -100,22 +100,22 @@ public class MonCalendrier1Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération des informations personnelles de l'étudiant
+		//Recuperation des informations personnelles de l'etudiant
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		String mail = Manager.getInstance().getEtudiant(idEtudiant).getEmail();
 		
-		//Récupération de l'identifiant de l'événement choisi par l'étudiant
+		//Recuperation de l'identifiant de l'evenement choisi par l'etudiant
 		Integer idEvent = Integer.parseInt(request.getParameter("idEvent"));
 		Evenement event = Manager.getInstance().getEvenement(idEvent);
 		
-		//Récupération des informations de l'événement
+		//Recuperation des informations de l'evenement
 		String titreEvent = event.getTitreEvent();
 		String lieu = event.getLieu();
 		String dateDebut = event.getDateDebut();
 		String dateFin = event.getDateFin();
 		
-		//Envoi d'un mail avec les informations de l'événement à l'étudiant
+		//Envoi d'un mail avec les informations de l'evenement a l'etudiant
 		try {
 			envoyerMailEvent(idEvent,titreEvent,  lieu,  dateDebut,  dateFin,  mail);
 		} catch (Exception e) {
@@ -123,7 +123,7 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		}
 		response.sendRedirect("monCalendrier1");
 	}
-	//Fonction permettant l'envoi du mail en format événement
+	//Fonction permettant l'envoi du mail en format evenement
 private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, String dateDebut, String dateFin, String mail) throws Exception {
 		
 		try {
@@ -136,13 +136,13 @@ private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Str
 	       
 		    Session		session	    = Session.getInstance(props,null);
 	 
-		    //Rédaction du mail
+		    //Redaction du mail
 		    Message		message	    = new MimeMessage(session);
 		    message.setFrom(new InternetAddress("heidiarybystanetnico@gmail.com"));
 		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail,false));
 		    message.setSubject("Evenement " + nomEvent);
 	 
-		  //Format événement
+		  //Format evenement
 		    message.setText("BEGIN:VCALENDAR\n"
 		    		+ "VERSION:2.0\n"
 		    		+ "PRODID:-//HEI DAIRY//Event//FR \n"
@@ -217,7 +217,7 @@ public static String nombreToString(int nombre){
 	
 	return date;
 }
-//Permet de passer une string de type "yyyy-mm-dd" en string "yyyymmdd" (enlève les "-")
+//Permet de passer une string de type "yyyy-mm-dd" en string "yyyymmdd" (enleve les "-")
 public static String stringprete(String ladate){
 	int longueur = 10;
 	String string = "";
@@ -240,7 +240,7 @@ public static void triCroissant(int tableau[]) {
 	boolean permut;
 
 	do {
-		// hypothèse : le tableau est trié
+		// hypothèse : le tableau est trie
 		permut = false;
 		for (int i = 0; i < longueur - 1; i++) {
 			// Teste si 2 éléments successifs sont dans le bon ordre ou non

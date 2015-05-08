@@ -6,21 +6,21 @@ import java.util.List;
 
 public interface EtudiantDao {
 
-	public List<Etudiant> listerEtudiant();//liste tous les étudiants de la bdd
+	public List<Etudiant> listerEtudiant();//liste tous les etudiants de la bdd
 	
-	public void ajouterEtudiant(Etudiant etudiant); //ajout d'un étudiant à la bdd
+	public void ajouterEtudiant(Etudiant etudiant); //ajout d'un etudiant a la bdd
 	
-	public void firstConnexionSetFalse(Integer idEtudiant); //Modifie le statut de connexion de l'étudiant
+	public void firstConnexionSetFalse(Integer idEtudiant); //Modifie le statut de connexion de l'etudiant
 	
-	public Etudiant getEtudiant(Integer idEtudiant); //Récupère les informations d'un étudiant à partir de son identifiant
+	public Etudiant getEtudiant(Integer idEtudiant); //Recupere les informations d'un etudiant a partir de son identifiant
 	
-	public Etudiant getEtudiantMail(String mailEtudiant);//Récupère les informations d'un étudiant à partir de son mail
+	public Etudiant getEtudiantMail(String mailEtudiant);//Recupere les informations d'un etudiant a partir de son mail
 	
-	public boolean etudiantExiste(String mail, String password); //Vérifie l'existance du doublet (mail, mot de passe) dans la bdd
+	public boolean etudiantExiste(String mail, String password); //Verifie l'existance du doublet (mail, mot de passe) dans la bdd
 	
-	public Etudiant getEtudiantResp(Integer idCommission);//Récupère les informations d'un étudiant responsable de la commission dont l'identifiant est en paramètre
+	public Etudiant getEtudiantResp(Integer idCommission);//Recupere les informations d'un etudiant responsable de la commission dont l'identifiant est en parametre
 	
-	public Etudiant getEtudiantNomPrenom(String nom, String prenom); //Récupère les informations d'un étudiant à partir de ses nom prenom
+	public Etudiant getEtudiantNomPrenom(String nom, String prenom); //Recupere les informations d'un etudiant a partir de ses nom prenom
 	
 	public void modifierMail(Integer idEtudiant, String mail); //permet de modifier le mail de l'utilisateur
 
@@ -32,9 +32,9 @@ public interface EtudiantDao {
 
 	public void supprimerEtudiant(Integer idEtudiant); //permet de supprimer un utilisateur de la BDD
 
-	public void ajouterParticipant(Integer idEvenement, Integer idEtudiant); //ajoute un participant à un événement 
+	public void ajouterParticipant(Integer idEvenement, Integer idEtudiant); //ajoute un participant a un evenement 
 	
-	public void supprimerParticipant(Integer idEvenement, Integer idEtudiant); //retire la participation de l'etudiant à un événement 
+	public void supprimerParticipant(Integer idEvenement, Integer idEtudiant); //retire la participation de l'etudiant a un evenement 
 
-	public List<Etudiant> listerParticipant(Integer idEvenement);//liste tous les participants de l'événement en parametre
+	public List<Etudiant> listerParticipant(Integer idEvenement);//liste tous les participants de l'evenement en parametre
 }

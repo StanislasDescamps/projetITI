@@ -21,16 +21,16 @@ public class ModerationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération des informations de l'utilisateur connecté
+		//Recuperation des informations de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		
-		//Vérification du statut de l'utilisateur
+		//Verification du statut de l'utilisateur
 		if(statut!=2 && statut!=3 ){
 			response.sendRedirect("redirection");
 		}else{
 			
-			//Récupération de la liste de tous les événements
+			//Recuperation de la liste de tous les evenements
 			List<Evenement> listeEventModere = Manager.getInstance().listerEvenementModere();
 			
 			//Attribution des listes

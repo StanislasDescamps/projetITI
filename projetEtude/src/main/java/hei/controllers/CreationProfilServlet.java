@@ -45,14 +45,14 @@ public class CreationProfilServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	
-		//Récupération des informations	
+		//Recuperation des informations	
 		
 		String nom = request.getParameter("nom");
 		String prenom = request.getParameter("prenom");
 		String mail = request.getParameter("mail");
 		String motpass= genereMdp();  //génération d'un mot de passe
 		
-		//Récupération de tous les étudiant dans une liste
+		//Recuperation de tous les etudiant dans une liste
 		List<Etudiant> listEtudiant = new ArrayList<Etudiant>();
 		listEtudiant = Manager.getInstance().listerEtudiant();
 		
@@ -60,11 +60,11 @@ public class CreationProfilServlet extends HttpServlet {
 		Integer n = listEtudiant.size();
 		Boolean existe=false;
 
-		//Récupération de la date du système
+		//Recuperation de la date du systeme
 		java.util.Date date = new java.util.Date(); 
 				
 		if(mail.endsWith("@hei.fr")){
-		//Vérification de l'inexistence de l'étudiant
+		//Verification de l'inexistence de l'etudiant
 		while(i<n && !existe)
 		{
 			if(mail.equalsIgnoreCase(listEtudiant.get(i).getEmail()))
@@ -74,7 +74,7 @@ public class CreationProfilServlet extends HttpServlet {
 			else i++;
 		}
 		
-		//Si etudiant inexistant, création du profil sinon message d'erreur
+		//Si etudiant inexistant, creation du profil sinon message d'erreur
 		if(!existe)
 		{
 		Etudiant nouvelEtudiant = new Etudiant(null, nom, prenom, motpass, mail, 0,true);
@@ -89,7 +89,7 @@ public class CreationProfilServlet extends HttpServlet {
 			
 			e.printStackTrace();
 		}
-		//Création du calendrier de l'étudiant
+		//Creation du calendrier de l'étudiant
 		Calendrier nouveauCal = null;
 		nouveauCal = new Calendrier(null, Manager.getInstance().getEtudiantMail(mail).getIdEtudiant(),formatDate.format(date));
 	
@@ -108,7 +108,7 @@ public class CreationProfilServlet extends HttpServlet {
 		}
 	}
 	
-	//Fonction générant un mot de passe aléatoire
+	//Fonction generant un mot de passe aleatoire
 	private String genereMdp(){
 		String password = "";
 		String alphabet = "abcdefghijklmnopqrstuvwxyz1234567890";
@@ -119,7 +119,7 @@ public class CreationProfilServlet extends HttpServlet {
         } 		
 		return password;
 	}
-	//Fonction permettant l'envoi d'un mail avec le mot de passe généré
+	//Fonction permettant l'envoi d'un mail avec le mot de passe genere
 	private boolean envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
 		
 		boolean envoi = false;
@@ -133,7 +133,7 @@ public class CreationProfilServlet extends HttpServlet {
 	       
 		    Session		session	    = Session.getInstance(props,null);
 	 
-		    //Rédaction du mail
+		    //Redaction du mail
 		    Message		message	    = new MimeMessage(session);
 		    message.setFrom(new InternetAddress("heidiarybystanetnico@gmail.com"));
 		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail,false));

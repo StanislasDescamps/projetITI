@@ -23,8 +23,8 @@ public class SessionFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         
-        //accès autorisé aux pages connexion et creationProfil si non connecté
-        //Si l'utilisateur est sur une autre page, vérifier qu'il est connecté sinon empecher son accès aux autres pages
+        //acces autorise aux pages connexion et creationProfil si non connecte
+        //Si l'utilisateur est sur une autre page, verifier qu'il est connecte sinon empecher son acces aux autres pages
         if(!req.getServletPath().equals("/connexion") && !req.getServletPath().equals("/creationProfil")){
             testIfEtudiantConnecte(req,resp,chain);
         }else{
@@ -32,17 +32,17 @@ public class SessionFilter implements Filter {
         }
     }
    
-   //Vérifie que l'utilisateur est connecté
+   //Verifie que l'utilisateur est connecte
     private void testIfEtudiantConnecte(HttpServletRequest req,    HttpServletResponse resp,FilterChain chain) throws IOException, ServletException {
         Etudiant utilisateurConnecte = getEtudiantConnecte(req);
-        //si non connecté, renvoi sur la page de connexion
+        //si non connecte, renvoi sur la page de connexion
         if(utilisateurConnecte==null){
             resp.sendRedirect(req.getServletContext().getContextPath()+"/connexion");
         }else{
             chain.doFilter(req, resp);
         }
     }
-    //Récupération des informations de l'utilisateur connecté
+    //Recuperation des informations de l'utilisateur connecte
     private Etudiant getEtudiantConnecte(HttpServletRequest req) {
         return (Etudiant) req.getSession().getAttribute("etudiantConnecte");
     }

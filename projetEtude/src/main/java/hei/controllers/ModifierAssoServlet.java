@@ -23,21 +23,21 @@ public class ModifierAssoServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération de l'identifiant de la commission sélectionnée
+		//Recuperation de l'identifiant de la commission sélectionnee
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
-		//Récupération des informations de la commission
+		//Recuperation des informations de la commission
 		Commission commission = Manager.getInstance().getCommission(idCommission);
 		request.setAttribute("commission",commission);
 		
 		Integer idRespPole = Manager.getInstance().getIdRespPoleByComm(idCommission);
 		
-		//Récupération des informations de l'étudiant responsable de la commission
+		//Recuperation des informations de l'etudiant responsable de la commission
 		Etudiant etudiant=Manager.getInstance().getEtudiantResp(idCommission);
 		request.setAttribute("etudiant", etudiant);
 		Integer idRespComm=etudiant.getIdEtudiant();
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		request.setAttribute("statut", statut);
@@ -78,13 +78,13 @@ public class ModifierAssoServlet extends HttpServlet{
 		
 		Integer idpole2 = null;
 		
-		//Récupération de l'identifiant de la commission sélectionnée
+		//Recuperation de l'identifiant de la commission selectionnee
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
-		//Récupération de tous les étudiants de la base de données dans une liste
+		//Recuperation de tous les etudiants de la base de donnees dans une liste
 		List<Etudiant> listeetudiant = Manager.getInstance().listerEtudiant();
 		
-		//Récupération des champs
+		//Recuperation des champs
 		String nom = request.getParameter("nomAsso");
 		String mailResp = request.getParameter("mailResp");
 		String idpole = request.getParameter("bureau");
@@ -100,7 +100,7 @@ public class ModifierAssoServlet extends HttpServlet{
 			idpole2=Integer.parseInt(idpole);
 		
 		
-		//Vérification de l'existance du nouvel etudiant responsable dans la base de données
+		//Verification de l'existance du nouvel etudiant responsable dans la base de donnees
 		Etudiant etudiant = Manager.getInstance().getEtudiantMail(mailResp);
 		boolean Etudiantexistant =false;
 		int i =0;

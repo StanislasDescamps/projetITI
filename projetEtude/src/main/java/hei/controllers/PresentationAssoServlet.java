@@ -20,14 +20,14 @@ public class PresentationAssoServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération de l'identifiant de la commission sélectionnée
+		//Recuperation de l'identifiant de la commission selectionnee
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
-		//Récupération des informations de la commission
+		//Recuperation des informations de la commission
 		Commission commission = Manager.getInstance().getCommission(idCommission);
 		request.setAttribute("commission",commission);
 		
-		//Récupération des informations de l'étudiant responsable de la commission
+		//Recuperation des informations de l'étudiant responsable de la commission
 		Etudiant etudiant=Manager.getInstance().getEtudiantResp(idCommission);
 		request.setAttribute("etudiant", etudiant);
 		

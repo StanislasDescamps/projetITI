@@ -20,7 +20,7 @@ public class SupprimerAssoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		
@@ -28,10 +28,10 @@ public class SupprimerAssoServlet extends HttpServlet {
 			response.sendRedirect("redirection");
 		}else{
 		
-		//Récupération de l'identifiant de la commission sélectionnée
+		//Recuperation de l'identifiant de la commission selectionnee
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
-		//Récupération des informations de la commission
+		//Recuperation des informations de la commission
 		Commission commission = Manager.getInstance().getCommission(idCommission);
 		request.setAttribute("commission",commission);
 		
@@ -46,19 +46,19 @@ public class SupprimerAssoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération de l'identifiant de la commission sélectionnée
+		//Recuperation de l'identifiant de la commission selectionnee
 		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
 		
-		//Récupération de la sélection du bouton
+		//Recuperation de la selection du bouton
 		String reponse1=request.getParameter("trap1");
 		String reponse2=request.getParameter("trap2");
 		
-		//Si oui est seléctionner alors supprimer la commission de la base de données
+		//Si oui est selectionner alors supprimer la commission de la base de donnees
 		if(reponse1 !=null){
 			if(reponse1.equalsIgnoreCase("OUI")){
 			Manager.getInstance().supprimerCommission(idCommission);
 			response.sendRedirect("listeModifAsso");}}
-		//Si non est seléctionner alors retour à la page précédente
+		//Si non est selectionner alors retour a la page precedente
 		if(reponse2 != null){
 			if(reponse2.equalsIgnoreCase("NON")){
 				response.sendRedirect("listeModifAsso");}}

@@ -12,21 +12,21 @@ public interface CommissionDao {
 	
 	public void ajouterCommission(Commission commission); //Ajout d'une commission dans la bdd
 	
-	public Commission getCommission(Integer idCommission); // Récupère la commission à partir de son identifiant
+	public Commission getCommission(Integer idCommission); // Recupere la commission a partir de son identifiant
 	
-	public Commission getCommissionEvent(Integer idEvenement);//Récupère la commission associée à l'identifiant de l'événement en paramètre
+	public Commission getCommissionEvent(Integer idEvenement);//Recupere la commission associee a l'identifiant de l'evenement en parametre
 	
-	public List<Commission> listerCommissionPole(String nomPole); //Liste les commissions associées au pole mis en paramètre
+	public List<Commission> listerCommissionPole(String nomPole); //Liste les commissions associees au pole mis en parametre
 	
-	public void ajouterChoixCommission(Integer idEtudiant, Integer idCommission); //Ajout d'un choix de commission dans les préférences d'un étudiant
+	public void ajouterChoixCommission(Integer idEtudiant, Integer idCommission); //Ajout d'un choix de commission dans les preferences d'un etudiant
 	
-	public List<Commission> listerChoixCommission(Integer idEtudiant); // Liste les préférences d'un étudiant
+	public List<Commission> listerChoixCommission(Integer idEtudiant); // Liste les preferences d'un etudiant
 	
 	public void modifierCommission(Integer idCommission, Integer idetudiant,Integer idpole , String nom, String description, String logo);//modifie les informations d'une commission
 	
 	public void supprimerCommission(Integer idCommission);// Supprime une commission 
 	
-	public void supprimerChoix(Integer idEtudiant); // Supprime toutes les préférences d'un étudiant
+	public void supprimerChoix(Integer idEtudiant); // Supprime toutes les preferences d'un etudiant
 	
-	public void attribuerNouveauRepComm(Integer idCommission, Integer idEtudiant); //attribue un nouveau responsable a la commission en paramètre
+	public void attribuerNouveauRepComm(Integer idCommission, Integer idEtudiant); //attribue un nouveau responsable a la commission en parametre
 }

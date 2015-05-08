@@ -137,7 +137,7 @@ public class EvenementDaoImpl implements EvenementDao {
 	public Evenement getEvenement(Integer idEvenement) {
 		
 		Evenement evenement= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 	    try {
 	        Connection connection = 
 	            DataSourceProvider.getDataSource().getConnection();

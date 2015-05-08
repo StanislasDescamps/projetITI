@@ -21,11 +21,11 @@ public class MesOptionsServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 						
-		//Récupération de toutes les commissions dans une liste
+		//Recuperation de toutes les commissions dans une liste
 		List<Commission> listComm = Manager.getInstance().listerCommission();
 		request.setAttribute("listeComm",listComm);
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		//request.setAttribute("statut", statut);
@@ -47,27 +47,27 @@ public class MesOptionsServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération de l'identifiant de l'utilisateur connecté
+		//Recuperation de l'identifiant de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		
-		//Récupération du bouton sélectionner
+		//Recuperation du bouton sélectionne
 		String btnenregistrer = request.getParameter("enregistrer");
 		String btnreinitialiser = request.getParameter("reinitialiser");
 		
-		//Si sélection du bouton enregistrer
+		//Si selection du bouton enregistrer
 		if(btnenregistrer != null){
-			//Récupération de tous les éléments cochés et ajout dans une liste de format string
+			//Recuperation de tous les elements coches et ajout dans une liste de format string
 			String[] preference = request.getParameterValues("commission");
 			for(int i=0;i<preference.length;i++)
 			{
-				//Ajout du choix de l'utilisateur dans la base de données
+				//Ajout du choix de l'utilisateur dans la base de donnees
 				Integer idCommission=Integer.parseInt(preference[i]);
 				Manager.getInstance().ajouterChoixCommission(idEtudiant,idCommission);
 				
 			}
 			response.sendRedirect("monCalendrier1");}
-		//Si selection du bouton réinitialiser, suppression de tous les choix de l'utilisateur
+		//Si selection du bouton reinitialiser, suppression de tous les choix de l'utilisateur
 		if(btnreinitialiser != null){
 			Manager.getInstance().supprimerChoix(idEtudiant);
 			response.sendRedirect("mesOptions");

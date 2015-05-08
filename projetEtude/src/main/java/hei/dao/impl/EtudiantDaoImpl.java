@@ -86,7 +86,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	
 	public Etudiant getEtudiant(Integer idEtudiant) {
 		Etudiant etudiant= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 	    try {
 	        Connection connection = 
 	            DataSourceProvider.getDataSource().getConnection();
@@ -116,7 +116,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	}
 	public Etudiant getEtudiantMail(String mailEtudiant) {
 		Etudiant etudiant= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 	    try {
 	        Connection connection = 
 	            DataSourceProvider.getDataSource().getConnection();
@@ -148,7 +148,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	@Override
 	public Etudiant getEtudiantResp(Integer idCommission) {
 		Etudiant etudiant= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 	    try {
 	        Connection connection = 
 	            DataSourceProvider.getDataSource().getConnection();
@@ -180,7 +180,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	@Override
 	public Etudiant getEtudiantNomPrenom(String nom, String prenom) {
 		Etudiant etudiant= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 	    try {
 	        Connection connection = 
 	            DataSourceProvider.getDataSource().getConnection();

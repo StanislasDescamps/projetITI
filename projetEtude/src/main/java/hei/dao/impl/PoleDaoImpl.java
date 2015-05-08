@@ -35,7 +35,7 @@ public class PoleDaoImpl implements PoleDao {
 
 	public Pole getPole(Integer idPole) {
 		Pole pole= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 	    try {
 	        Connection connection = 
 	            DataSourceProvider.getDataSource().getConnection();
@@ -61,7 +61,7 @@ public class PoleDaoImpl implements PoleDao {
 	}
 	public Pole getPoleEvent (Integer idEvenement) {
 		Pole pole= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 	    try {
 	        Connection connection = 
 	            DataSourceProvider.getDataSource().getConnection();
@@ -89,7 +89,7 @@ public class PoleDaoImpl implements PoleDao {
 	@Override
 	public Pole getPolebyNom(String nomPole) {
 		Pole pole= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 	    try {
 	        Connection connection = 
 	            DataSourceProvider.getDataSource().getConnection();
@@ -117,7 +117,7 @@ public class PoleDaoImpl implements PoleDao {
 	@Override
 	public Pole getPoleByResp(Integer idEtudiant) {
 			Pole pole= null;
-			// Cr�er une nouvelle connexion � la BDD
+			// Creer une nouvelle connexion a la BDD
 		    try {
 		        Connection connection = 
 		            DataSourceProvider.getDataSource().getConnection();
@@ -145,7 +145,7 @@ public class PoleDaoImpl implements PoleDao {
 	@Override
 	public Integer getIdRespPoleByComm(Integer idCommission) {
 		Integer idResp= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 	    try {
 	        Connection connection = 
 	            DataSourceProvider.getDataSource().getConnection();

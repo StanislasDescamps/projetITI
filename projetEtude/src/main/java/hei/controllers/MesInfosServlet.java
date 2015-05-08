@@ -19,7 +19,7 @@ public class MesInfosServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		Integer statut = (Integer) session.getAttribute("idDroit");
@@ -45,7 +45,7 @@ public class MesInfosServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		Integer statut = (Integer) session.getAttribute("idDroit");

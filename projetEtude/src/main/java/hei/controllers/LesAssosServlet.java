@@ -20,7 +20,7 @@ public class LesAssosServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération de toutes les commissions dans une liste
+		//Recuperation de toutes les commissions dans une liste
 		List<Commission> listeComm = Manager.getInstance().listerCommission();
 		request.setAttribute("listeComm", listeComm);
 		

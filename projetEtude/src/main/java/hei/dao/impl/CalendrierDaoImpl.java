@@ -55,7 +55,7 @@ public class CalendrierDaoImpl implements CalendrierDao{
 
 	public Calendrier getCalendrier(Integer idEtudiant) {
 		Calendrier calendrier= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 	    try {
 	        Connection connection = 
 	            DataSourceProvider.getDataSource().getConnection();

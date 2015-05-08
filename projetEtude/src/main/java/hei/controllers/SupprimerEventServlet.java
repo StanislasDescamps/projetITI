@@ -21,27 +21,27 @@ public class SupprimerEventServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		Integer idEtudiant=(Integer) session.getAttribute("idEtudiant");
 		
-		//Récupération de l'identifiant de l'évènement sélectionné
+		//Recuperation de l'identifiant de l'evenement selectionne
 		Integer idEvent = Integer.parseInt(request.getParameter("idevenement"));
 		
-		//Récupération des information de la commission concernée
+		//Recuperation des information de la commission concernee
 		Commission comm = Manager.getInstance().getCommissionEvent(idEvent);
-		//Récupération de l'identifiant du responsable de commission et du responsable de pole associé
+		//Recuperation de l'identifiant du responsable de commission et du responsable de pole associe
 		Integer idRespComm = comm.getIdetudiant();
 		
-		//Vérification du droit d'accès à cette page
+		//Vérification du droit d'acces a cette page
 		if(statut==0){
 			response.sendRedirect("redirection");
 		}else if(statut==1 && idEtudiant!=idRespComm){
 			response.sendRedirect("redirection");
 		}else{		
 		
-		//Récupération des informations de la commission
+		//Recuperation des informations de la commission
 		Evenement event = Manager.getInstance().getEvenement(idEvent);
 		request.setAttribute("evenement",event);
 		
@@ -55,18 +55,18 @@ public class SupprimerEventServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		
-		//Récupération de l'identifiant de l'évènement sélectionné
+		//Recuperation de l'identifiant de l'evenement selectionne
 		Integer idEvent = Integer.parseInt(request.getParameter("idevenement"));
 		
-		//Récupération de la sélection du bouton
+		//Recuperation de la sélection du bouton
 		String reponse1=request.getParameter("trap1");
 		String reponse2=request.getParameter("trap2");
 		
-		//Si oui est seléctionner alors supprimer la commission de la base de données
+		//Si oui est selectionner alors supprimer la commission de la base de donnees
 		if(reponse1 !=null){
 			if(reponse1.equalsIgnoreCase("OUI")){
 			Manager.getInstance().supprimerEvenement(idEvent);
@@ -77,7 +77,7 @@ public class SupprimerEventServlet extends HttpServlet {
 				}
 			}
 		}
-		//Si non est seléctionner alors retour à la page précédente
+		//Si non est selectionner alors retour a la page precedente
 		if(reponse2 != null){
 			if(reponse2.equalsIgnoreCase("NON")){
 				if(statut==1 || statut==2){

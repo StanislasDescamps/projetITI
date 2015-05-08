@@ -45,10 +45,10 @@ public class CalendrierHeiServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération de la liste de tous les événements
+		//Recuperation de la liste de tous les evenements
 		List<Evenement> listEvent = Manager.getInstance().listerEvenementNonModere();
 		
-		//Récupération du statut de l'utilisateur
+		//Recuperation du statut de l'utilisateur
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
@@ -56,13 +56,13 @@ public class CalendrierHeiServlet extends HttpServlet {
 			request.setAttribute("statut", statut);
 		}
 		
-		//Création d'une liste de format String
+		//Creation d'une liste de format String
 		List<String> listeDate=new ArrayList<String>();
-		//Récupération de la date du système
+		//Recuperation de la date du systeme
 		Date dateToday=new Date();
 		Integer aujourdhui = DateToInt(dateToday);
 		
-		//Récupération des dates des événements non terminés la liste listeDate
+		//Recuperation des dates des evenements non termines la liste listeDate
 		for (int i=0; i<listEvent.size(); i++) {
 			Evenement event= Manager.getInstance().getEvenement(listEvent.get(i).getIdEvenement());
 			if(aujourdhui== Integer.parseInt(stringprete(event.getDateFin()))||aujourdhui<Integer.parseInt(stringprete(event.getDateFin()))){		
@@ -71,7 +71,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 		}
 		
 		if(listeDate.size()!=1){
-			//Ordonne les dates - Les dates sont transformées en format int
+			//Ordonne les dates - Les dates sont transformees en format int
 			int tableaus[] = new int[listeDate.size()];
 			for(int i=0; i<listeDate.size(); i++){
 				tableaus[i]= Integer.parseInt(stringprete(listeDate.get(i)));
@@ -89,14 +89,14 @@ public class CalendrierHeiServlet extends HttpServlet {
 			
 			List<Evenement> listeEvent=new ArrayList<Evenement>();
 			
-			//Récupération des événements non passés à l'aide des dates récupérées
+			//Recuperation des evenements non passes a l'aide des dates recuperees
 			for (int j=0; j<listeDate.size(); j++) {
 				Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnee.get(j));
 				listeEvent.add(Event);
 				request.setAttribute("listeEventEntiere", listeEvent);
 			}
 		}else{
-			//Si la liste de date est égale à 1, la fonction renverra immédiatement l'événement
+			//Si la liste de date est egale a 1, la fonction renverra immédiatement l'evenement
 			List<Evenement> listeEvent=new ArrayList<Evenement>();
 			for (int j=0; j<listeDate.size(); j++) {
 				Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
@@ -105,7 +105,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 			}
 		}
 		
-		//Récupération de la liste des identifiants des événements auxquel paticipe l'utilisateur
+		//Recuperation de la liste des identifiants des evenements auxquel paticipe l'utilisateur
 		List<Integer> listeEventPart=Manager.getInstance().listerEvenementParticipationByUser(idEtudiant);
 		request.setAttribute("listeEventPart", listeEventPart);
 		
@@ -117,25 +117,25 @@ public class CalendrierHeiServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération des informations personnelles de l'étudiant
+		//Recuperation des informations personnelles de l'etudiant
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		
-		//Récupération de la valeur du bouton préssé
+		//Recuperation de la valeur du bouton presse
 		String valueBouton=request.getParameter("participer");
 		
-		//Récupération de l'identifiant de l'événement choisi par l'étudiant
+		//Recuperation de l'identifiant de l'evenement choisi par l'etudiant
 		Integer idEvent = Integer.parseInt(request.getParameter("idEvent"));
 		
 		if(valueBouton.equals("Participer")){
-			//Ajout de la participation de l'utilisateur dans la base de données
+			//Ajout de la participation de l'utilisateur dans la base de donnees
 			try {
 				Manager.getInstance().ajouterParticipant(idEvent,idEtudiant);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}else if(valueBouton.equals("Ne plus Participer")){
-			//Retirer de la participation de l'utilisateur dans la base de données
+			//Retirer de la participation de l'utilisateur dans la base de donnees
 			try {
 				Manager.getInstance().supprimerParticipant(idEvent,idEtudiant);
 			} catch (Exception e) {

@@ -33,7 +33,7 @@ public class ConnexionServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		//Si l'utilisateur n'est pas connecté, fermer la session
+		//Si l'utilisateur n'est pas connecte, fermer la session
         if(request.getParameter("logout") != null){
         	 HttpSession session = request.getSession(true); 
         	 session.invalidate();
@@ -46,16 +46,16 @@ public class ConnexionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
-		//Récupération des informations pour la connexion
+		//Recuperation des informations pour la connexion
 		String mail = request.getParameter("mail");
 		String password = request.getParameter("pass");
-		//Récupération de la valeur du bouton actionné
+		//Recuperation de la valeur du bouton actionne
 		String connexion = request.getParameter("connexion");
 		String passoublie = request.getParameter("passoublie");
 		
 		Etudiant etudiant = Manager.getInstance().getEtudiantMail(mail);
 		
-		//Si password et login bon alors récupérer informations personnelles sinon message d'erreur
+		//Si password et login bon alors recuperer informations personnelles sinon message d'erreur
 		if(connexion != null){
 		if (Manager.getInstance().etudiantExiste(mail,password)) {
 			HttpSession session = request.getSession(true);
@@ -67,7 +67,7 @@ public class ConnexionServlet extends HttpServlet {
 			session.setAttribute("firstConnexion", etudiant.isFirstConnexion());
 			session.setAttribute("etudiantConnecte", new Etudiant(mail,password));
 			
-			//Récupération de firstConnexion
+			//Recuperation de firstConnexion
 			Boolean firstConnexion = (Boolean) session.getAttribute("firstConnexion");
 			Integer idetudiant= (Integer) session.getAttribute("idEtudiant");
 			//Si premiere connexion rediriger vers mes Preferences sinon vers mon calendrier
@@ -84,11 +84,11 @@ public class ConnexionServlet extends HttpServlet {
 	    	view.forward(request, response);
 		}
 		}
-		//Récupération des informations si mot de passe oublié
+		//Recuperation des informations si mot de passe oublie
 		String mail2 = request.getParameter("mailmdp");
 		Etudiant etudiant2 = Manager.getInstance().getEtudiantMail(mail2);
 		
-		//Si le mail existe dans la base de donnée, envoyer un mail avec le mot de passe sinon message d'erreur
+		//Si le mail existe dans la base de donnee, envoyer un mail avec le mot de passe sinon message d'erreur
 		if(passoublie != null){
 		if(etudiant2 != null){
 			try {
@@ -112,12 +112,12 @@ public class ConnexionServlet extends HttpServlet {
 	private void redirectCal(HttpServletResponse resp) throws IOException {
 	    resp.sendRedirect(getServletContext().getContextPath()+"/monCalendrier1");
 	}
-	//Renvoi vers la page de préférence
+	//Renvoi vers la page de preference
 		private void redirectPref(HttpServletResponse resp) throws IOException {
 		    resp.sendRedirect(getServletContext().getContextPath()+"/mesOptions");
 		}	
 	
-	//Fonction permettant l'envoi d'un mail pour rappeler le mot de passe à l'utilisateur
+	//Fonction permettant l'envoi d'un mail pour rappeler le mot de passe a l'utilisateur
 private boolean envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
 		
 	boolean envoi = false;
@@ -131,7 +131,7 @@ private boolean envoyerMail(String nom, String prenom, String mail, String passw
 	       
 		    Session		session	    = Session.getInstance(props,null);
 	 
-		  //Rédaction du mail
+		  //Redaction du mail
 		    Message		message	    = new MimeMessage(session);
 		    message.setFrom(new InternetAddress("heidiarybystanetnico@gmail.com"));
 		    

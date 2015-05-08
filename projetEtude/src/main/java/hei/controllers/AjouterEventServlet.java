@@ -23,7 +23,7 @@ public class AjouterEventServlet extends HttpServlet {
 		protected void doGet(HttpServletRequest request, HttpServletResponse response)
 				throws ServletException, IOException {
 			
-			//Récupération du statut de l'utilisateur connecté
+			//Recuperation du statut de l'utilisateur connecte
 			HttpSession session = request.getSession(true);
 			Integer statut = (Integer) session.getAttribute("idDroit");
 			Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
@@ -56,10 +56,10 @@ public class AjouterEventServlet extends HttpServlet {
 			
 			
 			
-			//Récupération des listes de tous les evenements 
+			//Recuperation des listes de tous les evenements 
 			List<Evenement> listeEvenement = Manager.getInstance().listerEvenement();
 			
-			//Récupération des champs			
+			//Recuperation des champs			
 			String nomEvent = request.getParameter("nomEvent");
 			String dateDebut=request.getParameter("dateDebut");
 			String heureDebut=request.getParameter("heureDebut");
@@ -72,7 +72,7 @@ public class AjouterEventServlet extends HttpServlet {
 			int i =0;
 			
 					
-			//Vérification de l'inexistance de l'évènement
+			//Verification de l'inexistance de l'evenement
 			while(eventExist == false && i<listeEvenement.size())
 			{
 				if(nomEvent.toLowerCase().equals(listeEvenement.get(i).getTitreEvent().toLowerCase()) && dateDebut.equals(listeEvenement.get(i).getDateDebut()) && heureDebut.equals(listeEvenement.get(i).getHeureDebut()))

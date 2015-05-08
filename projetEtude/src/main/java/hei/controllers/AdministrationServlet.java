@@ -23,24 +23,24 @@ public class AdministrationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		
-		//Vérification du droit d'accès à cette page
+		//Verification du droit d'acces a cette page
 		if(statut !=3){
 			response.sendRedirect("redirection");
 		}else{
 		
-		//Récupération de la liste de tous les utilisateurs
+		//Recuperation de la liste de tous les utilisateurs
 		List<Etudiant> listEtudiant = Manager.getInstance().listerEtudiant();
 		request.setAttribute("listEtudiant", listEtudiant);
 		
-		//Récupération de toutes les commissions
+		//Recuperation de toutes les commissions
 		List<Commission> listeComm = Manager.getInstance().listerCommission();
 		request.setAttribute("listeComm", listeComm);
 		
-		//Récupération de toutes les commissions
+		//Recuperation de toutes les commissions
 		List<Pole> listePole = Manager.getInstance().listerPole();
 		request.setAttribute("listePole", listePole);
 		
@@ -57,15 +57,15 @@ public class AdministrationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération de l'identifiant de l'utilisateur sélectionné
+		//Recuperation de l'identifiant de l'utilisateur selectionne
 		Integer idEtudiant = Integer.parseInt(request.getParameter("idEtudiant"));
 		Integer idDroit = Integer.parseInt(request.getParameter("droits"));
 		
-		//Récupération de la liste de tous les utilisateurs
+		//Recuperation de la liste de tous les utilisateurs
 		List<Etudiant> listEtudiant = Manager.getInstance().listerEtudiant();
 		request.setAttribute("listEtudiant", listEtudiant);
 				
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 					

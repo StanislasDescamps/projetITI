@@ -21,11 +21,11 @@ public class ListeModifAssosServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération de toutes les commissions dans une liste
+		//Recuperation de toutes les commissions dans une liste
 		List<Commission> listComm = Manager.getInstance().listerCommission();
 		request.setAttribute("listeComm", listComm);
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 				HttpSession session = request.getSession(true);
 				Integer statut = (Integer) session.getAttribute("idDroit");
 				//request.setAttribute("statut", statut);

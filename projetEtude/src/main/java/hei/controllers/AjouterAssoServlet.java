@@ -23,12 +23,12 @@ public class AjouterAssoServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		//request.setAttribute("statut", statut);
 		
-		//Vérification du droit d'accès à cette page
+		//Verification du droit d'acces a cette page
 		if(statut!=3){
 			response.sendRedirect("redirection");
 			
@@ -46,11 +46,11 @@ public class AjouterAssoServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 				
-		//Récupération des listes de tous les etudiants et commissions
+		//Recuperation des listes de tous les etudiants et commissions
 		List<Etudiant> listeEtudiant = Manager.getInstance().listerEtudiant();
 		List<Commission> listeCommission=Manager.getInstance().listerCommission();
 		
-		//Récupération des champs
+		//Recuperation des champs
 		String nomAsso = request.getParameter("nomAsso");
 		String mailReferent = request.getParameter("referent");
 		String pole = request.getParameter("bureau");
@@ -71,7 +71,7 @@ public class AjouterAssoServlet extends HttpServlet{
 		}else{
 			idPole = Manager.getInstance().getPolebyNom(pole).getIdPole();
 				
-		//Vérification de l'inexistance de la commission
+		//Verification de l'inexistance de la commission
 		while(Commexistante == false && j<listeCommission.size())
 		{
 			if(nomAsso.toLowerCase().equalsIgnoreCase(listeCommission.get(j).getNomCommission().toLowerCase()))
@@ -84,7 +84,7 @@ public class AjouterAssoServlet extends HttpServlet{
 			else{j++;}
 		}	
 		
-		//Si inexistante, vérification de l'existance du référent
+		//Si inexistante, verification de l'existance du referent
 		if(!Commexistante){
 				while(Etudiantexistant==false && i<listeEtudiant.size())
 			
@@ -96,7 +96,7 @@ public class AjouterAssoServlet extends HttpServlet{
 					else {Etudiantexistant=false;
 					i++;}
 					}
-			//Si référent existant, récupération de ses infos et création de la nouvelle commission sinon message erreur
+			//Si referent existant, recuperation de ses infos et creation de la nouvelle commission sinon message erreur
 		if(Etudiantexistant){
 			Integer idEtudiant = Manager.getInstance().getEtudiantMail(mailReferent).getIdEtudiant();
 			

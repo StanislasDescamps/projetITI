@@ -21,18 +21,18 @@ public class ListeParticipationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		
-		//Vérification du droit d'accès à cette page
+		//Verification du droit d'acces a cette page
 		if(statut != 1){
 			response.sendRedirect("redirection");
 		}else{
-		//Récupération de l'identifiant de la commission sélectionnée
+		//Recuperation de l'identifiant de la commission selectionnee
 		Integer idEvenement = Integer.parseInt(request.getParameter("idevenement"));
 			
-		//Récupération de la liste des participants
+		//Recuperation de la liste des participants
 		List<Etudiant> listParticipant = Manager.getInstance().listerParticipant(idEvenement);
 		
 		//Taille de la liste de participant

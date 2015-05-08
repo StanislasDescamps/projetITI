@@ -23,7 +23,7 @@ public class EspaceRespServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération des informations de l'utilisateur connecté
+		//Recuperation des informations de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
@@ -35,12 +35,12 @@ public class EspaceRespServlet extends HttpServlet{
 			request.setAttribute("menuOption","menuResp.jsp");
 			request.setAttribute("statut", statut);
 			if(statut==1){
-				//Récupération de la liste des évènements dont l'utilisateur est responsable
+				//Recuperation de la liste des evenements dont l'utilisateur est responsable
 				Commission comm = Manager.getInstance().getCommissionByIdRef(idEtudiant);
 				request.setAttribute("commission", comm);
 				
 				Integer idCommission=comm.getIdcommission();
-				//Récupération de la liste des évènements dont l'utilisateur est responsable
+				//Recuperation de la liste des evenements dont l'utilisateur est responsable
 				List<Evenement> listEvent = Manager.getInstance().listerEvenementByCommission(idCommission);
 				request.setAttribute("listEvent", listEvent);
 			}

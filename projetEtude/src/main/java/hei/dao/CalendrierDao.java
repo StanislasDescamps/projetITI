@@ -10,5 +10,5 @@ public interface CalendrierDao {
 	
 	public void ajouterCalendrier(Calendrier calendrier); //Ajout d'un nouveau calendrier dans la bdd
 	
-	public Calendrier getCalendrier(Integer idEtudiant); //Récupération d'un calendrier a partir de l'identifiant d'un étudiant
+	public Calendrier getCalendrier(Integer idEtudiant); //Recuperation d'un calendrier a partir de l'identifiant d'un etudiant
 }

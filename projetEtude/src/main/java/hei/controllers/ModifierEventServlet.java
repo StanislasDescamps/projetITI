@@ -23,7 +23,7 @@ public class ModifierEventServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération du statut de l'utilisateur connecté
+		//Recuperation du statut de l'utilisateur connecte
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		//request.setAttribute("statut", statut);
@@ -36,10 +36,10 @@ public class ModifierEventServlet extends HttpServlet {
 			request.setAttribute("menuOption","menuOption.jsp");
 		}
 				
-		//Récupération de l'identifiant de la commission sélectionnée
+		//Recuperation de l'identifiant de la commission selectionnee
 		Integer idEvent = Integer.parseInt(request.getParameter("idevenement"));
 		
-		//Récupération des informations de la commission
+		//Recuperation des informations de la commission
 		Evenement event = Manager.getInstance().getEvenement(idEvent);
 		request.setAttribute("evenement",event);
 				
@@ -52,12 +52,12 @@ public class ModifierEventServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Récupération de l'identifiant de la commission sélectionnée
+		//Recuperation de l'identifiant de la commission sélectionnee
 		Integer idEvenement = Integer.parseInt(request.getParameter("idevenement"));
 		//Récupération des listes de tous les evenements 
 		List<Evenement> listeEvenement =Manager.getInstance().listerEvenement();
 		
-		//Récupération des champs
+		//Recuperation des champs
 		String idCommissionString=request.getParameter("choixCommission");
 		String nomEvent = request.getParameter("nomEvent");
 		String dateDebut=request.getParameter("dateDebut");
@@ -71,7 +71,7 @@ public class ModifierEventServlet extends HttpServlet {
 		int i =0;
 		
 				
-		//Vérification de l'inexistance de l'évènement
+		//Verification de l'inexistance de l'evenement
 		while(eventExist == false && i<listeEvenement.size())
 		{
 			if(nomEvent.toLowerCase().equals(listeEvenement.get(i).getTitreEvent().toLowerCase()) && dateDebut.equals(listeEvenement.get(i).getDateDebut()) && heureDebut.equals(listeEvenement.get(i).getHeureDebut()))

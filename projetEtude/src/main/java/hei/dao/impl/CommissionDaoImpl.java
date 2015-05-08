@@ -64,7 +64,7 @@ public class CommissionDaoImpl implements CommissionDao{
 	public Commission getCommission(Integer idCommission) {
 		
 		Commission commission= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 	    try {
 	        Connection connection = 
 	            DataSourceProvider.getDataSource().getConnection();
@@ -94,7 +94,7 @@ public class CommissionDaoImpl implements CommissionDao{
 	public Commission getCommissionEvent(Integer idEvenement) {
 			
 		Commission commission= null;
-		// Cr�er une nouvelle connexion � la BDD
+		// Creer une nouvelle connexion a la BDD
 		  try {
 		       Connection connection = 
 		           DataSourceProvider.getDataSource().getConnection();
