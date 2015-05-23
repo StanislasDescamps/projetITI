@@ -5,7 +5,7 @@
 <html>
     <head>
         <!-- En-tête de la page -->
-        <meta charset="utf-8" />
+        <meta charset="utf-8" name="viewport" content="initial-scale=1.0"/>
         <title>HEI-Diary Evénements modérés</title>
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>

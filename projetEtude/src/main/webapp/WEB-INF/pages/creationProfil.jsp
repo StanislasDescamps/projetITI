@@ -3,7 +3,7 @@
 <html>
     <head>
         <!-- En-tête de la page -->
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" name="viewport" content="initial-scale=1.0"/>
         <title>Création du profil</title>
     </head>
 	<body style="font-family: arial, Helvetica;">
