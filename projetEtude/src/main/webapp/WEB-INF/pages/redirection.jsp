@@ -21,8 +21,6 @@
 		<h3 class="posTextRedirect"> Vous n'avez pas les droits pour acéder à cette page, veuillez vous rediriger vers une de vos pages accessibles</h3>
 		
 		
-		<footer>
-			<div>Réalisation HEI</div>
-		</footer>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 </html>	

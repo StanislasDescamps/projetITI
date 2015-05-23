@@ -39,8 +39,6 @@
 			<c:forEach var="etudiant" items="${listParticipant}">
 				<h4 class="nomParticipant">${etudiant.nomEtudiant} ${etudiant.prenomEtudiant}</h4>			
 			</c:forEach>
-		<footer>
-			<div> Réalisation HEI </div>
-		</footer>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 </html>

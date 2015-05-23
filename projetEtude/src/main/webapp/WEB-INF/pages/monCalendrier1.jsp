@@ -55,8 +55,6 @@
 			<div class="clear"></div>	
 		</section>
 		</c:forEach>
-		<footer>
-			<div> Réalisation HEI </div>
-		</footer>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 </html>

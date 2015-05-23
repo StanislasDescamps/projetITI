@@ -29,8 +29,6 @@
 				<input type="submit" name="trap1" id="trap" value="OUI" />
 				<input type="submit" name="trap2" id="trap" value="NON" />
 			</form>
-		<footer>
-			<div> Réalisation HEI </div>
-		</footer>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 </html>

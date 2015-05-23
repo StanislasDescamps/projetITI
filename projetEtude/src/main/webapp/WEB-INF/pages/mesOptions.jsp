@@ -97,8 +97,6 @@
 				<input type="submit" name="enregistrer" value="Ajouter mes nouveaux choix"/>
 			</form>
 		</section>
-		<footer>
-			<div> Réalisation HEI </div>
-		</footer>
+		<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 </html>
