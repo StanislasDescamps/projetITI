@@ -15,4 +15,6 @@
 				<label for="logo">Logo :</label>
 				<input type="file" name="logo" id="logo"/></br>
 				<input type="submit" value="ok"/>
-		</form>	
+		</form>
+	</body>
+</html>	
