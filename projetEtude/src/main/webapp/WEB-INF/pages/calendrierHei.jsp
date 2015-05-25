@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +8,12 @@
         <meta charset="utf-8" name="viewport" content="initial-scale=1.0"/>
         <title>HEI-Diary Calendrier HEI</title>
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
+        <script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jsmenu.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js"></script>
+		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js"></script>
     </head>
 	<body>
 		<!-- Corps de la page -->
@@ -16,9 +21,20 @@
 		<header id="entete">
 			<h1 class="entete">HEI-Diary</h1>
 		</header>
-		<jsp:include page="menu.jsp">
-			<jsp:param name="pageSelectionnee" value="calendrierHei" />
-		</jsp:include>
+		
+		<div class="mobile">
+			<div class="mobile_menu">&equiv;</div>
+			<jsp:include page="menu.jsp">
+				<jsp:param name="pageSelectionnee" value="calendrierHei" />
+			</jsp:include>
+		</div>
+		
+		<div class="desktop">
+			<jsp:include page="menu.jsp">
+				<jsp:param name="pageSelectionnee" value="calendrierHei" />
+			</jsp:include>
+		</div>
+		
 		<div class="clear"></div>
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>

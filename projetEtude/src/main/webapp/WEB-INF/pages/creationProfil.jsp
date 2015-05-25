@@ -30,6 +30,7 @@
 			</fieldset>
 		</form>
 		
+		<div class="clear"></div>
 		<div style="position:relative;left:400px;max-width:800px;">
 		<%
 		 if(request.getAttribute("loginError")!=null) {
@@ -43,6 +44,8 @@
 	       }
 		%>
 		</div>
+		
+		<div class="clear"></div>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 </html>
