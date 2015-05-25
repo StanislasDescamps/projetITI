@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+	//Onglet liste
 	$(".tab_content").hide();
 	$(".tab_content:first").show(); 
 

@@ -2,11 +2,11 @@
 /**** Desktop ****/
 /*Body*/
 .mobile{
-	display:none;
+	display:none !important;
 }
 
 .desktop{
-	display:block;
+	display:block !important;
 }
 
 body{
@@ -326,6 +326,7 @@ section.listModif{
 ul.tabs {
 	margin-right: auto;
 	margin-left: auto;
+	margin-bottom:0px;
 	padding: 0;
 	list-style: none;
 	height: 32px;
@@ -448,7 +449,7 @@ form.mesInfos{
 	margin:20px;
 }
 
-/*Espace président*/
+/*Espace president*/
 
 #titre2{
 	text-align:center;
@@ -501,7 +502,7 @@ form.mesInfos{
 	margin-top:10px;
 }
 
-/*Ajouter un événement*/
+/*Ajouter un evenement*/
 .ajoutEvent{
 	margin-left:15%;
 	width:70%;
@@ -548,7 +549,7 @@ form.mesInfos{
 	width:42%;
 }
 
-/*Présentation asso*/
+/*Presentation asso*/
 
 img#logo{
 	height:60px;
@@ -692,16 +693,16 @@ input#idcommission, input#idevenement{
 	margin: 5% 0 0 45%;
 }
 
-/**** Mobile ****/
+/********************************************* Mobile *******************************************/
 @media only screen and (max-device-width:480px) {
 /*Body*/
 
 	.desktop{
-		display:none;
+		display:none !important;
 	}
 	
 	.mobile{
-		display:block;
+		display:block !important;
 	}
 	
 	body{
@@ -715,8 +716,9 @@ input#idcommission, input#idevenement{
 	}
 	
 	h1.entete{
-		margin:5px 25%;
-		width:50%;
+		margin:5px;
+		width:100%;
+		text-align:center
 	}
 	
 	aside{
@@ -726,6 +728,72 @@ input#idcommission, input#idevenement{
 	.btnEnregistrer{
 	float:right;
 	}
+
+/* header */
+
+.mobile_menu{
+		display:block;
+		position:absolute;
+		top:5px;
+		left:5px;
+		z-index:2;
+		font-size:36px;
+		line-height:36px;
+		width:26px;
+		overflow:visible;
+		font-family:icon;
+		font-weight:bold;
+		cursor:pointer;
+	}
+	
+	/*Navigation*/
+
+nav#navigation li{
+	margin-top:0;
+	display:block;
+	padding:2px;
+	background: none;
+	margin-right:0;
+}
+nav#navigation ul{
+	position:absolute;
+	background:#EEE8AA;
+	float:left;
+	display: block;
+ 	-webkit-margin-before: 0em;
+  	-webkit-margin-after: 0em;
+  	-webkit-margin-start: 0px;
+  	-webkit-margin-end: 0px;
+  	-webkit-padding-start: 0px;
+  	padding:2% 0 85%;
+  	z-index:5;
+}
+
+nav#navigation{
+	position:relative;
+	margin-left:0;
+	width:100%;
+	background : none;
+	text-align : left;
+	height : 100%;
+	box-shadow : none;
+}
+
+.visible{
+    height:100% !important;
+}
+.invisible{
+	height:0% !important;
+}
+
+nav a{
+	text-decoration:none;
+	color :#000000;
+}
+
+nav li.active a{
+	color :#FF4500;
+}
 	
 /*Connexion*/
 	.identification{
@@ -742,7 +810,7 @@ input#idcommission, input#idevenement{
 	}
 	
 	.inputConnexion{
-		width:100%;
+		width:98%;
 	}
 	
 	.errorConnexion1{
@@ -885,7 +953,7 @@ input#idcommission, input#idevenement{
 		width:90%;
 	}
 	
-/*Espace Président*/
+/*Espace President*/
 	
 	.entier{
 		margin-left:0;
@@ -899,7 +967,7 @@ input#idcommission, input#idevenement{
 		margin:10px 20px;
 	}
 	
-	/*Ajouter un événement*/
+	/*Ajouter un ï¿½vï¿½nement*/
 	.ajoutEvent{
 		margin-left:15%;
 		width:70%;
