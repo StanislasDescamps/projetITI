@@ -41,10 +41,10 @@ public class SessionFilter implements Filter {
 
         //si non connecte, renvoi sur la page de connexion
         if(utilisateurConnecte==null){
-        	if ( uri.indexOf("/css") > 0){
+        	if ( uri.endsWith("/css/responsive.css")){
                 chain.doFilter(req, resp);
             }
-            else if( uri.indexOf("/img") > 0){
+            else if(uri.endsWith("/img/test2.jpg")){
                 chain.doFilter(req, resp);
             }else{
             	resp.sendRedirect(req.getServletContext().getContextPath()+"/connexion");}
