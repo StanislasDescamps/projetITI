@@ -5,33 +5,31 @@
         <!-- En-tête de la page -->
         <meta charset="utf-8" name="viewport" content="initial-scale=1.0"/>
         <title>Création du profil</title>
+        <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
-	<body style="font-family: arial, Helvetica;">
-		<!-- Corps de la page 
-		<link rel="stylesheet" href="css/creationProfil.css">-->
-		<h1 style="text-align:center;color: red;width:100%;margin:10px auto;" id="titre1">HEI-Diary</h1>
-		<h1 style="text-align:center;color: red;width:100%;margin:0 auto;" id="titre2">Bienvenue sur HEI-Diary</h1>
-		<h2 style="text-align:center;color: blue;margin:10px auto;width:50%;">L'application qui vous tient informé</h2>
-		<h3 style="text-align:center; margin:10px auto;width:50%;">Première étape : Création du profil</h3>
+	<body style="font-family: Arial, Helvetica;">
+		<!-- Corps de la page -->
+		<h1 class="titreBienvenue">HEI-Diary</h1>
+
 				
-		<form id="creationProfil" action="creationProfil" method="post" style="float:left;margin: 30px 30% 10px 30%;width:40%;height:100px;">
+		<form id="creationProfil" action="creationProfil" method="post" class="identification">
 			<fieldset>
-				<legend>Profil</legend>
+				<legend>Création du profil</legend>
 					<label for="nom">Nom :</label>
-					<input type="text" name="nom" id="nom"required/>
+					<input type="text" name="nom" id="nom" class="inputConnexion" required/>
 				<br/>
 					<label for="prenom">Prénom :</label>
-					<input type="text" name="prenom" id="prenom"required/>
+					<input type="text" name="prenom" id="prenom" class="inputConnexion" required/>
 				<br/>
 					<label for="mail">Adresse email :</label>
-					<input type="text" name="mail" id="mail"required/>
+					<input type="text" name="mail" id="mail" class="inputConnexion" required/>
 				<br/>
 					<input type="submit" value="Enregistrer" id="btn"/>
 			</fieldset>
 		</form>
 		
 		<div class="clear"></div>
-		<div style="position:relative;left:400px;max-width:800px;">
+		<div class="messageCreationProfil">
 		<%
 		 if(request.getAttribute("loginError")!=null) {
 	           out.print((String)request.getAttribute("loginError"));

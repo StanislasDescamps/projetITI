@@ -88,10 +88,18 @@ footer{
 }
 	
 .creerProfil{
-	margin:0 30% 0 0;
+	margin:30px 30% 0 0;
 	float:right;
 	text-decoration:none;
 }
+
+/*CréationProfil*/
+.messageCreationProfil{
+	position:relative;
+	left:400px;
+	max-width:800px;
+}
+
 
 /*Aside*/
 .deconnexion{

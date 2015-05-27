@@ -8,8 +8,7 @@
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
     </head>
 	<body style="font-family: Arial, Helvetica;">
-		<!-- Corps de la page 
-		<link rel="stylesheet" href="css/connexion.css">-->
+		<!-- Corps de la page -->
 		<h1 class="titreBienvenue">Bienvenue sur HEI-Diary</h1>
 		
 		
