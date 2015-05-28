@@ -53,7 +53,7 @@
 		<section id="${evenement.debut}">
 			<h2 class="dateEvent"><fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/></h2>
 				<article id="${evenement.nomPole}" class="resume">
-					<img class="imgCal"src="${evenement.image}"/>
+					<img class="imgCal"src="${evenement.image}" alt="${evenement.nomCommission}" title="${evenement.nomCommission}"/>
 						
 						<c:set var="idEvent" value="${evenement.idEvenement}"/>
 						<c:forEach var="item" items="${listeEventPart}">
