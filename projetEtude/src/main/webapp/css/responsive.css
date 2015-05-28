@@ -160,6 +160,10 @@ nav#navigationOption{
 	margin-bottom:10px;
 }
 
+nav#navigationOption ul{
+	margin-top:9px;
+}
+
 nav#navigationOption li{
 	top:10px;
 	display:inline-block;
@@ -838,6 +842,15 @@ nav#navigationOption ul{
 nav#navigationOption a{
 	font-size:14px;
 }
+
+.navPresMobile{
+	margin:0 25% 10px;
+}
+
+.separation{
+	border-bottom:1px solid;
+	margin: 0 10% 10px;
+}
 	
 /*Connexion*/
 	.identification{
@@ -1094,7 +1107,17 @@ nav#navigationOption a{
 	form.ajoutAsso{
 		position: relative;
 		top:20px;
-		margin:20px 20px 20px 10px;
+		margin:0px 20px 20px 10px;
 		width:90%;
+	}
+	
+	section#bouton{
+		margin-bottom:25px;
+	}
+	
+	/*Modifier une asso*/
+	
+	.taille15{
+		font-size:15px;
 	}
 }

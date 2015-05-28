@@ -44,7 +44,7 @@
 		</aside>
 		<div class="clear"></div>
 		
-		<h3 id="titre">Modifier une association</h3>
+		<h3 class="desktop" id="titre">Modifier une association</h3>
 		
 		<jsp:include page="menuConfig.jsp">
 			<jsp:param name="pageSelectionnee" value="listeModifAsso"/>
@@ -62,7 +62,7 @@
 			<div class="tab_container"> 
 	
 				<div id="tab1" class="tab_content"> 
-					<ul>
+					<ul class="taille15">
 						<c:forEach var="commission" items="${listeComm}">
 							<c:if test="${commission.idpole==1}">
 							<li>${commission.nomCommission} <a href="modifierAsso?idcommission=${commission.idcommission}">Modifier</a>    <a href="supprimerAsso?idcommission=${commission.idcommission}">Supprimer</a></li>
@@ -71,7 +71,7 @@
 					</ul>
 				</div><!-- #tab1 -->
 				<div id="tab2" class="tab_content"> 
-					<ul>
+					<ul class="taille15">
 						<c:forEach var="commission" items="${listeComm}">
 							<c:if test="${commission.idpole==2}">
 							<li>${commission.nomCommission} <a href="modifierAsso?idcommission=${commission.idcommission}">Modifier</a>    <a href="supprimerAsso?idcommission=${commission.idcommission}">Supprimer</a></li>
@@ -80,7 +80,7 @@
 					</ul>
 				</div><!-- #tab2 -->
 				<div id="tab3" class="tab_content"> 
-					<ul>
+					<ul class="taille15">
 						<c:forEach var="commission" items="${listeComm}">
 							<c:if test="${commission.idpole==3}">
 							<li>${commission.nomCommission} <a href="modifierAsso?idcommission=${commission.idcommission}">Modifier</a>    <a href="supprimerAsso?idcommission=${commission.idcommission}">Supprimer</a></li>
@@ -89,7 +89,7 @@
 					</ul>
 				</div><!-- #tab3 -->
 				<div id="tab4" class="tab_content"> 
-					<ul>
+					<ul class="taille15">
 						<c:forEach var="commission" items="${listeComm}">
 							<c:if test="${commission.idpole==4}">
 							<li>${commission.nomCommission} <a href="modifierAsso?idcommission=${commission.idcommission}">Modifier</a>    <a href="supprimerAsso?idcommission=${commission.idcommission}">Supprimer</a></li>
@@ -98,7 +98,7 @@
 					</ul>
 				</div><!-- #tab4 -->
 				<div id="tab5" class="tab_content"> 
-					<ul>
+					<ul class="taille15">
 						<c:forEach var="commission" items="${listeComm}">
 							<c:if test="${commission.idpole==5}">
 							<li>${commission.nomCommission} <a href="modifierAsso?idcommission=${commission.idcommission}">Modifier</a>    <a href="supprimerAsso?idcommission=${commission.idcommission}">Supprimer</a></li>

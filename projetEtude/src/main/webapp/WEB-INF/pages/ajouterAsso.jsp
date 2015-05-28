@@ -42,7 +42,7 @@
 		<aside class="deconnexion">
 			<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 		</aside>
-		<h3 id="titre">Ajouter une association</h3>
+		<h3 class="desktop" id="titre">Ajouter une association</h3>
 				
 		<jsp:include page="menuConfig.jsp">
 			<jsp:param name="pageSelectionnee" value="ajouterAsso"/>
@@ -78,6 +78,7 @@
 			<section class="descriptionNewEvent">
 				<textarea name="description" id="descriptionNewEvent" placeholder="Description de l'association" rows="10" cols="50" required></textarea>
 			</section>
+			<div class="clear"></div>
 			<section id="bouton">
 				<input type="reset" value="Réinitialiser"/>
 				<input type="submit" class="btnEnregistrer" value="Enregistrer"/>

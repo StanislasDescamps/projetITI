@@ -12,7 +12,7 @@
 	<body>
 		<!-- Corps de la page -->
 		<script type="text/javascript" src="js/jquery.js" ></script>
-		<script language="javascript" type="text/javascript" src="js/js2.js"></script>
+		<script type="text/javascript" src="js/js2.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jsmenu.js"></script>
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -47,12 +47,11 @@
 		
 		<!--cette section est pour tous les administrateurs -->
 		
-			<h3 id="titre">Configuration</h3>
-			
-			
+			<h3 class="desktop" id="titre">Configuration</h3>
 		<jsp:include page="menuConfig.jsp">
 			<jsp:param name="pageSelectionnee" value="configDroit"/>
 		</jsp:include>
+		
 		<div class="clear"></div>
 			
 		<c:forEach var="etudiant" items="${listEtudiant}">
