@@ -30,6 +30,7 @@ public class ModerationServlet extends HttpServlet {
 			response.sendRedirect("redirection");
 		}else{
 			
+			request.setAttribute("menuOption","menuAdmin.jsp");
 			//Recuperation de la liste de tous les evenements
 			List<Evenement> listeEventModere = Manager.getInstance().listerEvenementModere();
 			
