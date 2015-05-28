@@ -152,7 +152,7 @@ nav li.active a{
 	color :#FF4500;
 }
 
-nav#navigationOption{
+nav.navigationOption{
 	float:left;
 	width:52%;
 	height:50px;
@@ -160,11 +160,11 @@ nav#navigationOption{
 	margin-bottom:10px;
 }
 
-nav#navigationOption ul{
+nav.navigationOption ul{
 	margin-top:9px;
 }
 
-nav#navigationOption li{
+nav.navigationOption li{
 	top:10px;
 	display:inline-block;
 	padding:5px 10px 5px 10px;
@@ -818,13 +818,16 @@ nav li.active a{
 	color :#FF4500;
 }
 
-nav#navigationOption{
+nav.navigationOption{
 	width:100%;
 	margin-left:0;
 	height:0%;
 }
+#centree{
+	margin:0 15% !important;
+}
 
-nav#navigationOption li{
+nav.navigationOption li{
 	top:0;
 	float:left;
 	display:inline-block;
@@ -833,13 +836,13 @@ nav#navigationOption li{
 	text-align:center;
 	margin-right:3px;
 }
-nav#navigationOption ul{
+nav.navigationOption ul{
 	-webkit-padding-start: 0px;
 	-webkit-margin-before: 5px;
   	-webkit-margin-after: 0em;
 }
 
-nav#navigationOption a{
+nav.navigationOption a{
 	font-size:14px;
 }
 

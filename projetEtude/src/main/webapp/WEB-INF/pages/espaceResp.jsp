@@ -47,13 +47,13 @@
 				
 		<!--cette section est pour tous les présidents -->
 		
-			<h3 id="titre">Espace Resp'</h3>
+			<h3 class="desktop" id="titre">Espace Resp'</h3>
 		<c:if test="${statut==1}">
 			<jsp:include page="menuEspaceRespComm.jsp">
 				<jsp:param name="pageSelectionnee" value="espaceResp"/>
 			</jsp:include>
 			<div class="clear"></div>
-			<h3 id="titre2">Vous êtes président de :</h3>
+			<h3 class="taille15" id="titre2">Vous êtes président de :</h3>
 			
 				<article class="entier" <c:if test="${commission.idpole==1}"> id="BDA"</c:if><c:if test="${commission.idpole==2}"> id="BDS"</c:if><c:if test="${commission.idpole==3}">  id="CapSo"</c:if><c:if test="${commission.idpole==4}"> id="PES"</c:if><c:if test="${commission.idpole==1}"> id="PET"</c:if>>
 					<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
