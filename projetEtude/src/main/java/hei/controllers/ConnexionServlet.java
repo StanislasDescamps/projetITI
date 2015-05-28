@@ -69,11 +69,12 @@ public class ConnexionServlet extends HttpServlet {
 			
 			//Recuperation de firstConnexion
 			Boolean firstConnexion = (Boolean) session.getAttribute("firstConnexion");
-			Integer idetudiant= (Integer) session.getAttribute("idEtudiant");
+			//Integer idetudiant= (Integer) session.getAttribute("idEtudiant");
+			
 			//Si premiere connexion rediriger vers mes Preferences sinon vers mon calendrier
 			if(firstConnexion) {
-				redirectPref(response);
-				Manager.getInstance().firstConnexionSetFalse(idetudiant);
+				redirectInfo(response);
+				//Manager.getInstance().firstConnexionSetFalse(idetudiant);
 			}
 			else redirectCal(response);
 		}
@@ -112,10 +113,10 @@ public class ConnexionServlet extends HttpServlet {
 	private void redirectCal(HttpServletResponse resp) throws IOException {
 	    resp.sendRedirect(getServletContext().getContextPath()+"/monCalendrier1");
 	}
-	//Renvoi vers la page de preference
-		private void redirectPref(HttpServletResponse resp) throws IOException {
-		    resp.sendRedirect(getServletContext().getContextPath()+"/mesOptions");
-		}	
+	//Renvoi vers la page des infos
+	private void redirectInfo(HttpServletResponse resp) throws IOException {
+		resp.sendRedirect(getServletContext().getContextPath()+"/mesInfos");
+	}	
 	
 	//Fonction permettant l'envoi d'un mail pour rappeler le mot de passe a l'utilisateur
 private boolean envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
@@ -139,7 +140,7 @@ private boolean envoyerMail(String nom, String prenom, String mail, String passw
 		    message.setSubject("Votre mot de passe HEI-Diary");
 	 
 		    
-		    message.setText("Bonjour "+ prenom +" " + nom +",\nNous vous rappelons votre mot de passe : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
+		    message.setText("Bonjour "+ prenom +" " + nom +",\nNous vous rappelons votre mot de passe : "+ password +"\n Lors de votre première connexion, pensez à changer votre mot de passe pour la propre sécurité de vos données personnelles. \n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
 	 
 	
 		    message.setSentDate(new Date());

@@ -4,6 +4,7 @@ import hei.metier.Manager;
 import hei.model.Etudiant;
 
 import java.io.IOException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -49,6 +50,7 @@ public class MesInfosServlet extends HttpServlet{
 		HttpSession session = request.getSession(true);
 		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		Integer statut = (Integer) session.getAttribute("idDroit");
+		Boolean firstConnexion = (Boolean) session.getAttribute("firstConnexion");
 		Etudiant etudiant=Manager.getInstance().getEtudiant(idEtudiant);
 		
 		String modifMail=request.getParameter("modifEmail");
@@ -87,6 +89,10 @@ public class MesInfosServlet extends HttpServlet{
 				request.setAttribute("ModifOk", "Vos modifications ont bien été enregistré.");
 				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesInfos.jsp");
 				view.forward(request, response);
+				if(firstConnexion) {
+					Manager.getInstance().firstConnexionSetFalse(idEtudiant);
+					redirectPref(response);
+				}
 			}else{
 				request.setAttribute("ModifMdpKo", "Les deux champs doivent être identiques.");
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesInfos.jsp");
@@ -94,5 +100,9 @@ public class MesInfosServlet extends HttpServlet{
 			}
 		}
 		
+	}
+	//Renvoi vers la page de preference
+	private void redirectPref(HttpServletResponse resp) throws IOException {
+		resp.sendRedirect(getServletContext().getContextPath()+"/mesOptions");
 	}
 }
