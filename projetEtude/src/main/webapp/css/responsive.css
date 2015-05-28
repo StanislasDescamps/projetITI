@@ -165,7 +165,7 @@ nav#navigationOption li{
 	display:inline-block;
 	padding:5px 10px 5px 10px;
 	background: #C0C0C0;
-	margin-right:10px;
+	margin-right:80px;
 }
 
 nav#navigationPres{
@@ -375,6 +375,15 @@ ul.tabs li.active{
 	margin: 0 auto 10px;
 	width: 100%;
 	background: #FFFFFF;
+}
+
+.listeAssoTab {
+	list-style-type: none; 
+	margin:2px 0 0;
+}
+
+ul.listeAssoTab li{
+	margin-bottom:10px;
 }
 
 .tab_content {
@@ -716,6 +725,8 @@ input#idcommission, input#idevenement{
 	body{
 		padding:0;
 		background-image:none;
+		height:100%;
+		margin-bottom:10px;
 	}
 	
 	#entete{	
@@ -801,6 +812,31 @@ nav a{
 
 nav li.active a{
 	color :#FF4500;
+}
+
+nav#navigationOption{
+	width:100%;
+	margin-left:0;
+	height:0%;
+}
+
+nav#navigationOption li{
+	top:0;
+	float:left;
+	display:inline-block;
+	padding:5px;
+	width:29%;
+	text-align:center;
+	margin-right:3px;
+}
+nav#navigationOption ul{
+	-webkit-padding-start: 0px;
+	-webkit-margin-before: 5px;
+  	-webkit-margin-after: 0em;
+}
+
+nav#navigationOption a{
+	font-size:14px;
 }
 	
 /*Connexion*/
@@ -923,7 +959,7 @@ nav li.active a{
 		width:100%;
 	}
 	
-	.listeAssoTAb{
+	.listeAssoTab{
 	padding-left:20px;
 	}
 	
@@ -932,8 +968,20 @@ nav li.active a{
 	}
 	
 	.tab_content {
-		padding: 0px;
+		padding: 5px 0 0;
 	}
+	
+	.tab_container{
+		float:left;
+		width:98%;
+	}
+	
+	ul.tabs{
+		width:98%;
+		padding: 0px;
+		float:left;
+	}
+	
 
 /*Les Assos*/
 	.asso{
