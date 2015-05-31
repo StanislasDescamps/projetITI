@@ -8,9 +8,11 @@
         <meta charset="utf-8" name="viewport" content="initial-scale=1.0"/>
         <title>HEI-Diary Calendrier HEI</title>
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <script type="text/javascript" src="js/jquery.js" ></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jsmenu.js"></script>
+		<script type="text/javascript" src="js/jsCalendrier.js"></script>
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js"></script>
 		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js"></script>
@@ -52,43 +54,30 @@
 		<c:forEach var="evenement" items="${listeEventEntiere}">
 		<section id="${evenement.debut}">
 			<h2 class="dateEvent"><fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/></h2>
-				<article id="${evenement.nomPole}" class="resume">
-					<img class="imgCal"src="${evenement.image}" alt="${evenement.nomCommission}" title="${evenement.nomCommission}"/>
-						
-						<c:set var="idEvent" value="${evenement.idEvenement}"/>
-						<c:forEach var="item" items="${listeEventPart}">
-						 	<c:choose>
-							  <c:when test="${item eq idEvent}">
-							    <form id="takePart" action="calendrierHei" method="post">
-									<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
-									<input class="btnParticiper" type="submit" name="participer"value="Ne plus Participer" />
-								</form>
-							  </c:when>
-							  <c:otherwise>
-							  	<form id="takePart" action="calendrierHei" method="post">
-									<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
-									<input class="btnParticiper" type="submit" name="participer"value="Participer" />
-								</form>
-							  </c:otherwise>
-							 </c:choose>
-						</c:forEach>
-						
-					  				
-					<article class="description">
-						<h2 class="titreEvent">${evenement.titreEvent}</h2>
-						<p id="nomCom">Par la commission : ${evenement.nomCommission}</p>
-						<div class="clear"></div>
-						<p id="description">${evenement.descriptionEvent} </p>
-						<p id="lieu">Lieu : ${evenement.lieu}</p>
-						<div class="desktop">
-							<p id="horaire"> Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut} </br>
-						Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
-						</div>
-						<div class="mobile">
-							<p id="horaire"> De : ${evenement.hDebut}</br>
-						A : <c:if test="${evenement.debut != evenement.fin}"><fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/></c:if>  ${evenement.hFin}</p>
-						</div>
+				<article class="resume ${evenement.nomPole}">
+					
+					<div class="imgPlusBtn">
+						<img class="imgCalHei"src="${evenement.image}" alt="${evenement.nomCommission}" title="${evenement.nomCommission}"/>
+						<div class="btnParticipation" id="${evenement.idEvenement}"></div>
+					</div>
+					<h2 class="titreEvent">${evenement.titreEvent}</h2>
+					<article class="touteDescription unpacked" id="${evenement.idEvenement}">
+						<article class="description" id="description_${evenement.idEvenement}">
+							<p id="nomCom">Par : ${evenement.nomCommission}</p>
+							<div class="clear"></div>
+							<p id="description">${evenement.descriptionEvent} </p>
+							<p id="lieu">Lieu : ${evenement.lieu}</p>
+						</article>
+						<div class="btnScroll_${evenement.idEvenement} down"></div>
+						<article class="horaire">
+							<div class="desktop"><p id="horaire"> Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut} </br>
+							Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p></div>
+							<div class="mobile"><p id="horaire"> De : ${evenement.hDebut}</br>
+							A : <c:if test="${evenement.debut != evenement.fin}"><fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/></c:if>  ${evenement.hFin}</p>
+							</div>
+						</article>
 					</article>
+					<!-- 
 					<c:if test="${statut==3}">
 						<div class="posModSuppr desktop">
 							<a href="modifierEvent?idevenement=${evenement.idEvenement}">Modifier</a></br>    
@@ -99,7 +88,7 @@
 						<div class="posModSuppr desktop">
 							<a href="modererEvent?idevenement=${evenement.idEvenement}">Modérer</a></br>    
 						</div>
-					</c:if>
+					</c:if> -->
 					<!-- <form id="ajout" action="calendrierHei" method="post">
 						<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
 						<input type="submit" name="synchroniser"value="Synchroniser" />

@@ -51,7 +51,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 		//Recuperation du statut de l'utilisateur
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
-		Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
+		//Integer idEtudiant = (Integer) session.getAttribute("idEtudiant");
 		if(statut==3||statut==2){
 			request.setAttribute("statut", statut);
 		}
@@ -105,14 +105,16 @@ public class CalendrierHeiServlet extends HttpServlet {
 			}
 		}
 		
+		/*
 		//Recuperation de la liste des identifiants des evenements auxquel paticipe l'utilisateur
 		List<Integer> listeEventPart=Manager.getInstance().listerEvenementParticipationByUser(idEtudiant);
-		request.setAttribute("listeEventPart", listeEventPart);
+		request.setAttribute("listeEventPart", listeEventPart);*/
 		
 		//Affichage de la page
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/calendrierHei.jsp");
 		view.forward(request, response);
 	}
+	/*
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -126,6 +128,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 		
 		//Recuperation de l'identifiant de l'evenement choisi par l'etudiant
 		Integer idEvent = Integer.parseInt(request.getParameter("idEvent"));
+		
 		
 		if(valueBouton.equals("Participer")){
 			//Ajout de la participation de l'utilisateur dans la base de donnees
@@ -162,9 +165,9 @@ public class CalendrierHeiServlet extends HttpServlet {
 			envoyerMailEvent(idEvent,titreEvent,  lieu,  dateDebut,  dateFin,  mail);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}*/
+		}
 		response.sendRedirect("calendrierHei");
-	}
+	}*/
 	
 /*	//Fonction permettant l'envoi du mail en format événement
 private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, String dateDebut, String dateFin, String mail) throws Exception {

@@ -87,6 +87,10 @@
 		<servlet-class>hei.controllers.ListeParticipationServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>Participe</servlet-name>
+		<servlet-class>hei.controllers.ParticipeServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>Test</servlet-name>
 		<servlet-class>hei.controllers.FileUploadServlet</servlet-class>
 		<multipart-config>
@@ -180,6 +184,10 @@
 	<servlet-mapping>
 		<servlet-name>ListeParticipation</servlet-name>
 		<url-pattern>/listeParticipation</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Participe</servlet-name>
+		<url-pattern>/participe</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Test</servlet-name>

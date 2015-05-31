@@ -184,15 +184,22 @@ nav#navigationPres li{
 
 
 /*Calendrier*/
+
+.packed{
+    height:100% !important;
+}
+.unpacked{
+	height:0% !important;
+}
+
 .dateEvent{
 	width:17%;
 	margin:0 15% 20px;
 }
 
 .resume{
-	margin:0 13% 5px;
-	min-height:200px;
-	width:69%;
+	margin:0 13% 15px;
+	max-width:68%;
 	padding:20px;
 	border-width: 2px;
 	border-style:outset;
@@ -208,57 +215,51 @@ nav#navigationPres li{
 }
 
 .titreEvent{
-	max-width: 400px;
+	width: 85%;
 	margin:0px 20px;
 	float:left;
 }
 
-.description{
-	width:75%;
+.touteDescription{
+	margin: 0px 10px 10px 20px;
 	float:left;
+	width:85%;
 }
 
-#BDA{
+
+.BDA{
 	background-color:rgba(255,0,0,0.5);
 }
 
-#BDS{
+.BDS{
 	background-color:rgba(0,255,0,0.5);
 }
 
-#CapSo{
+.CapSo{
 	background-color:rgba(0,0,255,0.5);
 }
 
-#PES{
+.PES{
 	background-color:rgba(255,127,0,0.5);
 }
 
-#PET{
+.PET{
 	background-color:rgba(127,0,255,0.5);
 }
 
-#lieu{
-	float:left;
-	margin:0 20px;
-	width:47%;
-}
-
 #nomCom{
-	float:right;	
-	width:40%;
-}
-
-#description{
-	margin:20px;
-	height:60px;
-	width:75%;
+	margin:5px 0;
 }
 
 #horaire{
-	margin: 0 20px;
 	float:left;
 	width:40%;
+	margin: 5px 0 0 0;
+}
+
+#lieu{
+	margin:10px 0 5px 0;
+	width:93%;
 }
 
 input#idEvent{
@@ -269,6 +270,32 @@ input#idEvent{
 	float:left;
 	height: auto;
 	width:10%;
+}
+
+.imgCalHei{
+	float:left;
+	height: auto;
+	width:100%;
+}
+
+.down:before, .up:before{
+	float:right;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #000;
+    font-size: 40px;
+    position: relative;
+}
+
+.down:before{
+	content: "\f107";
+}
+
+.up:before{
+	content:"\f106";
 }
 
 .posModSuppr{
@@ -285,8 +312,33 @@ input#idEvent{
 	height:0;
 }
 
+.btnParticipe:before, .btnNoParticipe:before{
+	    font-family: FontAwesome;
+	    font-style: normal;
+	    font-weight: normal;
+	    text-decoration: inherit;
+	/*--adjust as necessary--*/
+	    font-size: 30px;
+	    position: relative;
+	}
+	
+	.btnParticipe:before{
+		content:"\f055";
+		color: #008000;
+	}
+	
+	.btnNoParticipe:before{
+		content:"\f056";
+		color: #ff0000;
+	}
+
+.imgPlusBtn{
+	width:10%;
+	height:10px;	
+}
+
 .btnParticiper{
-	margin-top:30px;
+	margin-top:5px;
 }
 /*Mes options*/
 
@@ -767,6 +819,7 @@ input#idcommission, input#idevenement{
 		font-family:icon;
 		font-weight:bold;
 		cursor:pointer;
+		margin: 3px 10px;
 	}
 	
 	/*Navigation*/
@@ -789,7 +842,7 @@ nav#navigation ul{
   	-webkit-margin-end: 0px;
   	-webkit-padding-start: 0px;
   	padding:2% 0 85%;
-  	z-index:5;
+  	z-index:2;
 }
 
 nav#navigation{
@@ -893,10 +946,10 @@ nav.navigationOption a{
 	}
 	
 	.resume{
-		margin:0 0 10px;
-		min-height:65px;
-		width:93%;
-		padding:3%;
+		margin: 0 0 10px 0;
+  		max-width: 100%;
+  		padding: 10px 0 0 10px;
+  		font-size:15px;
 	}
 	
 	.resume:hover{
@@ -905,41 +958,42 @@ nav.navigationOption a{
 	}
 	
 	.titreEvent{
-		max-width: 80%;
-		margin:0px 20px;
+		max-width: 68%;
+		margin:0px 10px;
 		float:left;
 		font-size:15px;
 	}
 	
+	.touteDescription{
+		margin:0 10px 10px 0;
+		width:80%;
+	}
+	
 	.description{
-		width:75%;
+		width:88%;
 		float:left;
+		margin-left:5px;
 	}
 	
 	#lieu{
-		display:none;
 		float:left;
-		margin:20px;
+		margin:10px 0 0 5px;
 		width:47%;
 	}
 	
 	#nomCom{
-		float:right;	
-		width:40%;
-		display:none;
+		margin: 5px 0 0 5px;
 	}
 	
 	#description{
-		display:none;
-		margin:20px;
-		height:60px;
-		width:75%;
+		margin:10px 0 0 5px;
+		width:94%;
 	}
 	
 	#horaire{
-		margin-left:10px;
+		margin: 5px 0 0 10px;
 		float:left;
-		width:100%;
+		width:83%;
 	}
 	
 	form#ajout{
@@ -950,9 +1004,40 @@ nav.navigationOption a{
 		display:none;
 	}
 	
+	.btnParticipe:before, .btnNoParticipe:before{
+	    font-family: FontAwesome;
+	    font-style: normal;
+	    font-weight: normal;
+	    text-decoration: inherit;
+	/*--adjust as necessary--*/
+	    font-size: 20px;
+	    position: relative;
+	    margin-left:30%;
+	}
+	
+	.btnParticipe:before{
+		content:"\f055";
+		color: #008000;
+	}
+	
+	.btnNoParticipe:before{
+		content:"\f056";
+		color: #ff0000;
+	}
+	
 	.imgCal{
 		width:16%;
 	}
+	
+	.imgPlusBtn{
+		width:16%;
+	}
+	
+	.down:before, .up:before{
+		font-size:35px;
+	}
+	
+	
 /*Mes options*/
 
 	#presentation{
