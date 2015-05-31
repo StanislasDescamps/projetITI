@@ -34,5 +34,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Utilisateur/Downloads/commons-fileupload-1.3.jar.zip"/>
+	<classpathentry kind="lib" path="C:/Users/Utilisateur/Downloads/gson-2.2.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
