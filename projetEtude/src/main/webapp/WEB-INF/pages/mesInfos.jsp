@@ -46,7 +46,7 @@
 		
 		<!--cette section est pour tous les étudiants -->
 		
-			<h3 id="titre">Mes informations personnelles</h3>
+			<h3 class="desktop" id="titre">Mes informations personnelles</h3>
 			
 		<div style="position:relative;margin-top:10px;left:700px;width:300px;color:green;">
 		<%

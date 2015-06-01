@@ -300,7 +300,6 @@ input#idEvent{
 
 .posModSuppr{
 	float:right;
-	margin-top:18%;
 }
 
 .posModeration{
@@ -334,12 +333,9 @@ input#idEvent{
 
 .imgPlusBtn{
 	width:10%;
-	height:10px;	
+	float:left;	
 }
 
-.btnParticiper{
-	margin-top:5px;
-}
 /*Mes options*/
 
 #presentation{
@@ -841,7 +837,7 @@ nav#navigation ul{
   	-webkit-margin-start: 0px;
   	-webkit-margin-end: 0px;
   	-webkit-padding-start: 0px;
-  	padding:2% 0 85%;
+  	padding:2% 0 45%;
   	z-index:2;
 }
 
@@ -1023,10 +1019,6 @@ nav.navigationOption a{
 	.btnNoParticipe:before{
 		content:"\f056";
 		color: #ff0000;
-	}
-	
-	.imgCal{
-		width:16%;
 	}
 	
 	.imgPlusBtn{

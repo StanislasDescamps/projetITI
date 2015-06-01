@@ -77,7 +77,6 @@
 							</div>
 						</article>
 					</article>
-					<!-- 
 					<c:if test="${statut==3}">
 						<div class="posModSuppr desktop">
 							<a href="modifierEvent?idevenement=${evenement.idEvenement}">Modifier</a></br>    
@@ -88,7 +87,7 @@
 						<div class="posModSuppr desktop">
 							<a href="modererEvent?idevenement=${evenement.idEvenement}">Modérer</a></br>    
 						</div>
-					</c:if> -->
+					</c:if> 
 					<!-- <form id="ajout" action="calendrierHei" method="post">
 						<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
 						<input type="submit" name="synchroniser"value="Synchroniser" />

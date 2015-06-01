@@ -45,7 +45,7 @@
 		<div class="clear"></div>
 		<!--cette section est pour tous les étudiants -->
 		
-		<h3 id="titre">Mes préférences</h3>
+		<h3 class="desktop" id="titre">Mes préférences</h3>
 			
 		<h3 id="presentation">
 			Cette page vous permet de sélectionner vos associations préférées et de les faire apparaître dans votre calendrier personnel! 

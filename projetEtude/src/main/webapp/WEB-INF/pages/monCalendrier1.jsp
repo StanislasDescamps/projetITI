@@ -53,7 +53,12 @@
 		<section id="${evenement.debut}">
 			<h2  class="dateEvent"><fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/></h2>
 				<article class="resume ${evenement.nomPole}">
-					<img class="imgCal" src="${evenement.image}" alt="${evenement.nomCommission}" title="${evenement.nomCommission}"/>
+					
+					<div class="imgPlusBtn">
+						<img class="imgCalHei"src="${evenement.image}" alt="${evenement.nomCommission}" title="${evenement.nomCommission}"/>
+						<div class="btnParticipation" id="${evenement.idEvenement}"></div>
+					</div>
+					
 					<h2 class="titreEvent">${evenement.titreEvent}</h2>
 					<article class="touteDescription unpacked" id="${evenement.idEvenement}">
 						<article class="description" id="description_${evenement.idEvenement}">
