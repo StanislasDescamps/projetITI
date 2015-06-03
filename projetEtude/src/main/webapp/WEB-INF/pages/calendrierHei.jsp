@@ -58,7 +58,7 @@
 					
 					<div class="imgPlusBtn">
 						<img class="imgCalHei"src="${evenement.image}" alt="${evenement.nomCommission}" title="${evenement.nomCommission}"/>
-						<div class="btnParticipation" id="${evenement.idEvenement}"></div>
+						<div class="btnParticipation" id="${evenement.idEvenement}"><span class="non" id="etat_${evenement.idEvenement}"></span></div>
 					</div>
 					<h2 class="titreEvent">${evenement.titreEvent}</h2>
 					<article class="touteDescription unpacked" id="${evenement.idEvenement}">
@@ -67,6 +67,17 @@
 							<div class="clear"></div>
 							<p id="description">${evenement.descriptionEvent} </p>
 							<p id="lieu">Lieu : ${evenement.lieu}</p>
+							<c:if test="${statut==3}">
+						<div class="posModSuppr">
+							<a href="modifierEvent?idevenement=${evenement.idEvenement}" class="btnModif">Modifier</a>    
+							<a href="supprimerEvent?idevenement=${evenement.idEvenement}" class="btnSuppr supprSurCal">Supprimer</a>
+						</div>
+					</c:if>
+					<c:if test="${statut==2}">
+						<div class="posModSuppr">
+							<a href="modererEvent?idevenement=${evenement.idEvenement}" class="btnModere">Modérer</a></br>    
+						</div>
+					</c:if> 
 						</article>
 						<div class="btnScroll_${evenement.idEvenement} down"></div>
 						<article class="horaire">
@@ -77,17 +88,7 @@
 							</div>
 						</article>
 					</article>
-					<c:if test="${statut==3}">
-						<div class="posModSuppr desktop">
-							<a href="modifierEvent?idevenement=${evenement.idEvenement}">Modifier</a></br>    
-							<a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer</a>
-						</div>
-					</c:if>
-					<c:if test="${statut==2}">
-						<div class="posModSuppr desktop">
-							<a href="modererEvent?idevenement=${evenement.idEvenement}">Modérer</a></br>    
-						</div>
-					</c:if> 
+					
 					<!-- <form id="ajout" action="calendrierHei" method="post">
 						<input id="idEvent" name="idEvent" type="text" value="${evenement.idEvenement}"/>
 						<input type="submit" name="synchroniser"value="Synchroniser" />

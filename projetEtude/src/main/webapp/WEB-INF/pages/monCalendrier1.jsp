@@ -56,7 +56,7 @@
 					
 					<div class="imgPlusBtn">
 						<img class="imgCalHei"src="${evenement.image}" alt="${evenement.nomCommission}" title="${evenement.nomCommission}"/>
-						<div class="btnParticipation" id="${evenement.idEvenement}"></div>
+						<div class="btnParticipation" id="${evenement.idEvenement}"><span class="non" id="etat_${evenement.idEvenement}"></span></div>
 					</div>
 					
 					<h2 class="titreEvent">${evenement.titreEvent}</h2>

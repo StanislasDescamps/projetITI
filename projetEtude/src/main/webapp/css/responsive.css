@@ -38,6 +38,7 @@ footer{
 	text-align:center;
 	background-color:grey;
 	color:white;
+	z-index:3;
 }
 
 .clear{
@@ -276,6 +277,7 @@ input#idEvent{
 	float:left;
 	height: auto;
 	width:100%;
+	margin-bottom:2px;
 }
 
 .down:before, .up:before{
@@ -299,7 +301,16 @@ input#idEvent{
 }
 
 .posModSuppr{
-	float:right;
+	margin:10px 0;
+}
+
+.supprSurCal{
+	float:rigth;
+}
+
+.posModSuppr a{
+	text-decoration:none;
+	color:#000;
 }
 
 .posModeration{
@@ -311,25 +322,55 @@ input#idEvent{
 	height:0;
 }
 
-.btnParticipe:before, .btnNoParticipe:before{
-	    font-family: FontAwesome;
-	    font-style: normal;
-	    font-weight: normal;
-	    text-decoration: inherit;
+
+.btnParticipe:before, .btnNoParticipe:before, .btnModif:before, .btnSuppr:before, .btnModere:before{
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
 	/*--adjust as necessary--*/
-	    font-size: 30px;
-	    position: relative;
-	}
+	position: relative;
+}
 	
-	.btnParticipe:before{
-		content:"\f055";
-		color: #008000;
-	}
+.btnModif:before{
+	font-size: 20px;
+	content:"\f040";
+	color: #0000FF;
+	margin-right:2px;
+}
 	
-	.btnNoParticipe:before{
-		content:"\f056";
-		color: #ff0000;
-	}
+.btnSuppr:before{
+	font-size: 20px;
+	content:"\f00d";
+	color: #ff0000;
+	margin-right:2px;
+}
+	
+.btnModere:before{
+	font-size: 20px;
+	content:"\f12a";
+	margin-right:2px;
+	color: #ff0000;
+}
+
+.btnModere{
+	float: right;
+  	margin-right: 10%;
+}
+	
+.btnParticipe:before{
+	font-size: 20px;
+	content:"\f055";
+	color: #008000;
+	margin-right:2px;
+}
+	
+.btnNoParticipe:before{
+	font-size: 20px;
+	content:"\f056";
+	color: #ff0000;
+	margin-right:2px;
+}
 
 .imgPlusBtn{
 	width:10%;
@@ -837,7 +878,7 @@ nav#navigation ul{
   	-webkit-margin-start: 0px;
   	-webkit-margin-end: 0px;
   	-webkit-padding-start: 0px;
-  	padding:2% 0 45%;
+  	padding:2% 0 85%;
   	z-index:2;
 }
 
@@ -972,9 +1013,7 @@ nav.navigationOption a{
 	}
 	
 	#lieu{
-		float:left;
 		margin:10px 0 0 5px;
-		width:47%;
 	}
 	
 	#nomCom{
@@ -983,7 +1022,7 @@ nav.navigationOption a{
 	
 	#description{
 		margin:10px 0 0 5px;
-		width:94%;
+		width:97%;
 	}
 	
 	#horaire{
@@ -1029,6 +1068,9 @@ nav.navigationOption a{
 		font-size:35px;
 	}
 	
+	.non{
+	display:none;
+	}
 	
 /*Mes options*/
 

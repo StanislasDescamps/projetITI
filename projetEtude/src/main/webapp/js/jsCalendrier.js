@@ -29,8 +29,10 @@ var recupereParticipation = function(idEvenement) {
 		
 		if(bool==false){
 			btnParticipation.addClass('btnParticipe');
+			$("#etat_"+idEvenement).text("Participer");
 		}else if(bool==true){
 			btnParticipation.addClass('btnNoParticipe');
+			$("#etat_"+idEvenement).text("Ne plus participer");
 		}else{
 			console.log("Error");
 		}
@@ -53,9 +55,11 @@ $(document).ready(function(){
 		if($(this).hasClass('btnParticipe')){
 			marquerParticipationOui(num);
 			$(this).removeClass('btnParticipe').addClass('btnNoParticipe');
+			$("#etat_"+num).text("Ne plus participer");
 		}else if($(this).hasClass('btnNoParticipe')){
 			marquerParticipationNon(num);
 			$(this).removeClass('btnNoParticipe').addClass('btnParticipe');
+			$("#etat_"+num).text("Participer");
 		}else{
 			console.log("Error");
 		}
