@@ -33,8 +33,10 @@ public class ModerationServlet extends HttpServlet {
 			request.setAttribute("menuOption","menuAdmin.jsp");
 			//Recuperation de la liste de tous les evenements
 			List<Evenement> listeEventModere = Manager.getInstance().listerEvenementModere();
+			Integer nbModeration=listeEventModere.size();
 			
 			//Attribution des listes
+			request.setAttribute("nbModeration", nbModeration);
 			request.setAttribute("listeEventModere", listeEventModere);
 			request.setAttribute("statut", statut);
 			

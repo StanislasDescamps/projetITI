@@ -1,4 +1,4 @@
-<%@page import="hei.model.*, hei.metier.*" contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
@@ -8,9 +8,11 @@
         <meta charset="utf-8" name="viewport" content="initial-scale=1.0"/>
         <title>HEI-Diary Evénements modérés</title>
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <script type="text/javascript" src="js/jquery.js" ></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jsmenu.js"></script>
+		<script type="text/javascript" src="js/jsCalendrier.js"></script>
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js"></script>
 		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js"></script>
@@ -55,31 +57,39 @@
 		</c:if>
 		<div class="clear"></div>
 		
+		<c:if test="${nbModeration==0}">
+			<p class="nomParticipant">Aucune modération.</p>
+		</c:if>
+		
 		<c:forEach var="evenement" items="${listeEventModere}">		
-			<article id="${evenement.nomPole}" class="resume">
-					<img class="imgCal"src="${evenement.image}"/>
-					<article class="description">
-						<h2 class="titreEvent">${evenement.titreEvent}</h2>
-						<p id="nomCom">Par la commission : ${evenement.nomCommission}</p>
-						<div class="clear"></div>
+			<article class="resume ${evenement.nomPole}">
+				<img class="imgCal"src="${evenement.image}"/>
+				<h2 class="titreEvent">${evenement.titreEvent}</h2>
+				<article class="touteDescription unpacked" id="${evenement.idEvenement}">
+					<article class="description" id="description_${evenement.idEvenement}">
+						<p id="nomCom">Par : ${evenement.nomCommission}</p>
 						<p id="description">${evenement.descriptionEvent} </p>
 						<p id="lieu">Lieu : ${evenement.lieu}</p>
-						<div class="desktop">
-							<p id="horaire"> Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut} </br>
-						Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
-						</div>
-						<div class="mobile">
-							<p id="horaire"> De : ${evenement.hDebut}</br>
-						A : <c:if test="${evenement.debut != evenement.fin}"><fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/></c:if>  ${evenement.hFin}</p>
-						</div>
 					</article>
-					<c:if test="${statut==3}">
-						<div class="posModeration desktop">
-							<a href=""> <!--javascript fonction  -->Annuler la modération</a></br>    
-							<a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer l'événement</a>
-						</div>
-					</c:if>
-					<div class="clear"></div>
+					<div class="btnScroll_${evenement.idEvenement} down"></div>
+					<article class="horaire">
+						<div id="horaire"> Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut} </br>
+							Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</div>
+					</article>
+				</article>
+				<div class="clear"></div>
+				<c:if test="${statut==3}">
+					<div class="posModeration desktop">
+						<div class="btnModOk"> <!--javascript fonction  -->Retirer la modération</div>    
+						<a href="supprimerEvent?idevenement=${evenement.idEvenement}" class="btnSuppr">Supprimer l'événement</a>
+					</div>
+					<div class="posModeration mobile">
+						<div class="btnModOk">Autoriser</div> 
+						<a href="supprimerEvent?idevenement=${evenement.idEvenement}" class="btnSuppr">Supprimer</a>
+					</div>
+				</c:if>	
+				
+				
 			</article>
 		</c:forEach>
 		
