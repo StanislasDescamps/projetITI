@@ -39,7 +39,7 @@
 		</aside>
 		<h3 id="titre">Vous consultez :</h3>
 		<c:if test="${commission.idpole==1}">
-		<article class="entier" id="BDA">
+		<article class="entier BDA">
 			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 			<article class="description">
 				<h3 class="titrePresAsso">${commission.nomCommission}</h3>
@@ -55,7 +55,7 @@
 		</article>
 		</c:if>
 		<c:if test="${commission.idpole==2}">
-		<article class="entier" id="BDS">
+		<article class="entier BDS">
 			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 			<article class="description">
 				<h3 class="titrePresAsso">${commission.nomCommission}</h3>
@@ -71,7 +71,7 @@
 		</article>
 		</c:if>
 		<c:if test="${commission.idpole==3}">
-		<article class="entier" id="CapSo">
+		<article class="entier Capso">
 			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 			<article class="description">
 				<h3 class="titrePresAsso">${commission.nomCommission}</h3>
@@ -87,7 +87,7 @@
 		</article>
 		</c:if>
 		<c:if test="${commission.idpole==4}">
-		<article class="entier" id="PES">
+		<article class="entier PES">
 			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 			<article class="description">
 				<h3 class="titrePresAsso">${commission.nomCommission}</h3>
@@ -103,7 +103,7 @@
 		</article>
 		</c:if>
 		<c:if test="${commission.idpole==5}">
-		<article class="entier" id="PET">
+		<article class="entier PET">
 			<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 			<article class="description">
 				<h3 class="titrePresAsso">${commission.nomCommission}</h3>

@@ -56,35 +56,35 @@
 		<section class="listAsso">
 		<c:forEach var="commission" items="${listeComm}">
 			<c:if test="${commission.idpole==1}">
-			<article class="asso" id="BDA">
+			<article class="asso BDA">
 				<img id="presentation2" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3 class="nomAssoContact"><a href="presentationAsso?idcommission=${commission.idcommission}">${commission.nomCommission}</a></h3>
 			</article>
 			</c:if>
 			<div class="clear"></div>
 			<c:if test="${commission.idpole==2}">
-			<article class="asso" id="BDS">
+			<article class="asso BDS">
 				<img id="presentation2" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3 class="nomAssoContact"><a href="presentationAsso?idcommission=${commission.idcommission}">${commission.nomCommission}</a></h3>
 			</article>
 			</c:if>
 			<div class="clear"></div>
 			<c:if test="${commission.idpole==3}">
-			<article class="asso" id="CapSo">
+			<article class="asso CapSo">
 				<img id="presentation2" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3 class="nomAssoContact"><a href="presentationAsso?idcommission=${commission.idcommission}">${commission.nomCommission}</a></h3>
 			</article>
 			</c:if>
 			<div class="clear"></div>
 			<c:if test="${commission.idpole==4}">
-			<article class="asso" id="PES">
+			<article class="asso PES">
 				<img id="presentation2" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3 class="nomAssoContact"><a href="presentationAsso?idcommission=${commission.idcommission}">${commission.nomCommission}</a></h3>
 			</article>
 			</c:if>
 			<div class="clear"></div>
 			<c:if test="${commission.idpole==5}">
-			<article class="asso" id="PET">
+			<article class="asso PET">
 				<img id="presentation2" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 				<h3 class="nomAssoContact"><a href="presentationAsso?idcommission=${commission.idcommission}">${commission.nomCommission}</a></h3>
 			</article>
