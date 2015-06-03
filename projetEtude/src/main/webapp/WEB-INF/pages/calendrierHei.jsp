@@ -54,7 +54,7 @@
 		<c:forEach var="evenement" items="${listeEventEntiere}">
 		<section id="${evenement.debut}">
 			<h2 class="dateEvent"><fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/></h2>
-				<article class="resume ${evenement.nomPole}">
+				<article class="resume ${evenement.nomPole}" id="resume_${evenement.idEvenement}">
 					
 					<div class="imgPlusBtn">
 						<img class="imgCalHei"src="${evenement.image}" alt="${evenement.nomCommission}" title="${evenement.nomCommission}"/>
@@ -74,7 +74,7 @@
 							</c:if>
 							<c:if test="${statut==2}">
 								<div class="posModSuppr">
-									<a href="modererEvent?idevenement=${evenement.idEvenement}" class="btnModere">Modérer</a></br>    
+									<div class="btnModere" id="${evenement.idEvenement}">Modérer</div>    
 								</div>
 							</c:if> 
 						</article>

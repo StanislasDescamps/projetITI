@@ -55,7 +55,7 @@
 			<div class="clear"></div>
 			<h3 class="taille15" id="titre2">Vous êtes président de :</h3>
 			
-				<article class="entier" <c:if test="${commission.idpole==1}"> id="BDA"</c:if><c:if test="${commission.idpole==2}"> id="BDS"</c:if><c:if test="${commission.idpole==3}">  id="CapSo"</c:if><c:if test="${commission.idpole==4}"> id="PES"</c:if><c:if test="${commission.idpole==1}"> id="PET"</c:if>>
+				<article class="entier <c:if test="${commission.idpole==1}"> BDA</c:if><c:if test="${commission.idpole==2}"> BDS</c:if><c:if test="${commission.idpole==3}">CapSo</c:if><c:if test="${commission.idpole==4}">PES</c:if><c:if test="${commission.idpole==1}"> PET</c:if>">
 					<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 					<h3 class="titreAsso">${commission.nomCommission}</h3>
 					<div id="descriptionAssoPres">${commission.description}</div>
@@ -82,11 +82,10 @@
 				<div class="clear"></div>
 				<h3 id="titre2">Vous êtes responsable du pôle : ${pole.nomPole}</h3>
 				
-				<article class="entier" id="${pole.nomPole}">
+				<article class="entier ${pole.nomPole}">
 					<c:forEach var="commission" items="${listeCommission}">
 						<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 						<h3 class="titreAsso">${commission.nomCommission}</h3>
-						<div id="descriptionAssoPres">${commission.description}</div>
 						<a href="modifierAsso?idcommission=${commission.idcommission}">Modifier cette asso</a>
 						<div class="clear"></div>
 					</c:forEach>	

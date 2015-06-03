@@ -11,7 +11,7 @@
 	<body style="font-family: Arial, Helvetica;">
 		<!-- Corps de la page -->
 		<div class="ententeCreation mobile">
-			<div class="retour" onclick="window.history.go(-1); return false;"></div>
+			<a href="connexion" class="retour"></a>
 			<h1 class="titreBienvenue2">Bienvenue sur HEI-Diary</h1>
 		</div>
 		<h1 class="titreBienvenue desktop">Bienvenue sur HEI-Diary</h1>
