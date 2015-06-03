@@ -80,11 +80,11 @@
 				<div class="clear"></div>
 				<c:if test="${statut==3}">
 					<div class="posModeration desktop">
-						<div class="btnModOk"> <!--javascript fonction  -->Retirer la modération</div>    
+						<div class="btnModOk" id="${evenement.idEvenement}">Retirer la modération</div>    
 						<a href="supprimerEvent?idevenement=${evenement.idEvenement}" class="btnSuppr">Supprimer l'événement</a>
 					</div>
 					<div class="posModeration mobile">
-						<div class="btnModOk">Autoriser</div> 
+						<div class="btnModOk" id="${evenement.idEvenement}">Autoriser</div> 
 						<a href="supprimerEvent?idevenement=${evenement.idEvenement}" class="btnSuppr">Supprimer</a>
 					</div>
 				</c:if>	

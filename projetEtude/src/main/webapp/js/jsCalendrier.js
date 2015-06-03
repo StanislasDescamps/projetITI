@@ -48,6 +48,25 @@ var marquerParticipationNon = function(idEvenement) {
 	});
 };
 
+var marquerModerationOui = function(idEvenement) {	
+	
+	$.post("modere", {
+		idEvent : idEvenement, moderation:"setModere"
+	}).done(function() {
+		//$("#resume_"+idEvenement).remove();
+		location.reload(true);
+		console.log("fait");
+	});
+};
+var marquerModerationNon = function(idEvenement) {	
+	
+	$.post("modere", {
+		idEvent : idEvenement, moderation:"unSetModere"
+	}).done(function() {
+		location.reload(true);
+		console.log("fait");
+	});
+};
 $(document).ready(function(){
 
 	jQuery(".btnParticipation").click(function(){
@@ -92,4 +111,24 @@ $(document).ready(function(){
 			btnNum.removeClass("down").addClass("up");
 		}
 	});	
+	
+	jQuery(".btnModOk").click(function(){
+		var num =this.id;
+		var verif= confirm("Etes-vous sûr de vouloir retirer la modération?");
+		if(verif){
+			marquerModerationNon(num);
+		}else{
+			console.log("Error");
+		}
+	});
+	
+	jQuery(".btnModere").click(function(){
+		var num =this.id;
+		var verif= confirm("Etes-vous sûr de vouloir modérer cet événement?");
+		if(verif){
+			marquerModerationOui(num);
+		}else{
+			console.log("Error");
+		}
+	});
 });

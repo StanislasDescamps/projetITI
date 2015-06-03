@@ -44,5 +44,5 @@ public class ModerationServlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/moderation.jsp");
 		view.forward(request, response);
 		}
-	}	
+	}
 }

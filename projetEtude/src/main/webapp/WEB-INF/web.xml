@@ -83,6 +83,10 @@
 		<servlet-class>hei.controllers.ModerationServlet</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>Modere</servlet-name>
+		<servlet-class>hei.controllers.ModereServlet</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>ListeParticipation</servlet-name>
 		<servlet-class>hei.controllers.ListeParticipationServlet</servlet-class>
 	</servlet>
@@ -180,6 +184,10 @@
 	<servlet-mapping>
 		<servlet-name>Moderation</servlet-name>
 		<url-pattern>/moderation</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Modere</servlet-name>
+		<url-pattern>/modere</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>ListeParticipation</servlet-name>
