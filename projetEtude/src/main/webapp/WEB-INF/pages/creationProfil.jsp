@@ -6,11 +6,15 @@
         <meta charset="utf-8" name="viewport" content="initial-scale=1.0"/>
         <title>Création du profil</title>
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     </head>
 	<body style="font-family: Arial, Helvetica;">
 		<!-- Corps de la page -->
-		<h1 class="titreBienvenue">HEI-Diary</h1>
-
+		<div class="ententeCreation mobile">
+			<div class="retour" onclick="window.history.go(-1); return false;"></div>
+			<h1 class="titreBienvenue2">Bienvenue sur HEI-Diary</h1>
+		</div>
+		<h1 class="titreBienvenue desktop">Bienvenue sur HEI-Diary</h1>
 				
 		<form id="creationProfil" action="creationProfil" method="post" class="identification">
 			<fieldset>

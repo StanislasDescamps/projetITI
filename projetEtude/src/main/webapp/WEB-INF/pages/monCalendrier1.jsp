@@ -63,7 +63,6 @@
 					<article class="touteDescription unpacked" id="${evenement.idEvenement}">
 						<article class="description" id="description_${evenement.idEvenement}">
 							<p id="nomCom">Par : ${evenement.nomCommission}</p>
-							<div class="clear"></div>
 							<p id="description">${evenement.descriptionEvent} </p>
 							<p id="lieu">Lieu : ${evenement.lieu}</p>	
 						</article>

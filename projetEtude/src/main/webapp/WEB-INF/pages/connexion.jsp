@@ -11,7 +11,6 @@
 		<!-- Corps de la page -->
 		<h1 class="titreBienvenue">Bienvenue sur HEI-Diary</h1>
 		
-		
 		<form class="identification" action="connexion" method="post">
 			<fieldset>
 				<legend>Identifiez-vous</legend>

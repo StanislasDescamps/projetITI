@@ -58,7 +58,7 @@
 		
 			<form class="gestionDroits" action="configuration" method="post">
 			<section class="line">
-				<h4 class="nomEtudiant">${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h4>
+				<h4 class="nomEtudiant">${etudiant.nomEtudiant} ${etudiant.prenomEtudiant}</h4>
 				<select class="droits" name="droits" >
 						<option value="0" <c:if test="${etudiant.idDroit==0}"> selected="selected" </c:if>>Etudiant</option>
 						<option value="1" id="presidentSelected" <c:if test="${etudiant.idDroit==1}"> selected="selected" </c:if>>Président</option>

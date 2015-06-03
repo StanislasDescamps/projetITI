@@ -57,7 +57,6 @@ footer{
 	float:left;
 	margin: 30px 30% 10px 30%;
 	width:40%;
-	height:150px;
 }
 
 .mdpOublie{
@@ -119,12 +118,12 @@ footer{
 	width:100px;
 }
 
-.retour{
+/*.retour{
 	position: relative;
 	top:-15px;
 	left:190px;
 	width:100px;
-}
+}*.
 /*Navigation*/
 
 nav#navigation li{
@@ -227,6 +226,10 @@ nav#navigationPres li{
 	width:85%;
 }
 
+.description{
+	float:left;
+	width:95%;
+}
 
 .BDA{
 	background-color:rgba(255,0,0,0.5);
@@ -304,17 +307,14 @@ input#idEvent{
 	margin:10px 0;
 }
 
-.supprSurCal{
-	float:rigth;
+.posModeration{
+	margin:0 0 5px 10%;
+	width:80%;
 }
 
-.posModSuppr a{
+.posModSuppr a, .posModeration a{
 	text-decoration:none;
 	color:#000;
-}
-
-.posModeration{
-	float:right;
 }
 
 #takePart{
@@ -323,7 +323,7 @@ input#idEvent{
 }
 
 
-.btnParticipe:before, .btnNoParticipe:before, .btnModif:before, .btnSuppr:before, .btnModere:before{
+.btnParticipe:before, .btnNoParticipe:before, .btnModif:before, .btnSuppr:before, .btnModere:before, .btnModOk:before{
 	font-family: FontAwesome;
 	font-style: normal;
 	font-weight: normal;
@@ -356,6 +356,18 @@ input#idEvent{
 .btnModere{
 	float: right;
   	margin-right: 10%;
+}
+
+.btnModOk:before{
+	content:"\f112";
+	font-size:15px;
+	color:#008000;
+	margin-right:2px;
+}
+.btnModOk{
+	margin-right:10px;
+	width:50%;
+	float:left;
 }
 	
 .btnParticipe:before{
@@ -973,6 +985,39 @@ nav.navigationOption a{
 		 margin: 10px 0 20px 0 ;
 		 max-height:5%;
 		 max-width: 100%;
+	}
+	
+	.retour:before{
+		content:"\f053";
+		font-family: FontAwesome;
+	    font-style: normal;
+	    font-weight: normal;
+	    text-decoration: inherit;
+	    /*--adjust as necessary--*/
+	    font-size: 20px;
+	    position: relative;
+	    margin-left:30%;
+	}
+	
+	.ententeCreation{
+		width: 100%;
+	}
+	
+	.retour{
+		width:10%;
+		float:left;
+		margin-top:10px;
+	}
+	
+	.titreBienvenue2{
+	color: red;
+	width:74%;
+	margin:0 auto;
+	text-align:center;
+	}
+	
+	.titreBienvenue{
+		width:90%;
 	}
 	
 /*Calendrier*/

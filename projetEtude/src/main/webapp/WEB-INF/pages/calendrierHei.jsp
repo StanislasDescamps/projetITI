@@ -64,20 +64,19 @@
 					<article class="touteDescription unpacked" id="${evenement.idEvenement}">
 						<article class="description" id="description_${evenement.idEvenement}">
 							<p id="nomCom">Par : ${evenement.nomCommission}</p>
-							<div class="clear"></div>
 							<p id="description">${evenement.descriptionEvent} </p>
 							<p id="lieu">Lieu : ${evenement.lieu}</p>
 							<c:if test="${statut==3}">
-						<div class="posModSuppr">
-							<a href="modifierEvent?idevenement=${evenement.idEvenement}" class="btnModif">Modifier</a>    
-							<a href="supprimerEvent?idevenement=${evenement.idEvenement}" class="btnSuppr supprSurCal">Supprimer</a>
-						</div>
-					</c:if>
-					<c:if test="${statut==2}">
-						<div class="posModSuppr">
-							<a href="modererEvent?idevenement=${evenement.idEvenement}" class="btnModere">Modérer</a></br>    
-						</div>
-					</c:if> 
+								<div class="posModSuppr">
+									<a href="modifierEvent?idevenement=${evenement.idEvenement}" class="btnModif">Modifier</a>    
+									<a href="supprimerEvent?idevenement=${evenement.idEvenement}" class="btnSuppr">Supprimer</a>
+								</div>
+							</c:if>
+							<c:if test="${statut==2}">
+								<div class="posModSuppr">
+									<a href="modererEvent?idevenement=${evenement.idEvenement}" class="btnModere">Modérer</a></br>    
+								</div>
+							</c:if> 
 						</article>
 						<div class="btnScroll_${evenement.idEvenement} down"></div>
 						<article class="horaire">
