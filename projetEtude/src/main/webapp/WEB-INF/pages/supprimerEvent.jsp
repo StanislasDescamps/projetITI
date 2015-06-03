@@ -43,8 +43,8 @@
 		<h2 id="asuppr">${evenement.titreEvent}</h2>
 			<form class="supprEvent" action="supprimerEvent" method="post">
 				<input type="text" name="idevenement" id="idevenement" value="${evenement.idEvenement}"/>
-				<input type="submit" name="trap1" id="trap" value="OUI" />
-				<input type="submit" name="trap2" id="trap" value="NON" />
+				<input type="submit" name="trap2" id="trap" value="Annuler" />
+				<input type="submit" name="trap1" id="trap" value="Supprimer" />
 			</form>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</body>

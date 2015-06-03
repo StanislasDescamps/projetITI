@@ -68,7 +68,7 @@ public class SupprimerEventServlet extends HttpServlet {
 		
 		//Si oui est selectionner alors supprimer la commission de la base de donnees
 		if(reponse1 !=null){
-			if(reponse1.equalsIgnoreCase("OUI")){
+			if(reponse1.equalsIgnoreCase("Supprimer")){
 			Manager.getInstance().supprimerEvenement(idEvent);
 			if(statut==1 || statut==2){
 				response.sendRedirect("espaceResp");
@@ -79,7 +79,7 @@ public class SupprimerEventServlet extends HttpServlet {
 		}
 		//Si non est selectionner alors retour a la page precedente
 		if(reponse2 != null){
-			if(reponse2.equalsIgnoreCase("NON")){
+			if(reponse2.equalsIgnoreCase("Annuler")){
 				if(statut==1 || statut==2){
 					response.sendRedirect("espaceResp");
 				}else{
