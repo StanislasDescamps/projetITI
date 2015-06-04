@@ -26,10 +26,7 @@ public class ModerationServlet extends HttpServlet {
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		
 		//Verification du statut de l'utilisateur
-		if(statut!=2 && statut!=3 ){
-			response.sendRedirect("redirection");
-		}else{
-			
+		if(statut==2 || statut==3 ){
 			request.setAttribute("menuOption","menuAdmin.jsp");
 			//Recuperation de la liste de tous les evenements
 			List<Evenement> listeEventModere = Manager.getInstance().listerEvenementModere();
@@ -40,9 +37,11 @@ public class ModerationServlet extends HttpServlet {
 			request.setAttribute("listeEventModere", listeEventModere);
 			request.setAttribute("statut", statut);
 			
-		//Affichage de la page configuration.jsp
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/moderation.jsp");
-		view.forward(request, response);
+			//Affichage de la page configuration.jsp
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/moderation.jsp");
+			view.forward(request, response);
+		}else{
+			response.sendRedirect("redirection");
 		}
 	}
 }

@@ -28,28 +28,27 @@ public class AdministrationServlet extends HttpServlet {
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		
 		//Verification du droit d'acces a cette page
-		if(statut !=3){
-			response.sendRedirect("redirection");
+		if(statut==3){
+			//Recuperation de la liste de tous les utilisateurs
+			List<Etudiant> listEtudiant = Manager.getInstance().listerEtudiant();
+			request.setAttribute("listEtudiant", listEtudiant);
+			
+			//Recuperation de toutes les commissions
+			List<Commission> listeComm = Manager.getInstance().listerCommission();
+			request.setAttribute("listeComm", listeComm);
+			
+			//Recuperation de toutes les commissions
+			List<Pole> listePole = Manager.getInstance().listerPole();
+			request.setAttribute("listePole", listePole);
+			
+			//Mise en place du menu administrateur
+			request.setAttribute("menuOption","menuAdmin.jsp");
+			
+			//Affichage de la page configuration.jsp
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/administration.jsp");
+			view.forward(request, response);			
 		}else{
-		
-		//Recuperation de la liste de tous les utilisateurs
-		List<Etudiant> listEtudiant = Manager.getInstance().listerEtudiant();
-		request.setAttribute("listEtudiant", listEtudiant);
-		
-		//Recuperation de toutes les commissions
-		List<Commission> listeComm = Manager.getInstance().listerCommission();
-		request.setAttribute("listeComm", listeComm);
-		
-		//Recuperation de toutes les commissions
-		List<Pole> listePole = Manager.getInstance().listerPole();
-		request.setAttribute("listePole", listePole);
-		
-		//Mise en place du menu administrateur
-		request.setAttribute("menuOption","menuAdmin.jsp");
-		
-		//Affichage de la page configuration.jsp
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/administration.jsp");
-		view.forward(request, response);
+			response.sendRedirect("redirection");
 		}
 	}
 	

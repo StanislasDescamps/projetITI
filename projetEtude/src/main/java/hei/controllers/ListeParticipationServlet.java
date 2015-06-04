@@ -26,25 +26,26 @@ public class ListeParticipationServlet extends HttpServlet {
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		
 		//Verification du droit d'acces a cette page
-		if(statut != 1){
-			response.sendRedirect("redirection");
-		}else{
-		//Recuperation de l'identifiant de la commission selectionnee
-		Integer idEvenement = Integer.parseInt(request.getParameter("idevenement"));
+		if(statut == 1){
+			//Recuperation de l'identifiant de la commission selectionnee
+			Integer idEvenement = Integer.parseInt(request.getParameter("idevenement"));
+				
+			//Recuperation de la liste des participants
+			List<Etudiant> listParticipant = Manager.getInstance().listerParticipant(idEvenement);
 			
-		//Recuperation de la liste des participants
-		List<Etudiant> listParticipant = Manager.getInstance().listerParticipant(idEvenement);
-		
-		//Taille de la liste de participant
-		Integer nbParticipant=listParticipant.size();
-		
-		//attribution des variables pour la jsp
-		request.setAttribute("nbParticipant", nbParticipant);
-		request.setAttribute("listParticipant", listParticipant);
+			//Taille de la liste de participant
+			Integer nbParticipant=listParticipant.size();
+			
+			//attribution des variables pour la jsp
+			request.setAttribute("nbParticipant", nbParticipant);
+			request.setAttribute("listParticipant", listParticipant);
 
-		//Affichage de la page configuration.jsp
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/listeParticipation.jsp");
-		view.forward(request, response);
+			//Affichage de la page configuration.jsp
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/listeParticipation.jsp");
+			view.forward(request, response);
+			
+		}else{
+			response.sendRedirect("redirection");
 		}
 	}
 }

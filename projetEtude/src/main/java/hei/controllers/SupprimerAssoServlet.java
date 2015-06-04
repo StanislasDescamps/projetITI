@@ -24,21 +24,21 @@ public class SupprimerAssoServlet extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		Integer statut = (Integer) session.getAttribute("idDroit");
 		
-		if(statut!=3){
-			response.sendRedirect("redirection");
+		if(statut==3){
+			//Recuperation de l'identifiant de la commission selectionnee
+			Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
+			
+			//Recuperation des informations de la commission
+			Commission commission = Manager.getInstance().getCommission(idCommission);
+			request.setAttribute("commission",commission);
+			
+			
+			//Affichage de la page jsp
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/supprimerAsso.jsp");
+			view.forward(request, response);
+			
 		}else{
-		
-		//Recuperation de l'identifiant de la commission selectionnee
-		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
-		
-		//Recuperation des informations de la commission
-		Commission commission = Manager.getInstance().getCommission(idCommission);
-		request.setAttribute("commission",commission);
-		
-		
-		//Affichage de la page jsp
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/supprimerAsso.jsp");
-		view.forward(request, response);
+			response.sendRedirect("redirection");
 		}
 	}
 	
