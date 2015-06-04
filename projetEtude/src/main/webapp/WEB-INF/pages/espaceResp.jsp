@@ -8,16 +8,18 @@
         <meta charset="utf-8" name="viewport" content="initial-scale=1.0"/>
         <title>HEI-Diary Espace Resp</title>
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
-    </head>
-	<body>
-		<!-- Corps de la page -->
-		<script type="text/javascript" src="js/jquery.js" ></script>
-		<script language="javascript" type="text/javascript" src="js/js.js"></script>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <script type="text/javascript" src="js/jquery.js" ></script>
+		<script type="text/javascript" src="js/js.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jsmenu.js"></script>
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js"></script>
 		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js"></script>
+    </head>
+	<body>
+		<!-- Corps de la page -->
+		
 		<header id="entete">
 			<h1 class="entete">HEI-Diary</h1>
 		</header>
@@ -67,8 +69,10 @@
 							<h4 class="titreEventPres">${evenement.titreEvent}</h4>
 							<p id="horaire">Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut}
 							Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</p>
-							<a href="modifierEvent?idevenement=${evenement.idEvenement}">Modifier</a>    <a href="supprimerEvent?idevenement=${evenement.idEvenement}">Supprimer</a>
-							<a href="listeParticipation?idevenement=${evenement.idEvenement}">Voir participants</a>
+							<div class="posModSuppr">
+								<a href="modifierEvent?idevenement=${evenement.idEvenement}" class="btnModif">Modifier</a>    <a href="supprimerEvent?idevenement=${evenement.idEvenement}" class="btnSuppr">Supprimer</a>
+								<a href="listeParticipation?idevenement=${evenement.idEvenement}" class="btnVoir">Voir participants</a>
+							</div>
 						</c:forEach>
 					</article>
 					<div class="clear"></div>
@@ -86,7 +90,9 @@
 					<c:forEach var="commission" items="${listeCommission}">
 						<img id="logo" src="${commission.logo}" alt="${commission.nomCommission}" title="${commission.nomCommission}"/>
 						<h3 class="titreAsso">${commission.nomCommission}</h3>
-						<a href="modifierAsso?idcommission=${commission.idcommission}">Modifier cette asso</a>
+						<div class="posModSuppr">
+							<a href="modifierAsso?idcommission=${commission.idcommission}" class="btnModif">Modifier cette asso</a>
+						</div>
 						<div class="clear"></div>
 					</c:forEach>	
 				</article>
