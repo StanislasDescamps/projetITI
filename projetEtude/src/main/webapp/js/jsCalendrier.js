@@ -48,6 +48,16 @@ var marquerParticipationNon = function(idEvenement) {
 	});
 };
 
+var supprimerEventOui = function(idEvenement){
+	$.post("supprimerEvent", {
+		idEvent : idEvenement
+	}).done(function() {
+		location.reload(true);
+		console.log("fait");
+	});
+	
+};
+
 var marquerModerationOui = function(idEvenement) {	
 	
 	$.post("modere", {
@@ -117,6 +127,16 @@ $(document).ready(function(){
 		var verif= confirm("Etes-vous sûr de vouloir retirer la modération?");
 		if(verif){
 			marquerModerationNon(num);
+		}else{
+			console.log("Error");
+		}
+	});
+	
+	jQuery(".btnSuppr").click(function(){
+		var num =this.id;
+		var verif= confirm("Etes-vous sûr de vouloir supprimer cet événement?");
+		if(verif){
+			supprimerEventOui(num);
 		}else{
 			console.log("Error");
 		}

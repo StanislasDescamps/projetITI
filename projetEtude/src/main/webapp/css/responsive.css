@@ -305,6 +305,7 @@ input#idEvent{
 
 .posModSuppr{
 	margin:10px 0;
+	float:right;
 }
 
 .posModeration{
@@ -338,12 +339,22 @@ input#idEvent{
 	color: #0000FF;
 	margin-right:2px;
 }
-	
+
+.btnModif{
+	float:left;
+}
+
+.btnSuppr{
+	width:40%;
+	float:left;
+}
+
 .btnSuppr:before{
 	font-size: 20px;
 	content:"\f00d";
 	color: #ff0000;
 	margin-right:2px;
+	margin-left:10px;
 }
 	
 .btnModere:before{

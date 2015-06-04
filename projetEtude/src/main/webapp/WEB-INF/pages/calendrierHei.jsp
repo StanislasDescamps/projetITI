@@ -69,7 +69,7 @@
 							<c:if test="${statut==3}">
 								<div class="posModSuppr">
 									<a href="modifierEvent?idevenement=${evenement.idEvenement}" class="btnModif">Modifier</a>    
-									<a href="supprimerEvent?idevenement=${evenement.idEvenement}" class="btnSuppr">Supprimer</a>
+									<div id="${evenement.idEvenement}" class="btnSuppr">Supprimer</div>
 								</div>
 							</c:if>
 							<c:if test="${statut==2}">

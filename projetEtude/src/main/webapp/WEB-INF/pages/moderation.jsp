@@ -73,19 +73,21 @@
 					</article>
 					<div class="btnScroll_${evenement.idEvenement} down"></div>
 					<article class="horaire">
-						<div id="horaire"> Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/>  ${evenement.hDebut} </br>
-							Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/>  ${evenement.hFin}</div>
+						<div id="horaire"> Début : <fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/></br>
+						  ${evenement.hDebut} </br>
+							Fin : <fmt:formatDate value="${evenement.fin}" pattern="dd MMMM yyyy"/></br>
+						  ${evenement.hFin}</div>
 					</article>
 				</article>
 				<div class="clear"></div>
 				<c:if test="${statut==3}">
 					<div class="posModeration desktop">
 						<div class="btnModOk" id="${evenement.idEvenement}">Retirer la modération</div>    
-						<a href="supprimerEvent?idevenement=${evenement.idEvenement}" class="btnSuppr">Supprimer l'événement</a>
+						<div id="${evenement.idEvenement}" class="btnSuppr">Supprimer l'événement</div>
 					</div>
 					<div class="posModeration mobile">
 						<div class="btnModOk" id="${evenement.idEvenement}">Autoriser</div> 
-						<a href="supprimerEvent?idevenement=${evenement.idEvenement}" class="btnSuppr">Supprimer</a>
+						<div id="${evenement.idEvenement}" class="btnSuppr">Supprimer</div>
 					</div>
 				</c:if>	
 				
