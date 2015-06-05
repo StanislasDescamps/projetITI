@@ -77,10 +77,11 @@ CREATE TABLE `participation` (
   KEY `idCommission_fk` (`idEvenement`)
 ) CHARSET=utf8;
 
+/*
 CREATE TABLE `doubletcalevent` (
   `idCalendrier` int(11) NOT NULL,
   `idEvenement` int(11) NOT NULL,
   PRIMARY KEY (`idCalendrier`,`idEvenement`),
   KEY `idCalendrier_fk` (`idCalendrier`),
   KEY `idEvenement_fk` (`idEvenement`)
-) CHARSET=utf8;
+) CHARSET=utf8;*/
