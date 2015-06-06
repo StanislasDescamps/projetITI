@@ -11,7 +11,6 @@ var recupereParticipation = function(idEvenement) {
 	
 	var bool=false;
 	$.getJSON("participe", function(json) {
-		
 		var longueurListe=json.length;
 		var i=0;
 				
