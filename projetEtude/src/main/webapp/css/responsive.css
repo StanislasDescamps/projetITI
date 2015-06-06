@@ -387,6 +387,10 @@ input#idEvent{
 	color: #008000;
 	margin-right:2px;
 }
+
+.btnParticipe, .btnNoParticipe, .btnModOk, .btnModere, .btnSuppr, .up, .down, .btnValider, .retour{
+	cursor:pointer;
+}
 	
 .btnNoParticipe:before{
 	font-size: 20px;
@@ -715,7 +719,13 @@ img#logo{
 .gestionDroits{
 	 margin-left:15%;
 	 height:70px;
-	 width:50%;
+	 width:80%;
+ }
+ 
+ .assignation{
+ 	float:left;
+ 	margin-left:10px;
+ 	width:120px;
  }
  
 .line{
@@ -725,13 +735,13 @@ img#logo{
 }
 
 .nomEtudiant{
-	width:75%;
+	width:40%;
 	float:left;
 	margin:0;
 }
 
 .mailEtudiant{
-	width:75%;
+	width:40%;
 	float:left;
 	margin:0;
 }
@@ -742,6 +752,40 @@ img#logo{
 
 input#idEtudiant{
 	display:none;
+}
+/***************************** **********/
+.AdminContenu{
+	float:left;
+	margin:0 15% 100px;
+	width:72%;
+}
+
+.droitEtudiant{
+	width:98%;
+	float:left;
+	margin-bottom:15px;
+}
+
+.separation{
+	border-bottom:1px solid #A9A9A9;
+	margin: 10px 22px 10px 2px;
+}
+
+.btnValider:before{
+	content:"\f00c";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	/*--adjust as necessary--*/
+	position: relative;
+	color:green;
+	margin-right:3px;
+}
+
+.btnValider{
+	float:right;
+	margin-right:15%;
 }
 
 /*Ajouter une asso*/
@@ -1254,9 +1298,9 @@ nav.navigationOption a{
 	}
 	
 	.nomEtudiant{
-		width:65%;
+		width:100%;
 		float:left;
-		margin:0;
+		margin:0 0 5px;
 	}
 	
 	.mailEtudiant{
@@ -1265,6 +1309,36 @@ nav.navigationOption a{
 		margin:0;
 	}
 	
+	.AdminContenu{
+	float:left;
+	margin:0 0 50px;
+	width:100%;
+}
+
+
+.droitEtudiant{
+	width:95%;
+	float:left;
+	margin-left:10px;
+}
+
+.btnValider:before{
+	content:"\f00c";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	/*--adjust as necessary--*/
+	position: relative;
+	color:green;
+	margin-right:3px;
+}
+
+.btnValider{
+	float:right;
+	margin-top:10px;
+}
+
 	/*Ajouter une asso*/
 
 	.line2{

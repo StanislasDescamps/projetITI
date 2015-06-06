@@ -52,6 +52,7 @@ public class AdministrationServlet extends HttpServlet {
 		}
 	}
 	
+	/*
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -70,10 +71,8 @@ public class AdministrationServlet extends HttpServlet {
 					
 		if(statut==3){
 			request.setAttribute("menuOption","menuAdmin.jsp");
-		}else if(statut==2 || statut==1){
-			request.setAttribute("menuOption","menuResp.jsp");
 		}else{
-			request.setAttribute("menuOption","menuOption.jsp");
+			response.sendRedirect("redirection");
 		}
 		
 		Integer nouvelleAsso=Integer.parseInt(request.getParameter("assignationCommission"));
@@ -89,5 +88,5 @@ public class AdministrationServlet extends HttpServlet {
 		}
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/administration.jsp");
 		view.forward(request, response);
-	}
+	}*/
 }
