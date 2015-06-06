@@ -11,7 +11,7 @@
 	<body>
 		<!-- Corps de la page -->
 		<script type="text/javascript" src="js/jquery.js" ></script>
-		<script type="text/javascript" src="js/js.js"></script>
+		<script type="text/javascript" src="js/jsTab.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jsmenu.js"></script>
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
