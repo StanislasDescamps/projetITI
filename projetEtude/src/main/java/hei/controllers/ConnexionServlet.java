@@ -10,6 +10,7 @@ import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.NoSuchProviderException;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
@@ -119,54 +120,65 @@ public class ConnexionServlet extends HttpServlet {
 	}	
 	
 	//Fonction permettant l'envoi d'un mail pour rappeler le mot de passe a l'utilisateur
-private boolean envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
+	private boolean envoyerMail(String nom, String prenom, String mail, String password) throws Exception {
 		
-	boolean envoi = false;
-		try {
-			//Configuration de l'hote d'envoi du mail
-		    Properties props = System.getProperties();
-		    props.put("mail.smtps.host", "smtp.gmail.com");
-		    props.put("mail.smtps.auth", "true"); 
-		    props.put("mail.smtp.starttls.enable", "true");
-	        props.put("mail.smtp.port", "587");
-	       
-		    Session		session	    = Session.getInstance(props,null);
-	 
-		  //Redaction du mail
-		    Message		message	    = new MimeMessage(session);
-		    message.setFrom(new InternetAddress("heidiarybystanetnico@gmail.com"));
-		    
-		    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail,false));
-		    message.setSubject("Votre mot de passe HEI-Diary");
-	 
-		    
-		    message.setText("Bonjour "+ prenom +" " + nom +",\nNous vous rappelons votre mot de passe : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
-	 
-	
-		    message.setSentDate(new Date());
-		    
-		  //Configuration de l'envoi du mail
-		    SMTPTransport transport = (SMTPTransport)session.getTransport("smtp");
-		    transport.connect("smtp.gmail.com","heidiarybystanetnico@gmail.com","heidiary2014");
-		    transport.sendMessage(message,message.getAllRecipients());
-		    if(transport.getLastServerResponse() != null){
-		    	envoi=true;
-		    }
-		System.out.println("Reponse " + transport.getLastServerResponse());
-		transport.close();
+		boolean envoi = false;
+		
+		final String usernameHD = "heidiarybystanetnico@gmail.com";
+	    final String passHDSupport = "heidiary2014";
+		
+		//Configuration de l'hote d'envoi du mail
+		Properties props = System.getProperties();
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.socketFactory.port", "465");
+		props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.port", "465");
+		
+		Session session = Session.getDefaultInstance(props,
+	        new javax.mail.Authenticator() {
+	            protected PasswordAuthentication getPasswordAuthentication() {
+	                return new PasswordAuthentication(usernameHD,passHDSupport);
+	            }
+	        });
+			try {
+				
+		 
+			  //Redaction du mail
+			    Message		message	    = new MimeMessage(session);
+			    message.setFrom(new InternetAddress("heidiarybystanetnico@gmail.com"));
+			    
+			    message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(mail,false));
+			    message.setSubject("Votre mot de passe HEI-Diary");
+		 
+			    
+			    message.setText("Bonjour "+ prenom +" " + nom +",\nNous vous rappelons votre mot de passe : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
+		 
+		
+			    message.setSentDate(new Date());
+			    
+			  //Configuration de l'envoi du mail
+			    SMTPTransport transport = (SMTPTransport)session.getTransport("smtp");
+			    transport.connect("smtp.gmail.com","heidiarybystanetnico@gmail.com","heidiary2014");
+			    transport.sendMessage(message,message.getAllRecipients());
+			    if(transport.getLastServerResponse() != null){
+			    	envoi=true;
+			    }
+			System.out.println("Reponse " + transport.getLastServerResponse());
+			transport.close();
+			}
+			catch(NoSuchProviderException e) {
+			    System.err.println("Pas de transport disponible pour ce protocole");
+			    System.err.println(e);
+			}
+			catch(AddressException e) {
+			    System.err.println("Adresse invalide");
+			    System.err.println(e);
+			}
+			catch(MessagingException e) {
+			    System.err.println("Erreur dans le message");
+			    System.err.println(e);
+			}
+			return envoi;
 		}
-		catch(NoSuchProviderException e) {
-		    System.err.println("Pas de transport disponible pour ce protocole");
-		    System.err.println(e);
-		}
-		catch(AddressException e) {
-		    System.err.println("Adresse invalide");
-		    System.err.println(e);
-		}
-		catch(MessagingException e) {
-		    System.err.println("Erreur dans le message");
-		    System.err.println(e);
-		}
-		return envoi;
 	}
-}
