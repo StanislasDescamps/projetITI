@@ -140,7 +140,7 @@ public class CreationProfilServlet extends HttpServlet {
 		    message.setSubject("Votre mot de passe HEI-Diary");
 	 
 		    
-		    message.setText("Bonjour "+ prenom +" " + nom +", \nmerci de vous être inscrit sur HEI-Diary. votre mot de passe sera : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
+		    message.setText("Bonjour "+ prenom +" " + nom +", \nmerci de vous être inscrit sur HEI-Diary. votre mot de passe sera : "+ password +"\n Lors de votre première connexion, pensez à changer votre mot de passe pour la propre sécurité de vos données personnelles. \n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
 	
 		    message.setSentDate(new Date());
 		    

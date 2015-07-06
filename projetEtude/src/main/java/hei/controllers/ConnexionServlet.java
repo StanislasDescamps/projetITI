@@ -102,7 +102,7 @@ public class ConnexionServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}else {request.setAttribute("mailError", "Votre login n'est pas bon. Veuillez rentrer une adresse mail valide et existante.\n"
-				+ " Si l'erreur persiste, créez un nouveau profil");
+				+ " Si l'erreur persiste, prévenez un responsable avent de créer un nouveau profil");
 		RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/pages/connexion.jsp");
     	view.forward(request, response);
 		}}
@@ -140,7 +140,7 @@ private boolean envoyerMail(String nom, String prenom, String mail, String passw
 		    message.setSubject("Votre mot de passe HEI-Diary");
 	 
 		    
-		    message.setText("Bonjour "+ prenom +" " + nom +",\nNous vous rappelons votre mot de passe : "+ password +"\n Lors de votre première connexion, pensez à changer votre mot de passe pour la propre sécurité de vos données personnelles. \n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
+		    message.setText("Bonjour "+ prenom +" " + nom +",\nNous vous rappelons votre mot de passe : "+ password +"\n Nous vous souhaitons une bonne journée. \n Cordialement. \n L'équipe HEI-Diary");
 	 
 	
 		    message.setSentDate(new Date());
