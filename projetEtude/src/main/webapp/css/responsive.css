@@ -45,6 +45,10 @@ footer{
 	clear:both;
 }
 
+a {
+	text-decoration:none;
+	color:#000;
+}
 /*Connexion*/
 .titreBienvenue{
 	text-align:center;
@@ -311,11 +315,6 @@ input#idEvent{
 .posModeration{
 	margin:0 0 5px 10%;
 	width:80%;
-}
-
-.posModSuppr a, .posModeration a{
-	text-decoration:none;
-	color:#000;
 }
 
 #takePart{
@@ -821,6 +820,12 @@ form.ajoutAsso{
 	margin:20px;
 }
 
+.nomComListMod{
+	width:45%;
+	margin-right:0px;
+	float:left;
+}
+
 #nomAsso, #mailResp, section#logo{
 	margin-bottom:10px;
 }
@@ -1263,7 +1268,7 @@ nav.navigationOption a{
 		margin:10px 20px;
 	}
 	
-	/*Ajouter un �v�nement*/
+	/*Ajouter un evenement*/
 	.ajoutEvent{
 		margin-left:15%;
 		width:70%;
@@ -1376,5 +1381,13 @@ nav.navigationOption a{
 	
 	.taille15{
 		font-size:15px;
+		padding-left:20px;
+	}
+	
+	.descriptionAsso{
+		margin: 20px 0px;
+	}
+	.inputDescriptionModif{
+		width:100%;
 	}
 }
