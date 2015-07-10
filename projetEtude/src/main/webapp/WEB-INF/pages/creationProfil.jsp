@@ -26,7 +26,7 @@
 					<input type="text" name="prenom" id="prenom" class="inputConnexion" required/>
 				<br/>
 					<label for="mail">Adresse email :</label>
-					<input type="text" name="mail" id="mail" class="inputConnexion" required/>
+					<input type="email" name="mail" id="mail" class="inputConnexion" required/>
 				<br/>
 					<input type="submit" value="Enregistrer" id="btn"/>
 			</fieldset>

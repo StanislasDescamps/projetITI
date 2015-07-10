@@ -15,7 +15,7 @@
 			<fieldset>
 				<legend>Identifiez-vous</legend>
 				<label for="mail">Mon adresse email :</label>
-				<input class="inputConnexion" type="text" name="mail" id="mail" required/>
+				<input class="inputConnexion" type="email" name="mail" id="mail" required/>
 				<br/>
 				<label for="pass"> Mon mot de passe :</label>
 				<input  class="inputConnexion" type="password" name="pass" id="pass"required />
@@ -38,7 +38,7 @@
 			<fieldset>
 				<legend>Mot de passe oublié</legend>
 				<label for="mailmdp">Mon adresse email :</label>
-				<input type="text" name="mailmdp" id="mailmdp" class="inputConnexion" required/>
+				<input type="email" name="mailmdp" id="mailmdp" class="inputConnexion" required/>
 				<input type="submit" name="passoublie" value="Envoyer mon mot de passe" class="bouton_submit"/>
 			</fieldset>
 		</form>
