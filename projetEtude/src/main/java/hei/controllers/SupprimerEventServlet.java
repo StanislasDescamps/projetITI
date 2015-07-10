@@ -1,12 +1,12 @@
 package hei.controllers;
 
 import hei.metier.Manager;
-import hei.model.Commission;
-import hei.model.Evenement;
+//import hei.model.Commission;
+//import hei.model.Evenement;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
+//import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
