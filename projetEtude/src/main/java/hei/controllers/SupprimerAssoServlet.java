@@ -1,11 +1,11 @@
 package hei.controllers;
 
 import hei.metier.Manager;
-import hei.model.Commission;
+//import hei.model.Commission;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
+//import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 public class SupprimerAssoServlet extends HttpServlet {
 
 	private static final long serialVersionUID = -5033196913794100712L;
-
+/*
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -40,15 +40,23 @@ public class SupprimerAssoServlet extends HttpServlet {
 		}else{
 			response.sendRedirect("redirection");
 		}
-	}
+	}*/
 	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		//Recuperation de l'identifiant de la commission selectionnee
-		Integer idCommission = Integer.parseInt(request.getParameter("idcommission"));
+		//Recuperation du statut de l'utilisateur connecte
+		HttpSession session = request.getSession(true);
+		Integer statut = (Integer) session.getAttribute("idDroit");
 		
+		//Recuperation de l'identifiant de la commission selectionnee
+		Integer idCommission = Integer.parseInt(request.getParameter("idComm"));
+		
+		if(statut==3){
+			Manager.getInstance().supprimerCommission(idCommission);
+		}
+		/*
 		//Recuperation de la selection du bouton
 		String reponse1=request.getParameter("trap1");
 		String reponse2=request.getParameter("trap2");
@@ -62,6 +70,6 @@ public class SupprimerAssoServlet extends HttpServlet {
 		if(reponse2 != null){
 			if(reponse2.equalsIgnoreCase("NON")){
 				response.sendRedirect("listeModifAsso");}}
-		
+	*/	
 	}
 }
