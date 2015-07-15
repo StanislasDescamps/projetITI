@@ -68,11 +68,15 @@ public class AssignationServlet extends HttpServlet{
 			
 			if(idDroit==1){
 				Integer idComm = Integer.parseInt(request.getParameter("assignation"));
+				Integer idOldRef = Manager.getInstance().getCommission(idComm).getIdetudiant();
 				Manager.getInstance().setAdmin(idEtudiant, idDroit);
+				Manager.getInstance().setAdmin(idOldRef, 0);
 				Manager.getInstance().attribuerNouveauRepComm(idComm, idEtudiant);				
 			}else if(idDroit==2){
 				Integer idPole = Integer.parseInt(request.getParameter("assignation"));
+				Integer idOldRef = Manager.getInstance().getPole(idPole).getIdEtudiant();
 				Manager.getInstance().setAdmin(idEtudiant, idDroit);
+				Manager.getInstance().setAdmin(idOldRef, 0);
 				Manager.getInstance().attribuerNouveauRepPole(idPole, idEtudiant);	
 			}else if(idDroit==0 || idDroit==3){
 				Manager.getInstance().setAdmin(idEtudiant, idDroit);
