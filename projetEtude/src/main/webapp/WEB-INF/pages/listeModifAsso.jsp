@@ -68,7 +68,7 @@
 					<ul class="taille15">
 						<c:forEach var="commission" items="${listeComm}">
 							<c:if test="${commission.idpole==1}">
-							<li style="display:flex;"><div class="nomComListMod">${commission.nomCommission}</div> <a href="modifierAsso?idcommission=${commission.idcommission}" class="btnModif">Modifier</a>    <div id="${commission.idcommission}" class="btnSuppr">Supprimer</div></li>
+							<li style="list-style-type:none; "><div class="nomComListMod">${commission.nomCommission}</div> <a href="modifierAsso?idcommission=${commission.idcommission}" class="btnModif">Modifier</a>    <div id="${commission.idcommission}" class="btnSuppr">Supprimer</div></li>
 							</c:if>
 						</c:forEach>
 					</ul>
@@ -77,7 +77,7 @@
 					<ul class="taille15">
 						<c:forEach var="commission" items="${listeComm}">
 							<c:if test="${commission.idpole==2}">
-							<li style="display:flex;"><div class="nomComListMod">${commission.nomCommission}</div> <a href="modifierAsso?idcommission=${commission.idcommission}" class="btnModif">Modifier</a>    <div id="${commission.idcommission}" class="btnSuppr">Supprimer</div></li>
+							<li style="list-style-type:none; "><div class="nomComListMod">${commission.nomCommission}</div> <a href="modifierAsso?idcommission=${commission.idcommission}" class="btnModif">Modifier</a>    <div id="${commission.idcommission}" class="btnSuppr">Supprimer</div></li>
 							</c:if>
 						</c:forEach>
 					</ul>
@@ -86,7 +86,7 @@
 					<ul class="taille15">
 						<c:forEach var="commission" items="${listeComm}">
 							<c:if test="${commission.idpole==3}">
-							<li style="display:flex;"><div class="nomComListMod">${commission.nomCommission}</div> <a href="modifierAsso?idcommission=${commission.idcommission}" class="btnModif">Modifier</a>    <div id="${commission.idcommission}" class="btnSuppr">Supprimer</div></li>
+							<li style="list-style-type:none; "><div class="nomComListMod">${commission.nomCommission}</div> <a href="modifierAsso?idcommission=${commission.idcommission}" class="btnModif">Modifier</a>    <div id="${commission.idcommission}" class="btnSuppr">Supprimer</div></li>
 							</c:if>
 						</c:forEach>
 					</ul>
@@ -95,7 +95,7 @@
 					<ul class="taille15">
 						<c:forEach var="commission" items="${listeComm}">
 							<c:if test="${commission.idpole==4}">
-							<li style="display:flex;"><div class="nomComListMod">${commission.nomCommission}</div> <a href="modifierAsso?idcommission=${commission.idcommission}" class="btnModif">Modifier</a>    <div id="${commission.idcommission}" class="btnSuppr">Supprimer</div></li>
+							<li style="list-style-type:none; "><div class="nomComListMod">${commission.nomCommission}</div> <a href="modifierAsso?idcommission=${commission.idcommission}" class="btnModif">Modifier</a>    <div id="${commission.idcommission}" class="btnSuppr">Supprimer</div></li>
 							</c:if>
 						</c:forEach>
 					</ul>
@@ -104,7 +104,7 @@
 					<ul class="taille15">
 						<c:forEach var="commission" items="${listeComm}">
 							<c:if test="${commission.idpole==5}">
-							<li style="display:flex;"><div class="nomComListMod">${commission.nomCommission}</div> <a href="modifierAsso?idcommission=${commission.idcommission}" class="btnModif">Modifier</a>    <div id="${commission.idcommission}" class="btnSuppr">Supprimer</div></li>
+							<li style="list-style-type:none; "><div class="nomComListMod">${commission.nomCommission}</div> <a href="modifierAsso?idcommission=${commission.idcommission}" class="btnModif">Modifier</a>    <div id="${commission.idcommission}" class="btnSuppr">Supprimer</div></li>
 							</c:if>
 						</c:forEach>
 					</ul>
