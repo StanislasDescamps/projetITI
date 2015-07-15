@@ -49,6 +49,7 @@ a {
 	text-decoration:none;
 	color:#000;
 }
+
 /*Connexion*/
 .titreBienvenue{
 	text-align:center;
@@ -197,7 +198,7 @@ nav#navigationPres li{
 }
 
 .dateEvent{
-	width:17%;
+	width:20%;
 	margin:0 15% 20px;
 }
 
@@ -822,7 +823,7 @@ form.ajoutAsso{
 
 .nomComListMod{
 	width:45%;
-	margin-right:0px;
+	margin-bottom:15px;
 	float:left;
 }
 
@@ -1381,7 +1382,12 @@ nav.navigationOption a{
 	
 	.taille15{
 		font-size:15px;
-		padding-left:20px;
+		padding-left:15px;
+	}
+	
+	.nomComListMod{
+		width:34%;
+		margin-bottom:10px;
 	}
 	
 	.descriptionAsso{
