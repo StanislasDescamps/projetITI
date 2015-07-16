@@ -438,13 +438,13 @@ section.espacePres{
 	position:relative;
 	left:500px;
 }
-
+/*
 div#message{
 	position:relative;
 	top:-300px;
 	left:700px;
 	width:300px;
-}
+}*/
 
 section.listModif{
 	position:relative;
@@ -586,6 +586,42 @@ form.mesInfos{
 	margin:20px;
 }
 
+.conseil{
+	width: 30%;
+  	margin: 5px auto;
+  	text-align: center;
+  	color:orange;
+}
+
+.continue:before{
+	content:"\f054";
+	font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    /*--adjust as necessary--*/
+    font-size: 20px;
+    position: relative;
+    color:green;
+    
+}
+.continue{
+	float:right;
+}
+
+.message{
+	margin:10px auto;
+	width:60%;	
+}
+
+#modifOk{
+	color:green;
+}
+
+#modifKo{
+	color:red;
+}
+
 /*Espace president*/
 
 #titre2{
@@ -633,6 +669,12 @@ form.mesInfos{
 .modifAsso{
 	float:left;
 	margin-bottom:10px;
+}
+
+#modifKoAsso{
+	float:right;
+	width:36;
+	margin:10px 20%;
 }
 
 .labelArticle{
@@ -829,6 +871,10 @@ form.ajoutAsso{
 
 #nomAsso, #mailResp, section#logo{
 	margin-bottom:10px;
+}
+
+.styleList{
+	display:flex;
 }
 
 /*Supprimer Asso- Supprimer Event*/
@@ -1255,6 +1301,18 @@ nav.navigationOption a{
 		width:90%;
 	}
 	
+	.conseil{
+	width: 90%;
+  	margin: 5px auto;
+  	text-align: center;
+  	color:orange;
+}
+	
+	.message{
+	text-align:center;
+	margin:10px auto;
+	width:90%;	
+	}
 /*Espace President*/
 	
 	.entier{
@@ -1396,4 +1454,9 @@ nav.navigationOption a{
 	.inputDescriptionModif{
 		width:100%;
 	}
+	
+	.styleList{
+	display:list-item;
+	list-style-type:none;
+}
 }
