@@ -42,7 +42,7 @@
 				<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 			</aside>
 			<div class="clear"></div>
-			<h3 id="titre">Modifier une association</h3>
+			<h3 class="desktop" id="titre">Modifier une association</h3>
 			
 			<jsp:include page="menuConfig.jsp">
 				<jsp:param name="pageSelectionnee" value="listeModifAsso"/>
@@ -56,7 +56,7 @@
 				<a href="connexion?logout"><img id=deconnexion src="img/btnDeconnexion.jpg" alt="Déconnexion" title="Déconnexion"/></a>
 			</aside>
 			<div class="clear"></div>
-			<h3 id="titre">Modifier mon association</h3>
+			<h3 class="desktop" id="titre">Modifier mon association</h3>
 		</c:if>
 		
 		
@@ -87,7 +87,7 @@
 			</section>
 			<div class="clear"></div>
 			<section class="descriptionAsso">
-				<textarea name="description" rows="10" cols="50" required></textarea>
+				<textarea class="inputDescriptionModif" name="description" rows="10" cols="50" required></textarea>
 			</section>
 			<div class="clear"></div>
 			<section id="bouton">
@@ -96,7 +96,7 @@
 			</section>
 		</form>	
 		
-		<div style="position:relative;top:-300px;left:700px;width:300px;">
+		<div class="message" id="modifKoAsso">
 		<%
 		 if(request.getAttribute("ErrorEtudiant2")!=null) {
 	           out.print((String)request.getAttribute("ErrorEtudiant2"));

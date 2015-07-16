@@ -114,18 +114,18 @@ public class ModifierAssoServlet extends HttpServlet{
 			}
 			else {Etudiantexistant=false;
 			i++;}
+		}
+		//Si existant, enregistrer les modifications sinon message d'erreur
+		if(Etudiantexistant){
+				
+				Manager.getInstance().modifierCommission(idCommission, etudiant.getIdEtudiant(), idpole2, nom, description, logo);
+				response.sendRedirect("presentationAsso?idcommission=" + idCommission);}
+		else{
+			request.setAttribute("ErrorEtudiant2", "Il y a une erreur dans votre requette. Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/modifierAsso.jsp");
+			view.forward(request, response);
 			}
-	//Si existant, enregistrer les modifications sinon message d'erreur
-if(Etudiantexistant){
-		
-		Manager.getInstance().modifierCommission(idCommission, etudiant.getIdEtudiant(), idpole2, nom, description, logo);
-		response.sendRedirect("presentationAsso?idcommission=" + idCommission);}
-else{
-	request.setAttribute("ErrorEtudiant2", "Il y a une erreur dans votre requette. Veuillez vérifier que le mail de l'étudiant référent a bien été rentré et que l'étudiant a bien créé son profil auparavant.");
-	RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/modifierAsso.jsp");
-	view.forward(request, response);
-	}
 
-	}
+		}
 	}
 }
