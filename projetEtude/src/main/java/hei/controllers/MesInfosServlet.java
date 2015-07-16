@@ -71,7 +71,7 @@ public class MesInfosServlet extends HttpServlet{
 			String mail=request.getParameter("newEmail");
 			if(mail.endsWith(suffix)){
 				Manager.getInstance().modifierMail(idEtudiant, mail);
-				request.setAttribute("ModifOk", "Vos modifications ont bien été enregistrées.");
+				request.setAttribute("ModifMailOk", "Vos modifications ont bien été enregistrées.");
 				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesInfos.jsp");
 				view.forward(request, response);
 			}else{
@@ -86,12 +86,11 @@ public class MesInfosServlet extends HttpServlet{
 			String mdp2=request.getParameter("newMdp2");
 			if(mdp1.equals(mdp2)){
 				Manager.getInstance().modifierMdP(idEtudiant, mdp2);
-				request.setAttribute("ModifOk", "Vos modifications ont bien été enregistré.");
+				request.setAttribute("ModifMpOk", "Vos modifications ont bien été enregistrées.");
 				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/mesInfos.jsp");
 				view.forward(request, response);
 				if(firstConnexion) {
 					Manager.getInstance().firstConnexionSetFalse(idEtudiant);
-					redirectPref(response);
 				}
 			}else{
 				request.setAttribute("ModifMdpKo", "Les deux champs doivent être identiques.");
@@ -100,9 +99,5 @@ public class MesInfosServlet extends HttpServlet{
 			}
 		}
 		
-	}
-	//Renvoi vers la page de preference
-	private void redirectPref(HttpServletResponse resp) throws IOException {
-		resp.sendRedirect(getServletContext().getContextPath()+"/mesOptions");
 	}
 }

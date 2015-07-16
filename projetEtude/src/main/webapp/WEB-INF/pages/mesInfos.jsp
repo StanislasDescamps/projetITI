@@ -7,16 +7,16 @@
         <meta charset="utf-8" name="viewport" content="initial-scale=1.0"/>
         <title>HEI-Diary Mes infos</title>
         <link rel="stylesheet" media="screen" href="css/responsive.css" type="text/css"/>
-    </head>
-	<body>
-		<!-- Corps de la page -->
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 		<script type="text/javascript" src="js/jquery.js" ></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jsmenu.js"></script>
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.core.js"></script>
 		<script src="http://jquery-ui.googlecode.com/svn/tags/latest/ui/jquery.effects.slide.js"></script>
-		
+    </head>
+	<body>
+		<!-- Corps de la page -->
 		<header id="entete">
 			<h1 class="entete">HEI-Diary</h1>
 		</header>
@@ -46,13 +46,36 @@
 		<!--cette section est pour tous les étudiants -->
 		
 			<h3 class="desktop" id="titre">Mes informations personnelles</h3>
-			
-		<div style="position:relative;margin-top:10px;left:700px;width:300px;color:green;">
-		<%
-		 if(request.getAttribute("ModifOk")!=null) {
-	           out.print((String)request.getAttribute("ModifOk"));
-	       }
-		%></div>	
+		
+		<c:if test="${etudiant.firstConnexion==true}">
+			<h2 id="bjr">Bonjour ${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h2>
+			<h4 class="conseil">Il est important que tu modifies ton mot de passe lors de cette première connexion.</h4>
+			<section class="mesInfos">
+				<form class="mesInfos" method="post" action="mesInfos"> 
+					<label for="newMdp1">Entrez votre nouveau mot de passe</label>
+					<input type="password" name="newMdp1" id="newMdp1" class="tailleInput" required/></br>
+					<label for="newMdp2">Confirmez votre nouveau mot de passe</label>
+					<input type="password" name="newMdp2" id="newMdp2" class="tailleInput" required/></br>
+					<input type="submit" value="Modifier" name="modifMdp"/>
+				</form>
+				
+				<div class="message" id="modifOk">
+				<%
+				 if(request.getAttribute("ModifMpOk")!=null) {
+			           out.print((String)request.getAttribute("ModifMpOk"));
+			       }
+				%></div>
+				<div class="message" id="modifOk">
+				<%
+				 if(request.getAttribute("ModifMdpKo")!=null) {
+			           out.print((String)request.getAttribute("ModifMdpKo"));
+			       }
+				%></div>
+				<a href="mesOptions" class="continue">Continuez la visite</a>
+			</section>
+		</c:if>
+		<c:if test="${etudiant.firstConnexion==false}">
+		
 		<h2 id="bjr">Bonjour ${etudiant.prenomEtudiant} ${etudiant.nomEtudiant}</h2>
 			<section class="mesInfos">
 				<form class="mesInfos" method="post" action="mesInfos"> 
@@ -61,13 +84,18 @@
 					<input type="text" name="newEmail" id="newEmail" class="tailleInput" required/></br>
 					<input type="submit" value="Modifier" name="modifEmail"/>
 				</form>
-			
-		<div style="position:relative;top:-20px;right:150px;width:400px;color:red;">
-		<%
-		 if(request.getAttribute("ModifMailKo")!=null) {
-	           out.print((String)request.getAttribute("ModifMailKo"));
-	       }
-		%></div>
+			<div class="message" id="modifOk">
+				<%
+				 if(request.getAttribute("ModifMailOk")!=null) {
+			           out.print((String)request.getAttribute("ModifMailOk"));
+			       }
+			%></div>
+			<div class="message" id="modifKo">
+			<%
+			 if(request.getAttribute("ModifMailKo")!=null) {
+		           out.print((String)request.getAttribute("ModifMailKo"));
+		       }
+			%></div>
 			
 				<form class="mesInfos" method="post" action="mesInfos"> 
 					<label for="newMdp1">Entrez votre nouveau mot de passe</label>
@@ -77,14 +105,20 @@
 					<input type="submit" value="Modifier" name="modifMdp"/>
 				</form>
 				
-		<div style="position:relative;top:-20px;right:150px;width:300px;color:red;">
-		<%
-		 if(request.getAttribute("ModifMdpKo")!=null) {
-	           out.print((String)request.getAttribute("ModifMdpKo"));
-	       }
-		%></div>
+			<div class="message" id="modifOk">
+			<%
+			 if(request.getAttribute("ModifMpOk")!=null) {
+		           out.print((String)request.getAttribute("ModifMpOk"));
+		       }
+			%></div>
+			<div class="message" id="modifKo">
+			<%
+			 if(request.getAttribute("ModifMdpKo")!=null) {
+		           out.print((String)request.getAttribute("ModifMdpKo"));
+		       }
+			%></div>
 			</section>
-			
+		</c:if>	
 		<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 </html>
