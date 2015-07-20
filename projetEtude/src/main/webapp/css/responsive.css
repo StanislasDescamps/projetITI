@@ -190,6 +190,12 @@ nav#navigationPres li{
 
 /*Calendrier*/
 
+.conseilCal, .conseilCal2{
+	text-align: center;
+ 	width: 43%;
+ 	margin: 20px auto;
+}
+	
 .packed{
     height:100% !important;
 }
@@ -593,7 +599,7 @@ form.mesInfos{
   	color:orange;
 }
 
-.continue:before{
+.continue:before, .dirigevers:before{
 	content:"\f054";
 	font-family: FontAwesome;
     font-style: normal;
@@ -602,11 +608,11 @@ form.mesInfos{
     /*--adjust as necessary--*/
     font-size: 20px;
     position: relative;
-    color:green;
-    
 }
+
 .continue{
 	float:right;
+	color:green;
 }
 
 .message{
@@ -1133,6 +1139,16 @@ nav.navigationOption a{
 	}
 	
 /*Calendrier*/
+	
+	.conseilCal{
+		width: 87%;
+  		margin: 20% auto 5%;
+	}
+	
+	.conseilCal2{
+		width: 87%;
+  		margin: 10% auto;
+	}
 	
 	.dateEvent{
 		width:90%;

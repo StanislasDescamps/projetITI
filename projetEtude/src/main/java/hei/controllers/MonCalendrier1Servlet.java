@@ -60,6 +60,13 @@ public class MonCalendrier1Servlet extends HttpServlet {
 			listeDate.add(event.getDateDebut());
 			}
 		}
+		
+		if(listeDate.size()==0){
+			request.setAttribute("nbEvent", 0);
+		}else{
+			request.setAttribute("nbEvent", 1);
+		}
+		
 		if(listeDate.size()!=1){
 			//Ordonne les dates - Les dates sont transformees en format int
 			int tableaus[] = new int[listeDate.size()];
@@ -79,17 +86,17 @@ public class MonCalendrier1Servlet extends HttpServlet {
 			
 			//Recuperation des evenements non passes a l'aide des dates recuperees
 			for (int j=0; j<listeDate.size(); j++) {
-			Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnee.get(j));
-			listeEvent.add(Event);
-			request.setAttribute("listeEventPerso", listeEvent);
+				Evenement Event = Manager.getInstance().getEvenementByDate(listeDateOrdonnee.get(j));
+				listeEvent.add(Event);
+				request.setAttribute("listeEventPerso", listeEvent);
 			}
-			}else {
+		}else {
 				//Si la liste de date est egale a 1, la fonction renverra immediatement l'evenement
 			List<Evenement> listeEvent=new ArrayList<Evenement>();
 				for (int j=0; j<listeDate.size(); j++) {
-			Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
-			listeEvent.add(Event);
-			request.setAttribute("listeEventPerso", listeEvent);
+					Evenement Event = Manager.getInstance().getEvenementByDate(listeDate.get(j));
+					listeEvent.add(Event);
+					request.setAttribute("listeEventPerso", listeEvent);
 				}
 		}
 		//Affichage de la page

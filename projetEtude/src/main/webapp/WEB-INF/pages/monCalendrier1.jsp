@@ -49,6 +49,10 @@
 					<label for="formatSemaine">Semaine</label>
 			</form>
 		</section>-->
+		<c:if test="${nbEvent==0}">
+			<p class="conseilCal">Ton calendrier personnel ne contient aucun événement pour le moment. Pour plus de choix d'association: </p><div class="conseilCal2"><a href="mesOptions" class="dirigevers">Mes Options</a></div>
+		</c:if>
+		<c:if test="${nbEvent==1}">
 		<c:forEach var="evenement" items="${listeEventPerso}">
 		<section id="${evenement.debut}">
 			<h2  class="dateEvent"><fmt:formatDate value="${evenement.debut}" pattern="dd MMMM yyyy"/></h2>
@@ -83,6 +87,7 @@
 			<div class="clear"></div>	
 		</section>
 		</c:forEach>
+		</c:if>
 		<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 </html>
