@@ -50,7 +50,7 @@ public class EvenementDaoImpl implements EvenementDao {
 		    try {
 		    	Connection connection = DataSourceProvider.getDataSource().getConnection();
 		    	Statement stmt = connection.createStatement();
-		    	ResultSet results = stmt.executeQuery("SELECT * FROM evenement where moderation = false");
+		    	ResultSet results = stmt.executeQuery("SELECT * FROM evenement where moderation = false ORDER BY dateDebut ASC");
 		    while (results.next()) {
 		    	Evenement evenement = new Evenement(results.getInt("idEvenement"), 
 		                   results.getInt("idCommission"),
@@ -59,8 +59,8 @@ public class EvenementDaoImpl implements EvenementDao {
 		                   results.getString("titreEvent"),
 		                   results.getString("descriptionEvent"),
 		                   results.getString("lieuEvent"),
-		                   results.getString("dateDebut"),
-		                   results.getString("dateFin"),
+		                   results.getDate("dateDebut"),
+		                   results.getDate("dateFin"),
 		                   results.getTime("heureDebut"),
 		                   results.getTime("heureFin"),
 		                   results.getString("image"),
@@ -176,7 +176,7 @@ public class EvenementDaoImpl implements EvenementDao {
 			List<Evenement> listeEvent = new ArrayList<Evenement>();
 		    try {
 		    	Connection connection = DataSourceProvider.getDataSource().getConnection();
-		    	PreparedStatement stmt = (PreparedStatement) connection.prepareStatement("SELECT * FROM evenement INNER JOIN (commission INNER JOIN choix ON commission.idCommission = choix.idCommission) ON evenement.idCommission = commission.idCommission WHERE choix.idEtudiant=? AND evenement.moderation=false");
+		    	PreparedStatement stmt = (PreparedStatement) connection.prepareStatement("SELECT * FROM evenement INNER JOIN (commission INNER JOIN choix ON commission.idCommission = choix.idCommission) ON evenement.idCommission = commission.idCommission WHERE choix.idEtudiant=? AND evenement.moderation=false ORDER BY dateDebut ASC");
 		    	stmt.setInt(1, idEtudiant);
 		    	ResultSet results = stmt.executeQuery();
 		    	while (results.next()) {
