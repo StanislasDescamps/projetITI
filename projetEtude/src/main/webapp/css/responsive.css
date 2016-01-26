@@ -1343,6 +1343,17 @@ nav.navigationOption a{
 		margin:10px 20px;
 	}
 	
+	#titrePart{
+		width:99%;
+		margin:15px auto 40px;
+		text-align:center;
+	}
+	
+	.nomParticipant{
+		width:100%;
+		margin:10px 0 0;
+	}
+	
 	/*Ajouter un evenement*/
 	.ajoutEvent{
 		margin-left:15%;
