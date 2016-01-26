@@ -362,7 +362,7 @@ public class EtudiantDaoImpl implements EtudiantDao {
 	    try {
 	    	Connection connection = DataSourceProvider.getDataSource().getConnection();
 	    	PreparedStatement stmt = (PreparedStatement) connection
-	        		.prepareStatement("SELECT * FROM etudiant INNER JOIN participation ON etudiant.idEtudiant=participation.idEtudiant WHERE participation.idEvenement =? ");
+	        		.prepareStatement("SELECT * FROM etudiant INNER JOIN participation ON etudiant.idEtudiant=participation.idEtudiant WHERE participation.idEvenement =? ORDER BY etudiant.nomEtudiant ASC");
 	        
 	        stmt.setInt(1, idEvenement);
 	        ResultSet results = stmt.executeQuery();
