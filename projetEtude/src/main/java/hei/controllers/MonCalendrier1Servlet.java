@@ -103,6 +103,7 @@ public class MonCalendrier1Servlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/pages/monCalendrier1.jsp");
 		view.forward(request, response);
 	}
+	/*
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -186,6 +187,7 @@ private void envoyerMailEvent(Integer idEvent, String nomEvent, String lieu, Str
 		}
 		
 	}
+	*/
 //Fonction permettant de transformer un format date en entier
 public static int DateToInt (Date date){
 	String annee = formatAnnee.format(date);

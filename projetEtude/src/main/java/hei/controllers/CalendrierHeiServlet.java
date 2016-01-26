@@ -60,7 +60,7 @@ public class CalendrierHeiServlet extends HttpServlet {
 		//Recuperation de la date du systeme
 		Date dateToday=new Date();
 		Integer aujourdhui = DateToInt(dateToday);
-		
+		/*	
 		//Recuperation des dates des evenements non termines la liste listeDate
 		for (int i=0; i<listEvent.size(); i++) {
 			Evenement event= Manager.getInstance().getEvenement(listEvent.get(i).getIdEvenement());
@@ -103,6 +103,17 @@ public class CalendrierHeiServlet extends HttpServlet {
 				request.setAttribute("listeEventEntiere", listeEvent);
 			}
 		}
+		*/
+		List<Evenement> listeEvent=new ArrayList<Evenement>();
+		//Recuperation des dates des evenements non termines la liste listeDate
+		for ( Evenement event: listEvent){
+			if(dateToday.compareTo(event.getFin())==0 || dateToday.compareTo(event.getFin())==-1){
+				listeEvent.add(event);
+			}
+			request.setAttribute("listeEventEntiere", listeEvent);
+		}
+		
+		
 		
 		/*
 		//Recuperation de la liste des identifiants des evenements auxquel paticipe l'utilisateur
