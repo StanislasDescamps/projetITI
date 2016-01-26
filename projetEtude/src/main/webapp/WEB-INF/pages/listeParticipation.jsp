@@ -41,18 +41,21 @@
 		<!--cette section est pour tous les administrateurs -->
 		
 	
-			<c:if test="${nbParticipant<=1}">
+			<c:if test="${nbParticipant==1}">
 				<h3 id="titrePart">Participant de l'événement</h3>
-				<c:if test="${nbParticipant==0}">
+			</c:if>
+			<c:if test="${nbParticipant==0}">
 					<p class="nomParticipant">Aucun participant.</p>
-				</c:if>
 			</c:if>
 			<c:if test="${nbParticipant>1}">
 				<h3 id="titrePart">Participants de l'événement</h3>
 			</c:if>
-			<c:forEach var="etudiant" items="${listParticipant}">
-				<h4 class="nomParticipant">${etudiant.nomEtudiant} ${etudiant.prenomEtudiant}</h4>			
-			</c:forEach>
+			<ul>
+				<c:forEach var="etudiant" items="${listParticipant}">
+					<li><h4 class="nomParticipant">${etudiant.nomEtudiant} ${etudiant.prenomEtudiant}</h4></li>			
+				</c:forEach>
+			</ul>
+			
 		<jsp:include page="footer.jsp"></jsp:include>
 	</body>
 </html>
